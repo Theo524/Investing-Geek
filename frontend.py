@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'app interfacezyWxjq.ui'
+## Form generated from reading UI file 'app interfaceNyFIRu.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -13,7 +13,6 @@ from PySide2.QtGui import *
 from PySide2.QtWidgets import *
 
 import app_icons
-
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -144,7 +143,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setContentsMargins(0, 0, 0, 0)
         self.menu_frame = QFrame(self.left_menu_cont_frame)
         self.menu_frame.setObjectName(u"menu_frame")
-        self.menu_frame.setMinimumSize(QSize(100, 0))
+        self.menu_frame.setMinimumSize(QSize(120, 0))
+        self.menu_frame.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.menu_frame.setFrameShape(QFrame.StyledPanel)
         self.menu_frame.setFrameShadow(QFrame.Raised)
         self.gridLayout = QGridLayout(self.menu_frame)
@@ -285,7 +285,7 @@ class Ui_MainWindow(object):
         self.home_page_scrollArea.setWidgetResizable(True)
         self.home_page_frame = QWidget()
         self.home_page_frame.setObjectName(u"home_page_frame")
-        self.home_page_frame.setGeometry(QRect(0, 0, 863, 725))
+        self.home_page_frame.setGeometry(QRect(0, 0, 768, 513))
         self.verticalLayout_6 = QVBoxLayout(self.home_page_frame)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.home_page_body = QFrame(self.home_page_frame)
@@ -409,21 +409,6 @@ class Ui_MainWindow(object):
         self.stock_analysis_options_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_11 = QVBoxLayout(self.stock_analysis_options_frame)
         self.verticalLayout_11.setObjectName(u"verticalLayout_11")
-        self.stock_anaysis_stock_name_frame = QFrame(self.stock_analysis_options_frame)
-        self.stock_anaysis_stock_name_frame.setObjectName(u"stock_anaysis_stock_name_frame")
-        self.stock_anaysis_stock_name_frame.setFrameShape(QFrame.StyledPanel)
-        self.stock_anaysis_stock_name_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_34 = QVBoxLayout(self.stock_anaysis_stock_name_frame)
-        self.verticalLayout_34.setObjectName(u"verticalLayout_34")
-        self.stock_analysis_stock_name = QLabel(self.stock_anaysis_stock_name_frame)
-        self.stock_analysis_stock_name.setObjectName(u"stock_analysis_stock_name")
-        self.stock_analysis_stock_name.setStyleSheet(u"font: 16pt \"MS Shell Dlg 2\";")
-
-        self.verticalLayout_34.addWidget(self.stock_analysis_stock_name, 0, Qt.AlignHCenter)
-
-
-        self.verticalLayout_11.addWidget(self.stock_anaysis_stock_name_frame)
-
 
         self.verticalLayout_35.addWidget(self.stock_analysis_options_frame)
 
@@ -434,6 +419,49 @@ class Ui_MainWindow(object):
         self.stock_analysis_stock_page.setObjectName(u"stock_analysis_stock_page")
         self.verticalLayout_36 = QVBoxLayout(self.stock_analysis_stock_page)
         self.verticalLayout_36.setObjectName(u"verticalLayout_36")
+        self.stock_quote_frame = QFrame(self.stock_analysis_stock_page)
+        self.stock_quote_frame.setObjectName(u"stock_quote_frame")
+        self.stock_quote_frame.setFrameShape(QFrame.StyledPanel)
+        self.stock_quote_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_12 = QHBoxLayout(self.stock_quote_frame)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.ticker_label = QLabel(self.stock_quote_frame)
+        self.ticker_label.setObjectName(u"ticker_label")
+        self.ticker_label.setStyleSheet(u"font: 20pt \"MS Shell Dlg 2\";\n"
+"font: 24pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_12.addWidget(self.ticker_label)
+
+        self.label_3 = QLabel(self.stock_quote_frame)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setStyleSheet(u"font: 24pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_12.addWidget(self.label_3)
+
+        self.price_traded_label = QLabel(self.stock_quote_frame)
+        self.price_traded_label.setObjectName(u"price_traded_label")
+        self.price_traded_label.setStyleSheet(u"font: 16pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_12.addWidget(self.price_traded_label, 0, Qt.AlignBottom)
+
+        self.change_direction_label = QLabel(self.stock_quote_frame)
+        self.change_direction_label.setObjectName(u"change_direction_label")
+
+        self.horizontalLayout_12.addWidget(self.change_direction_label, 0, Qt.AlignBottom)
+
+        self.change_amount_label = QLabel(self.stock_quote_frame)
+        self.change_amount_label.setObjectName(u"change_amount_label")
+
+        self.horizontalLayout_12.addWidget(self.change_amount_label, 0, Qt.AlignBottom)
+
+        self.change_percentage = QLabel(self.stock_quote_frame)
+        self.change_percentage.setObjectName(u"change_percentage")
+
+        self.horizontalLayout_12.addWidget(self.change_percentage, 0, Qt.AlignBottom)
+
+
+        self.verticalLayout_36.addWidget(self.stock_quote_frame, 0, Qt.AlignLeft)
+
         self.stock_analysis_stock_info_frame = QFrame(self.stock_analysis_stock_page)
         self.stock_analysis_stock_info_frame.setObjectName(u"stock_analysis_stock_info_frame")
         self.stock_analysis_stock_info_frame.setFrameShape(QFrame.StyledPanel)
@@ -448,95 +476,77 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_36.addWidget(self.stock_analysis_stock_info_frame)
 
-        self.stock_quote_frame = QFrame(self.stock_analysis_stock_page)
-        self.stock_quote_frame.setObjectName(u"stock_quote_frame")
-        self.stock_quote_frame.setFrameShape(QFrame.StyledPanel)
-        self.stock_quote_frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_12 = QHBoxLayout(self.stock_quote_frame)
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.ticker_label = QLabel(self.stock_quote_frame)
-        self.ticker_label.setObjectName(u"ticker_label")
-
-        self.horizontalLayout_12.addWidget(self.ticker_label)
-
-        self.volume_label = QLabel(self.stock_quote_frame)
-        self.volume_label.setObjectName(u"volume_label")
-
-        self.horizontalLayout_12.addWidget(self.volume_label)
-
-        self.price_traded_label = QLabel(self.stock_quote_frame)
-        self.price_traded_label.setObjectName(u"price_traded_label")
-
-        self.horizontalLayout_12.addWidget(self.price_traded_label)
-
-        self.change_direction_label = QLabel(self.stock_quote_frame)
-        self.change_direction_label.setObjectName(u"change_direction_label")
-
-        self.horizontalLayout_12.addWidget(self.change_direction_label)
-
-        self.change_amount_label = QLabel(self.stock_quote_frame)
-        self.change_amount_label.setObjectName(u"change_amount_label")
-
-        self.horizontalLayout_12.addWidget(self.change_amount_label)
-
-
-        self.verticalLayout_36.addWidget(self.stock_quote_frame)
-
         self.times_frame = QFrame(self.stock_analysis_stock_page)
         self.times_frame.setObjectName(u"times_frame")
+        self.times_frame.setStyleSheet(u"QPushButton {\n"
+"	border-radius:10px;\n"
+"	background-color:rgb(85, 170, 255);\n"
+"}\n"
+"QPushButton::hover {\n"
+"	border-radius:10px;\n"
+"    background-color:rgb(63, 126, 189);\n"
+"}\n"
+"QPushButton::pressed {\n"
+"	border-radius:10px;	\n"
+"    background-color:rgb(37, 75, 112);\n"
+"}")
         self.times_frame.setFrameShape(QFrame.StyledPanel)
         self.times_frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_13 = QHBoxLayout(self.times_frame)
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_11 = QHBoxLayout(self.times_frame)
+        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
+        self.one_day_button = QPushButton(self.times_frame)
+        self.one_day_button.setObjectName(u"one_day_button")
+        self.one_day_button.setMinimumSize(QSize(60, 30))
+        self.one_day_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_day_button.setStyleSheet(u"")
+        self.one_day_button.setFlat(False)
+
+        self.horizontalLayout_11.addWidget(self.one_day_button)
+
         self.one_week_button = QPushButton(self.times_frame)
         self.one_week_button.setObjectName(u"one_week_button")
         self.one_week_button.setMinimumSize(QSize(60, 30))
-        self.one_week_button.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.one_week_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_week_button.setStyleSheet(u"")
         self.one_week_button.setFlat(False)
 
-        self.horizontalLayout_13.addWidget(self.one_week_button)
+        self.horizontalLayout_11.addWidget(self.one_week_button)
 
         self.one_month_button = QPushButton(self.times_frame)
         self.one_month_button.setObjectName(u"one_month_button")
         self.one_month_button.setMinimumSize(QSize(60, 30))
-        self.one_month_button.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.one_month_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_month_button.setStyleSheet(u"")
         self.one_month_button.setFlat(False)
 
-        self.horizontalLayout_13.addWidget(self.one_month_button)
+        self.horizontalLayout_11.addWidget(self.one_month_button)
 
         self.one_year_button = QPushButton(self.times_frame)
         self.one_year_button.setObjectName(u"one_year_button")
         self.one_year_button.setMinimumSize(QSize(60, 30))
-        self.one_year_button.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.one_year_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_year_button.setStyleSheet(u"")
         self.one_year_button.setFlat(False)
 
-        self.horizontalLayout_13.addWidget(self.one_year_button)
+        self.horizontalLayout_11.addWidget(self.one_year_button)
 
         self.five_year_button = QPushButton(self.times_frame)
         self.five_year_button.setObjectName(u"five_year_button")
         self.five_year_button.setMinimumSize(QSize(60, 30))
-        self.five_year_button.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.five_year_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.five_year_button.setStyleSheet(u"")
         self.five_year_button.setFlat(False)
 
-        self.horizontalLayout_13.addWidget(self.five_year_button)
+        self.horizontalLayout_11.addWidget(self.five_year_button)
 
         self.max_button = QPushButton(self.times_frame)
         self.max_button.setObjectName(u"max_button")
         self.max_button.setMinimumSize(QSize(60, 30))
-        self.max_button.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.max_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.max_button.setStyleSheet(u"")
         self.max_button.setFlat(False)
 
-        self.horizontalLayout_13.addWidget(self.max_button)
+        self.horizontalLayout_11.addWidget(self.max_button)
 
 
         self.verticalLayout_36.addWidget(self.times_frame)
@@ -549,87 +559,156 @@ class Ui_MainWindow(object):
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.stacked_charts = QStackedWidget(self.charts)
         self.stacked_charts.setObjectName(u"stacked_charts")
-        self.week_page = QWidget()
-        self.week_page.setObjectName(u"week_page")
-        self.verticalLayout_13 = QVBoxLayout(self.week_page)
+        self.day_page = QWidget()
+        self.day_page.setObjectName(u"day_page")
+        self.verticalLayout_13 = QVBoxLayout(self.day_page)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.week_page_frame = QFrame(self.week_page)
-        self.week_page_frame.setObjectName(u"week_page_frame")
-        self.week_page_frame.setFrameShape(QFrame.StyledPanel)
-        self.week_page_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_46 = QVBoxLayout(self.week_page_frame)
+        self.day_page_frame = QFrame(self.day_page)
+        self.day_page_frame.setObjectName(u"day_page_frame")
+        self.day_page_frame.setFrameShape(QFrame.StyledPanel)
+        self.day_page_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_46 = QVBoxLayout(self.day_page_frame)
         self.verticalLayout_46.setObjectName(u"verticalLayout_46")
-        self.week_chart_frame = QFrame(self.week_page_frame)
-        self.week_chart_frame.setObjectName(u"week_chart_frame")
-        self.week_chart_frame.setFrameShape(QFrame.StyledPanel)
-        self.week_chart_frame.setFrameShadow(QFrame.Raised)
-        self.label_18 = QLabel(self.week_chart_frame)
+        self.day_chart_frame = QFrame(self.day_page_frame)
+        self.day_chart_frame.setObjectName(u"day_chart_frame")
+        self.day_chart_frame.setFrameShape(QFrame.StyledPanel)
+        self.day_chart_frame.setFrameShadow(QFrame.Raised)
+        self.label_18 = QLabel(self.day_chart_frame)
         self.label_18.setObjectName(u"label_18")
         self.label_18.setGeometry(QRect(190, 40, 101, 31))
 
-        self.verticalLayout_46.addWidget(self.week_chart_frame)
+        self.verticalLayout_46.addWidget(self.day_chart_frame)
 
-        self.week_info_frame = QFrame(self.week_page_frame)
-        self.week_info_frame.setObjectName(u"week_info_frame")
-        self.week_info_frame.setFrameShape(QFrame.StyledPanel)
-        self.week_info_frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_14 = QHBoxLayout(self.week_info_frame)
+        self.day_info_frame = QFrame(self.day_page_frame)
+        self.day_info_frame.setObjectName(u"day_info_frame")
+        self.day_info_frame.setFrameShape(QFrame.StyledPanel)
+        self.day_info_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_14 = QHBoxLayout(self.day_info_frame)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.info_box = QFrame(self.week_info_frame)
+        self.info_box = QFrame(self.day_info_frame)
         self.info_box.setObjectName(u"info_box")
         self.info_box.setFrameShape(QFrame.StyledPanel)
         self.info_box.setFrameShadow(QFrame.Raised)
         self.gridLayout_3 = QGridLayout(self.info_box)
         self.gridLayout_3.setObjectName(u"gridLayout_3")
-        self.week_low = QLabel(self.info_box)
-        self.week_low.setObjectName(u"week_low")
+        self.day_low = QLabel(self.info_box)
+        self.day_low.setObjectName(u"day_low")
 
-        self.gridLayout_3.addWidget(self.week_low, 2, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.day_low, 2, 0, 1, 1)
 
-        self.week_open = QLabel(self.info_box)
-        self.week_open.setObjectName(u"week_open")
+        self.day_open = QLabel(self.info_box)
+        self.day_open.setObjectName(u"day_open")
 
-        self.gridLayout_3.addWidget(self.week_open, 0, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.day_open, 0, 0, 1, 1)
 
-        self.week_high = QLabel(self.info_box)
-        self.week_high.setObjectName(u"week_high")
+        self.day_high = QLabel(self.info_box)
+        self.day_high.setObjectName(u"day_high")
 
-        self.gridLayout_3.addWidget(self.week_high, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.day_high, 1, 0, 1, 1)
 
-        self.week_high_placeholder = QLabel(self.info_box)
-        self.week_high_placeholder.setObjectName(u"week_high_placeholder")
+        self.day_high_placeholder = QLabel(self.info_box)
+        self.day_high_placeholder.setObjectName(u"day_high_placeholder")
 
-        self.gridLayout_3.addWidget(self.week_high_placeholder, 1, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.day_high_placeholder, 1, 1, 1, 1)
 
-        self.week_open_placeholder = QLabel(self.info_box)
-        self.week_open_placeholder.setObjectName(u"week_open_placeholder")
+        self.day_open_placeholder = QLabel(self.info_box)
+        self.day_open_placeholder.setObjectName(u"day_open_placeholder")
 
-        self.gridLayout_3.addWidget(self.week_open_placeholder, 0, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.day_open_placeholder, 0, 1, 1, 1)
 
-        self.week_low_placeholder = QLabel(self.info_box)
-        self.week_low_placeholder.setObjectName(u"week_low_placeholder")
+        self.day_low_placeholder = QLabel(self.info_box)
+        self.day_low_placeholder.setObjectName(u"day_low_placeholder")
 
-        self.gridLayout_3.addWidget(self.week_low_placeholder, 2, 1, 1, 1)
+        self.gridLayout_3.addWidget(self.day_low_placeholder, 2, 1, 1, 1)
 
 
         self.horizontalLayout_14.addWidget(self.info_box)
 
-        self.size_grip_2 = QFrame(self.week_info_frame)
+        self.size_grip_2 = QFrame(self.day_info_frame)
         self.size_grip_2.setObjectName(u"size_grip_2")
         self.size_grip_2.setFrameShape(QFrame.StyledPanel)
         self.size_grip_2.setFrameShadow(QFrame.Raised)
         self.gridLayout_5 = QGridLayout(self.size_grip_2)
         self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.avg_volume = QLabel(self.size_grip_2)
+        self.avg_volume.setObjectName(u"avg_volume")
+
+        self.gridLayout_5.addWidget(self.avg_volume, 1, 0, 1, 1)
+
+        self.market_cap = QLabel(self.size_grip_2)
+        self.market_cap.setObjectName(u"market_cap")
+
+        self.gridLayout_5.addWidget(self.market_cap, 2, 0, 1, 1)
+
+        self.volume_placeholder = QLabel(self.size_grip_2)
+        self.volume_placeholder.setObjectName(u"volume_placeholder")
+
+        self.gridLayout_5.addWidget(self.volume_placeholder, 0, 2, 1, 1)
+
+        self.volume_label = QLabel(self.size_grip_2)
+        self.volume_label.setObjectName(u"volume_label")
+
+        self.gridLayout_5.addWidget(self.volume_label, 0, 0, 1, 1)
+
+        self.avg_volume_placeholder = QLabel(self.size_grip_2)
+        self.avg_volume_placeholder.setObjectName(u"avg_volume_placeholder")
+
+        self.gridLayout_5.addWidget(self.avg_volume_placeholder, 1, 2, 1, 1)
+
+        self.market_cap_placeholder = QLabel(self.size_grip_2)
+        self.market_cap_placeholder.setObjectName(u"market_cap_placeholder")
+
+        self.gridLayout_5.addWidget(self.market_cap_placeholder, 2, 2, 1, 1)
+
 
         self.horizontalLayout_14.addWidget(self.size_grip_2)
 
+        self.frame_2 = QFrame(self.day_info_frame)
+        self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setFrameShape(QFrame.StyledPanel)
+        self.frame_2.setFrameShadow(QFrame.Raised)
+        self.gridLayout_11 = QGridLayout(self.frame_2)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.fifty_two_week_high = QLabel(self.frame_2)
+        self.fifty_two_week_high.setObjectName(u"fifty_two_week_high")
 
-        self.verticalLayout_46.addWidget(self.week_info_frame)
+        self.gridLayout_11.addWidget(self.fifty_two_week_high, 0, 0, 1, 1)
+
+        self.fifty_two_week_high_placeholder = QLabel(self.frame_2)
+        self.fifty_two_week_high_placeholder.setObjectName(u"fifty_two_week_high_placeholder")
+
+        self.gridLayout_11.addWidget(self.fifty_two_week_high_placeholder, 0, 1, 1, 1)
+
+        self.fifty_two_week_low_placeholder = QLabel(self.frame_2)
+        self.fifty_two_week_low_placeholder.setObjectName(u"fifty_two_week_low_placeholder")
+
+        self.gridLayout_11.addWidget(self.fifty_two_week_low_placeholder, 1, 1, 1, 1)
+
+        self.fifty_two_week_low = QLabel(self.frame_2)
+        self.fifty_two_week_low.setObjectName(u"fifty_two_week_low")
+
+        self.gridLayout_11.addWidget(self.fifty_two_week_low, 1, 0, 1, 1)
+
+        self.label_7 = QLabel(self.frame_2)
+        self.label_7.setObjectName(u"label_7")
+
+        self.gridLayout_11.addWidget(self.label_7, 2, 1, 1, 1)
+
+        self.label_4 = QLabel(self.frame_2)
+        self.label_4.setObjectName(u"label_4")
+
+        self.gridLayout_11.addWidget(self.label_4, 2, 0, 1, 1)
 
 
-        self.verticalLayout_13.addWidget(self.week_page_frame)
+        self.horizontalLayout_14.addWidget(self.frame_2)
 
-        self.stacked_charts.addWidget(self.week_page)
+
+        self.verticalLayout_46.addWidget(self.day_info_frame)
+
+
+        self.verticalLayout_13.addWidget(self.day_page_frame)
+
+        self.stacked_charts.addWidget(self.day_page)
 
         self.verticalLayout_12.addWidget(self.stacked_charts)
 
@@ -1008,7 +1087,7 @@ class Ui_MainWindow(object):
         self.forex_page_scrollArea.setWidgetResizable(True)
         self.forex_scrollAreaWidget_frame = QWidget()
         self.forex_scrollAreaWidget_frame.setObjectName(u"forex_scrollAreaWidget_frame")
-        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 845, 707))
+        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 302, 340))
         self.verticalLayout_22 = QVBoxLayout(self.forex_scrollAreaWidget_frame)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.forex_learning_content = QLabel(self.forex_scrollAreaWidget_frame)
@@ -1141,7 +1220,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_scrollArea.setWidgetResizable(True)
         self.stock_simulator_scroll_area_frame = QWidget()
         self.stock_simulator_scroll_area_frame.setObjectName(u"stock_simulator_scroll_area_frame")
-        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 845, 707))
+        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 552, 556))
         self.stock_simulator_scroll_area_frame.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.verticalLayout_28 = QVBoxLayout(self.stock_simulator_scroll_area_frame)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
@@ -1573,8 +1652,8 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stacked_menu_pages.setCurrentIndex(3)
-        self.stock_analysis_stackedWidget.setCurrentIndex(1)
+        self.stacked_menu_pages.setCurrentIndex(1)
+        self.stock_analysis_stackedWidget.setCurrentIndex(0)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(3)
@@ -1607,25 +1686,38 @@ class Ui_MainWindow(object):
         self.stock_analysis_title.setText(QCoreApplication.translate("MainWindow", u"Currency/Stock analysis", None))
         self.search_entry.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search for a ticker", None))
         self.search_button.setText("")
-        self.stock_analysis_stock_name.setText(QCoreApplication.translate("MainWindow", u"[Insert stock name]", None))
-        self.stock_analysis_stock_info_content.setText(QCoreApplication.translate("MainWindow", u"[Info about stock]", None))
         self.ticker_label.setText(QCoreApplication.translate("MainWindow", u"Ticker", None))
-        self.volume_label.setText(QCoreApplication.translate("MainWindow", u"Volume", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"-", None))
         self.price_traded_label.setText(QCoreApplication.translate("MainWindow", u"Price Traded", None))
         self.change_direction_label.setText(QCoreApplication.translate("MainWindow", u"Change direction", None))
         self.change_amount_label.setText(QCoreApplication.translate("MainWindow", u"Change amount", None))
+        self.change_percentage.setText(QCoreApplication.translate("MainWindow", u"(Change percentage)", None))
+        self.stock_analysis_stock_info_content.setText(QCoreApplication.translate("MainWindow", u"[Info about stock]", None))
+        self.one_day_button.setText(QCoreApplication.translate("MainWindow", u"1 day", None))
         self.one_week_button.setText(QCoreApplication.translate("MainWindow", u"1 week", None))
         self.one_month_button.setText(QCoreApplication.translate("MainWindow", u"1 moth", None))
         self.one_year_button.setText(QCoreApplication.translate("MainWindow", u"1 year", None))
         self.five_year_button.setText(QCoreApplication.translate("MainWindow", u"5 year", None))
         self.max_button.setText(QCoreApplication.translate("MainWindow", u"max", None))
         self.label_18.setText(QCoreApplication.translate("MainWindow", u"Chart goes here", None))
-        self.week_low.setText(QCoreApplication.translate("MainWindow", u"Low", None))
-        self.week_open.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.week_high.setText(QCoreApplication.translate("MainWindow", u"High", None))
-        self.week_high_placeholder.setText(QCoreApplication.translate("MainWindow", u"?", None))
-        self.week_open_placeholder.setText(QCoreApplication.translate("MainWindow", u"?", None))
-        self.week_low_placeholder.setText(QCoreApplication.translate("MainWindow", u"?", None))
+        self.day_low.setText(QCoreApplication.translate("MainWindow", u"Low", None))
+        self.day_open.setText(QCoreApplication.translate("MainWindow", u"Open", None))
+        self.day_high.setText(QCoreApplication.translate("MainWindow", u"High", None))
+        self.day_high_placeholder.setText("")
+        self.day_open_placeholder.setText("")
+        self.day_low_placeholder.setText("")
+        self.avg_volume.setText(QCoreApplication.translate("MainWindow", u"Avg Volume", None))
+        self.market_cap.setText(QCoreApplication.translate("MainWindow", u"Mkt Cap", None))
+        self.volume_placeholder.setText("")
+        self.volume_label.setText(QCoreApplication.translate("MainWindow", u"Volume", None))
+        self.avg_volume_placeholder.setText("")
+        self.market_cap_placeholder.setText("")
+        self.fifty_two_week_high.setText(QCoreApplication.translate("MainWindow", u"52wK High", None))
+        self.fifty_two_week_high_placeholder.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.fifty_two_week_low_placeholder.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.fifty_two_week_low.setText(QCoreApplication.translate("MainWindow", u"52wK Low", None))
+        self.label_7.setText("")
+        self.label_4.setText("")
         self.extra_info_about_currency.setText(QCoreApplication.translate("MainWindow", u"[Extra  info about the currency", None))
         self.second_curency_label.setText(QCoreApplication.translate("MainWindow", u"[second currency]", None))
         self.first_currency_label.setText(QCoreApplication.translate("MainWindow", u"[first currency]", None))
