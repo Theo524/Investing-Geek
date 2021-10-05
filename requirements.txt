@@ -1,0 +1,6 @@
+PySide2~=5.15.2
+PyQt5~=5.15.4
+matplotlib~=3.4.3
+yfinance~=0.1.63
+python-dateutil~=2.8.2
+requests~=2.26.0
