@@ -1,24 +1,26 @@
 import sys
-#from PySide2 import *
-from datetime import date, timedelta
+import re
+from datetime import date
 from PySide2 import QtCore
 from frontend import *
 import yfinance as yf
 from PySide2.QtGui import QPainter
 from PySide2.QtCharts import QtCharts
-from Custom_Widgets import *
-
-# 43:58
-import random
-import matplotlib.pyplot as plt
-from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
-from matplotlib.backends.backend_qt5agg import NavigationToolbar2QT as NavigationToolbar
-import matplotlib
+from PyQt5.QtWidgets import QMessageBox
+import requests
+from bs4 import BeautifulSoup
+import string
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
+
+        # all ticker names
+        all_tickers = AllTickers()
+
+        self.all_stock_ticker_names = all_tickers.stock_dict
+        self.all_crypto_ticker_names = all_tickers.crypto_dict
 
         # gui elements
         self.ui = Ui_MainWindow()
@@ -32,21 +34,13 @@ class MainWindow(QMainWindow):
         # ticker in use
         self.ticker = None
 
-        # Set left menu buttons
-        self.ui.home_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page))
-        self.ui.stock_analysis_icon.clicked.connect(
-            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.stock_analysis))
-        self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
-        self.ui.learn_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.learn))
-        self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page)
-        self.ui.trade_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.trade))
-        self.ui.settings_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.settings))
-        self.ui.about_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
+        # set starting pages
+        self.set_starting_widgets()
 
         # Hide/show menu labels animation
         self.ui.menu_icon_button.clicked.connect(self.show_left_menu)
 
-        # Ticker analysis page search
+        # Ticker analysis page search button
         self.ui.search_button.clicked.connect(self.search_ticker_in_analysis)
 
     def show_left_menu(self):
@@ -60,12 +54,12 @@ class MainWindow(QMainWindow):
             new_width = 50
 
         # Animate
-        animation = QPropertyAnimation(self.ui.left_menu_cont_frame, b"minimumWidth")
-        animation.setDuration(250)
-        animation.setStartValue(width)
-        animation.setEndValue(new_width)
-        animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-        animation.start()
+        self.animation = QPropertyAnimation(self.ui.left_menu_cont_frame, b"minimumWidth")
+        self.animation.setDuration(250)
+        self.animation.setStartValue(width)
+        self.animation.setEndValue(new_width)
+        self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.animation.start()
 
     def search_ticker_in_analysis(self):
         """Searching for a ticker"""
@@ -75,51 +69,45 @@ class MainWindow(QMainWindow):
         # make higher level reference for full access
         self.ticker = ticker
         ticker_obj = yf.Ticker(self.ticker)
+
         # console
         print(f'User searched for: {ticker}')
 
         # function verifies if it a stock or crypto
-        ticker_type = self.stock_or_currency(ticker)
+        ticker_type = self.stock_or_crypto()
 
         if ticker_type == 'stock':
+            self.is_stock = True
             # Check date of the week
             weekday = date.today()
 
             # If date is weekend market is closed, else open
-            print(weekday)
             if weekday == 6 or weekday == 7:
                 market_state = 'Closed'
             else:
                 market_state = 'Open'
 
             if market_state == 'Open':
+
                 # stock info
                 stock_info = weekday.strftime(f'%d %B {weekday.year} - Market {market_state}')
-                # print all info (temporal)
+                # print all info for ticker(temporal)
                 # for key, value in ticker_obj.info.items():
-                    # print(key, ":", value)
+                #    print(key, ":", value)
 
                 # day info for stock
-                site = ticker_obj.info['website']
-                name = ticker_obj.info['longName'].split(',')[0]
+                #name = ticker_obj.info['longName'].split(',')[0]
                 price = ticker_obj.info['currentPrice']
                 prev_close = ticker_obj.info['previousClose']
                 change_amount = price - prev_close
                 change_percentage = change_amount/prev_close * 100
                 symbol = '▲' if change_amount > 0 else '▼'
 
-                # connect hyperlink to title(stock name) if there is one available
-                if site:
-                    self.ui.ticker_label.setOpenExternalLinks(True)
-                    self.ui.ticker_label.setText(f"""
-                    <html><head/><body><p><a href={site}>
-                    <span data-hover={site} style=" font-weight:0; 
-                    text-decoration: none; color:#ffffff;">{name.upper()}</span></a></p>
-                    </body></html>
-                    """)
-                    self.ui.ticker_label.setTextFormat(Qt.RichText)
+                # connect command to title(stock name)
+                self.ui.ticker_label_title_analysis.clicked.connect(lambda: self.show_ticker_extraInfoWindow('stock'))
 
                 # set stock header info display
+                self.ui.ticker_label_title_analysis.setText(self.all_stock_ticker_names[self.ticker.upper()])
                 self.ui.stock_analysis_stock_info_content.setText(stock_info)
                 self.ui.price_traded_label.setText(str(price))
                 self.ui.change_direction_label.setText(symbol)
@@ -137,21 +125,28 @@ class MainWindow(QMainWindow):
                 self.ui.five_year_button.clicked.connect(lambda: self.show_info_data('5y'))
                 self.ui.max_button.clicked.connect(lambda: self.show_info_data('max'))
 
-        if ticker_type == 'currency':
+        if ticker_type == 'crypto':
             pass
+
+        if not ticker_type:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText('The ticker you entered is either incorrect or there is no data on it')
+            msg.setWindowTitle("Error")
+            msg.exec_()
 
     def show_info_data(self, time_period):
         """Shows the line chart and info for a specific timeframe in the gui"""
 
         # Before anything delete the current chart displayed
         layout = self.ui.stock_analysis_chart_cont
-        # check if there is a chart in place
+        # of course, check if there is a chart in place
         if layout.count() == 1:
             # if there is, delete it
             layout.removeWidget(self.current_stock_chart)
 
         if time_period == '1d':
-            # reset stock info entries
+            # reset stock info entries, to allocate day data
             self.reset_entries_for_stock_info_display('day')
 
             # get dataframe for 1d worth of stocks
@@ -161,7 +156,7 @@ class MainWindow(QMainWindow):
             stock_line_series = QtCharts.QLineSeries()
 
             for index, row in df.iterrows():
-                # stock data values (date, close)
+                # add stock data values for chart (date, close)
                 stock_line_series.append(float(index.value), float(row['Close']))
 
             # chart creation
@@ -201,7 +196,7 @@ class MainWindow(QMainWindow):
             self.ui.fifty_two_week_low_placeholder.setText(str(fifty_two_week_low))
 
         else:
-            # place new stock data entries
+            # place new stock data entries for non day entries
             self.reset_entries_for_stock_info_display('not_day')
 
             # dataframe for stock
@@ -245,8 +240,6 @@ class MainWindow(QMainWindow):
 
         # ticker obj
         ticker = yf.Ticker(ticker)
-        # date
-        today = date.today()
 
         if time_period == '1d':
             # 1 day data for the stock at 5 minute intervals
@@ -255,31 +248,27 @@ class MainWindow(QMainWindow):
 
         if time_period == '1w':
             # 1 week data for the stock at 15 minute intervals
-            week_start = today - timedelta(days=7)
             data = ticker.history(period='1w', interval='15m')
             return data
 
         if time_period == '1m':
-            # 1 month data for the stock
-            month_start = today - timedelta(days=31)
-            data = ticker.history(start=month_start, end=today)
+            # 1 month data for the stock at a daily interval
+            data = ticker.history(period='1mo', interval='1d')
             return data
 
         if time_period == '1y':
-            # 1 year data for the stock
-            year_start = today - timedelta(days=365)
-            data = ticker.history(start=year_start, end=today)
+            # 1 month data for the stock at a daily interval
+            data = ticker.history(period='1y', interval='1d')
             return data
 
         if time_period == '5y':
-            # 5 year data for the stock
-            five_year_start = today - timedelta(days=1825)
-            data = ticker.history(start=five_year_start, end=today)
+            # 5 year data for the stock at a weekly interval
+            data = ticker.history(period='5y', interval='1w')
             return data
 
         if time_period == 'max':
-            # entire lifetime data for the stock
-            data = ticker.history(period='max')
+            # entire lifetime data for the stock at a monthly interval
+            data = ticker.history(period='max', interval='1mo')
             return data
 
     def reset_entries_for_stock_info_display(self, new='not_day'):
@@ -311,17 +300,145 @@ class MainWindow(QMainWindow):
             self.ui.fifty_two_week_low.setText('52wK Low')
             self.ui.market_cap.setText('Mkt Cap')
 
-    @staticmethod
-    def stock_or_currency(ticker):
-        """Determine whether the given ticker is a stock or currency"""
+    def stock_or_crypto(self):
+        """Determine whether the given ticker is a stock or cryptocurrency"""
 
-        ticker = yf.Ticker(ticker)
-        try:
-            if ticker.info['description']:
-                return 'currency'
-
-        except KeyError:
+        if self.ticker.upper() in list(self.all_stock_ticker_names.keys()):
             return 'stock'
+        if self.ticker.upper() in list(self.all_crypto_ticker_names.keys()):
+            return 'crypto'
+        else:
+            return False
+
+    def show_ticker_extraInfoWindow(self, ticker_type):
+        """Window with more info regarding ticker"""
+        ticker_window = TickerInfo(self.ticker, ticker_type)
+
+    def set_starting_widgets(self):
+        """Sets all starting pages/widgets"""
+
+        # Set left menu buttons
+        self.ui.home_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page))
+        self.ui.stock_analysis_icon.clicked.connect(
+            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.stock_analysis))
+        self.ui.learn_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.learn))
+        self.ui.trade_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.trade))
+        self.ui.settings_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.settings))
+        self.ui.about_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
+
+        # app starting page
+        self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page)
+
+        # ticker search starting page (stock)
+        self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
+
+        # learning page
+        self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page)
+
+        # learning page buttons
+        self.ui.stocks_button_learn.clicked.connect(lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.stocks_page))
+        self.ui.crypto_button_learn.clicked.connect(lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.cryptocurrency_page))
+        self.ui.forex_button_learn.clicked.connect(lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.forex_page))
+
+
+class TickerInfo(QMainWindow):
+    def __init__(self, ticker):
+        QMainWindow.__init__(self, ticker_type='stock')
+
+        # gui elements
+        self.ui = Ticker_Window()
+        self.ui.setupUi(self)
+        self.setFixedSize(710, 550)
+
+        # buttons
+        self.ui.stackedWidget.setCurrentWidget(self.ui.start_page)
+        self.ui.stats_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.statistics_page))
+        self.ui.profile_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.profile_page))
+
+        ticker_obj = yf.Ticker(ticker)
+        summary = ticker_obj.info['longBusinessSummary']
+        summary = re.sub("(.{64})", "\\1\n", summary, 0, re.DOTALL)
+        self.ui.ticker_name.setText(ticker_obj.info['longName'])
+        self.ui.sector.setText(f"{ticker_obj.info['sector']}")
+        self.ui.employees.setText(f"{ticker_obj.info['fullTimeEmployees']}")
+        self.ui.industry.setText(f"{ticker_obj.info['industry']}")
+        self.ui.zip.setText(f"{ticker_obj.info['zip']}")
+        self.ui.city.setText(f"{ticker_obj.info['city']}")
+        self.ui.state.setText(f"{ticker_obj.info['state']}")
+        try:
+            self.ui.address.setText(f"{ticker_obj.info['address']}")
+        except KeyError:
+            self.ui.address.setText(f"{ticker_obj.info['address1']}")
+
+        self.ui.phone.setText(f"{ticker_obj.info['phone']}")
+        self.ui.country.setText(f"{ticker_obj.info['country']}")
+        self.ui.website.setText(f"{ticker_obj.info['website']}")
+        self.ui.summary.setText(f"{summary}")
+
+        # show window
+        self.show()
+
+
+class AllTickers:
+    """Gets a limited amount of tickers for a ticker type"""
+
+    def __init__(self):
+
+        self.stock_dict = {}
+        self.crypto_dict = {}
+
+        # get all stocks
+        for char in string.ascii_uppercase:
+            self.scrape_symbols(letter=char, val_type='stock')
+
+        # get all crypto
+        self.scrape_symbols(letter='', val_type='crypto')
+
+    # Create a function to scrape the data
+    def scrape_symbols(self, letter, val_type='stock'):
+        """ Create a function to scrape the data"""
+
+        if val_type == 'stock':
+            letter = letter.upper()
+            exchange = 'nasdaq'
+            # website
+            URL = f'https://www.advfn.com/{exchange}/{exchange}.asp?companies='+letter
+
+            # convert to soup object
+            page = requests.get(URL)
+            soup = BeautifulSoup(page.text, "html.parser")
+
+            # iterate all rows '<tr>' tags
+            odd_rows = soup.find_all('tr', attrs= {'class':'ts0'})
+            even_rows = soup.find_all('tr', attrs= {'class':'ts1'})
+
+            # make dicts with tag content
+            for i in odd_rows:
+                row = i.find_all('td')
+                self.stock_dict[row[1].text.strip()] = row[0].text.strip()
+
+            for i in even_rows:
+                row = i.find_all('td')
+                self.stock_dict[row[1].text.strip()] = row[0].text.strip()
+
+        if val_type == 'crypto':
+            # website
+            URL = 'https://crypto.com/price'
+
+            # convert to soup object
+            page = requests.get(URL)
+            soup = BeautifulSoup(page.text, "html.parser")
+
+            # iterate all rows '<span>' tags
+            crypto_names = soup.find_all('span', attrs={'class':'chakra-text css-1mrk1dy'})
+            crypto_acr = soup.find_all('span', attrs={'class':'chakra-text css-44ctie'})
+
+            # amount of crypto names
+            crypto_length = len(crypto_names)
+
+            # merge into dicts
+            for i in range(crypto_length):
+                self.crypto_dict[crypto_acr[i].text] = crypto_names[i].text
 
 
 if __name__ == '__main__':
