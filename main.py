@@ -182,20 +182,6 @@ class MainWindow(QMainWindow):
             worth_of_one_unit = price
             self.ui.crypto_comparison_button.clicked.connect(lambda: self.calc_crypto_worth(worth_of_one_unit))
 
-
-
-            # add chart for 1 day
-#           self.show_info_data('1d')
-#
- #           # link timeframe chart buttons
-  #          self.ui.one_day_button.clicked.connect(lambda: self.show_info_data('1d'))
-         #   self.ui.one_week_button.clicked.connect(lambda: self.show_info_data('1w'))
-   #         self.ui.one_month_button.clicked.connect(lambda: self.show_info_data('1m'))
-    #        self.ui.one_year_button.clicked.connect(lambda: self.show_info_data('1y'))
-     #       self.ui.five_year_button.clicked.connect(lambda: self.show_info_data('5y'))
-      # #     self.ui.max_button.clicked.connect(lambda: self.show_info_data('max'))
-       #     pass
-
         if not ticker_type:
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
