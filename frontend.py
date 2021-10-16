@@ -336,7 +336,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 846, 936))
+        self.stock_analysis_frame.setGeometry(QRect(0, -199, 846, 936))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.header = QFrame(self.stock_analysis_frame)
@@ -604,7 +604,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_47.addWidget(self.stock_analysis_chart_frame, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_46.addWidget(self.stock_chart)
+        self.verticalLayout_46.addWidget(self.stock_chart, 0, Qt.AlignHCenter)
 
         self.line_6 = QFrame(self.day_page_frame)
         self.line_6.setObjectName(u"line_6")
@@ -779,32 +779,104 @@ class Ui_MainWindow(object):
         self.verticalLayout_36.addWidget(self.charts)
 
         self.stock_analysis_stackedWidget.addWidget(self.stock_analysis_stock_page)
-        self.stock_analyysis_currency_page = QWidget()
-        self.stock_analyysis_currency_page.setObjectName(u"stock_analyysis_currency_page")
-        self.verticalLayout_40 = QVBoxLayout(self.stock_analyysis_currency_page)
+        self.stock_analysis_currency_page = QWidget()
+        self.stock_analysis_currency_page.setObjectName(u"stock_analysis_currency_page")
+        self.verticalLayout_40 = QVBoxLayout(self.stock_analysis_currency_page)
         self.verticalLayout_40.setObjectName(u"verticalLayout_40")
-        self.extra_info_about_currency = QLabel(self.stock_analyysis_currency_page)
-        self.extra_info_about_currency.setObjectName(u"extra_info_about_currency")
+        self.crypto_quote_frame = QFrame(self.stock_analysis_currency_page)
+        self.crypto_quote_frame.setObjectName(u"crypto_quote_frame")
+        self.crypto_quote_frame.setMinimumSize(QSize(750, 0))
+        self.crypto_quote_frame.setFrameShape(QFrame.StyledPanel)
+        self.crypto_quote_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_54 = QVBoxLayout(self.crypto_quote_frame)
+        self.verticalLayout_54.setObjectName(u"verticalLayout_54")
+        self.frame_5 = QFrame(self.crypto_quote_frame)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setStyleSheet(u"font: 16pt \"MS Shell Dlg 2\";")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_12 = QHBoxLayout(self.frame_5)
+        self.horizontalLayout_12.setSpacing(7)
+        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
+        self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 0)
+        self.crypto_price_label = QLabel(self.frame_5)
+        self.crypto_price_label.setObjectName(u"crypto_price_label")
 
-        self.verticalLayout_40.addWidget(self.extra_info_about_currency)
+        self.horizontalLayout_12.addWidget(self.crypto_price_label)
 
-        self.currency_comparison_frame = QFrame(self.stock_analyysis_currency_page)
+        self.crypto_currency_price_label = QLabel(self.frame_5)
+        self.crypto_currency_price_label.setObjectName(u"crypto_currency_price_label")
+
+        self.horizontalLayout_12.addWidget(self.crypto_currency_price_label)
+
+
+        self.verticalLayout_54.addWidget(self.frame_5, 0, Qt.AlignLeft)
+
+        self.frame_6 = QFrame(self.crypto_quote_frame)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_55 = QVBoxLayout(self.frame_6)
+        self.verticalLayout_55.setObjectName(u"verticalLayout_55")
+        self.verticalLayout_55.setContentsMargins(-1, 0, -1, -1)
+        self.extra_info_about_crypto = QLabel(self.frame_6)
+        self.extra_info_about_crypto.setObjectName(u"extra_info_about_crypto")
+
+        self.verticalLayout_55.addWidget(self.extra_info_about_crypto, 0, Qt.AlignTop)
+
+
+        self.verticalLayout_54.addWidget(self.frame_6, 0, Qt.AlignLeft|Qt.AlignTop)
+
+        self.currency_comparison_frame = QFrame(self.crypto_quote_frame)
         self.currency_comparison_frame.setObjectName(u"currency_comparison_frame")
+        self.currency_comparison_frame.setStyleSheet(u"QLineEdit{\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(255, 255, 255);\n"
+"	border:none;\n"
+"	color:rgb(0, 0, 0);\n"
+"	font: 75 18pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"QLabel{\n"
+"font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"QPushButton{\n"
+"	border:none;\n"
+"	border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(49, 56, 74);\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(27, 30, 40);\n"
+"}\n"
+"")
         self.currency_comparison_frame.setFrameShape(QFrame.StyledPanel)
         self.currency_comparison_frame.setFrameShadow(QFrame.Raised)
         self.gridLayout_10 = QGridLayout(self.currency_comparison_frame)
         self.gridLayout_10.setObjectName(u"gridLayout_10")
-        self.first_currency_entry = QLineEdit(self.currency_comparison_frame)
-        self.first_currency_entry.setObjectName(u"first_currency_entry")
-        self.first_currency_entry.setMinimumSize(QSize(100, 0))
-
-        self.gridLayout_10.addWidget(self.first_currency_entry, 1, 0, 1, 1)
-
         self.second_currency_entry = QLineEdit(self.currency_comparison_frame)
         self.second_currency_entry.setObjectName(u"second_currency_entry")
+        self.second_currency_entry.setMinimumSize(QSize(0, 40))
+        self.second_currency_entry.setMaximumSize(QSize(250, 40))
+        self.second_currency_entry.setStyleSheet(u"")
+        self.second_currency_entry.setAlignment(Qt.AlignCenter)
         self.second_currency_entry.setReadOnly(True)
 
-        self.gridLayout_10.addWidget(self.second_currency_entry, 1, 2, 1, 1)
+        self.gridLayout_10.addWidget(self.second_currency_entry, 3, 2, 1, 1)
+
+        self.first_currency_entry = QLineEdit(self.currency_comparison_frame)
+        self.first_currency_entry.setObjectName(u"first_currency_entry")
+        self.first_currency_entry.setMinimumSize(QSize(0, 40))
+        self.first_currency_entry.setMaximumSize(QSize(250, 40))
+        self.first_currency_entry.setStyleSheet(u"")
+        self.first_currency_entry.setAlignment(Qt.AlignCenter)
+        self.first_currency_entry.setReadOnly(False)
+
+        self.gridLayout_10.addWidget(self.first_currency_entry, 3, 0, 1, 1)
 
         self.second_curency_label = QLabel(self.currency_comparison_frame)
         self.second_curency_label.setObjectName(u"second_curency_label")
@@ -816,75 +888,103 @@ class Ui_MainWindow(object):
 
         self.gridLayout_10.addWidget(self.first_currency_label, 0, 0, 1, 1, Qt.AlignHCenter)
 
-        self.comparison_button = QLabel(self.currency_comparison_frame)
-        self.comparison_button.setObjectName(u"comparison_button")
-        self.comparison_button.setPixmap(QPixmap(u":/icons/icons/chevrons-right.svg"))
+        self.crypto_comparison_button = QPushButton(self.currency_comparison_frame)
+        self.crypto_comparison_button.setObjectName(u"crypto_comparison_button")
+        self.crypto_comparison_button.setMaximumSize(QSize(35, 16777215))
+        self.crypto_comparison_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.crypto_comparison_button.setStyleSheet(u"")
+        icon8 = QIcon()
+        icon8.addFile(u":/icons/icons/chevrons-right.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.crypto_comparison_button.setIcon(icon8)
+        self.crypto_comparison_button.setIconSize(QSize(32, 32))
+        self.crypto_comparison_button.setFlat(True)
 
-        self.gridLayout_10.addWidget(self.comparison_button, 1, 1, 1, 1)
+        self.gridLayout_10.addWidget(self.crypto_comparison_button, 3, 1, 1, 1)
 
 
-        self.verticalLayout_40.addWidget(self.currency_comparison_frame)
+        self.verticalLayout_54.addWidget(self.currency_comparison_frame)
 
-        self.times_frame_2 = QFrame(self.stock_analyysis_currency_page)
+
+        self.verticalLayout_40.addWidget(self.crypto_quote_frame, 0, Qt.AlignHCenter)
+
+        self.times_frame_2 = QFrame(self.stock_analysis_currency_page)
         self.times_frame_2.setObjectName(u"times_frame_2")
+        self.times_frame_2.setStyleSheet(u"QPushButton {\n"
+"	border-radius:10px;\n"
+"	background-color:rgb(85, 170, 255);\n"
+"}\n"
+"QPushButton::hover {\n"
+"	border-radius:10px;\n"
+"    background-color:rgb(63, 126, 189);\n"
+"}\n"
+"QPushButton::pressed {\n"
+"	border-radius:10px;	\n"
+"    background-color:rgb(37, 75, 112);\n"
+"}")
         self.times_frame_2.setFrameShape(QFrame.StyledPanel)
         self.times_frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_19 = QHBoxLayout(self.times_frame_2)
         self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(-1, -1, -1, 0)
+        self.one_day_button_2 = QPushButton(self.times_frame_2)
+        self.one_day_button_2.setObjectName(u"one_day_button_2")
+        self.one_day_button_2.setMinimumSize(QSize(115, 30))
+        self.one_day_button_2.setMaximumSize(QSize(16777215, 16777215))
+        self.one_day_button_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_day_button_2.setStyleSheet(u"")
+        self.one_day_button_2.setFlat(False)
+
+        self.horizontalLayout_19.addWidget(self.one_day_button_2)
+
         self.one_week_button_2 = QPushButton(self.times_frame_2)
         self.one_week_button_2.setObjectName(u"one_week_button_2")
-        self.one_week_button_2.setMinimumSize(QSize(60, 30))
-        self.one_week_button_2.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.one_week_button_2.setMinimumSize(QSize(115, 30))
+        self.one_week_button_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_week_button_2.setStyleSheet(u"")
         self.one_week_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.one_week_button_2)
 
         self.one_month_button_2 = QPushButton(self.times_frame_2)
         self.one_month_button_2.setObjectName(u"one_month_button_2")
-        self.one_month_button_2.setMinimumSize(QSize(60, 30))
-        self.one_month_button_2.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.one_month_button_2.setMinimumSize(QSize(115, 30))
+        self.one_month_button_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_month_button_2.setStyleSheet(u"")
         self.one_month_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.one_month_button_2)
 
         self.one_year_button_2 = QPushButton(self.times_frame_2)
         self.one_year_button_2.setObjectName(u"one_year_button_2")
-        self.one_year_button_2.setMinimumSize(QSize(60, 30))
-        self.one_year_button_2.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.one_year_button_2.setMinimumSize(QSize(115, 30))
+        self.one_year_button_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.one_year_button_2.setStyleSheet(u"")
         self.one_year_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.one_year_button_2)
 
         self.five_year_button_2 = QPushButton(self.times_frame_2)
         self.five_year_button_2.setObjectName(u"five_year_button_2")
-        self.five_year_button_2.setMinimumSize(QSize(60, 30))
-        self.five_year_button_2.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.five_year_button_2.setMinimumSize(QSize(115, 30))
+        self.five_year_button_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.five_year_button_2.setStyleSheet(u"")
         self.five_year_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.five_year_button_2)
 
         self.max_button_2 = QPushButton(self.times_frame_2)
         self.max_button_2.setObjectName(u"max_button_2")
-        self.max_button_2.setMinimumSize(QSize(60, 30))
-        self.max_button_2.setStyleSheet(u"background-color:rgb(85, 170, 255);\n"
-"border-radius:10px;\n"
-"")
+        self.max_button_2.setMinimumSize(QSize(115, 30))
+        self.max_button_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.max_button_2.setStyleSheet(u"")
         self.max_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.max_button_2)
 
 
-        self.verticalLayout_40.addWidget(self.times_frame_2)
+        self.verticalLayout_40.addWidget(self.times_frame_2, 0, Qt.AlignHCenter)
 
-        self.charts_2 = QFrame(self.stock_analyysis_currency_page)
+        self.charts_2 = QFrame(self.stock_analysis_currency_page)
         self.charts_2.setObjectName(u"charts_2")
         self.charts_2.setFrameShape(QFrame.StyledPanel)
         self.charts_2.setFrameShadow(QFrame.Raised)
@@ -900,68 +1000,20 @@ class Ui_MainWindow(object):
         self.chart_frame_2.setObjectName(u"chart_frame_2")
         self.chart_frame_2.setFrameShape(QFrame.StyledPanel)
         self.chart_frame_2.setFrameShadow(QFrame.Raised)
-        self.label_25 = QLabel(self.chart_frame_2)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setGeometry(QRect(190, 40, 101, 31))
+        self.verticalLayout_56 = QVBoxLayout(self.chart_frame_2)
+        self.verticalLayout_56.setObjectName(u"verticalLayout_56")
+        self.crypto_analysis_chart_frame = QFrame(self.chart_frame_2)
+        self.crypto_analysis_chart_frame.setObjectName(u"crypto_analysis_chart_frame")
+        self.crypto_analysis_chart_frame.setMinimumSize(QSize(700, 400))
+        self.crypto_analysis_chart_frame.setFrameShape(QFrame.Box)
+        self.crypto_analysis_chart_frame.setFrameShadow(QFrame.Raised)
+        self.gridLayout_12 = QGridLayout(self.crypto_analysis_chart_frame)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
 
-        self.verticalLayout_38.addWidget(self.chart_frame_2)
-
-        self.info_frame_2 = QFrame(self.week_page_2)
-        self.info_frame_2.setObjectName(u"info_frame_2")
-        self.info_frame_2.setFrameShape(QFrame.StyledPanel)
-        self.info_frame_2.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_20 = QHBoxLayout(self.info_frame_2)
-        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
-        self.info_box_2 = QFrame(self.info_frame_2)
-        self.info_box_2.setObjectName(u"info_box_2")
-        self.info_box_2.setFrameShape(QFrame.StyledPanel)
-        self.info_box_2.setFrameShadow(QFrame.Raised)
-        self.gridLayout_8 = QGridLayout(self.info_box_2)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.curency_low = QLabel(self.info_box_2)
-        self.curency_low.setObjectName(u"curency_low")
-
-        self.gridLayout_8.addWidget(self.curency_low, 2, 0, 1, 1)
-
-        self.currency_open = QLabel(self.info_box_2)
-        self.currency_open.setObjectName(u"currency_open")
-
-        self.gridLayout_8.addWidget(self.currency_open, 0, 0, 1, 1)
-
-        self.currency_high = QLabel(self.info_box_2)
-        self.currency_high.setObjectName(u"currency_high")
-
-        self.gridLayout_8.addWidget(self.currency_high, 1, 0, 1, 1)
-
-        self.currency_high_placeholder = QLabel(self.info_box_2)
-        self.currency_high_placeholder.setObjectName(u"currency_high_placeholder")
-
-        self.gridLayout_8.addWidget(self.currency_high_placeholder, 1, 1, 1, 1)
-
-        self.currency_open_placeholder = QLabel(self.info_box_2)
-        self.currency_open_placeholder.setObjectName(u"currency_open_placeholder")
-
-        self.gridLayout_8.addWidget(self.currency_open_placeholder, 0, 1, 1, 1)
-
-        self.currency_low_placeholder = QLabel(self.info_box_2)
-        self.currency_low_placeholder.setObjectName(u"currency_low_placeholder")
-
-        self.gridLayout_8.addWidget(self.currency_low_placeholder, 2, 1, 1, 1)
+        self.verticalLayout_56.addWidget(self.crypto_analysis_chart_frame)
 
 
-        self.horizontalLayout_20.addWidget(self.info_box_2)
-
-        self.size_grip_3 = QFrame(self.info_frame_2)
-        self.size_grip_3.setObjectName(u"size_grip_3")
-        self.size_grip_3.setFrameShape(QFrame.StyledPanel)
-        self.size_grip_3.setFrameShadow(QFrame.Raised)
-        self.gridLayout_9 = QGridLayout(self.size_grip_3)
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-
-        self.horizontalLayout_20.addWidget(self.size_grip_3)
-
-
-        self.verticalLayout_38.addWidget(self.info_frame_2)
+        self.verticalLayout_38.addWidget(self.chart_frame_2, 0, Qt.AlignHCenter)
 
         self.stacked_charts_2.addWidget(self.week_page_2)
 
@@ -970,7 +1022,7 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_40.addWidget(self.charts_2)
 
-        self.stock_analysis_stackedWidget.addWidget(self.stock_analyysis_currency_page)
+        self.stock_analysis_stackedWidget.addWidget(self.stock_analysis_currency_page)
 
         self.verticalLayout_35.addWidget(self.stock_analysis_stackedWidget)
 
@@ -1115,7 +1167,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 828, 1857))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 828, 1865))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -1175,7 +1227,7 @@ class Ui_MainWindow(object):
         self.label_3.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "font: 75 18pt \"MS Shell Dlg 2\";")
 
-        self.verticalLayout_52.addWidget(self.label_3, 0, Qt.AlignHCenter)
+        self.verticalLayout_52.addWidget(self.label_3, 0, Qt.AlignLeft)
 
         self.label_5 = QLabel(self.wha_is_a_stock)
         self.label_5.setObjectName(u"label_5")
@@ -1207,7 +1259,7 @@ class Ui_MainWindow(object):
         self.label_6.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "font: 75 18pt \"MS Shell Dlg 2\";")
 
-        self.verticalLayout_53.addWidget(self.label_6, 0, Qt.AlignHCenter)
+        self.verticalLayout_53.addWidget(self.label_6, 0, Qt.AlignLeft)
 
         self.label_8 = QLabel(self.understanding_stocks)
         self.label_8.setObjectName(u"label_8")
@@ -1226,12 +1278,14 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_48.addWidget(self.understanding_stocks, 0, Qt.AlignHCenter)
 
-        self.frame_5 = QFrame(self.stocks_tutorial_main_body)
-        self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setFrameShape(QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QFrame.Raised)
+        self.stock_market_capitalization = QFrame(self.stocks_tutorial_main_body)
+        self.stock_market_capitalization.setObjectName(u"stock_market_capitalization")
+        self.stock_market_capitalization.setFrameShape(QFrame.StyledPanel)
+        self.stock_market_capitalization.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_49 = QVBoxLayout(self.stock_market_capitalization)
+        self.verticalLayout_49.setObjectName(u"verticalLayout_49")
 
-        self.verticalLayout_48.addWidget(self.frame_5)
+        self.verticalLayout_48.addWidget(self.stock_market_capitalization, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_51.addWidget(self.stocks_tutorial_main_body, 0, Qt.AlignHCenter)
@@ -1262,7 +1316,7 @@ class Ui_MainWindow(object):
         self.cryptocurrency_page_scrollArea.setWidgetResizable(True)
         self.cryptocurrency_scrollAreaWidget_frame = QWidget()
         self.cryptocurrency_scrollAreaWidget_frame.setObjectName(u"cryptocurrency_scrollAreaWidget_frame")
-        self.cryptocurrency_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 845, 707))
+        self.cryptocurrency_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 302, 396))
         self.verticalLayout_20 = QVBoxLayout(self.cryptocurrency_scrollAreaWidget_frame)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.crypto_learning_content_header = QLabel(self.cryptocurrency_scrollAreaWidget_frame)
@@ -1286,7 +1340,7 @@ class Ui_MainWindow(object):
         self.forex_page_scrollArea.setWidgetResizable(True)
         self.forex_scrollAreaWidget_frame = QWidget()
         self.forex_scrollAreaWidget_frame.setObjectName(u"forex_scrollAreaWidget_frame")
-        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 845, 707))
+        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 302, 340))
         self.verticalLayout_22 = QVBoxLayout(self.forex_scrollAreaWidget_frame)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.forex_learning_content = QLabel(self.forex_scrollAreaWidget_frame)
@@ -1419,7 +1473,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_scrollArea.setWidgetResizable(True)
         self.stock_simulator_scroll_area_frame = QWidget()
         self.stock_simulator_scroll_area_frame.setObjectName(u"stock_simulator_scroll_area_frame")
-        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 845, 707))
+        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 552, 556))
         self.stock_simulator_scroll_area_frame.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.verticalLayout_28 = QVBoxLayout(self.stock_simulator_scroll_area_frame)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
@@ -1824,9 +1878,9 @@ class Ui_MainWindow(object):
         self.help_button = QPushButton(self.footer_right_frame)
         self.help_button.setObjectName(u"help_button")
         self.help_button.setFont(font13)
-        icon8 = QIcon()
-        icon8.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.help_button.setIcon(icon8)
+        icon9 = QIcon()
+        icon9.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.help_button.setIcon(icon9)
         self.help_button.setIconSize(QSize(32, 32))
         self.help_button.setFlat(True)
 
@@ -1851,13 +1905,13 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stacked_menu_pages.setCurrentIndex(2)
+        self.stacked_menu_pages.setCurrentIndex(1)
         self.ticker_label_title_analysis.setDefault(False)
-        self.stock_analysis_stackedWidget.setCurrentIndex(0)
+        self.stock_analysis_stackedWidget.setCurrentIndex(1)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(1)
-        self.simulator_stacked_widget.setCurrentIndex(1)
+        self.simulator_stacked_widget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1916,22 +1970,19 @@ class Ui_MainWindow(object):
         self.fifty_two_week_low.setText(QCoreApplication.translate("MainWindow", u"52wK Low", None))
         self.label_7.setText("")
         self.label_4.setText("")
-        self.extra_info_about_currency.setText(QCoreApplication.translate("MainWindow", u"[Extra  info about the currency", None))
-        self.second_curency_label.setText(QCoreApplication.translate("MainWindow", u"[second currency]", None))
-        self.first_currency_label.setText(QCoreApplication.translate("MainWindow", u"[first currency]", None))
-        self.comparison_button.setText("")
+        self.crypto_price_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.crypto_currency_price_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.extra_info_about_crypto.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.first_currency_entry.setText("")
+        self.second_curency_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.first_currency_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.crypto_comparison_button.setText("")
+        self.one_day_button_2.setText(QCoreApplication.translate("MainWindow", u"1 day", None))
         self.one_week_button_2.setText(QCoreApplication.translate("MainWindow", u"1 week", None))
         self.one_month_button_2.setText(QCoreApplication.translate("MainWindow", u"1 moth", None))
         self.one_year_button_2.setText(QCoreApplication.translate("MainWindow", u"1 year", None))
         self.five_year_button_2.setText(QCoreApplication.translate("MainWindow", u"5 year", None))
         self.max_button_2.setText(QCoreApplication.translate("MainWindow", u"max", None))
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Chart goes here", None))
-        self.curency_low.setText(QCoreApplication.translate("MainWindow", u"Low", None))
-        self.currency_open.setText(QCoreApplication.translate("MainWindow", u"Open", None))
-        self.currency_high.setText(QCoreApplication.translate("MainWindow", u"High", None))
-        self.currency_high_placeholder.setText(QCoreApplication.translate("MainWindow", u"?", None))
-        self.currency_open_placeholder.setText(QCoreApplication.translate("MainWindow", u"?", None))
-        self.currency_low_placeholder.setText(QCoreApplication.translate("MainWindow", u"?", None))
         self.learn_start_page_title_label.setText(QCoreApplication.translate("MainWindow", u"LEARN", None))
         self.what_do_you_wish_to_learn_label.setText(QCoreApplication.translate("MainWindow", u"What do you wish to learn?", None))
         self.stocks_button_learn.setText(QCoreApplication.translate("MainWindow", u"Stocks", None))
@@ -2020,7 +2071,6 @@ class Ui_MainWindow(object):
         self.developed_by_theo_brown.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Developed by Theo Brown</span></p></body></html>", None))
         self.help_button.setText("")
     # retranslateUi
-
 
 # Ticker extra info frontend
 class Ticker_Window(object):
