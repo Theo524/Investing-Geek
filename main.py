@@ -1,6 +1,6 @@
 import sys
 import re
-from datetime import date
+from datetime import date, timedelta, datetime
 from PySide2 import QtCore
 from frontend import *
 import yfinance as yf
@@ -72,6 +72,15 @@ class MainWindow(QMainWindow):
 
         # console
         print(f'User searched for: {ticker}')
+        try:
+            print(f'Which is: {self.all_stock_ticker_names[ticker.upper()]}')
+        except KeyError:
+            pass
+
+        try:
+            print(f'Which is: {self.all_crypto_ticker_names[ticker.upper()]}')
+        except KeyError:
+            pass
 
         # function verifies if it a stock or crypto
         ticker_type = self.stock_or_crypto()
@@ -88,9 +97,12 @@ class MainWindow(QMainWindow):
                 market_state = 'Open'
 
             if market_state == 'Open':
+                time = datetime.now()
+                is_am = time.hour < 12
+                t = 'AM' if is_am else 'PM'
 
                 # stock info
-                stock_info = weekday.strftime(f'%d %B {weekday.year} - Market {market_state}')
+                stock_info = weekday.strftime(f'%d %B, {time.hour}{time.minute} {t} - Market {market_state}')
                 # print all info for ticker(temporal)
                 # for key, value in ticker_obj.info.items():
                 #    print(key, ":", value)
@@ -102,6 +114,9 @@ class MainWindow(QMainWindow):
                 change_amount = price - prev_close
                 change_percentage = change_amount/prev_close * 100
                 symbol = '▲' if change_amount > 0 else '▼'
+
+                # set stock page
+                self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
 
                 # connect command to title(stock name)
                 self.ui.ticker_label_title_analysis.clicked.connect(lambda: self.show_ticker_extraInfoWindow('stock'))
@@ -126,7 +141,60 @@ class MainWindow(QMainWindow):
                 self.ui.max_button.clicked.connect(lambda: self.show_info_data('max'))
 
         if ticker_type == 'crypto':
-            pass
+            today = date.today()
+            time = datetime.now()
+            is_am = time.hour < 12
+            t = 'AM' if is_am else 'PM'
+
+            # stock info
+            crypto_info = today.strftime(f'Last updated - %d %B %Y, {time.hour}:{time.second} {t}')
+            # print all info for ticker(temporal)
+            # for key, value in ticker_obj.info.items():
+            #    print(key, ":", value)
+
+            # quote info for crypto
+            name = ticker_obj.info['name']
+            pair = ticker_obj.info['symbol']
+            price = ticker_obj.info['regularMarketPrice']
+            currency = ticker_obj.info['currency']
+
+            # set currency page
+            self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_currency_page)
+
+            # connect command to title(stock name)
+            self.ui.ticker_label_title_analysis.clicked.connect(lambda: self.show_ticker_extraInfoWindow('crypto'))
+
+            # set crypto header info display
+            self.ui.ticker_label_title_analysis.setText(f'{str(name)}')
+            self.ui.extra_info_about_crypto.setText(str(crypto_info))
+            self.ui.crypto_price_label.setText(f'1{str(pair.split("-")[0])}={str(price)}')
+            self.ui.crypto_currency_price_label.setText(str(currency))
+            self.ui.first_currency_label.setText(str(pair.split('-')[0]))
+            self.ui.second_curency_label.setText(str(pair.split('-')[1]))
+            self.ui.first_currency_entry.setText('1')
+            self.ui.second_currency_entry.setText(str(price))
+            # entry mask
+            onlyInt = QIntValidator(1, 1000000, self)
+            self.ui.first_currency_entry.setValidator(onlyInt)
+            self.ui.first_currency_entry.setMaxLength(6)
+
+            # button for value of currency
+            worth_of_one_unit = price
+            self.ui.crypto_comparison_button.clicked.connect(lambda: self.calc_crypto_worth(worth_of_one_unit))
+
+
+
+            # add chart for 1 day
+#           self.show_info_data('1d')
+#
+ #           # link timeframe chart buttons
+  #          self.ui.one_day_button.clicked.connect(lambda: self.show_info_data('1d'))
+         #   self.ui.one_week_button.clicked.connect(lambda: self.show_info_data('1w'))
+   #         self.ui.one_month_button.clicked.connect(lambda: self.show_info_data('1m'))
+    #        self.ui.one_year_button.clicked.connect(lambda: self.show_info_data('1y'))
+     #       self.ui.five_year_button.clicked.connect(lambda: self.show_info_data('5y'))
+      # #     self.ui.max_button.clicked.connect(lambda: self.show_info_data('max'))
+       #     pass
 
         if not ticker_type:
             msg = QMessageBox()
@@ -134,6 +202,13 @@ class MainWindow(QMainWindow):
             msg.setText('The ticker you entered is either incorrect or there is no data on it')
             msg.setWindowTitle("Error")
             msg.exec_()
+
+    def calc_crypto_worth(self, worth_of_one_unit):
+        """Calculate the worth of n amount of crypto currency"""
+
+        amount = self.ui.first_currency_entry.text()
+        final_val = int(amount) * worth_of_one_unit
+        self.ui.second_currency_entry.setText(str(final_val))
 
     def show_info_data(self, time_period):
         """Shows the line chart and info for a specific timeframe in the gui"""
@@ -244,12 +319,16 @@ class MainWindow(QMainWindow):
         if time_period == '1d':
             # 1 day data for the stock at 5 minute intervals
             data = ticker.history(period='1d', interval='5m')
+            print(data)
             return data
 
+#// FIX THIS (gives very inaccurate and strange data) ----------------------------------------------------------------
         if time_period == '1w':
-            # 1 week data for the stock at 15 minute intervals
-            data = ticker.history(period='1w', interval='15m')
+            # 1 week data for the stock at 15 minute interval
+            data = ticker.history(period='5d', interval='15m')
+            print(data)
             return data
+#//-------------------------------------------------------------------------------------------------------------------
 
         if time_period == '1m':
             # 1 month data for the stock at a daily interval
@@ -263,7 +342,7 @@ class MainWindow(QMainWindow):
 
         if time_period == '5y':
             # 5 year data for the stock at a weekly interval
-            data = ticker.history(period='5y', interval='1w')
+            data = ticker.history(period='5y', interval='1wk')
             return data
 
         if time_period == 'max':
@@ -305,10 +384,14 @@ class MainWindow(QMainWindow):
 
         if self.ticker.upper() in list(self.all_stock_ticker_names.keys()):
             return 'stock'
-        if self.ticker.upper() in list(self.all_crypto_ticker_names.keys()):
-            return 'crypto'
         else:
-            return False
+            pair = '-' in self.ticker.lower()
+            curr = self.ticker.lower().split('-')
+            if pair and curr[0].upper() in list(self.all_crypto_ticker_names.keys()):
+                return 'crypto'
+
+            else:
+                return False
 
     def show_ticker_extraInfoWindow(self, ticker_type):
         """Window with more info regarding ticker"""
