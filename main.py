@@ -164,7 +164,7 @@ class MainWindow(QMainWindow):
             # connect command to title(stock name)
             self.ui.ticker_label_title_analysis.clicked.connect(lambda: self.show_ticker_extraInfoWindow('crypto'))
 
-            # set crypto header info display
+            # set crypto header info
             self.ui.ticker_label_title_analysis.setText(f'{str(name)}')
             self.ui.extra_info_about_crypto.setText(str(crypto_info))
             self.ui.crypto_price_label.setText(f'1{str(pair.split("-")[0])}={str(price)}')
