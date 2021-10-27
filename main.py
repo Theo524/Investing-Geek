@@ -537,11 +537,13 @@ color:rgb(255, 0, 0);
             title_1.setText(data_dict[counter]['title'])
             body_1.setText(data_dict[counter]['description'])
             hyperlink = linkTemplate.format(data_dict[counter]['link'], data_dict[counter]['media_src'], data_dict[counter]['date'])
+            link_1.setOpenExternalLinks(True)
             link_1.setText(hyperlink)
 
             title_2.setText(data_dict[counter+1]['title'])
             body_2.setText(data_dict[counter+1]['description'])
             hyperlink = linkTemplate.format(data_dict[counter+1]['link'], data_dict[counter+1]['media_src'], data_dict[counter+1]['date'])
+            link_2.setOpenExternalLinks(True)
             link_2.setStyleSheet("""color: rgb(221, 221, 221);
 font: 8pt "MS Shell Dlg 2";""")
             link_2.setText(hyperlink)
@@ -549,12 +551,14 @@ font: 8pt "MS Shell Dlg 2";""")
             title_3.setText(data_dict[counter+2]['title'])
             body_3.setText(data_dict[counter+2]['description'])
             hyperlink = linkTemplate.format(data_dict[counter+2]['link'], data_dict[counter+2]['media_src'], data_dict[counter+2]['date'])
+            link_3.setOpenExternalLinks(True)
             link_3.setStyleSheet("""color: rgb(221, 221, 221);
 font: 8pt "MS Shell Dlg 2";""")
             link_3.setText(hyperlink)
 
             # move to next row
             counter += 3
+
 
 class TickerInfo(QMainWindow):
     def __init__(self, ticker, ticker_type):
