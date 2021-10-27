@@ -336,7 +336,7 @@ class Ui_MainWindow(object):
         self.home_page_scrollArea.setWidgetResizable(True)
         self.home_page_frame = QWidget()
         self.home_page_frame.setObjectName(u"home_page_frame")
-        self.home_page_frame.setGeometry(QRect(0, 0, 873, 718))
+        self.home_page_frame.setGeometry(QRect(0, 0, 877, 718))
         self.verticalLayout_6 = QVBoxLayout(self.home_page_frame)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.home_page_body = QFrame(self.home_page_frame)
@@ -2639,7 +2639,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 1884))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 842, 5631))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -2675,18 +2675,21 @@ class Ui_MainWindow(object):
         self.stocks_tutorial_main_body.setMaximumSize(QSize(16777215, 16777215))
         self.stocks_tutorial_main_body.setStyleSheet(u"background-color: rgb(26, 29, 39);\n"
 "border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
 "")
         self.stocks_tutorial_main_body.setFrameShape(QFrame.StyledPanel)
         self.stocks_tutorial_main_body.setFrameShadow(QFrame.Raised)
         self.verticalLayout_48 = QVBoxLayout(self.stocks_tutorial_main_body)
+        self.verticalLayout_48.setSpacing(100)
         self.verticalLayout_48.setObjectName(u"verticalLayout_48")
         self.wha_is_a_stock = QFrame(self.stocks_tutorial_main_body)
         self.wha_is_a_stock.setObjectName(u"wha_is_a_stock")
+        self.wha_is_a_stock.setMinimumSize(QSize(0, 900))
         self.wha_is_a_stock.setFrameShape(QFrame.StyledPanel)
         self.wha_is_a_stock.setFrameShadow(QFrame.Raised)
         self.verticalLayout_52 = QVBoxLayout(self.wha_is_a_stock)
         self.verticalLayout_52.setObjectName(u"verticalLayout_52")
-        self.verticalLayout_52.setContentsMargins(-1, 20, -1, -1)
+        self.verticalLayout_52.setContentsMargins(-1, 9, -1, -1)
         self.label_3 = QLabel(self.wha_is_a_stock)
         self.label_3.setObjectName(u"label_3")
         font7 = QFont()
@@ -2696,19 +2699,20 @@ class Ui_MainWindow(object):
         font7.setItalic(False)
         font7.setWeight(9)
         self.label_3.setFont(font7)
-        self.label_3.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.label_3.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
 
         self.verticalLayout_52.addWidget(self.label_3, 0, Qt.AlignLeft)
 
         self.label_5 = QLabel(self.wha_is_a_stock)
         self.label_5.setObjectName(u"label_5")
-        sizePolicy2.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
+        self.label_5.setSizePolicy(sizePolicy3)
         self.label_5.setMinimumSize(QSize(0, 0))
         self.label_5.setMaximumSize(QSize(16777215, 16777215))
-        self.label_5.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_5.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
         self.label_5.setScaledContents(False)
         self.label_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.label_5.setWordWrap(True)
@@ -2724,12 +2728,11 @@ class Ui_MainWindow(object):
         self.understanding_stocks.setFrameShadow(QFrame.Raised)
         self.verticalLayout_53 = QVBoxLayout(self.understanding_stocks)
         self.verticalLayout_53.setObjectName(u"verticalLayout_53")
-        self.verticalLayout_53.setContentsMargins(-1, 100, -1, -1)
+        self.verticalLayout_53.setContentsMargins(-1, 9, -1, -1)
         self.label_6 = QLabel(self.understanding_stocks)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setFont(font7)
-        self.label_6.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.label_6.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
 
         self.verticalLayout_53.addWidget(self.label_6, 0, Qt.AlignLeft)
 
@@ -2737,10 +2740,9 @@ class Ui_MainWindow(object):
         self.label_8.setObjectName(u"label_8")
         sizePolicy2.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
         self.label_8.setSizePolicy(sizePolicy2)
-        self.label_8.setMinimumSize(QSize(0, 0))
-        self.label_8.setMaximumSize(QSize(16777215, 16777215))
-        self.label_8.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_8.setMinimumSize(QSize(0, 450))
+        self.label_8.setMaximumSize(QSize(16777215, 800))
+        self.label_8.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
         self.label_8.setScaledContents(False)
         self.label_8.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.label_8.setWordWrap(True)
@@ -2750,14 +2752,108 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_48.addWidget(self.understanding_stocks, 0, Qt.AlignHCenter)
 
+        self.why_do_people_buy_stocks = QFrame(self.stocks_tutorial_main_body)
+        self.why_do_people_buy_stocks.setObjectName(u"why_do_people_buy_stocks")
+        self.why_do_people_buy_stocks.setMinimumSize(QSize(0, 0))
+        self.why_do_people_buy_stocks.setFrameShape(QFrame.Box)
+        self.why_do_people_buy_stocks.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_65 = QVBoxLayout(self.why_do_people_buy_stocks)
+        self.verticalLayout_65.setSpacing(9)
+        self.verticalLayout_65.setObjectName(u"verticalLayout_65")
+        self.verticalLayout_65.setContentsMargins(-1, 9, -1, -1)
+        self.label_11 = QLabel(self.why_do_people_buy_stocks)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_65.addWidget(self.label_11)
+
+        self.label_12 = QLabel(self.why_do_people_buy_stocks)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setMinimumSize(QSize(0, 1050))
+        self.label_12.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_12.setScaledContents(False)
+        self.label_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+        self.label_12.setWordWrap(True)
+
+        self.verticalLayout_65.addWidget(self.label_12)
+
+
+        self.verticalLayout_48.addWidget(self.why_do_people_buy_stocks, 0, Qt.AlignHCenter)
+
+        self.frame_73 = QFrame(self.stocks_tutorial_main_body)
+        self.frame_73.setObjectName(u"frame_73")
+        self.frame_73.setFrameShape(QFrame.StyledPanel)
+        self.frame_73.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_66 = QVBoxLayout(self.frame_73)
+        self.verticalLayout_66.setObjectName(u"verticalLayout_66")
+        self.label_14 = QLabel(self.frame_73)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_66.addWidget(self.label_14)
+
+        self.label_13 = QLabel(self.frame_73)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_13.setWordWrap(True)
+
+        self.verticalLayout_66.addWidget(self.label_13)
+
+
+        self.verticalLayout_48.addWidget(self.frame_73, 0, Qt.AlignHCenter)
+
         self.stock_market_capitalization = QFrame(self.stocks_tutorial_main_body)
         self.stock_market_capitalization.setObjectName(u"stock_market_capitalization")
-        self.stock_market_capitalization.setFrameShape(QFrame.StyledPanel)
+        self.stock_market_capitalization.setMinimumSize(QSize(0, 0))
+        self.stock_market_capitalization.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.stock_market_capitalization.setFrameShape(QFrame.Box)
         self.stock_market_capitalization.setFrameShadow(QFrame.Raised)
+        self.stock_market_capitalization.setLineWidth(1)
         self.verticalLayout_49 = QVBoxLayout(self.stock_market_capitalization)
         self.verticalLayout_49.setObjectName(u"verticalLayout_49")
+        self.verticalLayout_49.setContentsMargins(-1, 9, -1, -1)
+        self.label_9 = QLabel(self.stock_market_capitalization)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_49.addWidget(self.label_9)
+
+        self.label_10 = QLabel(self.stock_market_capitalization)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMinimumSize(QSize(0, 450))
+        self.label_10.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_10.setWordWrap(True)
+
+        self.verticalLayout_49.addWidget(self.label_10)
+
 
         self.verticalLayout_48.addWidget(self.stock_market_capitalization, 0, Qt.AlignHCenter)
+
+        self.frame_72 = QFrame(self.stocks_tutorial_main_body)
+        self.frame_72.setObjectName(u"frame_72")
+        self.frame_72.setMinimumSize(QSize(0, 0))
+        self.frame_72.setFrameShape(QFrame.StyledPanel)
+        self.frame_72.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_67 = QVBoxLayout(self.frame_72)
+        self.verticalLayout_67.setObjectName(u"verticalLayout_67")
+        self.verticalLayout_67.setContentsMargins(-1, 9, -1, -1)
+        self.label_15 = QLabel(self.frame_72)
+        self.label_15.setObjectName(u"label_15")
+        self.label_15.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_67.addWidget(self.label_15)
+
+        self.label_16 = QLabel(self.frame_72)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setMinimumSize(QSize(0, 950))
+        self.label_16.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_16.setWordWrap(True)
+
+        self.verticalLayout_67.addWidget(self.label_16)
+
+
+        self.verticalLayout_48.addWidget(self.frame_72, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_51.addWidget(self.stocks_tutorial_main_body, 0, Qt.AlignHCenter)
@@ -2788,7 +2884,7 @@ class Ui_MainWindow(object):
         self.cryptocurrency_page_scrollArea.setWidgetResizable(True)
         self.cryptocurrency_scrollAreaWidget_frame = QWidget()
         self.cryptocurrency_scrollAreaWidget_frame.setObjectName(u"cryptocurrency_scrollAreaWidget_frame")
-        self.cryptocurrency_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 302, 396))
+        self.cryptocurrency_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 859, 700))
         self.verticalLayout_20 = QVBoxLayout(self.cryptocurrency_scrollAreaWidget_frame)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.crypto_learning_content_header = QLabel(self.cryptocurrency_scrollAreaWidget_frame)
@@ -2945,7 +3041,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_scrollArea.setWidgetResizable(True)
         self.stock_simulator_scroll_area_frame = QWidget()
         self.stock_simulator_scroll_area_frame.setObjectName(u"stock_simulator_scroll_area_frame")
-        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 552, 556))
+        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 859, 700))
         self.stock_simulator_scroll_area_frame.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.verticalLayout_28 = QVBoxLayout(self.stock_simulator_scroll_area_frame)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
@@ -3377,9 +3473,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stacked_menu_pages.setCurrentIndex(1)
+        self.stacked_menu_pages.setCurrentIndex(2)
         self.ticker_label_title_analysis.setDefault(False)
-        self.stock_analysis_stackedWidget.setCurrentIndex(1)
+        self.stock_analysis_stackedWidget.setCurrentIndex(0)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(1)
@@ -3517,8 +3613,8 @@ class Ui_MainWindow(object):
         self.stocks_button_learn.setText(QCoreApplication.translate("MainWindow", u"Stocks", None))
         self.forex_button_learn.setText(QCoreApplication.translate("MainWindow", u"Forex", None))
         self.crypto_button_learn.setText(QCoreApplication.translate("MainWindow", u"Cryptocurrency", None))
-        self.stock_learning_content_header.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">STOCKS</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:16pt; text-decoration: underline; color:#ffffff;\">Table of contents</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">1. What is a stock?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">2. Investing in stocks</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">3. Stock market capitalization</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">4. Stock Splits</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">5. What are dividends?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">6. Finding Stocks for your portfolio</span></p><p align=\"center\"><span style=\" font-siz"
-                        "e:11pt; color:#ffffff;\">7. Finding a broker</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">8. What affects the price of stock</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">9. Stock terminology</span></p></body></html>", None))
+        self.stock_learning_content_header.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#000000;\">STOCKS</span></p><p align=\"center\"><span style=\" color:#000000;\"><br/></span></p><p align=\"center\"><span style=\" font-size:16pt; text-decoration: underline; color:#000000;\">Table of contents</span></p><p align=\"center\"><span style=\" color:#000000;\"><br/></span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">1. What is a stock?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">2. Investing in stocks</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">3. Wy do people invest in stocks</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">4. Why do companies issue stocks</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">5. Types of stock</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">6. Stock market capitalization</span></p><p align=\"center\"><span style=\" "
+                        "font-size:11pt; color:#000000;\">7. Dividends</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">8. Stock Splits</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">9. What are dividends?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">10. Finding Stocks for your portfolio</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">11. Finding a broker</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">12. What affects the price of stock</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">13 . Stock terminology</span></p></body></html>", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"1. What is a stock", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation (e.g. Apple, Netflix, Amazon).\n"
 "\n"
@@ -3550,7 +3646,7 @@ class Ui_MainWindow(object):
 "\n"
 "That's why it's important for investors to spread their money around, buying stock in many different companies rather than focusing on just one.\n"
 "\n"
-" This is what makes up a portfolio.\n"
+"This is also called a portfolio.\n"
 "", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"2. Understanding stocks", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Corporations issue (sell) stock to raise funds to operate their businesses.\n"
@@ -3567,6 +3663,85 @@ class Ui_MainWindow(object):
 "\n"
 "The idea that a corporation is a \u201cperson\u201d means that the corporation owns its own asse"
                         "ts. A corporate office full of chairs and tables belongs to the corporation, and not to the shareholders.", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"3. Why do people buy stocks", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"The primary reason that people buy shares of companies is to make money. The idea is to buy low and sell high. \n"
+"For instance, if you buy 100 shares of Company B stock valued at $25 each, you will have made an initial investment totaling $2,500. Say the value of the share increases to 50$. Your profit will be of $2,500. \n"
+"However there is more to why people buy stocks, here are some other reasons:\n"
+"\n"
+"\n"
+" - Investing in stocks is an excellent way to grow wealth. For long-term investors, stocks are a good investment even during periods of market volatility\n"
+"\n"
+" \n"
+" - You can get rich with stocks, you just need to take the risk. You can grow wealth by putting your money into the stock market over a long timeframe.\n"
+"\n"
+"\n"
+" - It Doesn't Cost Much to Get Started\n"
+"\n"
+"\n"
+" - Protect. Taxes and inflation can impact your wealth.\n"
+"\n"
+"\n"
+" - Stocks Are Designed To Go Up In Price, the larger indexes including the Dow Jones and the S&P 500 are updated periodically. Companies that are "
+                        "not performing are pulled out of the indexes and are replaced by companies that are being traded more frequently\u2014among other factors. This ensures that the major indexes are always populated by companies that are earning money, and being traded frequently.\n"
+"\n"
+"\n"
+" - You Don't Have to Be a Genius. While an experienced investor may be able to grow their money faster than you\u2014that doesn't mean you can't buy stocks! And you don't need to be a Chartered Financial Analyst, portfolio manager or the next Warren Buffett to invest in stocks. Also, buying stocks and making money with them is clearly much easier than building a successful business from scratch! To invest in a company's stock you must read their annual report (which you can easily find online), set some money aside and understand basic math.\n"
+"\n"
+"\n"
+" - Another reason why people buy stocks is to support a company they like.\n"
+"It is funny to think of investing for sentimental reasons, but if you\u2019re the type of person who likes a"
+                        " product or a company and you wish to help ensure that it stays successful within the market, then this reason for stock investment describes you. Some people also want the power to help in making company decisions and this will happen when you become a shareholder. Shareholders can attend meetings that help the company they invest in make decisions that affect its income.", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"4. Why do Companies issue stocks", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Corporations issue stock to raise money for growth and expansion. To raise money, corporations will issue stock by selling off a percentage of profits in a company.\n"
+"There are many reasons that a company would issue stock to raise money. Some of the common reasons include:\n"
+"\n"
+"\n"
+" - The development of new products\n"
+" \n"
+" - To purchase equipment\n"
+" \n"
+" - To buy new buildings\n"
+" \n"
+" - To increase inventory\n"
+" \n"
+" - To expand and grow staff\n"
+" \n"
+" - To reduce debt\n"
+" \n"
+" - To prepare for a merger or acquisition\n"
+" \n"
+" - To improve the value of a company\n"
+" \n"
+" - To provide for greater flexibility", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"5. Types of Stock", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"There are two main kinds of stocks, common stock and preferred stock.\n"
+"\n"
+"Common stock entitles owners to vote at shareholder meetings and receive dividends. They represent the majority of stock held by the public.\n"
+"Owners of common stock have voting rights and the right to dividend payouts, but there is one major drawback: If a company is forced to liquidate or go bankrupt, common shareholders are last in line when it comes to payouts.\n"
+"Preferred shareholders and bondholders must be paid out in full before common shareholders can begin receiving payments.\n"
+"\n"
+"Preferred stockholders usually don\u2019t have voting rights but they receive dividend payments before common stockholders do, and have priority over common stockholders if the company goes bankrupt and its assets are liquidated. Preferred stockholders have fewer rights than common stockholders, except when it comes to dividends.\n"
+"Companies that issue preferred stocks usually pay consistent dividends, and preferred stockholders have pr"
+                        "iority on dividends over common stockholders.  Investors buy preferred stock for its current income from dividends, so look for companies that make big profits to use preferred stock to return some of those profits via dividends.", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"6. Market capitalization", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"Another way to categorize stocks is by the size of the company, as shown in its market capitalization. \n"
+"There are large-cap, mid-cap, and small-cap stocks. Shares in very small companies are sometimes called \u201cmicrocap\u201d stocks.\n"
+"The very lowest priced stocks are known as \u201cpenny stocks.\u201d These companies may have little or no earnings. Penny stocks do not pay dividends and are highly speculative.\n"
+"\n"
+"Market cap\u2014or market capitalization\u2014refers to the total value of all a company's shares of stock.\n"
+"It is calculated by multiplying the price of a stock by its total number of outstanding shares. For example, a company with 200 million shares selling at $50 a share would have a market cap of $10 billion.\n"
+"\n"
+"This value allows investors to understand the relative size of one company versus another. \n"
+"Market cap measures what a company is worth on the open market, as well as the market's perception of its future prospects, because it reflects what investors are willin"
+                        "g to pay for its stock.\n"
+"Below are the descriptions for 3 market cap sizes:\n"
+"\n"
+" - Large-cap companies are typically firms with a market value of $10 billion or more. Large-cap firms often have a reputation for producing quality goods and services, a history of consistent dividend payments, and steady growth. They are often dominant players within established industries, and their brand names may be familiar to a national consumer audience.\n"
+"\n"
+" - Mid-cap companies are typically businesses with a market value between $2 billion and $10 billion. Typically, these are established companies in industries experiencing or expected to experience rapid growth. These medium-sized companies may be in the process of increasing market share and improving overall competitiveness. This stage of growth is likely to determine whether a company eventually lives up to its full potential. Mid-cap stocks generally fall between large caps and small caps on the risk/return spectrum. Mid-caps may offer more growth poten"
+                        "tial than large caps, and possibly less risk than small caps.\n"
+"\n"
+" - Small-cap companies are typically those with a market value of $300 million to $2 billion. Generally, these are young companies that serve niche markets or emerging industries. Small caps are considered the most aggressive and risky of the 3 categories. The relatively limited resources of small companies can potentially make them more susceptible to a business or economic downturn. They may also be vulnerable to the intense competition and uncertainties characteristic of untried, burgeoning markets. On the other hand, small-cap stocks may offer significant growth potential to long-term investors who can tolerate volatile stock price swings in the short term.", None))
         self.crypto_learning_content_header.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">CRYPTOCURRENCY</span></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:16pt; text-decoration: underline; color:#ffffff;\">Table of contents</span></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">1. What is cryptocurrency?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">2. Blockchain technology</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">3. Cryptocurrency mining</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">4. Initial coin offering</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">5. Finding a broker</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">6. Chosing the right cryptocurrency</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">7. What affects the price of cryptocu"
                         "rrency</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">8. Cryptocurrency terminology</span></p></body></html>", None))
         self.forex_learning_content.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">FOREX (FOREIGN EXCHANGE)</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:14pt; color:#ffffff;\">TABLE OF CONTENTS</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">1. What is Forex trading?</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">2. History of the Forex market</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">3. Major currencies</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">4. Basic Forex terminology</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">5. Where trading happens</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">6. How to connect to the market</span></p></body></html>", None))
@@ -3600,7 +3775,6 @@ class Ui_MainWindow(object):
         self.developed_by_theo_brown.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Developed by Theo Brown</span></p></body></html>", None))
         self.help_button.setText("")
     # retranslateUi
-
 
 
 # Ticker extra info frontend
