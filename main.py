@@ -10,6 +10,7 @@ import datetime as dt
 from GoogleNews import GoogleNews
 from newspaper import Config
 import pandas as pd
+import json
 
 from PySide2 import QtCore, QtGui
 from frontend import *
@@ -58,6 +59,9 @@ class MainWindow(QMainWindow):
         self.ui.close_window_button.clicked.connect(lambda: self.close())
         self.ui.restore_window_button.clicked.connect(lambda: self.restore_or_maximize_window())
         self.ui.minimize_window_button.clicked.connect(lambda: self.showMinimized())
+
+        # stock game(simulator)
+        self.stock_game = StockGame()
 
         # set starting pages
         self.set_starting_widgets()
@@ -110,6 +114,9 @@ class MainWindow(QMainWindow):
 
     def search_ticker_in_analysis(self):
         """Searching for a ticker"""
+
+        #Temporarily disable button
+        self.ui.search_button.setEnabled(False)
 
         # ticker name
         ticker = self.ui.search_entry.text()
@@ -232,6 +239,8 @@ color:rgb(255, 0, 0);
                         '\nYou can search cryptocurrencies.')
             msg.setWindowTitle("No info for today")
             msg.exec_()
+            # enable button
+            self.ui.search_button.setEnabled(True)
 
         if not self.ticker_type:
             msg = QMessageBox()
@@ -239,6 +248,7 @@ color:rgb(255, 0, 0);
             msg.setText('The ticker you entered is either incorrect or there is no data on it')
             msg.setWindowTitle("Error")
             msg.exec_()
+            self.ui.search_button.setEnabled(True)
 
     @staticmethod
     def check_market_state():
@@ -496,6 +506,20 @@ color:rgb(255, 0, 0);
         self.ui.forex_button_learn.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.forex_page))
 
+        # simulator page
+        self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
+
+        # simulator page buttons
+        self.ui.stock_simulator_start_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page))
+        self.ui.simulator_create_new_user_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_register_page))
+        self.ui.simulator_return_to_homepage_button.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        self.ui.simulator_return_to_homepage_button_2.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        self.ui.simulator_return_to_homepage_button_3.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+
+        # simulator confirm user button
+        self.ui.simulator_continue_to_sim_btn.clicked.connect(self.simulator_login)
+        self.ui.simulator_confirm_new_username_entry.clicked.connect(self.simulator_register)
+
     def load_news(self):
 
         # link
@@ -558,6 +582,163 @@ font: 8pt "MS Shell Dlg 2";""")
 
             # move to next row
             counter += 3
+
+        # Here the stock or crypto search concludess, so the button can be enabled
+        self.ui.search_button.setEnabled(True)
+
+    def simulator_login(self):
+        """Login to simulator"""
+
+        # user_name
+        user_name = self.ui.simulator_login_to_username_entry.text()
+
+        # open json to search user
+        with open("trading.json", 'r+') as file:
+            file_data = json.load(file)
+
+            # Loop trough all the users
+            for val in file_data['users']:
+                # Find the matching name
+                if val['data']['user_name'] == user_name:
+                    print('User found')
+                    # load user for stock game
+                    self.stock_game.load_user(user_name)
+                    print(self.stock_game.current_user)
+
+                    # user found, display informative feedback
+                    msg = QMessageBox()
+                    msg.setIcon(QMessageBox.Information)
+                    msg.setText('User found')
+                    msg.setWindowTitle("Success")
+                    msg.exec_()
+
+                    # add user details to stock page
+                    self.add_user_data_to_simulator_tabs(val)
+
+                    # set current page to actual simulator
+                    self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.stock_simulator_page)
+
+                    return
+
+        # if the user was not found
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Critical)
+        msg.setText('The user is not does not exist. Check the json file to find it')
+        msg.setWindowTitle("Error")
+        msg.exec_()
+
+    def simulator_register(self):
+        """Create new user for stock simulator"""
+
+        # user
+        new_user = self.ui.simulator_new_username_entry.text()
+
+        # if user does not exist don't create
+        if not self.stock_game.user_exists(new_user):
+            # create new user
+            self.stock_game.create_user(new_user)
+
+            # display feedback
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText('User successfully created.')
+            msg.setWindowTitle("Success")
+            msg.exec_()
+
+            # return to login
+            self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page)
+
+        else:
+            # if user exists don't create
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText('User already exists. Enter another name.')
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
+    def add_user_data_to_simulator_tabs(self, user_data):
+        """Fill in user tables in simulator
+
+        user_data param dict format
+        {
+            "user_id": ?,
+            "data": {
+                "user_name": "?",
+                "account_value": ?,
+                "cash": ?,
+                "portfolio": [
+                    {
+                        "?": {
+                            "purchase_price": ?,
+                            "quantity": ?,
+                            "total_value": ?
+                        }
+                    }
+                ]
+            }
+        }
+
+        """
+
+        # data
+        name = user_data['data']['user_name']
+        number_of_stocks = len(user_data['data']['portfolio'])
+        account_value = user_data['data']['account_value']
+        cash = user_data['data']['cash']
+        print(number_of_stocks)
+
+        # set user data
+        self.ui.stock_simulator_username_label.setText(str(name))
+        self.ui.stock_simulator_account_value_label.setText(str(account_value))
+        self.ui.stock_simulator_cash_amount_label.setText(str(cash))
+        self.ui.stock_simulator_gainloss_label.setText(str(0))
+
+        # table widget
+        table = self.ui.tableWidget
+        # remove previous rows
+        for i in reversed(range(table.rowCount())):
+            table.removeRow(i)
+
+        num_rows = table.rowCount()
+
+        # number of rows
+        for i in range(number_of_stocks):
+            # stock data
+            stock = list(user_data['data']['portfolio'][i].keys())[0]
+            ticker = yf.Ticker(stock).info
+            stock_symbol = ticker['symbol']
+            stock_name = ticker['longName']
+            current_price = ticker['regularMarketPrice']
+            prev_close = ticker['previousClose']
+            change_percentage = (current_price - prev_close) / prev_close * 100
+            purchase_price = user_data['data']['portfolio'][i][stock]['initial_purchase_price']
+            quantity = user_data['data']['portfolio'][i][stock]['quantity']
+            total_value = current_price * quantity
+
+            # row
+            table.insertRow(i)
+
+            # add data
+            table.setItem(i, 0, QTableWidgetItem(str(stock_symbol)))
+            table.setItem(i, 1, QTableWidgetItem(str(stock_name)))
+            table.setItem(i, 2, QTableWidgetItem(str(current_price)))
+            table.setItem(i, 3, QTableWidgetItem(str(change_percentage)))
+            table.setItem(i, 4, QTableWidgetItem(str(purchase_price)))
+            table.setItem(i, 5, QTableWidgetItem(str(quantity)))
+            table.setItem(i, 6, QTableWidgetItem(str(total_value)))
+
+
+
+
+
+
+        # Add text to the row
+        #self.tableWidget.setItem(num_rows, 0, QtWidgets.QTableWidgetItem(x))
+        #self.tableWidget.setItem(num_rows, 1, QtWidgets.QTableWidgetItem(y))
+        #self.tableWidget.setItem(num_rows, 2, QtWidgets.QTableWidgetItem(z))
+
+
+
 
 
 class TickerInfo(QMainWindow):
@@ -721,6 +902,260 @@ class News:
                                               'description': row['desc'],
                                               'link': row['link'][:-1]
                                               if row['link'][-1] == '/' else row['link']} # remove '/' from end of link str
+
+
+class StockGame:
+    def __init__(self):
+
+        self.name = None
+        self.current_user = None
+
+    def create_user(self, name):
+        """Create new user"""
+
+        # Ensure user is not in the json file
+        if self.user_exists(name):
+            print('User already exists')
+            return
+
+        # Writing to sample.json
+        with open("trading.json", "r+") as file:
+            # load file
+            file_data = json.load(file)
+
+            # determine id
+            user_id = len(file_data['users']) + 1
+
+            # dict of user
+            user_info = {
+
+                "user_id": user_id, "data": {"user_name": name, "account_value": 0, "cash": 100000, "portfolio": []}
+            }
+
+            # add new user to json file users
+            file_data["users"].append(user_info)
+            file.seek(0)
+
+            # move to file_data to json file
+            json.dump(file_data, file, indent=4)
+
+    def load_user(self, name):
+        """Load user from json file"""
+
+        # open json
+        with open("trading.json", 'r+') as file:
+            file_data = json.load(file)
+
+            # Loop trough all the users
+            for val in file_data['users']:
+                # Find the matching name
+                if val['data']['user_name'] == name:
+                    self.name = name
+                    print('User found')
+                    self.current_user = val
+                    return val
+
+            print('User not found')
+
+    def buy(self, ticker, quantity):
+        """Purchase a stock"""
+
+        # user financial data
+        cash = self.current_user["data"]["cash"]
+        account_value = self.current_user["data"]["account_value"]
+
+        # yfinance stock object
+        ticker_obj = yf.Ticker(ticker).info
+
+        # ticker name
+        ticker_name = ticker_obj['symbol']
+        # current real time price of ticker
+        value = ticker_obj['regularMarketPrice']
+        total_value = value * quantity
+
+        # purchase cost
+        price = ticker_obj['bid']
+        total_cost_of_buy = price * quantity
+
+        # check if user has the stock
+        index = 0
+        exists = False
+        for my_stock in self.current_user["data"]["portfolio"]:
+            try:
+                # if exists return true
+                if my_stock[ticker_obj["symbol"]]:
+                    exists = True
+                    break
+            except KeyError:
+                exists = False
+
+            index += 1
+
+        # if the stock does not exist in the user portfolio
+        # it is a first time purchase
+        if not exists:
+
+            # ticker data to add to portfolio
+            holding = {ticker_name: {"initial_purchase_price": price, "quantity": quantity, "total_value": total_value}}
+
+            # open json
+            with open("trading.json", "r+") as file:
+                # load file
+                file_data = json.load(file)
+
+                # add user info to list
+                for val in file_data['users']:
+                    # find the matching user
+                    if val["data"]["user_name"] == self.current_user["data"]["user_name"]:
+                        # add stock data(holding) to portfolio
+                        val["data"]["portfolio"].append(holding)
+
+                        # update cash available
+                        cash_left = val["data"]["cash"] - total_cost_of_buy
+                        val["data"]["cash"] = cash_left
+
+                        print("---------RECEIPT----------")
+                        print(f"Stock: {ticker_name}")
+                        print(f"Quantity: {quantity}")
+                        print(f"1 share worth: £{price}")
+                        print(f"Total cost: £{price * quantity}")
+                        print(f"--------PURCHASE---------")
+                        print(f"Cash available: £{cash}")
+                        print(f"Cash after purchase: £{cash_left}")
+                        print("---------------------------")
+                        print('\n\n')
+
+
+                file.seek(0)
+
+                # move to json file
+                json.dump(file_data, file, indent=4)
+
+        # if the stock does exist in the user portfolio
+        # just need to update the values
+        if exists:
+
+            # open json
+            with open("trading.json", "r+") as file:
+                # load file
+                file_data = json.load(file)
+
+                # find user
+                for val in file_data['users']:
+                    if val["data"]["user_name"] == self.current_user["data"]["user_name"]:
+                        # replace user quantity for the stock with new quantity
+                        val["data"]["portfolio"][index][ticker_name]["quantity"] = \
+                        self.current_user["data"]["portfolio"][index][ticker_name]["quantity"] + quantity
+
+                        # replace user total value for the stock with new total value
+                        val["data"]["portfolio"][index][ticker_name]["total_value"] = \
+                        self.current_user["data"]["portfolio"][index][ticker_name]["total_value"] + total_value
+
+                        # cash left available
+                        cash_left = val["data"]["cash"] - total_cost_of_buy
+                        val["data"]["cash"] = cash_left
+
+                file.seek(0)
+
+                # move to json file
+                json.dump(file_data, file, indent=4)
+
+        # after each purchase the current user data must also be updated
+        self.load_user(self.name)
+
+    def sell(self, ticker, quantity):
+        """Sell a stock"""
+
+        # user financial data
+        cash = self.current_user["data"]["cash"]
+        account_value = self.current_user["data"]["account_value"]
+
+        # yfinance stock object
+        ticker_obj = yf.Ticker(ticker).info
+
+        # ticker name
+        ticker_name = ticker_obj['symbol']
+        # current real time price of ticker
+        value = ticker_obj['regularMarketPrice']
+        total_value = value * quantity
+
+        # sell cost
+        ask_price = ticker_obj['ask']
+        total_cost_of_sell = ask_price * quantity
+
+        # check if user has the stock
+        index = 0
+        exists = False
+        for my_stock in self.current_user["data"]["portfolio"]:
+            try:
+                # if exists return true
+                if my_stock[ticker_obj["symbol"]]:
+                    exists = True
+                    break
+            except KeyError:
+                exists = False
+
+            index += 1
+
+        if exists:
+            # open json
+            with open("trading.json", "r+") as file:
+                # load file
+                file_data = json.load(file)
+
+                # add user info to list
+                for val in file_data['users']:
+                    # find the matching user
+                    if val["data"]["user_name"] == self.current_user["data"]["user_name"]:
+                        # add stock data(holding) to portfolio
+                        for my_stock in val['data']['portfolio']:
+                            stock_symbol = list(my_stock.keys())[0]
+                            if stock_symbol == ticker_name:
+                                # original quantity
+                                original_quantity = self.current_user['data']['portfolio'][index][ticker_name]['quantity']
+
+                                # quantity
+                                new_quantity = original_quantity - quantity
+                                val['data']['portfolio'][index][ticker_name]['quantity'] = new_quantity
+
+                                # total value
+                                total_value = new_quantity * value
+                                val['data']['portfolio'][index][ticker_name]['total_value'] = total_value
+
+                                # profit
+                                val['data']['cash'] = self.current_user['data']['cash'] + total_cost_of_sell
+
+                                if new_quantity <= 0:
+                                    # delete the stock if the value is all lost
+                                    del val['data']['portfolio'][index]
+
+                file.seek(0)
+
+                # move to json file
+                json.dump(file_data, file, indent=4)
+
+        if not exists:
+            print('The user does not have the stock')
+
+        # after each sell the current user data must also be updated
+        self.load_user(self.name)
+
+    @staticmethod
+    def user_exists(name):
+        """Confirm if a user exists in the json"""
+
+        # Writing to sample.json
+        with open("trading.json", "r+") as file:
+            # load file
+            file_data = json.load(file)
+
+            for val in file_data['users']:
+                if val['data']['user_name'] == name:
+                    id = val['user_id']
+                    return True
+
+        return False
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
