@@ -54,11 +54,29 @@ class Ui_MainWindow(object):
         self.menu_icon_button = QPushButton(self.header_left_frame)
         self.menu_icon_button.setObjectName(u"menu_icon_button")
         font1 = QFont()
-        font1.setPointSize(11)
+        font1.setFamily(u"MS Shell Dlg 2")
+        font1.setPointSize(14)
         font1.setBold(False)
+        font1.setItalic(False)
         font1.setWeight(50)
         self.menu_icon_button.setFont(font1)
         self.menu_icon_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.menu_icon_button.setStyleSheet(u"QPushButton{\n"
+"	color:rgb(255, 255, 255);\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"	border:none;\n"
+"	border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(60, 88, 125);\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(71, 105, 149);\n"
+"}")
         icon = QIcon()
         icon.addFile(u":/icons/icons/align-left.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.menu_icon_button.setIcon(icon)
@@ -2666,14 +2684,13 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton::hover {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(60, 88, 125);\n"
+"	background-color: rgb(39, 44, 59);\n"
 "}\n"
 "\n"
 "QPushButton::pressed {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(71, 105, 149);\n"
-"}\n"
-"")
+"	background-color: rgb(43, 49, 65);\n"
+"}")
         icon12 = QIcon()
         icon12.addFile(u":/icons/icons/chevron-left.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.learn_return_to_homepage_button.setIcon(icon12)
@@ -2944,7 +2961,7 @@ class Ui_MainWindow(object):
         self.forex_page_scrollArea.setWidgetResizable(True)
         self.forex_scrollAreaWidget_frame = QWidget()
         self.forex_scrollAreaWidget_frame.setObjectName(u"forex_scrollAreaWidget_frame")
-        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 302, 340))
+        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 859, 700))
         self.verticalLayout_22 = QVBoxLayout(self.forex_scrollAreaWidget_frame)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.forex_learning_content = QLabel(self.forex_scrollAreaWidget_frame)
@@ -3064,6 +3081,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_125.setObjectName(u"verticalLayout_125")
         self.simulator_return_to_homepage_button = QPushButton(self.simulator_login_page)
         self.simulator_return_to_homepage_button.setObjectName(u"simulator_return_to_homepage_button")
+        self.simulator_return_to_homepage_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.simulator_return_to_homepage_button.setStyleSheet(u"QPushButton{\n"
 "	color:rgb(255, 255, 255);\n"
 "	border:none;\n"
@@ -3072,14 +3090,13 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton::hover {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(60, 88, 125);\n"
+"	background-color: rgb(39, 44, 59);\n"
 "}\n"
 "\n"
 "QPushButton::pressed {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(71, 105, 149);\n"
-"}\n"
-"")
+"	background-color: rgb(43, 49, 65);\n"
+"}")
         self.simulator_return_to_homepage_button.setIcon(icon12)
         self.simulator_return_to_homepage_button.setIconSize(QSize(32, 32))
         self.simulator_return_to_homepage_button.setFlat(True)
@@ -3189,6 +3206,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_126.setObjectName(u"verticalLayout_126")
         self.simulator_return_to_homepage_button_2 = QPushButton(self.simulator_register_page)
         self.simulator_return_to_homepage_button_2.setObjectName(u"simulator_return_to_homepage_button_2")
+        self.simulator_return_to_homepage_button_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.simulator_return_to_homepage_button_2.setStyleSheet(u"QPushButton{\n"
 "	color:rgb(255, 255, 255);\n"
 "	border:none;\n"
@@ -3197,14 +3215,13 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton::hover {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(60, 88, 125);\n"
+"	background-color: rgb(39, 44, 59);\n"
 "}\n"
 "\n"
 "QPushButton::pressed {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(71, 105, 149);\n"
-"}\n"
-"")
+"	background-color: rgb(43, 49, 65);\n"
+"}")
         self.simulator_return_to_homepage_button_2.setIcon(icon12)
         self.simulator_return_to_homepage_button_2.setIconSize(QSize(32, 32))
         self.simulator_return_to_homepage_button_2.setFlat(True)
@@ -3315,6 +3332,7 @@ class Ui_MainWindow(object):
 
         self.simulator_return_to_homepage_button_3 = QPushButton(self.stock_simulator_header)
         self.simulator_return_to_homepage_button_3.setObjectName(u"simulator_return_to_homepage_button_3")
+        self.simulator_return_to_homepage_button_3.setCursor(QCursor(Qt.PointingHandCursor))
         self.simulator_return_to_homepage_button_3.setStyleSheet(u"QPushButton{\n"
 "	color:rgb(255, 255, 255);\n"
 "	border:none;\n"
@@ -3323,12 +3341,12 @@ class Ui_MainWindow(object):
 "\n"
 "QPushButton::hover {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(60, 88, 125);\n"
+"	background-color: rgb(39, 44, 59);\n"
 "}\n"
 "\n"
 "QPushButton::pressed {\n"
 "	border-radius:7px;\n"
-"	background-color: rgb(71, 105, 149);\n"
+"	background-color: rgb(43, 49, 65);\n"
 "}\n"
 "")
         self.simulator_return_to_homepage_button_3.setIcon(icon12)
@@ -3356,8 +3374,10 @@ class Ui_MainWindow(object):
         self.tabWidget.setObjectName(u"tabWidget")
         sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
         self.tabWidget.setSizePolicy(sizePolicy)
-        self.tabWidget.setMaximumSize(QSize(1500, 16777215))
-        self.tabWidget.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+        self.tabWidget.setMaximumSize(QSize(1430, 16777215))
+        self.tabWidget.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";\n"
+"color: rgb(0, 0, 0);\n"
+"background-color: rgb(42, 44, 50);\n"
 "")
         self.tabWidget.setTabPosition(QTabWidget.North)
         self.tabWidget.setTabShape(QTabWidget.Rounded)
@@ -3373,11 +3393,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_32.setObjectName(u"verticalLayout_32")
         self.scrollArea = QScrollArea(self.Portfolio)
         self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
+"")
         self.scrollArea.setFrameShape(QFrame.NoFrame)
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 797, 521))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 797, 515))
         self.verticalLayout_121 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.frame_79 = QFrame(self.scrollAreaWidgetContents)
@@ -3387,12 +3409,16 @@ class Ui_MainWindow(object):
         sizePolicy4.setVerticalStretch(0)
         sizePolicy4.setHeightForWidth(self.frame_79.sizePolicy().hasHeightForWidth())
         self.frame_79.setSizePolicy(sizePolicy4)
+        self.frame_79.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
+"")
         self.frame_79.setFrameShape(QFrame.StyledPanel)
         self.frame_79.setFrameShadow(QFrame.Raised)
         self.gridLayout_9 = QGridLayout(self.frame_79)
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.label_25 = QLabel(self.frame_79)
         self.label_25.setObjectName(u"label_25")
+        self.label_25.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
+"")
 
         self.gridLayout_9.addWidget(self.label_25, 0, 1, 1, 1)
 
@@ -3409,10 +3435,14 @@ class Ui_MainWindow(object):
         self.tableWidget = QTableWidget(self.frame)
         if (self.tableWidget.columnCount() < 7):
             self.tableWidget.setColumnCount(7)
+        brush = QBrush(QColor(0, 0, 0, 255))
+        brush.setStyle(Qt.SolidPattern)
         font8 = QFont()
         font8.setPointSize(14)
         __qtablewidgetitem = QTableWidgetItem()
         __qtablewidgetitem.setFont(font8);
+        __qtablewidgetitem.setBackground(QColor(255, 255, 255));
+        __qtablewidgetitem.setForeground(brush);
         self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         __qtablewidgetitem1.setFont(font8);
@@ -3441,26 +3471,35 @@ class Ui_MainWindow(object):
         font9.setItalic(False)
         font9.setWeight(50)
         self.tableWidget.setFont(font9)
-        self.tableWidget.setStyleSheet(u"background-color: rgb(255, 255, 255);\n"
-"font: 10pt \"MS Shell Dlg 2\";")
+        self.tableWidget.setStyleSheet(u"font: 10pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(42, 44, 50);\n"
+"\n"
+"\n"
+"")
         self.tableWidget.setShowGrid(True)
         self.tableWidget.horizontalHeader().setCascadingSectionResizes(False)
         self.tableWidget.horizontalHeader().setDefaultSectionSize(170)
         self.tableWidget.horizontalHeader().setHighlightSections(True)
         self.tableWidget.horizontalHeader().setProperty("showSortIndicator", False)
         self.tableWidget.verticalHeader().setVisible(False)
+        self.tableWidget.verticalHeader().setProperty("showSortIndicator", False)
 
         self.horizontalLayout_26.addWidget(self.tableWidget)
 
         self.frame_75 = QFrame(self.frame)
         self.frame_75.setObjectName(u"frame_75")
+        self.frame_75.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
+"")
         self.frame_75.setFrameShape(QFrame.StyledPanel)
         self.frame_75.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_18 = QHBoxLayout(self.frame_75)
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.frame_77 = QFrame(self.frame_75)
         self.frame_77.setObjectName(u"frame_77")
-        self.frame_77.setStyleSheet(u"background-color: rgb(255, 255, 255);")
+        self.frame_77.setStyleSheet(u"background-color: rgb(37, 39, 44);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"border-radius:10px;")
         self.frame_77.setFrameShape(QFrame.Box)
         self.frame_77.setFrameShadow(QFrame.Raised)
         self.verticalLayout_119 = QVBoxLayout(self.frame_77)
@@ -3472,17 +3511,23 @@ class Ui_MainWindow(object):
 
         self.frame_9 = QFrame(self.frame_77)
         self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setStyleSheet(u"border:none;\n"
+"border:2px solid rgb(53, 56, 63);")
         self.frame_9.setFrameShape(QFrame.Box)
         self.frame_9.setFrameShadow(QFrame.Raised)
         self.gridLayout_7 = QGridLayout(self.frame_9)
         self.gridLayout_7.setObjectName(u"gridLayout_7")
         self.label_18 = QLabel(self.frame_9)
         self.label_18.setObjectName(u"label_18")
+        self.label_18.setStyleSheet(u"border:none;\n"
+"")
 
         self.gridLayout_7.addWidget(self.label_18, 0, 0, 1, 1)
 
         self.stock_simulator_account_value_label = QLabel(self.frame_9)
         self.stock_simulator_account_value_label.setObjectName(u"stock_simulator_account_value_label")
+        self.stock_simulator_account_value_label.setStyleSheet(u"border:none;\n"
+"")
 
         self.gridLayout_7.addWidget(self.stock_simulator_account_value_label, 1, 0, 1, 1)
 
@@ -3491,17 +3536,23 @@ class Ui_MainWindow(object):
 
         self.frame_78 = QFrame(self.frame_77)
         self.frame_78.setObjectName(u"frame_78")
+        self.frame_78.setStyleSheet(u"border:none;\n"
+"border:2px solid rgb(53, 56, 63);")
         self.frame_78.setFrameShape(QFrame.Box)
         self.frame_78.setFrameShadow(QFrame.Raised)
         self.gridLayout_8 = QGridLayout(self.frame_78)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
         self.label_20 = QLabel(self.frame_78)
         self.label_20.setObjectName(u"label_20")
+        self.label_20.setStyleSheet(u"border:none;\n"
+"")
 
         self.gridLayout_8.addWidget(self.label_20, 0, 0, 1, 1)
 
         self.stock_simulator_cash_amount_label = QLabel(self.frame_78)
         self.stock_simulator_cash_amount_label.setObjectName(u"stock_simulator_cash_amount_label")
+        self.stock_simulator_cash_amount_label.setStyleSheet(u"border:none;\n"
+"")
 
         self.gridLayout_8.addWidget(self.stock_simulator_cash_amount_label, 1, 0, 1, 1)
 
@@ -3510,17 +3561,23 @@ class Ui_MainWindow(object):
 
         self.frame_80 = QFrame(self.frame_77)
         self.frame_80.setObjectName(u"frame_80")
+        self.frame_80.setStyleSheet(u"border:none;\n"
+"border:2px solid rgb(53, 56, 63);")
         self.frame_80.setFrameShape(QFrame.Box)
         self.frame_80.setFrameShadow(QFrame.Raised)
         self.verticalLayout_122 = QVBoxLayout(self.frame_80)
         self.verticalLayout_122.setObjectName(u"verticalLayout_122")
         self.label_22 = QLabel(self.frame_80)
         self.label_22.setObjectName(u"label_22")
+        self.label_22.setStyleSheet(u"border:none;\n"
+"")
 
         self.verticalLayout_122.addWidget(self.label_22)
 
         self.stock_simulator_gainloss_label = QLabel(self.frame_80)
         self.stock_simulator_gainloss_label.setObjectName(u"stock_simulator_gainloss_label")
+        self.stock_simulator_gainloss_label.setStyleSheet(u"border:none;\n"
+"")
 
         self.verticalLayout_122.addWidget(self.stock_simulator_gainloss_label)
 
@@ -3541,21 +3598,6 @@ class Ui_MainWindow(object):
         self.verticalLayout_32.addWidget(self.scrollArea)
 
         self.tabWidget.addTab(self.Portfolio, "")
-        self.Performance = QWidget()
-        self.Performance.setObjectName(u"Performance")
-        self.verticalLayout_33 = QVBoxLayout(self.Performance)
-        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
-        self.scrollArea_2 = QScrollArea(self.Performance)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_2 = QWidget()
-        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 795, 519))
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
-
-        self.verticalLayout_33.addWidget(self.scrollArea_2)
-
-        self.tabWidget.addTab(self.Performance, "")
         self.Trade = QWidget()
         self.Trade.setObjectName(u"Trade")
         self.verticalLayout_120 = QVBoxLayout(self.Trade)
@@ -3681,6 +3723,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_120.addWidget(self.stock_simulator_order_details_frame)
 
         self.tabWidget.addTab(self.Trade, "")
+        self.Performance = QWidget()
+        self.Performance.setObjectName(u"Performance")
+        self.verticalLayout_33 = QVBoxLayout(self.Performance)
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.scrollArea_2 = QScrollArea(self.Performance)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 795, 513))
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.verticalLayout_33.addWidget(self.scrollArea_2)
+
+        self.tabWidget.addTab(self.Performance, "")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
         self.tabWidget.addTab(self.tab, "")
@@ -3767,6 +3824,7 @@ class Ui_MainWindow(object):
         font13 = QFont()
         font13.setPointSize(16)
         self.github_link.setFont(font13)
+        self.github_link.setCursor(QCursor(Qt.PointingHandCursor))
         self.github_link.setOpenExternalLinks(True)
         self.github_link.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
@@ -3856,8 +3914,8 @@ class Ui_MainWindow(object):
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(0)
-        self.simulator_stacked_widget.setCurrentIndex(3)
-        self.tabWidget.setCurrentIndex(3)
+        self.simulator_stacked_widget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -4123,7 +4181,7 @@ class Ui_MainWindow(object):
                         "rrency</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">8. Cryptocurrency terminology</span></p></body></html>", None))
         self.forex_learning_content.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">FOREX (FOREIGN EXCHANGE)</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:14pt; color:#ffffff;\">TABLE OF CONTENTS</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">1. What is Forex trading?</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">2. History of the Forex market</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">3. Major currencies</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">4. Basic Forex terminology</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">5. Where trading happens</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">6. How to connect to the market</span></p></body></html>", None))
         self.simulator_start_page_title_label.setText(QCoreApplication.translate("MainWindow", u"TRADE", None))
-        self.simulator_start_page_content_label.setText(QCoreApplication.translate("MainWindow", u"Welcome to the trading simulator! Click the button below:", None))
+        self.simulator_start_page_content_label.setText(QCoreApplication.translate("MainWindow", u"Welcome to the trading simulator! Click the button below to start:", None))
         self.stock_simulator_start_btn.setText(QCoreApplication.translate("MainWindow", u"Start", None))
         self.simulator_return_to_homepage_button.setText("")
         self.simulator_login_to_username_entry.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter your username", None))
@@ -4164,7 +4222,6 @@ class Ui_MainWindow(object):
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"Total Gain/Loss", None))
         self.stock_simulator_gainloss_label.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Portfolio), QCoreApplication.translate("MainWindow", u"Portfolio", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Performance), QCoreApplication.translate("MainWindow", u"Performance", None))
         self.stock_simulator_order_details_title.setText(QCoreApplication.translate("MainWindow", u"ORDER DETAILS", None))
         self.stock_simulator_stock_ticker_label.setText(QCoreApplication.translate("MainWindow", u"Stock symbol", None))
         self.stock_simulator_symbol_lookup_button.setText(QCoreApplication.translate("MainWindow", u"SYMBOL LOOKUP BUTTON", None))
@@ -4173,6 +4230,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_purchase_button_2.setText(QCoreApplication.translate("MainWindow", u"CLEAR ALL", None))
         self.stock_simulator_purchase_button.setText(QCoreApplication.translate("MainWindow", u"PURCHASE", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Trade), QCoreApplication.translate("MainWindow", u"Trade", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Performance), QCoreApplication.translate("MainWindow", u"Performance", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Account", None))
         self.about_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">About</span></p></body></html>", None))
         self.github_symbol.setText("")
