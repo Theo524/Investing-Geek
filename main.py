@@ -112,11 +112,56 @@ class MainWindow(QMainWindow):
         self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
         self.animation.start()
 
+    def set_starting_widgets(self):
+        """Sets all starting pages/widgets"""
+
+        # Set left menu buttons
+        self.ui.home_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page))
+        self.ui.stock_analysis_icon.clicked.connect(
+            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.stock_analysis))
+        self.ui.learn_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.learn))
+        self.ui.trade_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.trade))
+        self.ui.settings_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.settings))
+        self.ui.about_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
+
+        # app starting page
+        self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page)
+
+        # ticker search starting page (stock)
+        self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
+
+        # learning page
+        self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page)
+        # learning page buttons
+        self.ui.stocks_button_learn.clicked.connect(
+            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.stocks_page))
+        self.ui.crypto_button_learn.clicked.connect(
+            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.cryptocurrency_page))
+        self.ui.forex_button_learn.clicked.connect(
+            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.forex_page))
+        # back buttons
+        self.ui.learn_return_to_homepage_button.clicked.connect(lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page))
+
+        # simulator page
+        self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
+        # simulator page buttons
+        self.ui.stock_simulator_start_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page))
+        self.ui.simulator_create_new_user_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_register_page))
+        self.ui.simulator_return_to_homepage_button.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        self.ui.simulator_return_to_homepage_button_2.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        self.ui.simulator_return_to_homepage_button_3.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        # simulator confirm user button
+        self.ui.simulator_continue_to_sim_btn.clicked.connect(self.simulator_login)
+        self.ui.simulator_confirm_new_username_entry.clicked.connect(self.simulator_register)
+
     def search_ticker_in_analysis(self):
         """Searching for a ticker"""
 
         #Temporarily disable button
         self.ui.search_button.setEnabled(False)
+
+        # set loading pointer for lenghty procces of stock/crypto search
+        QApplication.setOverrideCursor(Qt.WaitCursor)
 
         # ticker name
         ticker = self.ui.search_entry.text()
@@ -249,6 +294,9 @@ color:rgb(255, 0, 0);
             msg.setWindowTitle("Error")
             msg.exec_()
             self.ui.search_button.setEnabled(True)
+
+        # restore loading cursor
+        QApplication.restoreOverrideCursor()
 
     @staticmethod
     def check_market_state():
@@ -477,49 +525,6 @@ color:rgb(255, 0, 0);
         """Window with more info regarding ticker"""
         ticker_window = TickerInfo(self.ticker, ticker_type)
 
-    def set_starting_widgets(self):
-        """Sets all starting pages/widgets"""
-
-        # Set left menu buttons
-        self.ui.home_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page))
-        self.ui.stock_analysis_icon.clicked.connect(
-            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.stock_analysis))
-        self.ui.learn_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.learn))
-        self.ui.trade_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.trade))
-        self.ui.settings_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.settings))
-        self.ui.about_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
-
-        # app starting page
-        self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page)
-
-        # ticker search starting page (stock)
-        self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
-
-        # learning page
-        self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page)
-
-        # learning page buttons
-        self.ui.stocks_button_learn.clicked.connect(
-            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.stocks_page))
-        self.ui.crypto_button_learn.clicked.connect(
-            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.cryptocurrency_page))
-        self.ui.forex_button_learn.clicked.connect(
-            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.forex_page))
-
-        # simulator page
-        self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
-
-        # simulator page buttons
-        self.ui.stock_simulator_start_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page))
-        self.ui.simulator_create_new_user_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_register_page))
-        self.ui.simulator_return_to_homepage_button.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
-        self.ui.simulator_return_to_homepage_button_2.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
-        self.ui.simulator_return_to_homepage_button_3.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
-
-        # simulator confirm user button
-        self.ui.simulator_continue_to_sim_btn.clicked.connect(self.simulator_login)
-        self.ui.simulator_confirm_new_username_entry.clicked.connect(self.simulator_register)
-
     def load_news(self):
 
         # link
@@ -680,14 +685,14 @@ font: 8pt "MS Shell Dlg 2";""")
 
         """
 
-        # data
+        # account data
         name = user_data['data']['user_name']
         number_of_stocks = len(user_data['data']['portfolio'])
         account_value = user_data['data']['account_value']
         cash = user_data['data']['cash']
         print(number_of_stocks)
 
-        # set user data
+        # set user profile data
         self.ui.stock_simulator_username_label.setText(str(name))
         self.ui.stock_simulator_account_value_label.setText(str(account_value))
         self.ui.stock_simulator_cash_amount_label.setText(str(cash))
@@ -700,6 +705,10 @@ font: 8pt "MS Shell Dlg 2";""")
             table.removeRow(i)
 
         num_rows = table.rowCount()
+        num_column = 7
+
+        # set loading cursor for lenghty proccess of fetching user data
+        QApplication.setOverrideCursor(Qt.WaitCursor)
 
         # number of rows
         for i in range(number_of_stocks):
@@ -727,18 +736,18 @@ font: 8pt "MS Shell Dlg 2";""")
             table.setItem(i, 5, QTableWidgetItem(str(quantity)))
             table.setItem(i, 6, QTableWidgetItem(str(total_value)))
 
+            # set text color and background color for row
+            for column_num in range(num_column):
+                # i - row number, column_num - column number
+                table.item(i, column_num).setTextColor(QColor(255, 255, 255))
+                table.item(i, column_num).setBackgroundColor(QColor(34, 35, 40))
 
-
-
-
-
+        # close loading cursor as lenghty proccess of fetching user data is now over
+        QApplication.restoreOverrideCursor()
         # Add text to the row
         #self.tableWidget.setItem(num_rows, 0, QtWidgets.QTableWidgetItem(x))
         #self.tableWidget.setItem(num_rows, 1, QtWidgets.QTableWidgetItem(y))
         #self.tableWidget.setItem(num_rows, 2, QtWidgets.QTableWidgetItem(z))
-
-
-
 
 
 class TickerInfo(QMainWindow):
