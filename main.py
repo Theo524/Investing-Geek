@@ -32,7 +32,7 @@ class MainWindow(QMainWindow):
         # gui elements
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
-        #self.show()
+        # self.show()
 
         # charts reference for stock analysis
         self.current_stock_chart = None
@@ -44,7 +44,7 @@ class MainWindow(QMainWindow):
         self.ticker_obj = None
 
         # window commands
-        #self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         # shadow
         self.shadow = QGraphicsDropShadowEffect(self)
@@ -65,6 +65,9 @@ class MainWindow(QMainWindow):
 
         # set starting pages
         self.set_starting_widgets()
+
+        # extra windows
+        self.sim_trade_win = None
 
         # Hide/show menu labels animation
         self.ui.menu_icon_button.clicked.connect(self.show_left_menu)
@@ -140,24 +143,37 @@ class MainWindow(QMainWindow):
         self.ui.forex_button_learn.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.forex_page))
         # back buttons
-        self.ui.learn_return_to_homepage_button.clicked.connect(lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page))
+        self.ui.learn_return_to_homepage_button.clicked.connect(
+            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page))
 
         # simulator page
         self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
         # simulator page buttons
-        self.ui.stock_simulator_start_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page))
-        self.ui.simulator_create_new_user_btn.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_register_page))
-        self.ui.simulator_return_to_homepage_button.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
-        self.ui.simulator_return_to_homepage_button_2.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
-        self.ui.simulator_return_to_homepage_button_3.clicked.connect(lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        self.ui.stock_simulator_start_btn.clicked.connect(
+            lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page))
+        self.ui.simulator_create_new_user_btn.clicked.connect(
+            lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_register_page))
+        self.ui.simulator_return_to_homepage_button.clicked.connect(
+            lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        self.ui.simulator_return_to_homepage_button_2.clicked.connect(
+            lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
+        self.ui.simulator_return_to_homepage_button_3.clicked.connect(
+            lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
         # simulator confirm user button
         self.ui.simulator_continue_to_sim_btn.clicked.connect(self.simulator_login)
         self.ui.simulator_confirm_new_username_entry.clicked.connect(self.simulator_register)
+        # simulator quantity mask
+        onlyInt = QIntValidator(1, 10000, self)
+        self.ui.stock_simulator_quantity_entry.setValidator(onlyInt)
+        # simulator lookup
+        self.ui.stock_simulator_symbol_lookup_button.clicked.connect(self.simulator_stock_lookup)
+        # simulator purchase
+        self.ui.stock_simulator_purchase_button.clicked.connect(self.preview_order)
 
     def search_ticker_in_analysis(self):
         """Searching for a ticker"""
 
-        #Temporarily disable button
+        # Temporarily disable button
         self.ui.search_button.setEnabled(False)
 
         # set loading pointer for lenghty procces of stock/crypto search
@@ -178,8 +194,8 @@ class MainWindow(QMainWindow):
             # stock info label
             stock_info = market_state['stock_info']
             # print all info for ticker(temporal)
-            #for key, value in self.ticker_obj.info.items():
-             #   print(key, ":", value)
+            # for key, value in self.ticker_obj.info.items():
+            #   print(key, ":", value)
 
             # day info for stock
             name = self.ticker_obj.info['longName']
@@ -309,10 +325,10 @@ color:rgb(255, 0, 0);
         if today.isoweekday() == 6 or today.isoweekday() == 7:
             state = 'Closed'
             stock_info = today.strftime(f'%d %B, {time.hour}{time.minute} {am_or_pm} - Market {state}')
-            return {'state': state, 'am_or_pm':  am_or_pm, 'stock_info': stock_info}
+            return {'state': state, 'am_or_pm': am_or_pm, 'stock_info': stock_info}
         state = 'Open'
         stock_info = today.strftime(f'%d %B, {time.hour}{time.minute} {am_or_pm} - Market {state}')
-        return {'state': state, 'am_or_pm':  am_or_pm, 'stock_info': stock_info}
+        return {'state': state, 'am_or_pm': am_or_pm, 'stock_info': stock_info}
 
     def calc_crypto_worth(self, worth_of_one_unit):
         """Calculate the worth of n amount of crypto currency"""
@@ -526,6 +542,7 @@ color:rgb(255, 0, 0);
         ticker_window = TickerInfo(self.ticker, ticker_type)
 
     def load_news(self):
+        """Load related news for given ticker"""
 
         # link
         linkTemplate = '<p><a href={0}>{1}</a> • {2}</p>'
@@ -565,21 +582,24 @@ color:rgb(255, 0, 0);
             # set the text
             title_1.setText(data_dict[counter]['title'])
             body_1.setText(data_dict[counter]['description'])
-            hyperlink = linkTemplate.format(data_dict[counter]['link'], data_dict[counter]['media_src'], data_dict[counter]['date'])
+            hyperlink = linkTemplate.format(data_dict[counter]['link'], data_dict[counter]['media_src'],
+                                            data_dict[counter]['date'])
             link_1.setOpenExternalLinks(True)
             link_1.setText(hyperlink)
 
-            title_2.setText(data_dict[counter+1]['title'])
-            body_2.setText(data_dict[counter+1]['description'])
-            hyperlink = linkTemplate.format(data_dict[counter+1]['link'], data_dict[counter+1]['media_src'], data_dict[counter+1]['date'])
+            title_2.setText(data_dict[counter + 1]['title'])
+            body_2.setText(data_dict[counter + 1]['description'])
+            hyperlink = linkTemplate.format(data_dict[counter + 1]['link'], data_dict[counter + 1]['media_src'],
+                                            data_dict[counter + 1]['date'])
             link_2.setOpenExternalLinks(True)
             link_2.setStyleSheet("""color: rgb(221, 221, 221);
 font: 8pt "MS Shell Dlg 2";""")
             link_2.setText(hyperlink)
 
-            title_3.setText(data_dict[counter+2]['title'])
-            body_3.setText(data_dict[counter+2]['description'])
-            hyperlink = linkTemplate.format(data_dict[counter+2]['link'], data_dict[counter+2]['media_src'], data_dict[counter+2]['date'])
+            title_3.setText(data_dict[counter + 2]['title'])
+            body_3.setText(data_dict[counter + 2]['description'])
+            hyperlink = linkTemplate.format(data_dict[counter + 2]['link'], data_dict[counter + 2]['media_src'],
+                                            data_dict[counter + 2]['date'])
             link_3.setOpenExternalLinks(True)
             link_3.setStyleSheet("""color: rgb(221, 221, 221);
 font: 8pt "MS Shell Dlg 2";""")
@@ -707,7 +727,7 @@ font: 8pt "MS Shell Dlg 2";""")
         num_rows = table.rowCount()
         num_column = 7
 
-        # set loading cursor for lenghty proccess of fetching user data
+        # set loading cursor for lengthy process of fetching user data
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
         # number of rows
@@ -742,12 +762,133 @@ font: 8pt "MS Shell Dlg 2";""")
                 table.item(i, column_num).setTextColor(QColor(255, 255, 255))
                 table.item(i, column_num).setBackgroundColor(QColor(34, 35, 40))
 
-        # close loading cursor as lenghty proccess of fetching user data is now over
+        # close loading cursor as lengthy process of fetching user data is now over
         QApplication.restoreOverrideCursor()
-        # Add text to the row
-        #self.tableWidget.setItem(num_rows, 0, QtWidgets.QTableWidgetItem(x))
-        #self.tableWidget.setItem(num_rows, 1, QtWidgets.QTableWidgetItem(y))
-        #self.tableWidget.setItem(num_rows, 2, QtWidgets.QTableWidgetItem(z))
+
+    def simulator_stock_lookup(self):
+        # ticker
+        ticker = self.ui.stock_simulator_stock_ticker_entry.text()
+
+        # make higher level reference for full access
+        self.ticker = ticker
+        self.ticker_obj = yf.Ticker(self.ticker)
+
+        # ensure it a stock
+        type_ticker = self.stock_or_crypto()
+
+        if type_ticker == 'stock':
+            # set text in analysis page search entry
+            self.ui.search_entry.setText(ticker)
+            # search
+            self.search_ticker_in_analysis()
+            # set page
+            self.ui.stacked_menu_pages.setCurrentWidget(self.ui.stock_analysis)
+
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText('The ticker you entered does not exist or is incorrect.\n Remember you must use enter a stock')
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
+    def preview_order(self):
+        # loading
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        # data
+        stock_name = self.ui.stock_simulator_stock_ticker_entry.text()
+        transaction_type = self.ui.stock_simulator_transaction_type_combobox.currentText()
+        quantity = int(self.ui.stock_simulator_quantity_entry.text())
+
+        # verify stock
+        stock_name = stock_name.upper()
+        self.ticker = stock_name
+        self.ticker_obj = yf.Ticker(self.ticker)
+
+        ticker_type = self.stock_or_crypto()
+
+        # ticker
+        if ticker_type == 'stock' and int(quantity) > 0:
+            self.sim_trade_win = StockPurchaseWin(self.stock_game, company=stock_name, transaction_type=transaction_type,
+                                                  quantity=quantity)
+
+            # finally update portfolio
+            user_data = self.sim_trade_win.game.current_user
+            self.add_user_data_to_simulator_tabs(user_data)
+
+        else:
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Critical)
+            msg.setText('Missing or invalid entries')
+            msg.setWindowTitle("Error")
+            msg.exec_()
+
+        # return control
+        QApplication.restoreOverrideCursor()
+
+
+class StockPurchaseWin(QDialog):
+    def __init__(self, stock_game, **kwargs):
+        QDialog.__init__(self)
+
+        # key data
+        self.buying = False
+        self.selling = False
+        self.game = stock_game
+
+        # gui elements
+        self.ui = Stock_Transc()
+        self.ui.setupUi(self)
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        # data
+        company = str(kwargs['company']).upper()
+        quantity = int(kwargs['quantity'])
+        self.quantity = quantity
+        self.company = company
+        ticker_obj = yf.Ticker(company).info
+        bid = ticker_obj['bid']
+        ask = ticker_obj['bid']
+        total_spread = (ask - bid) * int(quantity)
+
+        # label
+        self.ui.stock_name.setText(ticker_obj['longName'])
+
+        if kwargs['transaction_type'] == 'Buy':
+            self.ui.price_label.setText(str(bid))
+            self.ui.quantity_label.setText(str(quantity))
+            self.ui.total_spread_label.setText(str(total_spread))
+            self.ui.label_11.setText(str(int(bid) * int(quantity)))
+
+            self.ui.stock_simulator_purchase_confirm_btn.setText('BUY')
+
+            # carry out action
+            self.ui.stock_simulator_purchase_confirm_btn.clicked.connect(self.buy)
+
+        elif kwargs['transaction_type'] == 'Sell':
+            self.ui.price_label.setText(str(ask))
+            self.ui.quantity_label.setText(str(quantity))
+            self.ui.total_spread_label.setText(str(total_spread))
+            self.ui.label_11.setText(str(int(bid) * int(quantity)))
+
+            self.ui.stock_simulator_purchase_confirm_btn.setText('SELL')
+
+            # carry out action
+            self.ui.stock_simulator_purchase_confirm_btn.clicked.connect(self.sell)
+
+        self.ui.stock_simulator_purchase_camcel_btn.clicked.connect(lambda: self.close())
+
+        # show window
+        self.show()
+
+    def buy(self):
+        self.game.buy(self.company, self.quantity)
+        self.close()
+
+    def sell(self):
+        self.game.sell(self.company, self.quantity)
+        self.close()
 
 
 class TickerInfo(QMainWindow):
@@ -793,7 +934,7 @@ class TickerInfo(QMainWindow):
 
         elif ticker_type == 'crypto':
             # buttons
-            #self.ui.stats_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.cry))
+            # self.ui.stats_btn.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.cry))
             self.ui.profile_btn.clicked.connect(
                 lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.crypto_profile_page))
 
@@ -910,7 +1051,8 @@ class News:
                                               'datetime': row['datetime'],
                                               'description': row['desc'],
                                               'link': row['link'][:-1]
-                                              if row['link'][-1] == '/' else row['link']} # remove '/' from end of link str
+                                              if row['link'][-1] == '/' else row[
+                                                  'link']}  # remove '/' from end of link str
 
 
 class StockGame:
@@ -1034,7 +1176,6 @@ class StockGame:
                         print("---------------------------")
                         print('\n\n')
 
-
                 file.seek(0)
 
                 # move to json file
@@ -1054,11 +1195,11 @@ class StockGame:
                     if val["data"]["user_name"] == self.current_user["data"]["user_name"]:
                         # replace user quantity for the stock with new quantity
                         val["data"]["portfolio"][index][ticker_name]["quantity"] = \
-                        self.current_user["data"]["portfolio"][index][ticker_name]["quantity"] + quantity
+                            self.current_user["data"]["portfolio"][index][ticker_name]["quantity"] + quantity
 
                         # replace user total value for the stock with new total value
                         val["data"]["portfolio"][index][ticker_name]["total_value"] = \
-                        self.current_user["data"]["portfolio"][index][ticker_name]["total_value"] + total_value
+                            self.current_user["data"]["portfolio"][index][ticker_name]["total_value"] + total_value
 
                         # cash left available
                         cash_left = val["data"]["cash"] - total_cost_of_buy
@@ -1121,7 +1262,8 @@ class StockGame:
                             stock_symbol = list(my_stock.keys())[0]
                             if stock_symbol == ticker_name:
                                 # original quantity
-                                original_quantity = self.current_user['data']['portfolio'][index][ticker_name]['quantity']
+                                original_quantity = self.current_user['data']['portfolio'][index][ticker_name][
+                                    'quantity']
 
                                 # quantity
                                 new_quantity = original_quantity - quantity
