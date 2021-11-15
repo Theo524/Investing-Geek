@@ -1061,20 +1061,38 @@ class StockGame:
         self.name = None
         self.current_user = None
 
+    @staticmethod
+    def reset_id_numbers():
+        """Reset id numbers in json file"""
+
+        # Writing to trading.json
+        with open("trading.json", "r+") as file:
+            # load file
+            file_data = json.load(file)
+            # reset user_ids
+            id_count = 1
+            for val in file_data['users']:
+                val['user_id'] = id_count  # set new id
+                # increment id count
+                id_count += 1
+
+            # move to file_data to json file
+            file.seek(0)
+            json.dump(file_data, file, indent=4)
+
     def create_user(self, name):
         """Create new user"""
 
-        # Ensure user is not in the json file
+        # if the user exists, exit function
         if self.user_exists(name):
-            print('User already exists')
             return
 
-        # Writing to sample.json
+        # Writing to trading.json
         with open("trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
 
-            # determine id
+            # determine id for new user through file length
             user_id = len(file_data['users']) + 1
 
             # dict of user
@@ -1085,13 +1103,46 @@ class StockGame:
 
             # add new user to json file users
             file_data["users"].append(user_info)
-            file.seek(0)
 
             # move to file_data to json file
+            file.seek(0)
             json.dump(file_data, file, indent=4)
 
+    def delete_user(self, name):
+        """Delete user from json file"""
+
+        # if the user does not exist, exit function
+        if not self.user_exists(name):
+            return
+
+        # Writing to trading.json
+        with open("trading.json", "r+") as file:
+            # load file
+            file_data = json.load(file)
+
+            # locate user id
+            for val in file_data['users']:
+                if name == val['data']['user_name']:
+                    # if the id is found, break loop
+                    user_id = val['user_id']
+                    break
+
+            # rebuild dict
+            new_data = {"users": [data for data in file_data['users'] if data['user_id'] != user_id]}
+
+        # move new_data to new json file
+        with open("trading.json", "w") as file:
+            json.dump(new_data, file, indent=4)
+
+        # reset/match ids
+        self.reset_id_numbers()
+
     def load_user(self, name):
-        """Load user from json file"""
+        """Load user from json file to game"""
+
+        # if user does not exist, exit function
+        if not self.user_exists(name):
+            return
 
         # open json
         with open("trading.json", 'r+') as file:
@@ -1102,14 +1153,16 @@ class StockGame:
                 # Find the matching name
                 if val['data']['user_name'] == name:
                     self.name = name
-                    print('User found')
+                    # if the name matches, set StockGame current user to val
                     self.current_user = val
                     return val
 
-            print('User not found')
-
     def buy(self, ticker, quantity):
         """Purchase a stock"""
+
+        # check user has been loaded
+        if self.current_user is None:
+            return
 
         # user financial data
         cash = self.current_user["data"]["cash"]
@@ -1216,6 +1269,10 @@ class StockGame:
     def sell(self, ticker, quantity):
         """Sell a stock"""
 
+        # check user has been loaded
+        if self.current_user is None:
+            return
+
         # user financial data
         cash = self.current_user["data"]["cash"]
         account_value = self.current_user["data"]["account_value"]
@@ -1295,16 +1352,16 @@ class StockGame:
     def user_exists(name):
         """Confirm if a user exists in the json"""
 
-        # Writing to sample.json
+        # Writing to trading.json
         with open("trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
 
             for val in file_data['users']:
+                # find matching name
                 if val['data']['user_name'] == name:
-                    id = val['user_id']
+                    print('User exists')
                     return True
-
         return False
 
 
