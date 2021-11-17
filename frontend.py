@@ -356,7 +356,7 @@ class Ui_MainWindow(object):
         self.home_page_scrollArea.setWidgetResizable(True)
         self.home_page_frame = QWidget()
         self.home_page_frame.setObjectName(u"home_page_frame")
-        self.home_page_frame.setGeometry(QRect(0, 0, 877, 718))
+        self.home_page_frame.setGeometry(QRect(0, 0, 768, 513))
         self.verticalLayout_6 = QVBoxLayout(self.home_page_frame)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.home_page_body = QFrame(self.home_page_frame)
@@ -399,7 +399,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2069))
+        self.stock_analysis_frame.setGeometry(QRect(0, 0, 856, 2069))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.header = QFrame(self.stock_analysis_frame)
@@ -605,17 +605,20 @@ class Ui_MainWindow(object):
 
         self.times_frame = QFrame(self.stock_analysis_stock_page)
         self.times_frame.setObjectName(u"times_frame")
-        self.times_frame.setStyleSheet(u"QPushButton {\n"
-"	border-radius:10px;\n"
-"	background-color:rgb(85, 170, 255);\n"
+        self.times_frame.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 8pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
 "}\n"
-"QPushButton::hover {\n"
-"	border-radius:10px;\n"
-"    background-color:rgb(63, 126, 189);\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
 "}\n"
-"QPushButton::pressed {\n"
-"	border-radius:10px;	\n"
-"    background-color:rgb(37, 75, 112);\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
 "}")
         self.times_frame.setFrameShape(QFrame.StyledPanel)
         self.times_frame.setFrameShadow(QFrame.Raised)
@@ -1705,17 +1708,20 @@ class Ui_MainWindow(object):
 
         self.times_frame_2 = QFrame(self.stock_analysis_currency_page)
         self.times_frame_2.setObjectName(u"times_frame_2")
-        self.times_frame_2.setStyleSheet(u"QPushButton {\n"
-"	border-radius:10px;\n"
-"	background-color:rgb(85, 170, 255);\n"
+        self.times_frame_2.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 8pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
 "}\n"
-"QPushButton::hover {\n"
-"	border-radius:10px;\n"
-"    background-color:rgb(63, 126, 189);\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
 "}\n"
-"QPushButton::pressed {\n"
-"	border-radius:10px;	\n"
-"    background-color:rgb(37, 75, 112);\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
 "}")
         self.times_frame_2.setFrameShape(QFrame.StyledPanel)
         self.times_frame_2.setFrameShadow(QFrame.Raised)
@@ -2563,6 +2569,7 @@ class Ui_MainWindow(object):
 
         self.learn_start_page_content_frame_frame = QFrame(self.learn_start_page_frame)
         self.learn_start_page_content_frame_frame.setObjectName(u"learn_start_page_content_frame_frame")
+        self.learn_start_page_content_frame_frame.setStyleSheet(u"")
         self.learn_start_page_content_frame_frame.setFrameShape(QFrame.StyledPanel)
         self.learn_start_page_content_frame_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_16 = QVBoxLayout(self.learn_start_page_content_frame_frame)
@@ -2588,20 +2595,21 @@ class Ui_MainWindow(object):
         self.learn_start_page_options_frame.setObjectName(u"learn_start_page_options_frame")
         self.learn_start_page_options_frame.setMinimumSize(QSize(400, 0))
         self.learn_start_page_options_frame.setMaximumSize(QSize(25000, 16777215))
-        self.learn_start_page_options_frame.setStyleSheet(u"QPushButton {\n"
-"	border-radius:10px;\n"
-"	background-color:rgb(85, 170, 255);\n"
-"	color: rgb(255, 255, 255);\n"
+        self.learn_start_page_options_frame.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 10pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
 "}\n"
-"QPushButton::hover {\n"
-"	border-radius:10px;\n"
-"    background-color:rgb(63, 126, 189);\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
 "}\n"
-"QPushButton::pressed {\n"
-"	border-radius:10px;	\n"
-"    background-color:rgb(37, 75, 112);\n"
-"}\n"
-"")
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
+"}")
         self.learn_start_page_options_frame.setFrameShape(QFrame.StyledPanel)
         self.learn_start_page_options_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_15 = QHBoxLayout(self.learn_start_page_options_frame)
@@ -2657,7 +2665,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 842, 5689))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 5689))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -2937,7 +2945,7 @@ class Ui_MainWindow(object):
         self.cryptocurrency_page_scrollArea.setWidgetResizable(True)
         self.cryptocurrency_scrollAreaWidget_frame = QWidget()
         self.cryptocurrency_scrollAreaWidget_frame.setObjectName(u"cryptocurrency_scrollAreaWidget_frame")
-        self.cryptocurrency_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 859, 700))
+        self.cryptocurrency_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 302, 396))
         self.verticalLayout_20 = QVBoxLayout(self.cryptocurrency_scrollAreaWidget_frame)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
         self.crypto_learning_content_header = QLabel(self.cryptocurrency_scrollAreaWidget_frame)
@@ -2961,7 +2969,7 @@ class Ui_MainWindow(object):
         self.forex_page_scrollArea.setWidgetResizable(True)
         self.forex_scrollAreaWidget_frame = QWidget()
         self.forex_scrollAreaWidget_frame.setObjectName(u"forex_scrollAreaWidget_frame")
-        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 859, 700))
+        self.forex_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 302, 340))
         self.verticalLayout_22 = QVBoxLayout(self.forex_scrollAreaWidget_frame)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.forex_learning_content = QLabel(self.forex_scrollAreaWidget_frame)
@@ -3037,20 +3045,21 @@ class Ui_MainWindow(object):
         self.learn_start_page_options_frame_2.setObjectName(u"learn_start_page_options_frame_2")
         self.learn_start_page_options_frame_2.setMinimumSize(QSize(400, 0))
         self.learn_start_page_options_frame_2.setMaximumSize(QSize(25000, 16777215))
-        self.learn_start_page_options_frame_2.setStyleSheet(u"QPushButton {\n"
-"	border-radius:10px;\n"
-"	background-color:rgb(85, 170, 255);\n"
-"	color: rgb(255, 255, 255);\n"
+        self.learn_start_page_options_frame_2.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 10pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
 "}\n"
-"QPushButton::hover {\n"
-"	border-radius:10px;\n"
-"    background-color:rgb(63, 126, 189);\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
 "}\n"
-"QPushButton::pressed {\n"
-"	border-radius:10px;	\n"
-"    background-color:rgb(37, 75, 112);\n"
-"}\n"
-"")
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
+"}")
         self.learn_start_page_options_frame_2.setFrameShape(QFrame.StyledPanel)
         self.learn_start_page_options_frame_2.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_17 = QHBoxLayout(self.learn_start_page_options_frame_2)
@@ -3152,18 +3161,20 @@ class Ui_MainWindow(object):
         self.simulator_continue_to_sim_btn.setObjectName(u"simulator_continue_to_sim_btn")
         self.simulator_continue_to_sim_btn.setMinimumSize(QSize(115, 30))
         self.simulator_continue_to_sim_btn.setCursor(QCursor(Qt.PointingHandCursor))
-        self.simulator_continue_to_sim_btn.setStyleSheet(u"QPushButton {\n"
-"	color:rgb(255, 255, 255);\n"
-"	border-radius:10px;\n"
-"	background-color:rgb(85, 170, 255);\n"
+        self.simulator_continue_to_sim_btn.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 10pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
 "}\n"
-"QPushButton::hover {\n"
-"	border-radius:10px;\n"
-"    background-color:rgb(63, 126, 189);\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
 "}\n"
-"QPushButton::pressed {\n"
-"	border-radius:10px;	\n"
-"    background-color:rgb(37, 75, 112);\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
 "}")
 
         self.verticalLayout_129.addWidget(self.simulator_continue_to_sim_btn, 0, Qt.AlignHCenter)
@@ -3277,18 +3288,20 @@ class Ui_MainWindow(object):
         self.simulator_confirm_new_username_entry.setObjectName(u"simulator_confirm_new_username_entry")
         self.simulator_confirm_new_username_entry.setMinimumSize(QSize(115, 30))
         self.simulator_confirm_new_username_entry.setCursor(QCursor(Qt.PointingHandCursor))
-        self.simulator_confirm_new_username_entry.setStyleSheet(u"QPushButton {\n"
-"	color:rgb(255, 255, 255);\n"
-"	border-radius:10px;\n"
-"	background-color:rgb(85, 170, 255);\n"
+        self.simulator_confirm_new_username_entry.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 10pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
 "}\n"
-"QPushButton::hover {\n"
-"	border-radius:10px;\n"
-"    background-color:rgb(63, 126, 189);\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
 "}\n"
-"QPushButton::pressed {\n"
-"	border-radius:10px;	\n"
-"    background-color:rgb(37, 75, 112);\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
 "}")
 
         self.verticalLayout_132.addWidget(self.simulator_confirm_new_username_entry, 0, Qt.AlignHCenter)
@@ -3363,7 +3376,7 @@ class Ui_MainWindow(object):
         sizePolicy2.setHeightForWidth(self.stock_simulator_main_body.sizePolicy().hasHeightForWidth())
         self.stock_simulator_main_body.setSizePolicy(sizePolicy2)
         self.stock_simulator_main_body.setMinimumSize(QSize(0, 0))
-        self.stock_simulator_main_body.setMaximumSize(QSize(2000, 16777215))
+        self.stock_simulator_main_body.setMaximumSize(QSize(2020, 16777215))
         self.stock_simulator_main_body.setLayoutDirection(Qt.LeftToRight)
         self.stock_simulator_main_body.setAutoFillBackground(False)
         self.stock_simulator_main_body.setFrameShape(QFrame.StyledPanel)
@@ -3600,127 +3613,493 @@ class Ui_MainWindow(object):
         self.tabWidget.addTab(self.Portfolio, "")
         self.Trade = QWidget()
         self.Trade.setObjectName(u"Trade")
-        self.verticalLayout_120 = QVBoxLayout(self.Trade)
-        self.verticalLayout_120.setObjectName(u"verticalLayout_120")
-        self.stock_simulator_order_details_frame = QFrame(self.Trade)
-        self.stock_simulator_order_details_frame.setObjectName(u"stock_simulator_order_details_frame")
-        self.stock_simulator_order_details_frame.setFrameShape(QFrame.StyledPanel)
-        self.stock_simulator_order_details_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_31 = QVBoxLayout(self.stock_simulator_order_details_frame)
+        self.verticalLayout_133 = QVBoxLayout(self.Trade)
+        self.verticalLayout_133.setObjectName(u"verticalLayout_133")
+        self.stock_sim_trade_stackedWidget = QStackedWidget(self.Trade)
+        self.stock_sim_trade_stackedWidget.setObjectName(u"stock_sim_trade_stackedWidget")
+        self.stock_simulator_trade_page_tab = QWidget()
+        self.stock_simulator_trade_page_tab.setObjectName(u"stock_simulator_trade_page_tab")
+        self.verticalLayout_31 = QVBoxLayout(self.stock_simulator_trade_page_tab)
         self.verticalLayout_31.setObjectName(u"verticalLayout_31")
-        self.stock_simulator_order_details_title = QLabel(self.stock_simulator_order_details_frame)
+        self.frame_91 = QFrame(self.stock_simulator_trade_page_tab)
+        self.frame_91.setObjectName(u"frame_91")
+        self.frame_91.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.frame_91.setFrameShape(QFrame.StyledPanel)
+        self.frame_91.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_120 = QVBoxLayout(self.frame_91)
+        self.verticalLayout_120.setObjectName(u"verticalLayout_120")
+        self.stock_simulator_order_details_title = QLabel(self.frame_91)
         self.stock_simulator_order_details_title.setObjectName(u"stock_simulator_order_details_title")
-        self.stock_simulator_order_details_title.setStyleSheet(u"font: 14pt \"MS Shell Dlg 2\";")
+        self.stock_simulator_order_details_title.setStyleSheet(u"font: 24pt \"MS Shell Dlg 2\";")
 
-        self.verticalLayout_31.addWidget(self.stock_simulator_order_details_title)
+        self.verticalLayout_120.addWidget(self.stock_simulator_order_details_title)
 
-        self.line_2 = QFrame(self.stock_simulator_order_details_frame)
-        self.line_2.setObjectName(u"line_2")
-        self.line_2.setFrameShape(QFrame.HLine)
-        self.line_2.setFrameShadow(QFrame.Sunken)
 
-        self.verticalLayout_31.addWidget(self.line_2)
+        self.verticalLayout_31.addWidget(self.frame_91)
 
-        self.stock_simulator_order_details_data_frame = QFrame(self.stock_simulator_order_details_frame)
+        self.line = QFrame(self.stock_simulator_trade_page_tab)
+        self.line.setObjectName(u"line")
+        self.line.setMinimumSize(QSize(750, 0))
+        self.line.setMaximumSize(QSize(16777215, 16777215))
+        self.line.setFrameShape(QFrame.HLine)
+        self.line.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_31.addWidget(self.line, 0, Qt.AlignLeft)
+
+        self.frame_97 = QFrame(self.stock_simulator_trade_page_tab)
+        self.frame_97.setObjectName(u"frame_97")
+        self.frame_97.setMinimumSize(QSize(0, 0))
+        self.frame_97.setSizeIncrement(QSize(0, 0))
+        self.frame_97.setFrameShape(QFrame.StyledPanel)
+        self.frame_97.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_21 = QHBoxLayout(self.frame_97)
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.horizontalLayout_21.setContentsMargins(-1, 10, -1, -1)
+        self.stock_simulator_order_details_data_frame = QFrame(self.frame_97)
         self.stock_simulator_order_details_data_frame.setObjectName(u"stock_simulator_order_details_data_frame")
+        self.stock_simulator_order_details_data_frame.setStyleSheet(u"QLabel{\n"
+"	font: 18pt \"MS Shell Dlg 2\";\n"
+"	color: rgb(255, 255, 255);\n"
+"}\n"
+"\n"
+"QLineEdit{\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(64, 67, 76);\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"border:2px solid rgba(105, 115, 132, 255);\n"
+"color: rgb(201, 210, 238);\n"
+"}\n"
+"\n"
+"QComboBox{\n"
+"background-color: rgb(64, 67, 76);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"border:2px solid rgba(105, 115, 132, 255);\n"
+"color: rgb(201, 210, 238);\n"
+"}\n"
+"")
         self.stock_simulator_order_details_data_frame.setFrameShape(QFrame.StyledPanel)
         self.stock_simulator_order_details_data_frame.setFrameShadow(QFrame.Raised)
-        self.gridLayout_6 = QGridLayout(self.stock_simulator_order_details_data_frame)
-        self.gridLayout_6.setSpacing(10)
-        self.gridLayout_6.setObjectName(u"gridLayout_6")
-        self.gridLayout_6.setContentsMargins(-1, -1, -1, 30)
-        self.stock_simulator_stock_ticker_label = QLabel(self.stock_simulator_order_details_data_frame)
+        self.verticalLayout_134 = QVBoxLayout(self.stock_simulator_order_details_data_frame)
+        self.verticalLayout_134.setObjectName(u"verticalLayout_134")
+        self.frame_94 = QFrame(self.stock_simulator_order_details_data_frame)
+        self.frame_94.setObjectName(u"frame_94")
+        self.frame_94.setStyleSheet(u"")
+        self.frame_94.setFrameShape(QFrame.StyledPanel)
+        self.frame_94.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_135 = QVBoxLayout(self.frame_94)
+        self.verticalLayout_135.setSpacing(12)
+        self.verticalLayout_135.setObjectName(u"verticalLayout_135")
+        self.verticalLayout_135.setContentsMargins(-1, -1, 9, -1)
+        self.stock_simulator_stock_ticker_label = QLabel(self.frame_94)
         self.stock_simulator_stock_ticker_label.setObjectName(u"stock_simulator_stock_ticker_label")
 
-        self.gridLayout_6.addWidget(self.stock_simulator_stock_ticker_label, 0, 0, 1, 1)
+        self.verticalLayout_135.addWidget(self.stock_simulator_stock_ticker_label)
 
-        self.stock_simulator_symbol_lookup_button = QPushButton(self.stock_simulator_order_details_data_frame)
+        self.stock_simulator_stock_ticker_entry = QLineEdit(self.frame_94)
+        self.stock_simulator_stock_ticker_entry.setObjectName(u"stock_simulator_stock_ticker_entry")
+        self.stock_simulator_stock_ticker_entry.setMinimumSize(QSize(500, 30))
+        self.stock_simulator_stock_ticker_entry.setMaximumSize(QSize(16777215, 16777215))
+        self.stock_simulator_stock_ticker_entry.setStyleSheet(u"")
+
+        self.verticalLayout_135.addWidget(self.stock_simulator_stock_ticker_entry)
+
+
+        self.verticalLayout_134.addWidget(self.frame_94)
+
+        self.frame_93 = QFrame(self.stock_simulator_order_details_data_frame)
+        self.frame_93.setObjectName(u"frame_93")
+        self.frame_93.setFrameShape(QFrame.StyledPanel)
+        self.frame_93.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_140 = QVBoxLayout(self.frame_93)
+        self.verticalLayout_140.setSpacing(12)
+        self.verticalLayout_140.setObjectName(u"verticalLayout_140")
+        self.stock_simulator_transaction_label = QLabel(self.frame_93)
+        self.stock_simulator_transaction_label.setObjectName(u"stock_simulator_transaction_label")
+
+        self.verticalLayout_140.addWidget(self.stock_simulator_transaction_label)
+
+        self.stock_simulator_transaction_type_combobox = QComboBox(self.frame_93)
+        self.stock_simulator_transaction_type_combobox.addItem("")
+        self.stock_simulator_transaction_type_combobox.addItem("")
+        self.stock_simulator_transaction_type_combobox.setObjectName(u"stock_simulator_transaction_type_combobox")
+        self.stock_simulator_transaction_type_combobox.setMinimumSize(QSize(500, 30))
+        self.stock_simulator_transaction_type_combobox.setMaximumSize(QSize(16777215, 16777215))
+        self.stock_simulator_transaction_type_combobox.setStyleSheet(u"")
+
+        self.verticalLayout_140.addWidget(self.stock_simulator_transaction_type_combobox)
+
+
+        self.verticalLayout_134.addWidget(self.frame_93)
+
+        self.frame_96 = QFrame(self.stock_simulator_order_details_data_frame)
+        self.frame_96.setObjectName(u"frame_96")
+        self.frame_96.setFrameShape(QFrame.StyledPanel)
+        self.frame_96.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_141 = QVBoxLayout(self.frame_96)
+        self.verticalLayout_141.setSpacing(12)
+        self.verticalLayout_141.setObjectName(u"verticalLayout_141")
+        self.stock_simulator_quantity_label = QLabel(self.frame_96)
+        self.stock_simulator_quantity_label.setObjectName(u"stock_simulator_quantity_label")
+
+        self.verticalLayout_141.addWidget(self.stock_simulator_quantity_label)
+
+        self.stock_simulator_quantity_entry = QLineEdit(self.frame_96)
+        self.stock_simulator_quantity_entry.setObjectName(u"stock_simulator_quantity_entry")
+        self.stock_simulator_quantity_entry.setMinimumSize(QSize(500, 30))
+        self.stock_simulator_quantity_entry.setMaximumSize(QSize(16777215, 16777215))
+        self.stock_simulator_quantity_entry.setStyleSheet(u"")
+
+        self.verticalLayout_141.addWidget(self.stock_simulator_quantity_entry)
+
+
+        self.verticalLayout_134.addWidget(self.frame_96)
+
+
+        self.horizontalLayout_21.addWidget(self.stock_simulator_order_details_data_frame)
+
+        self.frame_95 = QFrame(self.frame_97)
+        self.frame_95.setObjectName(u"frame_95")
+        self.frame_95.setMinimumSize(QSize(0, 0))
+        self.frame_95.setFrameShape(QFrame.StyledPanel)
+        self.frame_95.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_139 = QVBoxLayout(self.frame_95)
+        self.verticalLayout_139.setObjectName(u"verticalLayout_139")
+        self.verticalLayout_139.setContentsMargins(-1, 57, -1, -1)
+        self.stock_simulator_symbol_lookup_button = QPushButton(self.frame_95)
         self.stock_simulator_symbol_lookup_button.setObjectName(u"stock_simulator_symbol_lookup_button")
-        self.stock_simulator_symbol_lookup_button.setStyleSheet(u"color:rgb(0, 85, 255)")
+        sizePolicy2.setHeightForWidth(self.stock_simulator_symbol_lookup_button.sizePolicy().hasHeightForWidth())
+        self.stock_simulator_symbol_lookup_button.setSizePolicy(sizePolicy2)
+        self.stock_simulator_symbol_lookup_button.setMinimumSize(QSize(150, 35))
+        self.stock_simulator_symbol_lookup_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.stock_simulator_symbol_lookup_button.setStyleSheet(u"QPushButton {\n"
+"	color: rgb(255, 255, 255);\n"
+"	border-radius:10px;\n"
+"}\n"
+"QPushButton::hover {\n"
+"	border-radius:4px;\n"
+"	background-color: rgb(55, 58, 66);\n"
+"}\n"
+"QPushButton::pressed {\n"
+"	border-radius:4px;\n"
+"	background-color: rgb(65, 68, 77);\n"
+"}")
         self.stock_simulator_symbol_lookup_button.setIcon(icon10)
         self.stock_simulator_symbol_lookup_button.setFlat(True)
 
-        self.gridLayout_6.addWidget(self.stock_simulator_symbol_lookup_button, 0, 2, 1, 1)
-
-        self.stock_simulator_transaction_label = QLabel(self.stock_simulator_order_details_data_frame)
-        self.stock_simulator_transaction_label.setObjectName(u"stock_simulator_transaction_label")
-
-        self.gridLayout_6.addWidget(self.stock_simulator_transaction_label, 1, 0, 1, 1)
-
-        self.stock_simulator_stock_ticker_entry = QLineEdit(self.stock_simulator_order_details_data_frame)
-        self.stock_simulator_stock_ticker_entry.setObjectName(u"stock_simulator_stock_ticker_entry")
-        self.stock_simulator_stock_ticker_entry.setMaximumSize(QSize(200, 16777215))
-        self.stock_simulator_stock_ticker_entry.setStyleSheet(u"background-color: rgb(0, 0, 0, 0 );\n"
-"font: 10pt \"MS Shell Dlg 2\";\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 115, 132, 255);\n"
-"color:rgba(255, 255, 255, 230);")
-
-        self.gridLayout_6.addWidget(self.stock_simulator_stock_ticker_entry, 0, 1, 1, 1)
-
-        self.stock_simulator_quantity_entry = QLineEdit(self.stock_simulator_order_details_data_frame)
-        self.stock_simulator_quantity_entry.setObjectName(u"stock_simulator_quantity_entry")
-        self.stock_simulator_quantity_entry.setMaximumSize(QSize(200, 16777215))
-        self.stock_simulator_quantity_entry.setStyleSheet(u"background-color: rgb(0, 0, 0, 0 );\n"
-"font: 10pt \"MS Shell Dlg 2\";\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 115, 132, 255);\n"
-"color:rgba(255, 255, 255, 230);")
-
-        self.gridLayout_6.addWidget(self.stock_simulator_quantity_entry, 2, 1, 1, 1)
-
-        self.comboBox = QComboBox(self.stock_simulator_order_details_data_frame)
-        self.comboBox.setObjectName(u"comboBox")
-        self.comboBox.setMaximumSize(QSize(200, 16777215))
-        self.comboBox.setStyleSheet(u"background-color: rgb(0, 0, 0, 0 );\n"
-"font: 10pt \"MS Shell Dlg 2\";\n"
-"border:none;\n"
-"border-bottom:2px solid rgba(105, 115, 132, 255);\n"
-"color:rgba(255, 255, 255, 230);")
-
-        self.gridLayout_6.addWidget(self.comboBox, 1, 1, 1, 1)
-
-        self.stock_simulator_quantity_label = QLabel(self.stock_simulator_order_details_data_frame)
-        self.stock_simulator_quantity_label.setObjectName(u"stock_simulator_quantity_label")
-
-        self.gridLayout_6.addWidget(self.stock_simulator_quantity_label, 2, 0, 1, 1)
+        self.verticalLayout_139.addWidget(self.stock_simulator_symbol_lookup_button)
 
 
-        self.verticalLayout_31.addWidget(self.stock_simulator_order_details_data_frame)
+        self.horizontalLayout_21.addWidget(self.frame_95, 0, Qt.AlignTop)
 
-        self.frame_76 = QFrame(self.stock_simulator_order_details_frame)
+
+        self.verticalLayout_31.addWidget(self.frame_97, 0, Qt.AlignLeft)
+
+        self.line_2 = QFrame(self.stock_simulator_trade_page_tab)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setMinimumSize(QSize(750, 0))
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_31.addWidget(self.line_2, 0, Qt.AlignLeft)
+
+        self.frame_76 = QFrame(self.stock_simulator_trade_page_tab)
         self.frame_76.setObjectName(u"frame_76")
+        self.frame_76.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 10pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(42, 44, 50);\n"
+"}")
         self.frame_76.setFrameShape(QFrame.StyledPanel)
         self.frame_76.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_16 = QHBoxLayout(self.frame_76)
+        self.horizontalLayout_16.setSpacing(115)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.horizontalLayout_16.setContentsMargins(27, 17, -1, -1)
         self.stock_simulator_purchase_button_2 = QPushButton(self.frame_76)
         self.stock_simulator_purchase_button_2.setObjectName(u"stock_simulator_purchase_button_2")
-        self.stock_simulator_purchase_button_2.setMinimumSize(QSize(300, 30))
+        self.stock_simulator_purchase_button_2.setMinimumSize(QSize(200, 30))
         self.stock_simulator_purchase_button_2.setMaximumSize(QSize(400, 16777215))
-        self.stock_simulator_purchase_button_2.setStyleSheet(u"border-radius:10px;\n"
-"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(74, 74, 255, 255), stop:0.795455 rgba(0, 255, 233, 255));\n"
-"color: rgb(255, 255, 255);")
+        self.stock_simulator_purchase_button_2.setCursor(QCursor(Qt.PointingHandCursor))
+        self.stock_simulator_purchase_button_2.setStyleSheet(u"")
         self.stock_simulator_purchase_button_2.setFlat(False)
 
         self.horizontalLayout_16.addWidget(self.stock_simulator_purchase_button_2)
 
         self.stock_simulator_purchase_button = QPushButton(self.frame_76)
         self.stock_simulator_purchase_button.setObjectName(u"stock_simulator_purchase_button")
-        self.stock_simulator_purchase_button.setMinimumSize(QSize(300, 30))
+        self.stock_simulator_purchase_button.setMinimumSize(QSize(200, 30))
         self.stock_simulator_purchase_button.setMaximumSize(QSize(400, 16777215))
-        self.stock_simulator_purchase_button.setStyleSheet(u"border-radius:10px;\n"
-"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:0, y2:0, stop:0 rgba(74, 74, 255, 255), stop:0.795455 rgba(0, 255, 233, 255));\n"
-"color: rgb(255, 255, 255);")
+        self.stock_simulator_purchase_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.stock_simulator_purchase_button.setStyleSheet(u"")
         self.stock_simulator_purchase_button.setFlat(False)
 
         self.horizontalLayout_16.addWidget(self.stock_simulator_purchase_button)
 
 
-        self.verticalLayout_31.addWidget(self.frame_76)
+        self.verticalLayout_31.addWidget(self.frame_76, 0, Qt.AlignLeft)
+
+        self.stock_sim_trade_stackedWidget.addWidget(self.stock_simulator_trade_page_tab)
+        self.stock_simulator_confirm_transaction_page = QWidget()
+        self.stock_simulator_confirm_transaction_page.setObjectName(u"stock_simulator_confirm_transaction_page")
+        self.verticalLayout_145 = QVBoxLayout(self.stock_simulator_confirm_transaction_page)
+        self.verticalLayout_145.setObjectName(u"verticalLayout_145")
+        self.frame_107 = QFrame(self.stock_simulator_confirm_transaction_page)
+        self.frame_107.setObjectName(u"frame_107")
+        self.frame_107.setFrameShape(QFrame.StyledPanel)
+        self.frame_107.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_146 = QVBoxLayout(self.frame_107)
+        self.verticalLayout_146.setObjectName(u"verticalLayout_146")
+        self.frame_98 = QFrame(self.frame_107)
+        self.frame_98.setObjectName(u"frame_98")
+        self.frame_98.setMaximumSize(QSize(470, 16777215))
+        self.frame_98.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(81, 85, 97);\n"
+"border-radius:10px;\n"
+"")
+        self.frame_98.setFrameShape(QFrame.StyledPanel)
+        self.frame_98.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_142 = QVBoxLayout(self.frame_98)
+        self.verticalLayout_142.setObjectName(u"verticalLayout_142")
+        self.frame_99 = QFrame(self.frame_98)
+        self.frame_99.setObjectName(u"frame_99")
+        self.frame_99.setFrameShape(QFrame.StyledPanel)
+        self.frame_99.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_49 = QHBoxLayout(self.frame_99)
+        self.horizontalLayout_49.setObjectName(u"horizontalLayout_49")
+        self.label_17 = QLabel(self.frame_99)
+        self.label_17.setObjectName(u"label_17")
+        self.label_17.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_49.addWidget(self.label_17)
+
+        self.header_right_frame_2 = QFrame(self.frame_99)
+        self.header_right_frame_2.setObjectName(u"header_right_frame_2")
+        self.header_right_frame_2.setStyleSheet(u"QPushButton{\n"
+"	color:rgb(255, 255, 255);\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"	border:none;\n"
+"	border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(60, 88, 125);\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(71, 105, 149);\n"
+"}\n"
+"")
+        self.header_right_frame_2.setFrameShape(QFrame.StyledPanel)
+        self.header_right_frame_2.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_50 = QHBoxLayout(self.header_right_frame_2)
+        self.horizontalLayout_50.setSpacing(10)
+        self.horizontalLayout_50.setObjectName(u"horizontalLayout_50")
+        self.horizontalLayout_50.setContentsMargins(0, 0, 0, 0)
+
+        self.horizontalLayout_49.addWidget(self.header_right_frame_2, 0, Qt.AlignRight)
 
 
-        self.verticalLayout_120.addWidget(self.stock_simulator_order_details_frame)
+        self.verticalLayout_142.addWidget(self.frame_99)
+
+        self.frame_100 = QFrame(self.frame_98)
+        self.frame_100.setObjectName(u"frame_100")
+        self.frame_100.setFrameShape(QFrame.StyledPanel)
+        self.frame_100.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_143 = QVBoxLayout(self.frame_100)
+        self.verticalLayout_143.setObjectName(u"verticalLayout_143")
+        self.stock_name = QLabel(self.frame_100)
+        self.stock_name.setObjectName(u"stock_name")
+        self.stock_name.setStyleSheet(u"font: 75 14pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_143.addWidget(self.stock_name, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_142.addWidget(self.frame_100)
+
+        self.frame_101 = QFrame(self.frame_98)
+        self.frame_101.setObjectName(u"frame_101")
+        self.frame_101.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";")
+        self.frame_101.setFrameShape(QFrame.StyledPanel)
+        self.frame_101.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_144 = QVBoxLayout(self.frame_101)
+        self.verticalLayout_144.setObjectName(u"verticalLayout_144")
+        self.frame_102 = QFrame(self.frame_101)
+        self.frame_102.setObjectName(u"frame_102")
+        self.frame_102.setFrameShape(QFrame.StyledPanel)
+        self.frame_102.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_51 = QHBoxLayout(self.frame_102)
+        self.horizontalLayout_51.setObjectName(u"horizontalLayout_51")
+        self.label_19 = QLabel(self.frame_102)
+        self.label_19.setObjectName(u"label_19")
+
+        self.horizontalLayout_51.addWidget(self.label_19)
+
+        self.price_label = QLabel(self.frame_102)
+        self.price_label.setObjectName(u"price_label")
+
+        self.horizontalLayout_51.addWidget(self.price_label)
+
+
+        self.verticalLayout_144.addWidget(self.frame_102)
+
+        self.line_3 = QFrame(self.frame_101)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setFrameShape(QFrame.HLine)
+        self.line_3.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_144.addWidget(self.line_3)
+
+        self.frame_103 = QFrame(self.frame_101)
+        self.frame_103.setObjectName(u"frame_103")
+        self.frame_103.setFrameShape(QFrame.StyledPanel)
+        self.frame_103.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_52 = QHBoxLayout(self.frame_103)
+        self.horizontalLayout_52.setObjectName(u"horizontalLayout_52")
+        self.label_21 = QLabel(self.frame_103)
+        self.label_21.setObjectName(u"label_21")
+
+        self.horizontalLayout_52.addWidget(self.label_21)
+
+        self.quantity_label = QLabel(self.frame_103)
+        self.quantity_label.setObjectName(u"quantity_label")
+
+        self.horizontalLayout_52.addWidget(self.quantity_label)
+
+
+        self.verticalLayout_144.addWidget(self.frame_103)
+
+        self.line_8 = QFrame(self.frame_101)
+        self.line_8.setObjectName(u"line_8")
+        self.line_8.setFrameShape(QFrame.HLine)
+        self.line_8.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_144.addWidget(self.line_8)
+
+        self.frame_104 = QFrame(self.frame_101)
+        self.frame_104.setObjectName(u"frame_104")
+        self.frame_104.setFrameShape(QFrame.StyledPanel)
+        self.frame_104.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_53 = QHBoxLayout(self.frame_104)
+        self.horizontalLayout_53.setObjectName(u"horizontalLayout_53")
+        self.label_23 = QLabel(self.frame_104)
+        self.label_23.setObjectName(u"label_23")
+
+        self.horizontalLayout_53.addWidget(self.label_23)
+
+        self.total_spread_label = QLabel(self.frame_104)
+        self.total_spread_label.setObjectName(u"total_spread_label")
+
+        self.horizontalLayout_53.addWidget(self.total_spread_label)
+
+
+        self.verticalLayout_144.addWidget(self.frame_104)
+
+        self.line_9 = QFrame(self.frame_101)
+        self.line_9.setObjectName(u"line_9")
+        self.line_9.setFrameShape(QFrame.HLine)
+        self.line_9.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_144.addWidget(self.line_9)
+
+        self.line_10 = QFrame(self.frame_101)
+        self.line_10.setObjectName(u"line_10")
+        self.line_10.setFrameShape(QFrame.HLine)
+        self.line_10.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_144.addWidget(self.line_10)
+
+        self.frame_105 = QFrame(self.frame_101)
+        self.frame_105.setObjectName(u"frame_105")
+        self.frame_105.setFrameShape(QFrame.StyledPanel)
+        self.frame_105.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_54 = QHBoxLayout(self.frame_105)
+        self.horizontalLayout_54.setObjectName(u"horizontalLayout_54")
+        self.total_cost_label = QLabel(self.frame_105)
+        self.total_cost_label.setObjectName(u"total_cost_label")
+
+        self.horizontalLayout_54.addWidget(self.total_cost_label)
+
+        self.label_24 = QLabel(self.frame_105)
+        self.label_24.setObjectName(u"label_24")
+
+        self.horizontalLayout_54.addWidget(self.label_24)
+
+
+        self.verticalLayout_144.addWidget(self.frame_105)
+
+
+        self.verticalLayout_142.addWidget(self.frame_101)
+
+        self.frame_106 = QFrame(self.frame_98)
+        self.frame_106.setObjectName(u"frame_106")
+        self.frame_106.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font: 10pt \"MS Shell Dlg 2\";\n"
+"	background-color: rgb(106, 156, 221);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(42, 44, 50);\n"
+"}")
+        self.frame_106.setFrameShape(QFrame.StyledPanel)
+        self.frame_106.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_55 = QHBoxLayout(self.frame_106)
+        self.horizontalLayout_55.setSpacing(115)
+        self.horizontalLayout_55.setObjectName(u"horizontalLayout_55")
+        self.horizontalLayout_55.setContentsMargins(27, 17, -1, -1)
+        self.stock_simulator_purchase_camcel_btn = QPushButton(self.frame_106)
+        self.stock_simulator_purchase_camcel_btn.setObjectName(u"stock_simulator_purchase_camcel_btn")
+        self.stock_simulator_purchase_camcel_btn.setMinimumSize(QSize(150, 30))
+        self.stock_simulator_purchase_camcel_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.stock_simulator_purchase_camcel_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.stock_simulator_purchase_camcel_btn.setStyleSheet(u"")
+        self.stock_simulator_purchase_camcel_btn.setFlat(False)
+
+        self.horizontalLayout_55.addWidget(self.stock_simulator_purchase_camcel_btn)
+
+        self.stock_simulator_purchase_confirm_btn = QPushButton(self.frame_106)
+        self.stock_simulator_purchase_confirm_btn.setObjectName(u"stock_simulator_purchase_confirm_btn")
+        self.stock_simulator_purchase_confirm_btn.setMinimumSize(QSize(150, 30))
+        self.stock_simulator_purchase_confirm_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.stock_simulator_purchase_confirm_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.stock_simulator_purchase_confirm_btn.setStyleSheet(u"")
+        self.stock_simulator_purchase_confirm_btn.setFlat(False)
+
+        self.horizontalLayout_55.addWidget(self.stock_simulator_purchase_confirm_btn)
+
+
+        self.verticalLayout_142.addWidget(self.frame_106, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_146.addWidget(self.frame_98, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+
+        self.verticalLayout_145.addWidget(self.frame_107)
+
+        self.stock_sim_trade_stackedWidget.addWidget(self.stock_simulator_confirm_transaction_page)
+
+        self.verticalLayout_133.addWidget(self.stock_sim_trade_stackedWidget, 0, Qt.AlignTop)
 
         self.tabWidget.addTab(self.Trade, "")
         self.Performance = QWidget()
@@ -3914,8 +4293,9 @@ class Ui_MainWindow(object):
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(0)
-        self.simulator_stacked_widget.setCurrentIndex(0)
-        self.tabWidget.setCurrentIndex(0)
+        self.simulator_stacked_widget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(1)
+        self.stock_sim_trade_stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -4224,11 +4604,26 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Portfolio), QCoreApplication.translate("MainWindow", u"Portfolio", None))
         self.stock_simulator_order_details_title.setText(QCoreApplication.translate("MainWindow", u"ORDER DETAILS", None))
         self.stock_simulator_stock_ticker_label.setText(QCoreApplication.translate("MainWindow", u"Stock symbol", None))
-        self.stock_simulator_symbol_lookup_button.setText(QCoreApplication.translate("MainWindow", u"SYMBOL LOOKUP BUTTON", None))
         self.stock_simulator_transaction_label.setText(QCoreApplication.translate("MainWindow", u"Transaction", None))
+        self.stock_simulator_transaction_type_combobox.setItemText(0, QCoreApplication.translate("MainWindow", u"Buy", None))
+        self.stock_simulator_transaction_type_combobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Sell", None))
+
         self.stock_simulator_quantity_label.setText(QCoreApplication.translate("MainWindow", u"Quantity", None))
+        self.stock_simulator_symbol_lookup_button.setText(QCoreApplication.translate("MainWindow", u"View stock...", None))
         self.stock_simulator_purchase_button_2.setText(QCoreApplication.translate("MainWindow", u"CLEAR ALL", None))
-        self.stock_simulator_purchase_button.setText(QCoreApplication.translate("MainWindow", u"PURCHASE", None))
+        self.stock_simulator_purchase_button.setText(QCoreApplication.translate("MainWindow", u"PREVIEW ORDER", None))
+        self.label_17.setText(QCoreApplication.translate("MainWindow", u"Preview order", None))
+        self.stock_name.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_19.setText(QCoreApplication.translate("MainWindow", u"Price", None))
+        self.price_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_21.setText(QCoreApplication.translate("MainWindow", u"Quantity", None))
+        self.quantity_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Total Spread", None))
+        self.total_spread_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.total_cost_label.setText(QCoreApplication.translate("MainWindow", u"Total", None))
+        self.label_24.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_simulator_purchase_camcel_btn.setText(QCoreApplication.translate("MainWindow", u"CANCEL ORDER", None))
+        self.stock_simulator_purchase_confirm_btn.setText(QCoreApplication.translate("MainWindow", u"BUY", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Trade), QCoreApplication.translate("MainWindow", u"Trade", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Performance), QCoreApplication.translate("MainWindow", u"Performance", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Account", None))
