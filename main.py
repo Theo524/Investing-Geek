@@ -24,11 +24,6 @@ class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
 
-        # all ticker names
-        all_tickers = AllTickers()
-        self.all_stock_ticker_names = all_tickers.stock_dict
-        self.all_crypto_ticker_names = all_tickers.crypto_dict
-
         # gui elements
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
@@ -148,6 +143,10 @@ class MainWindow(QMainWindow):
 
         # simulator page
         self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
+        # simulator trade tab
+        self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
+        # simulator tab widget starting tab
+        self.ui.tabWidget.setCurrentIndex(0)
         # simulator page buttons
         self.ui.stock_simulator_start_btn.clicked.connect(
             lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page))
@@ -792,12 +791,13 @@ font: 8pt "MS Shell Dlg 2";""")
             msg.exec_()
 
     def preview_order(self):
-        # loading
+        """Preview order"""
+
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # data
-        stock_name = self.ui.stock_simulator_stock_ticker_entry.text()
-        transaction_type = self.ui.stock_simulator_transaction_type_combobox.currentText()
+        # entry data
+        stock_name = self.ui.stock_simulator_stock_ticker_entry.text().upper()
+        transaction_type = self.ui.stock_simulator_transaction_type_combobox.currentText().lower()
         quantity = int(self.ui.stock_simulator_quantity_entry.text())
 
         # verify stock
@@ -805,16 +805,34 @@ font: 8pt "MS Shell Dlg 2";""")
         self.ticker = stock_name
         self.ticker_obj = yf.Ticker(self.ticker)
 
+        # data
+        bid = self.ticker_obj.info['bid']
+        ask = self.ticker_obj.info['bid']
+        full_name = self.ticker_obj.info['longName']
+        total_spread = (ask - bid) * int(quantity)
+        total = str(bid * quantity) if transaction_type == 'buy' else str(ask * quantity)
+
         ticker_type = self.stock_or_crypto()
 
         # ticker
         if ticker_type == 'stock' and int(quantity) > 0:
-            self.sim_trade_win = StockPurchaseWin(self.stock_game, company=stock_name, transaction_type=transaction_type,
-                                                  quantity=quantity)
+            # SET TEXT
+            self.ui.stock_name.setText(str(full_name))
+            self.ui.price_label.setText(str(bid if transaction_type == 'buy' else ask))
+            self.ui.quantity_label.setText(str(quantity))
+            self.ui.total_spread_label.setText(str(total_spread))
+            self.ui.label_11.setText(str(int(bid if transaction_type == 'buy' else ask) * int(quantity)))
+            self.ui.label_24.setText(total)
+            self.ui.stock_simulator_purchase_confirm_btn.setText('BUY' if transaction_type == 'buy' else 'SELL')
 
-            # finally update portfolio
-            user_data = self.sim_trade_win.game.current_user
-            self.add_user_data_to_simulator_tabs(user_data)
+            # valid trade
+            self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_confirm_transaction_page)
+
+            # finally update and perform trade on portfolio
+            self.ui.stock_simulator_purchase_confirm_btn.clicked.connect(lambda: self.perform_stock_trade(stock_name, transaction_type, quantity))
+
+            # cancel order button
+            self.ui.stock_simulator_purchase_camcel_btn.clicked.connect(lambda: self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab))
 
         else:
             msg = QMessageBox()
@@ -823,72 +841,52 @@ font: 8pt "MS Shell Dlg 2";""")
             msg.setWindowTitle("Error")
             msg.exec_()
 
-        # return control
         QApplication.restoreOverrideCursor()
 
+    def perform_stock_trade(self, stock_name, transaction_type, quantity):
+        """Buy or sell stock"""
 
-class StockPurchaseWin(QDialog):
-    def __init__(self, stock_game, **kwargs):
-        QDialog.__init__(self)
+        QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # key data
-        self.buying = False
-        self.selling = False
-        self.game = stock_game
+        if transaction_type == 'buy':
 
-        # gui elements
-        self.ui = Stock_Transc()
-        self.ui.setupUi(self)
-        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
-        self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+            # buy stock for user
+            self.stock_game.buy(stock_name, quantity)
 
-        # data
-        company = str(kwargs['company']).upper()
-        quantity = int(kwargs['quantity'])
-        self.quantity = quantity
-        self.company = company
-        ticker_obj = yf.Ticker(company).info
-        bid = ticker_obj['bid']
-        ask = ticker_obj['bid']
-        total_spread = (ask - bid) * int(quantity)
+            # update portfolio
+            self.stock_game.load_user(self.stock_game.name)
+            self.add_user_data_to_simulator_tabs(self.stock_game.current_user)
 
-        # label
-        self.ui.stock_name.setText(ticker_obj['longName'])
+            # feedback and return to previous page
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText('Stock succesfully bought')
+            msg.setWindowTitle("Success")
+            msg.exec_()
 
-        if kwargs['transaction_type'] == 'Buy':
-            self.ui.price_label.setText(str(bid))
-            self.ui.quantity_label.setText(str(quantity))
-            self.ui.total_spread_label.setText(str(total_spread))
-            self.ui.label_11.setText(str(int(bid) * int(quantity)))
+            # return to previous page
+            self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
 
-            self.ui.stock_simulator_purchase_confirm_btn.setText('BUY')
+        if transaction_type == 'sell':
 
-            # carry out action
-            self.ui.stock_simulator_purchase_confirm_btn.clicked.connect(self.buy)
+            # sell stock for user
+            self.stock_game.sell(stock_name, quantity)
 
-        elif kwargs['transaction_type'] == 'Sell':
-            self.ui.price_label.setText(str(ask))
-            self.ui.quantity_label.setText(str(quantity))
-            self.ui.total_spread_label.setText(str(total_spread))
-            self.ui.label_11.setText(str(int(bid) * int(quantity)))
+            # update portfolio
+            self.stock_game.load_user(self.stock_game.name)
+            self.add_user_data_to_simulator_tabs(self.stock_game.current_user)
 
-            self.ui.stock_simulator_purchase_confirm_btn.setText('SELL')
+            # feedback and return to previous page
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText('Stock succesfully sold')
+            msg.setWindowTitle("Success")
+            msg.exec_()
 
-            # carry out action
-            self.ui.stock_simulator_purchase_confirm_btn.clicked.connect(self.sell)
+            # return to previous page
+            self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
 
-        self.ui.stock_simulator_purchase_camcel_btn.clicked.connect(lambda: self.close())
-
-        # show window
-        self.show()
-
-    def buy(self):
-        self.game.buy(self.company, self.quantity)
-        self.close()
-
-    def sell(self):
-        self.game.sell(self.company, self.quantity)
-        self.close()
+        QApplication.restoreOverrideCursor()
 
 
 class TickerInfo(QMainWindow):
@@ -946,68 +944,6 @@ class TickerInfo(QMainWindow):
 
         # show window
         self.show()
-
-
-class AllTickers:
-    """Gets a limited amount of ticker names for a ticker type"""
-
-    def __init__(self):
-
-        self.stock_dict = {}
-        self.crypto_dict = {}
-
-        # get all stocks
-        for char in string.ascii_uppercase:
-            self.scrape_symbols(letter=char, val_type='stock')
-
-        # get all crypto
-        self.scrape_symbols(letter='', val_type='crypto')
-
-    # Create a function to scrape the data
-    def scrape_symbols(self, letter, val_type='stock'):
-        """ Create a function to scrape the data"""
-
-        if val_type == 'stock':
-            letter = letter.upper()
-            exchange = 'nasdaq'
-            # website
-            URL = f'https://www.advfn.com/{exchange}/{exchange}.asp?companies=' + letter
-
-            # convert to soup object
-            page = requests.get(URL)
-            soup = BeautifulSoup(page.text, "html.parser")
-
-            # iterate all rows '<tr>' tags
-            odd_rows = soup.find_all('tr', attrs={'class': 'ts0'})
-            even_rows = soup.find_all('tr', attrs={'class': 'ts1'})
-
-            # make dicts with tag content
-            for i in odd_rows:
-                row = i.find_all('td')
-                self.stock_dict[row[1].text.strip()] = row[0].text.strip()
-
-            for i in even_rows:
-                row = i.find_all('td')
-                self.stock_dict[row[1].text.strip()] = row[0].text.strip()
-
-        if val_type == 'crypto':
-            # website
-            URL = 'https://crypto.com/price'
-
-            # convert to soup object
-            page = requests.get(URL)
-            soup = BeautifulSoup(page.text, "html.parser")
-
-            # iterate all rows '<span>' tags
-            crypto_names = soup.find_all('span', attrs={'class': 'chakra-text css-1mrk1dy'})
-            crypto_acr = soup.find_all('span', attrs={'class': 'chakra-text css-44ctie'})
-
-            # amount of crypto names
-            crypto_length = len(crypto_names)
-
-            # merge into dicts
-            for i in range(crypto_length):
-                self.crypto_dict[crypto_acr[i].text] = crypto_names[i].text
 
 
 class News:
