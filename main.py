@@ -1057,24 +1057,62 @@ class News:
 
 class StockGame:
     def __init__(self):
+        """
+        current user dict format
+        {
+            "user_id": ?,
+            "data": {
+                "user_name": "?",
+                "account_value": ?,
+                "cash": ?,
+                "portfolio": [
+                    {
+                        "?": {
+                            "purchase_price": ?,
+                            "quantity": ?,
+                            "total_value": ?
+                        }
+                    }
+                ]
+            }
+        }
+        """
 
         self.name = None
         self.current_user = None
 
+    @staticmethod
+    def reset_id_numbers():
+        """Reset id numbers in json file"""
+
+        # Writing to trading.json
+        with open("trading.json", "r+") as file:
+            # load file
+            file_data = json.load(file)
+            # reset user_ids
+            id_count = 1
+            for val in file_data['users']:
+                val['user_id'] = id_count  # set new id
+                # increment id count
+                id_count += 1
+
+            # move to file_data to json file
+            file.seek(0)
+            json.dump(file_data, file, indent=4)
+
     def create_user(self, name):
         """Create new user"""
 
-        # Ensure user is not in the json file
+        # if the user exists, exit function
         if self.user_exists(name):
-            print('User already exists')
             return
 
-        # Writing to sample.json
+        # Writing to trading.json
         with open("trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
 
-            # determine id
+            # determine id for new user through file length
             user_id = len(file_data['users']) + 1
 
             # dict of user
@@ -1085,13 +1123,46 @@ class StockGame:
 
             # add new user to json file users
             file_data["users"].append(user_info)
-            file.seek(0)
 
             # move to file_data to json file
+            file.seek(0)
             json.dump(file_data, file, indent=4)
 
+    def delete_user(self, name):
+        """Delete user from json file"""
+
+        # if the user does not exist, exit function
+        if not self.user_exists(name):
+            return
+
+        # Writing to trading.json
+        with open("trading.json", "r+") as file:
+            # load file
+            file_data = json.load(file)
+
+            # locate user id
+            for val in file_data['users']:
+                if name == val['data']['user_name']:
+                    # if the id is found, break loop
+                    user_id = val['user_id']
+                    break
+
+            # rebuild dict
+            new_data = {"users": [data for data in file_data['users'] if data['user_id'] != user_id]}
+
+        # move new_data to new json file
+        with open("trading.json", "w") as file:
+            json.dump(new_data, file, indent=4)
+
+        # reset/match ids
+        self.reset_id_numbers()
+
     def load_user(self, name):
-        """Load user from json file"""
+        """Load user from json file to game"""
+
+        # if user does not exist, exit function
+        if not self.user_exists(name):
+            return
 
         # open json
         with open("trading.json", 'r+') as file:
@@ -1102,14 +1173,16 @@ class StockGame:
                 # Find the matching name
                 if val['data']['user_name'] == name:
                     self.name = name
-                    print('User found')
+                    # if the name matches, set StockGame current user to val
                     self.current_user = val
                     return val
 
-            print('User not found')
-
     def buy(self, ticker, quantity):
         """Purchase a stock"""
+
+        # check user has been loaded
+        if self.current_user is None:
+            return
 
         # user financial data
         cash = self.current_user["data"]["cash"]
@@ -1124,23 +1197,12 @@ class StockGame:
         value = ticker_obj['regularMarketPrice']
         total_value = value * quantity
 
-        # purchase cost
+        # purchase/transaction cost
         price = ticker_obj['bid']
         total_cost_of_buy = price * quantity
 
         # check if user has the stock
-        index = 0
-        exists = False
-        for my_stock in self.current_user["data"]["portfolio"]:
-            try:
-                # if exists return true
-                if my_stock[ticker_obj["symbol"]]:
-                    exists = True
-                    break
-            except KeyError:
-                exists = False
-
-            index += 1
+        exists, index = self.user_has_stock(ticker.upper())
 
         # if the stock does not exist in the user portfolio
         # it is a first time purchase
@@ -1176,9 +1238,8 @@ class StockGame:
                         print("---------------------------")
                         print('\n\n')
 
-                file.seek(0)
-
                 # move to json file
+                file.seek(0)
                 json.dump(file_data, file, indent=4)
 
         # if the stock does exist in the user portfolio
@@ -1216,6 +1277,13 @@ class StockGame:
     def sell(self, ticker, quantity):
         """Sell a stock"""
 
+        # check user has been loaded
+        if self.current_user is None:
+            return
+
+        # flag to determine whether the stock is to be deleted
+        delete_stock = False
+
         # user financial data
         cash = self.current_user["data"]["cash"]
         account_value = self.current_user["data"]["account_value"]
@@ -1234,18 +1302,7 @@ class StockGame:
         total_cost_of_sell = ask_price * quantity
 
         # check if user has the stock
-        index = 0
-        exists = False
-        for my_stock in self.current_user["data"]["portfolio"]:
-            try:
-                # if exists return true
-                if my_stock[ticker_obj["symbol"]]:
-                    exists = True
-                    break
-            except KeyError:
-                exists = False
-
-            index += 1
+        exists, index = self.user_has_stock(ticker)
 
         if exists:
             # open json
@@ -1259,13 +1316,14 @@ class StockGame:
                     if val["data"]["user_name"] == self.current_user["data"]["user_name"]:
                         # add stock data(holding) to portfolio
                         for my_stock in val['data']['portfolio']:
+                            # get name for current stock in list
                             stock_symbol = list(my_stock.keys())[0]
                             if stock_symbol == ticker_name:
                                 # original quantity
                                 original_quantity = self.current_user['data']['portfolio'][index][ticker_name][
                                     'quantity']
 
-                                # quantity
+                                # new quantity
                                 new_quantity = original_quantity - quantity
                                 val['data']['portfolio'][index][ticker_name]['quantity'] = new_quantity
 
@@ -1274,16 +1332,32 @@ class StockGame:
                                 val['data']['portfolio'][index][ticker_name]['total_value'] = total_value
 
                                 # profit
-                                val['data']['cash'] = self.current_user['data']['cash'] + total_cost_of_sell
+                                val['data']['cash'] = cash + total_cost_of_sell
+                                print('HI')
 
                                 if new_quantity <= 0:
                                     # delete the stock if the value is all lost
-                                    del val['data']['portfolio'][index]
+                                    delete_stock = True
+                                    # rebuild dict
+                                    new_data = [data for data in val['data']['portfolio'] if list(data.keys())[0] != ticker_name]
 
-                file.seek(0)
+                                    # clear user portfolio
+                                    val['data']['portfolio'].clear()
 
-                # move to json file
-                json.dump(file_data, file, indent=4)
+                                    # add all stocks except deleted one
+                                    for data in new_data:
+                                        val['data']['portfolio'].append(data)
+
+                                    # assign this version to a new variable
+                                    deleted_stock_file = file_data
+
+            # rewrite data to new file
+            with open('trading.json', 'w') as file:
+                if delete_stock:
+                    json.dump(deleted_stock_file, file, indent=4)
+
+                elif not delete_stock:
+                    json.dump(file_data, file, indent=4)
 
         if not exists:
             print('The user does not have the stock')
@@ -1295,17 +1369,43 @@ class StockGame:
     def user_exists(name):
         """Confirm if a user exists in the json"""
 
-        # Writing to sample.json
+        # Writing to trading.json
         with open("trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
 
             for val in file_data['users']:
+                # find matching name
                 if val['data']['user_name'] == name:
-                    id = val['user_id']
+                    print('User exists')
                     return True
-
         return False
+
+    def user_has_stock(self, ticker):
+        """Confirm user owns stock
+
+        return bool and index of item in portfolio
+        """
+
+        # obj
+        ticker_obj = yf.Ticker(ticker).info
+
+        # index
+        index = 0
+        # loop through the entire portfolio until a match is found
+        for stock in self.current_user["data"]["portfolio"]:
+            try:
+                # name of current stock
+                name = list(stock.keys())[0]
+                # if exists return true and index
+                if name == ticker:
+                    return [True, index]
+            except KeyError:
+                continue
+
+            # index for next item in portfolio list
+            index += 1
+        return [False, None]
 
 
 if __name__ == '__main__':
