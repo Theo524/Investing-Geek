@@ -3,9 +3,6 @@ import os
 import re
 from datetime import date, datetime
 import yfinance as yf
-import requests
-from bs4 import BeautifulSoup
-import string
 import datetime as dt
 from GoogleNews import GoogleNews
 from newspaper import Config
@@ -38,7 +35,7 @@ class MainWindow(QMainWindow):
         self.ticker_type = None
         self.ticker_obj = None
 
-        # window commands
+        # WINDOW SETTINGS
         # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
         # shadow
@@ -61,14 +58,53 @@ class MainWindow(QMainWindow):
         # set starting pages
         self.set_starting_widgets()
 
-        # extra windows
-        self.sim_trade_win = None
+    def apply_settings(self):
+        """Apply settings"""
 
-        # Hide/show menu labels animation
-        self.ui.menu_icon_button.clicked.connect(self.show_left_menu)
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
 
-        # Ticker analysis page search button
-        self.ui.search_button.clicked.connect(self.search_ticker_in_analysis)
+        msg.setText("This is a message box")
+        msg.setInformativeText("This is additional information")
+        msg.setWindowTitle("Settings")
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        return_val = msg.exec_()
+
+        if return_val == QMessageBox.No:
+            print('No clicked')
+            return
+
+        if return_val == QMessageBox.Yes:
+            print('Yes clicked.')
+            # Show ticker info
+            if self.ui.settings_extra_info_checkBox.checkState() == 0:
+                # unchecked
+                self.ui.ticker_label_title_analysis.setEnabled(False)
+
+            elif self.ui.settings_extra_info_checkBox.checkState() == 2:
+                # checked
+                self.ui.ticker_label_title_analysis.setEnabled(True)
+
+            # show news
+            if self.ui.settings_news_visible_checkBox.checkState() == 0:
+                # unchecked
+                self.ui.stock_analysis_news_frame.hide()
+                self.ui.stock_analysis_news_frame_2.hide()
+
+            elif self.ui.settings_news_visible_checkBox.checkState() == 2:
+                # checked
+                self.ui.stock_analysis_news_frame.show()
+                self.ui.stock_analysis_news_frame_2.show()
+
+            # fonts
+            font = self.ui.settings_fontComboBox.currentText()
+            font_size = self.ui.settings_fontSizeComboBox.text()
+            self.ui.stocks_tutorial_main_body.setStyleSheet(f"""
+    background-color: rgb(26, 29, 39);
+    border-radius:10px;
+    color:rgb(255, 255, 255);
+    font: {str(font_size)}pt \"{str(font)}\";
+    """)
 
     def restore_or_maximize_window(self):
         if self.isMaximized():
@@ -111,16 +147,30 @@ class MainWindow(QMainWindow):
         self.animation.start()
 
     def set_starting_widgets(self):
-        """Sets all starting pages/widgets"""
+        """Sets all pages/widgets and events"""
+
+        # applying settings button clicked
+        self.ui.settings_apply_settings.clicked.connect(self.apply_settings)
+
+        # Ticker analysis page search button
+        self.ui.search_button.clicked.connect(self.search_ticker_in_analysis)
+
+        # Hide/show menu labels animation
+        self.ui.menu_icon_button.clicked.connect(self.show_left_menu)
 
         # Set left menu buttons
-        self.ui.home_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page))
+        self.ui.home_icon.clicked.connect(
+            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page))
         self.ui.stock_analysis_icon.clicked.connect(
             lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.stock_analysis))
-        self.ui.learn_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.learn))
-        self.ui.trade_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.trade))
-        self.ui.settings_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.settings))
-        self.ui.about_icon.clicked.connect(lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
+        self.ui.learn_icon.clicked.connect(
+            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.learn))
+        self.ui.trade_icon.clicked.connect(
+            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.trade))
+        self.ui.settings_icon.clicked.connect(
+            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.settings))
+        self.ui.about_icon.clicked.connect(
+            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
 
         # app starting page
         self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page)
@@ -143,7 +193,7 @@ class MainWindow(QMainWindow):
 
         # simulator page
         self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
-        # simulator trade tab
+        # simulator trade tab starting widgdet
         self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
         # simulator tab widget starting tab
         self.ui.tabWidget.setCurrentIndex(0)
@@ -156,7 +206,7 @@ class MainWindow(QMainWindow):
             lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
         self.ui.simulator_return_to_homepage_button_2.clicked.connect(
             lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
-        self.ui.simulator_return_to_homepage_button_3.clicked.connect(
+        self.ui.stock_simulator_logout_btn.clicked.connect(
             lambda: self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page))
         # simulator confirm user button
         self.ui.simulator_continue_to_sim_btn.clicked.connect(self.simulator_login)
@@ -168,6 +218,17 @@ class MainWindow(QMainWindow):
         self.ui.stock_simulator_symbol_lookup_button.clicked.connect(self.simulator_stock_lookup)
         # simulator purchase
         self.ui.stock_simulator_purchase_button.clicked.connect(self.preview_order)
+        # simulator delete user
+        self.ui.stock_simulator_delete_account_btn.clicked.connect(self.simulator_delete_user)
+        # simulator user profile btn
+        self.ui.simulator_user_icon_btn.clicked.connect(
+            lambda: self.ui.tabWidget.setCurrentIndex(3))
+
+        # settings page
+        self.ui.settings_view_users_btn.clicked.connect(self.show_trading_pg_data)
+        self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_main)
+        self.ui.settings_return_to_homepage_button.clicked.connect(
+            lambda: self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_main))
 
     def search_ticker_in_analysis(self):
         """Searching for a ticker"""
@@ -293,21 +354,21 @@ color:rgb(255, 0, 0);
             self.load_news()
 
         if self.ticker_type == 'stock' and market_state['state'] == 'Closed':
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText('Today is not a weekday. The stock market is currently closed.'
-                        '\nYou can search cryptocurrencies.')
-            msg.setWindowTitle("No info for today")
-            msg.exec_()
+
+            # feedback
+            txt = 'Today is not a weekday. The stock market is currently closed. \nYou can search cryptocurrencies.'
+            title = 'Market closed'
+            self.display_feedback(msg_type='information', message=txt, title=title)
+
             # enable button
             self.ui.search_button.setEnabled(True)
 
         if not self.ticker_type:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Critical)
-            msg.setText('The ticker you entered is either incorrect or there is no data on it')
-            msg.setWindowTitle("Error")
-            msg.exec_()
+            txt = 'The ticker you entered is either incorrect or there is no data on it'
+            title = 'Erroneous data'
+            self.display_feedback(msg_type='warning', message=txt, title=title)
+
+            # enable search
             self.ui.search_button.setEnabled(True)
 
         # restore loading cursor
@@ -645,11 +706,10 @@ font: 8pt "MS Shell Dlg 2";""")
                     return
 
         # if the user was not found
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Critical)
-        msg.setText('The user is not does not exist. Check the json file to find it')
-        msg.setWindowTitle("Error")
-        msg.exec_()
+        txt = 'The user is not does not exist. Check the json file to find it'
+        title = "No user"
+
+        self.display_feedback(message=txt, msg_type='warning', title=title)
 
     def simulator_register(self):
         """Create new user for stock simulator"""
@@ -709,13 +769,17 @@ font: 8pt "MS Shell Dlg 2";""")
         number_of_stocks = len(user_data['data']['portfolio'])
         account_value = user_data['data']['account_value']
         cash = user_data['data']['cash']
-        print(number_of_stocks)
 
         # set user profile data
         self.ui.stock_simulator_username_label.setText(str(name))
         self.ui.stock_simulator_account_value_label.setText(str(account_value))
         self.ui.stock_simulator_cash_amount_label.setText(str(cash))
         self.ui.stock_simulator_gainloss_label.setText(str(0))
+
+        # on account tab
+        self.ui.stock_simulator_username_label_2.setText(str(name))
+        portfolio_length = len(self.stock_game.get_portfolio())
+        self.ui.stock_simulator_stocks_owned_label.setText(str(portfolio_length))
 
         # table widget
         table = self.ui.tableWidget
@@ -887,6 +951,116 @@ font: 8pt "MS Shell Dlg 2";""")
             self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
 
         QApplication.restoreOverrideCursor()
+
+    def simulator_delete_user(self):
+        """Delete account"""
+
+        # delete user
+        user = self.stock_game.name
+        self.stock_game.delete_user(user)
+
+        # return to start
+        self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
+
+    def show_trading_pg_data(self):
+        """Display simulator data"""
+
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
+        # file
+        file = os.getcwd() + '\\trading.json'
+        file_location_str = f'File Location: {file}'
+
+        with open(file) as f:
+            # for file display
+            txt = f.read()
+
+        with open(file) as f:
+            # for table
+            file_data = json.load(f)
+            users = [user for user in file_data['users']]
+
+        # table
+        table = self.ui.settings_users_table
+        # remove previous rows
+        for i in reversed(range(table.rowCount())):
+            table.removeRow(i)
+        num_column = 4
+        i = 0
+        for user in users:
+            # data
+            user_id = user['user_id']
+            user_name = user['data']['user_name']
+            cash = user['data']['cash']
+            stocks_owned = len(user['data']['portfolio'])
+
+            # insert data
+            # row
+            table.insertRow(i)
+
+            # add data
+            table.setItem(i, 0, QTableWidgetItem(str(user_id)))
+            table.setItem(i, 1, QTableWidgetItem(str(user_name)))
+            table.setItem(i, 2, QTableWidgetItem(str(cash)))
+            table.setItem(i, 3, QTableWidgetItem(str(stocks_owned)))
+
+            # colors
+            # set text color and background color for row
+            for column_num in range(num_column):
+                # i - row number, column_num - column number
+                table.item(i, column_num).setTextColor(QColor(255, 255, 255))
+                table.item(i, column_num).setBackgroundColor(QColor(42, 44, 50))
+
+            i += 1
+
+        # add file content
+        for line in txt:
+            self.ui.settings_original_file_edit.setPlainText(str(txt))
+        # file location sub heading
+        self.ui.setting_users_file_location.setText(str(file_location_str))
+
+        QApplication.restoreOverrideCursor()
+
+        # finally set page
+        self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_sim_users)
+
+    @staticmethod
+    def display_feedback(**kwargs):
+        """feedback"""
+
+        # param
+        try:
+            msg_type = kwargs['msg_type']
+            message = kwargs['message']
+            title = kwargs['title']
+        except KeyError:
+            msg_type = 'information'
+            message = 'Something happened'
+            title = 'Feedback'
+
+        # obj
+        msg_obj = QMessageBox()
+
+        if msg_type == 'error':
+            msg_obj.setWindowTitle("Error")
+            msg_obj.setIcon(QMessageBox.Critical)
+
+        if msg_type == 'information':
+            msg_obj.setWindowTitle("Information")
+            msg_obj.setIcon(QMessageBox.Information)
+
+        if msg_type == 'warning':
+            msg_obj.setWindowTitle("Warning")
+            msg_obj.setIcon(QMessageBox.Warning)
+
+        if msg_type == 'critical':
+            msg_obj.setWindowTitle("Critical")
+            msg_obj.setIcon(QMessageBox.Critical)
+
+        # message
+        msg_obj.setText(message)
+        msg_obj.setWindowTitle(title)
+        msg_obj.exec_()
 
 
 class TickerInfo(QMainWindow):
@@ -1342,6 +1516,15 @@ class StockGame:
             # index for next item in portfolio list
             index += 1
         return [False, None]
+
+    def get_portfolio(self):
+        """Return portfolio"""
+
+        # check user has been loaded
+        if self.current_user is None:
+            return
+
+        return self.current_user['data']['portfolio']
 
 
 if __name__ == '__main__':
