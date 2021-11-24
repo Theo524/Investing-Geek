@@ -294,7 +294,7 @@ class Ui_MainWindow(object):
 
         self.settings_icon = QPushButton(self.menu_frame)
         self.settings_icon.setObjectName(u"settings_icon")
-        self.settings_icon.setCursor(QCursor(Qt.ForbiddenCursor))
+        self.settings_icon.setCursor(QCursor(Qt.PointingHandCursor))
         icon7 = QIcon()
         icon7.addFile(u":/icons/icons/tool.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.settings_icon.setIcon(icon7)
@@ -321,6 +321,7 @@ class Ui_MainWindow(object):
         icon9.addFile(u":/icons/icons/bell.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.about_icon.setIcon(icon9)
         self.about_icon.setIconSize(QSize(32, 32))
+        self.about_icon.setEnabled(False)
         self.about_icon.setFlat(True)
 
         self.gridLayout.addWidget(self.about_icon, 5, 0, 1, 1, Qt.AlignLeft)
@@ -342,6 +343,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.stacked_menu_pages = QStackedWidget(self.main_body_contents)
         self.stacked_menu_pages.setObjectName(u"stacked_menu_pages")
+        self.stacked_menu_pages.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.stacked_menu_pages.setLineWidth(0)
         self.home_page = QWidget()
         self.home_page.setObjectName(u"home_page")
@@ -356,7 +358,7 @@ class Ui_MainWindow(object):
         self.home_page_scrollArea.setWidgetResizable(True)
         self.home_page_frame = QWidget()
         self.home_page_frame.setObjectName(u"home_page_frame")
-        self.home_page_frame.setGeometry(QRect(0, 0, 768, 513))
+        self.home_page_frame.setGeometry(QRect(0, 0, 877, 718))
         self.verticalLayout_6 = QVBoxLayout(self.home_page_frame)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.home_page_body = QFrame(self.home_page_frame)
@@ -369,14 +371,14 @@ class Ui_MainWindow(object):
         self.home_page_title = QLabel(self.home_page_body)
         self.home_page_title.setObjectName(u"home_page_title")
         self.home_page_title.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);")
+"")
 
         self.verticalLayout_8.addWidget(self.home_page_title, 0, Qt.AlignHCenter)
 
         self.home_page_content = QLabel(self.home_page_body)
         self.home_page_content.setObjectName(u"home_page_content")
         self.home_page_content.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);")
+"")
 
         self.verticalLayout_8.addWidget(self.home_page_content)
 
@@ -399,7 +401,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 856, 2069))
+        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2069))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.header = QFrame(self.stock_analysis_frame)
@@ -2560,7 +2562,7 @@ class Ui_MainWindow(object):
         self.learn_start_page_title_label = QLabel(self.learn_start_page_title_frame)
         self.learn_start_page_title_label.setObjectName(u"learn_start_page_title_label")
         self.learn_start_page_title_label.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);")
+"")
 
         self.verticalLayout_41.addWidget(self.learn_start_page_title_label, 0, Qt.AlignHCenter)
 
@@ -2665,15 +2667,17 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 5689))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 842, 3805))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
         self.stock_tutorial_all.setObjectName(u"stock_tutorial_all")
         self.stock_tutorial_all.setMinimumSize(QSize(0, 0))
+        self.stock_tutorial_all.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.stock_tutorial_all.setFrameShape(QFrame.StyledPanel)
         self.stock_tutorial_all.setFrameShadow(QFrame.Raised)
         self.verticalLayout_51 = QVBoxLayout(self.stock_tutorial_all)
+        self.verticalLayout_51.setSpacing(17)
         self.verticalLayout_51.setObjectName(u"verticalLayout_51")
         self.frame_74 = QFrame(self.stock_tutorial_all)
         self.frame_74.setObjectName(u"frame_74")
@@ -2710,20 +2714,90 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_51.addWidget(self.frame_74)
 
+        self.label_22 = QLabel(self.stock_tutorial_all)
+        self.label_22.setObjectName(u"label_22")
+        self.label_22.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
+"")
+
+        self.verticalLayout_51.addWidget(self.label_22, 0, Qt.AlignHCenter)
+
         self.frame_4 = QFrame(self.stock_tutorial_all)
         self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(745, 0))
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
         self.verticalLayout_50 = QVBoxLayout(self.frame_4)
         self.verticalLayout_50.setObjectName(u"verticalLayout_50")
-        self.stock_learning_content_header = QLabel(self.frame_4)
-        self.stock_learning_content_header.setObjectName(u"stock_learning_content_header")
-        self.stock_learning_content_header.setFrameShape(QFrame.NoFrame)
+        self.frame_78 = QFrame(self.frame_4)
+        self.frame_78.setObjectName(u"frame_78")
+        self.frame_78.setStyleSheet(u"QPushButton{\n"
+"	font: 10pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"QLabel{\n"
+"	font: 14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"")
+        self.frame_78.setFrameShape(QFrame.Box)
+        self.frame_78.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_149 = QVBoxLayout(self.frame_78)
+        self.verticalLayout_149.setObjectName(u"verticalLayout_149")
+        self.frame_80 = QFrame(self.frame_78)
+        self.frame_80.setObjectName(u"frame_80")
+        self.frame_80.setFrameShape(QFrame.StyledPanel)
+        self.frame_80.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_158 = QVBoxLayout(self.frame_80)
+        self.verticalLayout_158.setObjectName(u"verticalLayout_158")
+        self.verticalLayout_158.setContentsMargins(-1, -1, -1, 16)
+        self.label_20 = QLabel(self.frame_80)
+        self.label_20.setObjectName(u"label_20")
+        self.label_20.setStyleSheet(u"")
 
-        self.verticalLayout_50.addWidget(self.stock_learning_content_header)
+        self.verticalLayout_158.addWidget(self.label_20)
 
 
-        self.verticalLayout_51.addWidget(self.frame_4)
+        self.verticalLayout_149.addWidget(self.frame_80)
+
+        self.pushButton_12 = QPushButton(self.frame_78)
+        self.pushButton_12.setObjectName(u"pushButton_12")
+        self.pushButton_12.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_12)
+
+        self.pushButton = QPushButton(self.frame_78)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton)
+
+        self.pushButton_11 = QPushButton(self.frame_78)
+        self.pushButton_11.setObjectName(u"pushButton_11")
+        self.pushButton_11.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_11)
+
+        self.pushButton_10 = QPushButton(self.frame_78)
+        self.pushButton_10.setObjectName(u"pushButton_10")
+        self.pushButton_10.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_10)
+
+        self.pushButton_9 = QPushButton(self.frame_78)
+        self.pushButton_9.setObjectName(u"pushButton_9")
+        self.pushButton_9.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_9)
+
+        self.pushButton_8 = QPushButton(self.frame_78)
+        self.pushButton_8.setObjectName(u"pushButton_8")
+        self.pushButton_8.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_8)
+
+
+        self.verticalLayout_50.addWidget(self.frame_78, 0, Qt.AlignLeft)
+
+
+        self.verticalLayout_51.addWidget(self.frame_4, 0, Qt.AlignHCenter)
 
         self.stocks_tutorial_main_body = QFrame(self.stock_tutorial_all)
         self.stocks_tutorial_main_body.setObjectName(u"stocks_tutorial_main_body")
@@ -2737,18 +2811,20 @@ class Ui_MainWindow(object):
         self.stocks_tutorial_main_body.setStyleSheet(u"background-color: rgb(26, 29, 39);\n"
 "border-radius:10px;\n"
 "color:rgb(255, 255, 255);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
 "")
         self.stocks_tutorial_main_body.setFrameShape(QFrame.StyledPanel)
         self.stocks_tutorial_main_body.setFrameShadow(QFrame.Raised)
         self.verticalLayout_48 = QVBoxLayout(self.stocks_tutorial_main_body)
-        self.verticalLayout_48.setSpacing(100)
+        self.verticalLayout_48.setSpacing(50)
         self.verticalLayout_48.setObjectName(u"verticalLayout_48")
         self.wha_is_a_stock = QFrame(self.stocks_tutorial_main_body)
         self.wha_is_a_stock.setObjectName(u"wha_is_a_stock")
-        self.wha_is_a_stock.setMinimumSize(QSize(0, 900))
+        self.wha_is_a_stock.setMinimumSize(QSize(0, 0))
         self.wha_is_a_stock.setFrameShape(QFrame.StyledPanel)
         self.wha_is_a_stock.setFrameShadow(QFrame.Raised)
         self.verticalLayout_52 = QVBoxLayout(self.wha_is_a_stock)
+        self.verticalLayout_52.setSpacing(6)
         self.verticalLayout_52.setObjectName(u"verticalLayout_52")
         self.verticalLayout_52.setContentsMargins(-1, 9, -1, -1)
         self.label_3 = QLabel(self.wha_is_a_stock)
@@ -2760,25 +2836,24 @@ class Ui_MainWindow(object):
         font7.setItalic(False)
         font7.setWeight(9)
         self.label_3.setFont(font7)
-        self.label_3.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.label_3.setStyleSheet(u"font: 75 18pt;")
 
         self.verticalLayout_52.addWidget(self.label_3, 0, Qt.AlignLeft)
 
-        self.label_5 = QLabel(self.wha_is_a_stock)
-        self.label_5.setObjectName(u"label_5")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Maximum)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.label_5.sizePolicy().hasHeightForWidth())
-        self.label_5.setSizePolicy(sizePolicy3)
-        self.label_5.setMinimumSize(QSize(0, 0))
-        self.label_5.setMaximumSize(QSize(16777215, 16777215))
-        self.label_5.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
-        self.label_5.setScaledContents(False)
-        self.label_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.label_5.setWordWrap(True)
+        self.plainTextEdit = QPlainTextEdit(self.wha_is_a_stock)
+        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.plainTextEdit.setMinimumSize(QSize(500, 464))
+        self.plainTextEdit.setMaximumSize(QSize(16777215, 16777215))
+        self.plainTextEdit.setLineWrapMode(QPlainTextEdit.WidgetWidth)
+        self.plainTextEdit.setReadOnly(True)
+        self.plainTextEdit.setOverwriteMode(False)
+        self.plainTextEdit.setTabStopWidth(80)
+        self.plainTextEdit.setCursorWidth(1)
+        self.plainTextEdit.setMaximumBlockCount(0)
+        self.plainTextEdit.setBackgroundVisible(False)
+        self.plainTextEdit.setCenterOnScroll(False)
 
-        self.verticalLayout_52.addWidget(self.label_5)
+        self.verticalLayout_52.addWidget(self.plainTextEdit)
 
 
         self.verticalLayout_48.addWidget(self.wha_is_a_stock, 0, Qt.AlignHCenter)
@@ -2787,31 +2862,23 @@ class Ui_MainWindow(object):
         self.understanding_stocks.setObjectName(u"understanding_stocks")
         self.understanding_stocks.setFrameShape(QFrame.StyledPanel)
         self.understanding_stocks.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_53 = QVBoxLayout(self.understanding_stocks)
-        self.verticalLayout_53.setObjectName(u"verticalLayout_53")
-        self.verticalLayout_53.setContentsMargins(-1, 9, -1, -1)
+        self.verticalLayout_49 = QVBoxLayout(self.understanding_stocks)
+        self.verticalLayout_49.setObjectName(u"verticalLayout_49")
         self.label_6 = QLabel(self.understanding_stocks)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setFont(font7)
-        self.label_6.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.label_6.setStyleSheet(u"font: 75 18pt;")
 
-        self.verticalLayout_53.addWidget(self.label_6, 0, Qt.AlignLeft)
+        self.verticalLayout_49.addWidget(self.label_6)
 
-        self.label_8 = QLabel(self.understanding_stocks)
-        self.label_8.setObjectName(u"label_8")
-        sizePolicy2.setHeightForWidth(self.label_8.sizePolicy().hasHeightForWidth())
-        self.label_8.setSizePolicy(sizePolicy2)
-        self.label_8.setMinimumSize(QSize(0, 450))
-        self.label_8.setMaximumSize(QSize(16777215, 800))
-        self.label_8.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
-        self.label_8.setScaledContents(False)
-        self.label_8.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.label_8.setWordWrap(True)
+        self.plainTextEdit_2 = QPlainTextEdit(self.understanding_stocks)
+        self.plainTextEdit_2.setObjectName(u"plainTextEdit_2")
+        self.plainTextEdit_2.setMinimumSize(QSize(500, 325))
 
-        self.verticalLayout_53.addWidget(self.label_8)
+        self.verticalLayout_49.addWidget(self.plainTextEdit_2)
 
 
-        self.verticalLayout_48.addWidget(self.understanding_stocks, 0, Qt.AlignHCenter)
+        self.verticalLayout_48.addWidget(self.understanding_stocks, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.why_do_people_buy_stocks = QFrame(self.stocks_tutorial_main_body)
         self.why_do_people_buy_stocks.setObjectName(u"why_do_people_buy_stocks")
@@ -2824,97 +2891,83 @@ class Ui_MainWindow(object):
         self.verticalLayout_65.setContentsMargins(-1, 9, -1, -1)
         self.label_11 = QLabel(self.why_do_people_buy_stocks)
         self.label_11.setObjectName(u"label_11")
-        self.label_11.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.label_11.setStyleSheet(u"font: 75 18pt;")
 
         self.verticalLayout_65.addWidget(self.label_11)
 
-        self.label_12 = QLabel(self.why_do_people_buy_stocks)
-        self.label_12.setObjectName(u"label_12")
-        self.label_12.setMinimumSize(QSize(0, 1050))
-        self.label_12.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
-        self.label_12.setScaledContents(False)
-        self.label_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
-        self.label_12.setWordWrap(True)
+        self.plainTextEdit_3 = QPlainTextEdit(self.why_do_people_buy_stocks)
+        self.plainTextEdit_3.setObjectName(u"plainTextEdit_3")
+        self.plainTextEdit_3.setMinimumSize(QSize(500, 650))
 
-        self.verticalLayout_65.addWidget(self.label_12)
+        self.verticalLayout_65.addWidget(self.plainTextEdit_3)
 
 
-        self.verticalLayout_48.addWidget(self.why_do_people_buy_stocks, 0, Qt.AlignHCenter)
+        self.verticalLayout_48.addWidget(self.why_do_people_buy_stocks, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.frame_73 = QFrame(self.stocks_tutorial_main_body)
-        self.frame_73.setObjectName(u"frame_73")
-        self.frame_73.setFrameShape(QFrame.StyledPanel)
-        self.frame_73.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_66 = QVBoxLayout(self.frame_73)
+        self.why_do_companies_issue_stocks = QFrame(self.stocks_tutorial_main_body)
+        self.why_do_companies_issue_stocks.setObjectName(u"why_do_companies_issue_stocks")
+        self.why_do_companies_issue_stocks.setFrameShape(QFrame.StyledPanel)
+        self.why_do_companies_issue_stocks.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_66 = QVBoxLayout(self.why_do_companies_issue_stocks)
         self.verticalLayout_66.setObjectName(u"verticalLayout_66")
-        self.label_14 = QLabel(self.frame_73)
+        self.label_14 = QLabel(self.why_do_companies_issue_stocks)
         self.label_14.setObjectName(u"label_14")
-        self.label_14.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+        self.label_14.setStyleSheet(u"font: 75 18pt;")
 
         self.verticalLayout_66.addWidget(self.label_14)
 
-        self.label_13 = QLabel(self.frame_73)
-        self.label_13.setObjectName(u"label_13")
-        self.label_13.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
-        self.label_13.setWordWrap(True)
+        self.plainTextEdit_4 = QPlainTextEdit(self.why_do_companies_issue_stocks)
+        self.plainTextEdit_4.setObjectName(u"plainTextEdit_4")
+        self.plainTextEdit_4.setMinimumSize(QSize(500, 175))
 
-        self.verticalLayout_66.addWidget(self.label_13)
+        self.verticalLayout_66.addWidget(self.plainTextEdit_4)
 
 
-        self.verticalLayout_48.addWidget(self.frame_73, 0, Qt.AlignHCenter)
+        self.verticalLayout_48.addWidget(self.why_do_companies_issue_stocks, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.stock_market_capitalization = QFrame(self.stocks_tutorial_main_body)
-        self.stock_market_capitalization.setObjectName(u"stock_market_capitalization")
-        self.stock_market_capitalization.setMinimumSize(QSize(0, 0))
-        self.stock_market_capitalization.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"font: 75 18pt \"MS Shell Dlg 2\";")
-        self.stock_market_capitalization.setFrameShape(QFrame.Box)
-        self.stock_market_capitalization.setFrameShadow(QFrame.Raised)
-        self.stock_market_capitalization.setLineWidth(1)
-        self.verticalLayout_49 = QVBoxLayout(self.stock_market_capitalization)
-        self.verticalLayout_49.setObjectName(u"verticalLayout_49")
-        self.verticalLayout_49.setContentsMargins(-1, 9, -1, -1)
-        self.label_9 = QLabel(self.stock_market_capitalization)
+        self.types_of_stock = QFrame(self.stocks_tutorial_main_body)
+        self.types_of_stock.setObjectName(u"types_of_stock")
+        self.types_of_stock.setFrameShape(QFrame.StyledPanel)
+        self.types_of_stock.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_161 = QVBoxLayout(self.types_of_stock)
+        self.verticalLayout_161.setObjectName(u"verticalLayout_161")
+        self.label_9 = QLabel(self.types_of_stock)
         self.label_9.setObjectName(u"label_9")
-        self.label_9.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.label_9.setStyleSheet(u"font: 75 18pt;")
 
-        self.verticalLayout_49.addWidget(self.label_9)
+        self.verticalLayout_161.addWidget(self.label_9)
 
-        self.label_10 = QLabel(self.stock_market_capitalization)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setMinimumSize(QSize(0, 450))
-        self.label_10.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
-        self.label_10.setWordWrap(True)
+        self.plainTextEdit_5 = QPlainTextEdit(self.types_of_stock)
+        self.plainTextEdit_5.setObjectName(u"plainTextEdit_5")
+        self.plainTextEdit_5.setMinimumSize(QSize(500, 378))
 
-        self.verticalLayout_49.addWidget(self.label_10)
+        self.verticalLayout_161.addWidget(self.plainTextEdit_5)
 
 
-        self.verticalLayout_48.addWidget(self.stock_market_capitalization, 0, Qt.AlignHCenter)
+        self.verticalLayout_48.addWidget(self.types_of_stock, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
-        self.frame_72 = QFrame(self.stocks_tutorial_main_body)
-        self.frame_72.setObjectName(u"frame_72")
-        self.frame_72.setMinimumSize(QSize(0, 0))
-        self.frame_72.setFrameShape(QFrame.StyledPanel)
-        self.frame_72.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_67 = QVBoxLayout(self.frame_72)
+        self.market_capitalization = QFrame(self.stocks_tutorial_main_body)
+        self.market_capitalization.setObjectName(u"market_capitalization")
+        self.market_capitalization.setMinimumSize(QSize(0, 0))
+        self.market_capitalization.setFrameShape(QFrame.StyledPanel)
+        self.market_capitalization.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_67 = QVBoxLayout(self.market_capitalization)
         self.verticalLayout_67.setObjectName(u"verticalLayout_67")
         self.verticalLayout_67.setContentsMargins(-1, 9, -1, -1)
-        self.label_15 = QLabel(self.frame_72)
+        self.label_15 = QLabel(self.market_capitalization)
         self.label_15.setObjectName(u"label_15")
-        self.label_15.setStyleSheet(u"font: 75 18pt \"MS Shell Dlg 2\";")
+        self.label_15.setStyleSheet(u"font: 75 18pt;")
 
         self.verticalLayout_67.addWidget(self.label_15)
 
-        self.label_16 = QLabel(self.frame_72)
-        self.label_16.setObjectName(u"label_16")
-        self.label_16.setMinimumSize(QSize(0, 950))
-        self.label_16.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
-        self.label_16.setWordWrap(True)
+        self.plainTextEdit_6 = QPlainTextEdit(self.market_capitalization)
+        self.plainTextEdit_6.setObjectName(u"plainTextEdit_6")
+        self.plainTextEdit_6.setMinimumSize(QSize(500, 750))
 
-        self.verticalLayout_67.addWidget(self.label_16)
+        self.verticalLayout_67.addWidget(self.plainTextEdit_6)
 
 
-        self.verticalLayout_48.addWidget(self.frame_72, 0, Qt.AlignHCenter)
+        self.verticalLayout_48.addWidget(self.market_capitalization, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
 
         self.verticalLayout_51.addWidget(self.stocks_tutorial_main_body, 0, Qt.AlignHCenter)
@@ -3012,7 +3065,7 @@ class Ui_MainWindow(object):
         self.simulator_start_page_title_label = QLabel(self.simulator_start_page_title_frame)
         self.simulator_start_page_title_label.setObjectName(u"simulator_start_page_title_label")
         self.simulator_start_page_title_label.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);")
+"")
 
         self.verticalLayout_42.addWidget(self.simulator_start_page_title_label)
 
@@ -3027,6 +3080,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_45.setObjectName(u"verticalLayout_45")
         self.simulator_start_page_title_frame_2 = QFrame(self.simulator_start_page_content_frame)
         self.simulator_start_page_title_frame_2.setObjectName(u"simulator_start_page_title_frame_2")
+        self.simulator_start_page_title_frame_2.setStyleSheet(u"")
         self.simulator_start_page_title_frame_2.setFrameShape(QFrame.StyledPanel)
         self.simulator_start_page_title_frame_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_43 = QVBoxLayout(self.simulator_start_page_title_frame_2)
@@ -3034,7 +3088,7 @@ class Ui_MainWindow(object):
         self.simulator_start_page_content_label = QLabel(self.simulator_start_page_title_frame_2)
         self.simulator_start_page_content_label.setObjectName(u"simulator_start_page_content_label")
         self.simulator_start_page_content_label.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";\n"
-"color: rgb(255, 255, 255);")
+"")
 
         self.verticalLayout_43.addWidget(self.simulator_start_page_content_label, 0, Qt.AlignHCenter)
 
@@ -3123,8 +3177,20 @@ class Ui_MainWindow(object):
         self.frame_82.setFrameShape(QFrame.StyledPanel)
         self.frame_82.setFrameShadow(QFrame.Raised)
         self.verticalLayout_127 = QVBoxLayout(self.frame_82)
-        self.verticalLayout_127.setSpacing(0)
         self.verticalLayout_127.setObjectName(u"verticalLayout_127")
+        self.pushButton_5 = QPushButton(self.frame_82)
+        self.pushButton_5.setObjectName(u"pushButton_5")
+        sizePolicy2.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
+        self.pushButton_5.setSizePolicy(sizePolicy2)
+        icon13 = QIcon()
+        icon13.addFile(u":/icons/icons/user.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_5.setIcon(icon13)
+        self.pushButton_5.setIconSize(QSize(64, 64))
+        self.pushButton_5.setAutoDefault(True)
+        self.pushButton_5.setFlat(True)
+
+        self.verticalLayout_127.addWidget(self.pushButton_5)
+
         self.frame_85 = QFrame(self.frame_82)
         self.frame_85.setObjectName(u"frame_85")
         self.frame_85.setFrameShape(QFrame.StyledPanel)
@@ -3147,7 +3213,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_128.addWidget(self.simulator_login_to_username_entry, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_127.addWidget(self.frame_85, 0, Qt.AlignBottom)
+        self.verticalLayout_127.addWidget(self.frame_85)
 
         self.frame_86 = QFrame(self.frame_82)
         self.frame_86.setObjectName(u"frame_86")
@@ -3159,6 +3225,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_129.setContentsMargins(0, 16, 0, 0)
         self.simulator_continue_to_sim_btn = QPushButton(self.frame_86)
         self.simulator_continue_to_sim_btn.setObjectName(u"simulator_continue_to_sim_btn")
+        sizePolicy2.setHeightForWidth(self.simulator_continue_to_sim_btn.sizePolicy().hasHeightForWidth())
+        self.simulator_continue_to_sim_btn.setSizePolicy(sizePolicy2)
         self.simulator_continue_to_sim_btn.setMinimumSize(QSize(115, 30))
         self.simulator_continue_to_sim_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.simulator_continue_to_sim_btn.setStyleSheet(u"QPushButton{\n"
@@ -3181,6 +3249,11 @@ class Ui_MainWindow(object):
 
         self.simulator_create_new_user_btn = QPushButton(self.frame_86)
         self.simulator_create_new_user_btn.setObjectName(u"simulator_create_new_user_btn")
+        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.simulator_create_new_user_btn.sizePolicy().hasHeightForWidth())
+        self.simulator_create_new_user_btn.setSizePolicy(sizePolicy3)
         self.simulator_create_new_user_btn.setMinimumSize(QSize(230, 20))
         self.simulator_create_new_user_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.simulator_create_new_user_btn.setStyleSheet(u"QPushButton {\n"
@@ -3202,13 +3275,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_129.addWidget(self.simulator_create_new_user_btn, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_127.addWidget(self.frame_86, 0, Qt.AlignTop)
+        self.verticalLayout_127.addWidget(self.frame_86)
 
 
-        self.verticalLayout_123.addWidget(self.frame_82)
+        self.verticalLayout_123.addWidget(self.frame_82, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_125.addWidget(self.frame_81, 0, Qt.AlignHCenter)
+        self.verticalLayout_125.addWidget(self.frame_81, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
         self.simulator_stacked_widget.addWidget(self.simulator_login_page)
         self.simulator_register_page = QWidget()
@@ -3343,31 +3416,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_29.addWidget(self.stock_simulator_title, 0, Qt.AlignHCenter)
 
-        self.simulator_return_to_homepage_button_3 = QPushButton(self.stock_simulator_header)
-        self.simulator_return_to_homepage_button_3.setObjectName(u"simulator_return_to_homepage_button_3")
-        self.simulator_return_to_homepage_button_3.setCursor(QCursor(Qt.PointingHandCursor))
-        self.simulator_return_to_homepage_button_3.setStyleSheet(u"QPushButton{\n"
-"	color:rgb(255, 255, 255);\n"
-"	border:none;\n"
-"	border-radius:7px;\n"
-"}\n"
-"\n"
-"QPushButton::hover {\n"
-"	border-radius:7px;\n"
-"	background-color: rgb(39, 44, 59);\n"
-"}\n"
-"\n"
-"QPushButton::pressed {\n"
-"	border-radius:7px;\n"
-"	background-color: rgb(43, 49, 65);\n"
-"}\n"
-"")
-        self.simulator_return_to_homepage_button_3.setIcon(icon12)
-        self.simulator_return_to_homepage_button_3.setIconSize(QSize(32, 32))
-        self.simulator_return_to_homepage_button_3.setFlat(True)
-
-        self.verticalLayout_29.addWidget(self.simulator_return_to_homepage_button_3, 0, Qt.AlignLeft)
-
 
         self.verticalLayout_28.addWidget(self.stock_simulator_header)
 
@@ -3412,31 +3460,22 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 797, 515))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 797, 553))
         self.verticalLayout_121 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
-        self.frame_79 = QFrame(self.scrollAreaWidgetContents)
-        self.frame_79.setObjectName(u"frame_79")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(self.frame_79.sizePolicy().hasHeightForWidth())
-        self.frame_79.setSizePolicy(sizePolicy4)
-        self.frame_79.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
-"")
-        self.frame_79.setFrameShape(QFrame.StyledPanel)
-        self.frame_79.setFrameShadow(QFrame.Raised)
-        self.gridLayout_9 = QGridLayout(self.frame_79)
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
-        self.label_25 = QLabel(self.frame_79)
-        self.label_25.setObjectName(u"label_25")
-        self.label_25.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
-"")
+        self.frame_9 = QFrame(self.scrollAreaWidgetContents)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_156 = QVBoxLayout(self.frame_9)
+        self.verticalLayout_156.setObjectName(u"verticalLayout_156")
+        self.label_18 = QLabel(self.frame_9)
+        self.label_18.setObjectName(u"label_18")
 
-        self.gridLayout_9.addWidget(self.label_25, 0, 1, 1, 1)
+        self.verticalLayout_156.addWidget(self.label_18)
 
 
-        self.verticalLayout_121.addWidget(self.frame_79)
+        self.verticalLayout_121.addWidget(self.frame_9)
 
         self.frame = QFrame(self.scrollAreaWidgetContents)
         self.frame.setObjectName(u"frame")
@@ -3445,6 +3484,7 @@ class Ui_MainWindow(object):
         self.frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_26 = QHBoxLayout(self.frame)
         self.horizontalLayout_26.setObjectName(u"horizontalLayout_26")
+        self.horizontalLayout_26.setContentsMargins(-1, 0, -1, -1)
         self.tableWidget = QTableWidget(self.frame)
         if (self.tableWidget.columnCount() < 7):
             self.tableWidget.setColumnCount(7)
@@ -3505,9 +3545,21 @@ class Ui_MainWindow(object):
 "")
         self.frame_75.setFrameShape(QFrame.StyledPanel)
         self.frame_75.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_18 = QHBoxLayout(self.frame_75)
-        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.frame_77 = QFrame(self.frame_75)
+        self.verticalLayout_122 = QVBoxLayout(self.frame_75)
+        self.verticalLayout_122.setObjectName(u"verticalLayout_122")
+        self.verticalLayout_122.setContentsMargins(-1, 0, -1, -1)
+        self.frame_79 = QFrame(self.frame_75)
+        self.frame_79.setObjectName(u"frame_79")
+        sizePolicy2.setHeightForWidth(self.frame_79.sizePolicy().hasHeightForWidth())
+        self.frame_79.setSizePolicy(sizePolicy2)
+        self.frame_79.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
+"")
+        self.frame_79.setFrameShape(QFrame.StyledPanel)
+        self.frame_79.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_157 = QVBoxLayout(self.frame_79)
+        self.verticalLayout_157.setObjectName(u"verticalLayout_157")
+        self.verticalLayout_157.setContentsMargins(9, 0, 9, -1)
+        self.frame_77 = QFrame(self.frame_79)
         self.frame_77.setObjectName(u"frame_77")
         self.frame_77.setStyleSheet(u"background-color: rgb(37, 39, 44);\n"
 "color: rgb(255, 255, 255);\n"
@@ -3516,92 +3568,155 @@ class Ui_MainWindow(object):
         self.frame_77.setFrameShape(QFrame.Box)
         self.frame_77.setFrameShadow(QFrame.Raised)
         self.verticalLayout_119 = QVBoxLayout(self.frame_77)
+        self.verticalLayout_119.setSpacing(3)
         self.verticalLayout_119.setObjectName(u"verticalLayout_119")
+        self.verticalLayout_119.setContentsMargins(10, 5, 10, 5)
+        self.simulator_user_icon_btn = QPushButton(self.frame_77)
+        self.simulator_user_icon_btn.setObjectName(u"simulator_user_icon_btn")
+        self.simulator_user_icon_btn.setIcon(icon13)
+        self.simulator_user_icon_btn.setIconSize(QSize(64, 64))
+        self.simulator_user_icon_btn.setAutoDefault(True)
+        self.simulator_user_icon_btn.setFlat(True)
+
+        self.verticalLayout_119.addWidget(self.simulator_user_icon_btn)
+
         self.stock_simulator_username_label = QLabel(self.frame_77)
         self.stock_simulator_username_label.setObjectName(u"stock_simulator_username_label")
+        self.stock_simulator_username_label.setStyleSheet(u"font: 75 16pt \"MS Shell Dlg 2\";")
 
         self.verticalLayout_119.addWidget(self.stock_simulator_username_label, 0, Qt.AlignHCenter)
 
-        self.frame_9 = QFrame(self.frame_77)
-        self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setStyleSheet(u"border:none;\n"
+
+        self.verticalLayout_157.addWidget(self.frame_77, 0, Qt.AlignTop)
+
+
+        self.verticalLayout_122.addWidget(self.frame_79)
+
+        self.frame_110 = QFrame(self.frame_75)
+        self.frame_110.setObjectName(u"frame_110")
+        self.frame_110.setStyleSheet(u"background-color: rgb(37, 39, 44);\n"
+"color: rgb(255, 255, 255);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"border-radius:10px;")
+        self.frame_110.setFrameShape(QFrame.Box)
+        self.frame_110.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_151 = QVBoxLayout(self.frame_110)
+        self.verticalLayout_151.setSpacing(14)
+        self.verticalLayout_151.setObjectName(u"verticalLayout_151")
+        self.frame_115 = QFrame(self.frame_110)
+        self.frame_115.setObjectName(u"frame_115")
+        self.frame_115.setStyleSheet(u"border:none;\n"
 "border:2px solid rgb(53, 56, 63);")
-        self.frame_9.setFrameShape(QFrame.Box)
-        self.frame_9.setFrameShadow(QFrame.Raised)
-        self.gridLayout_7 = QGridLayout(self.frame_9)
-        self.gridLayout_7.setObjectName(u"gridLayout_7")
-        self.label_18 = QLabel(self.frame_9)
-        self.label_18.setObjectName(u"label_18")
-        self.label_18.setStyleSheet(u"border:none;\n"
+        self.frame_115.setFrameShape(QFrame.Box)
+        self.frame_115.setFrameShadow(QFrame.Raised)
+        self.gridLayout_12 = QGridLayout(self.frame_115)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
+        self.label_27 = QLabel(self.frame_115)
+        self.label_27.setObjectName(u"label_27")
+        self.label_27.setStyleSheet(u"border:none;\n"
 "")
 
-        self.gridLayout_7.addWidget(self.label_18, 0, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.label_27, 0, 0, 1, 1, Qt.AlignHCenter)
 
-        self.stock_simulator_account_value_label = QLabel(self.frame_9)
+        self.stock_simulator_account_value_label = QLabel(self.frame_115)
         self.stock_simulator_account_value_label.setObjectName(u"stock_simulator_account_value_label")
         self.stock_simulator_account_value_label.setStyleSheet(u"border:none;\n"
 "")
 
-        self.gridLayout_7.addWidget(self.stock_simulator_account_value_label, 1, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.stock_simulator_account_value_label, 1, 0, 1, 1, Qt.AlignHCenter)
 
 
-        self.verticalLayout_119.addWidget(self.frame_9)
+        self.verticalLayout_151.addWidget(self.frame_115)
 
-        self.frame_78 = QFrame(self.frame_77)
-        self.frame_78.setObjectName(u"frame_78")
-        self.frame_78.setStyleSheet(u"border:none;\n"
+        self.frame_116 = QFrame(self.frame_110)
+        self.frame_116.setObjectName(u"frame_116")
+        self.frame_116.setStyleSheet(u"border:none;\n"
 "border:2px solid rgb(53, 56, 63);")
-        self.frame_78.setFrameShape(QFrame.Box)
-        self.frame_78.setFrameShadow(QFrame.Raised)
-        self.gridLayout_8 = QGridLayout(self.frame_78)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.label_20 = QLabel(self.frame_78)
-        self.label_20.setObjectName(u"label_20")
-        self.label_20.setStyleSheet(u"border:none;\n"
+        self.frame_116.setFrameShape(QFrame.Box)
+        self.frame_116.setFrameShadow(QFrame.Raised)
+        self.gridLayout_13 = QGridLayout(self.frame_116)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.label_33 = QLabel(self.frame_116)
+        self.label_33.setObjectName(u"label_33")
+        self.label_33.setStyleSheet(u"border:none;\n"
 "")
 
-        self.gridLayout_8.addWidget(self.label_20, 0, 0, 1, 1)
+        self.gridLayout_13.addWidget(self.label_33, 0, 0, 1, 1, Qt.AlignHCenter)
 
-        self.stock_simulator_cash_amount_label = QLabel(self.frame_78)
+        self.stock_simulator_cash_amount_label = QLabel(self.frame_116)
         self.stock_simulator_cash_amount_label.setObjectName(u"stock_simulator_cash_amount_label")
         self.stock_simulator_cash_amount_label.setStyleSheet(u"border:none;\n"
 "")
 
-        self.gridLayout_8.addWidget(self.stock_simulator_cash_amount_label, 1, 0, 1, 1)
+        self.gridLayout_13.addWidget(self.stock_simulator_cash_amount_label, 1, 0, 1, 1, Qt.AlignHCenter)
 
 
-        self.verticalLayout_119.addWidget(self.frame_78)
+        self.verticalLayout_151.addWidget(self.frame_116)
 
-        self.frame_80 = QFrame(self.frame_77)
-        self.frame_80.setObjectName(u"frame_80")
-        self.frame_80.setStyleSheet(u"border:none;\n"
+        self.frame_117 = QFrame(self.frame_110)
+        self.frame_117.setObjectName(u"frame_117")
+        self.frame_117.setStyleSheet(u"border:none;\n"
 "border:2px solid rgb(53, 56, 63);")
-        self.frame_80.setFrameShape(QFrame.Box)
-        self.frame_80.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_122 = QVBoxLayout(self.frame_80)
-        self.verticalLayout_122.setObjectName(u"verticalLayout_122")
-        self.label_22 = QLabel(self.frame_80)
-        self.label_22.setObjectName(u"label_22")
-        self.label_22.setStyleSheet(u"border:none;\n"
+        self.frame_117.setFrameShape(QFrame.Box)
+        self.frame_117.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_154 = QVBoxLayout(self.frame_117)
+        self.verticalLayout_154.setObjectName(u"verticalLayout_154")
+        self.label_34 = QLabel(self.frame_117)
+        self.label_34.setObjectName(u"label_34")
+        self.label_34.setStyleSheet(u"border:none;\n"
 "")
 
-        self.verticalLayout_122.addWidget(self.label_22)
+        self.verticalLayout_154.addWidget(self.label_34, 0, Qt.AlignHCenter)
 
-        self.stock_simulator_gainloss_label = QLabel(self.frame_80)
+        self.stock_simulator_gainloss_label = QLabel(self.frame_117)
         self.stock_simulator_gainloss_label.setObjectName(u"stock_simulator_gainloss_label")
         self.stock_simulator_gainloss_label.setStyleSheet(u"border:none;\n"
 "")
 
-        self.verticalLayout_122.addWidget(self.stock_simulator_gainloss_label)
+        self.verticalLayout_154.addWidget(self.stock_simulator_gainloss_label, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_119.addWidget(self.frame_80)
+        self.verticalLayout_151.addWidget(self.frame_117)
 
 
-        self.horizontalLayout_18.addWidget(self.frame_77, 0, Qt.AlignTop)
+        self.verticalLayout_122.addWidget(self.frame_110)
+
+        self.frame_118 = QFrame(self.frame_75)
+        self.frame_118.setObjectName(u"frame_118")
+        self.frame_118.setStyleSheet(u"#stock_simulator_logout_btn{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font:14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"#stock_simulator_logout_btn::hover{\n"
+"	background-color: rgb(59, 62, 70);\n"
+"}\n"
+"#stock_simulator_logout_btn::pressed{\n"
+"	border:2px solid rgb(42, 44, 50);\n"
+"	background-color: rgb(70, 73, 83);\n"
+"}")
+        self.frame_118.setFrameShape(QFrame.StyledPanel)
+        self.frame_118.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_155 = QVBoxLayout(self.frame_118)
+        self.verticalLayout_155.setObjectName(u"verticalLayout_155")
+        self.stock_simulator_logout_btn = QPushButton(self.frame_118)
+        self.stock_simulator_logout_btn.setObjectName(u"stock_simulator_logout_btn")
+        self.stock_simulator_logout_btn.setMinimumSize(QSize(130, 41))
+        self.stock_simulator_logout_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        icon14 = QIcon()
+        icon14.addFile(u":/icons/icons/log-out.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.stock_simulator_logout_btn.setIcon(icon14)
+        self.stock_simulator_logout_btn.setIconSize(QSize(32, 32))
+        self.stock_simulator_logout_btn.setFlat(True)
+
+        self.verticalLayout_155.addWidget(self.stock_simulator_logout_btn, 0, Qt.AlignHCenter)
 
 
-        self.horizontalLayout_26.addWidget(self.frame_75)
+        self.verticalLayout_122.addWidget(self.frame_118)
+
+
+        self.horizontalLayout_26.addWidget(self.frame_75, 0, Qt.AlignTop)
 
 
         self.verticalLayout_121.addWidget(self.frame)
@@ -4102,23 +4217,145 @@ class Ui_MainWindow(object):
         self.verticalLayout_133.addWidget(self.stock_sim_trade_stackedWidget, 0, Qt.AlignTop)
 
         self.tabWidget.addTab(self.Trade, "")
-        self.Performance = QWidget()
-        self.Performance.setObjectName(u"Performance")
-        self.verticalLayout_33 = QVBoxLayout(self.Performance)
-        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
-        self.scrollArea_2 = QScrollArea(self.Performance)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_2 = QWidget()
-        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 795, 513))
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
-
-        self.verticalLayout_33.addWidget(self.scrollArea_2)
-
-        self.tabWidget.addTab(self.Performance, "")
         self.tab = QWidget()
         self.tab.setObjectName(u"tab")
+        self.verticalLayout_147 = QVBoxLayout(self.tab)
+        self.verticalLayout_147.setObjectName(u"verticalLayout_147")
+        self.frame_108 = QFrame(self.tab)
+        self.frame_108.setObjectName(u"frame_108")
+        self.frame_108.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.frame_108.setFrameShape(QFrame.StyledPanel)
+        self.frame_108.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_148 = QVBoxLayout(self.frame_108)
+        self.verticalLayout_148.setSpacing(31)
+        self.verticalLayout_148.setObjectName(u"verticalLayout_148")
+        self.frame_109 = QFrame(self.frame_108)
+        self.frame_109.setObjectName(u"frame_109")
+        self.frame_109.setMinimumSize(QSize(600, 0))
+        self.frame_109.setFrameShape(QFrame.StyledPanel)
+        self.frame_109.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_152 = QVBoxLayout(self.frame_109)
+        self.verticalLayout_152.setObjectName(u"verticalLayout_152")
+        self.label_26 = QLabel(self.frame_109)
+        self.label_26.setObjectName(u"label_26")
+        self.label_26.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_152.addWidget(self.label_26)
+
+        self.line_11 = QFrame(self.frame_109)
+        self.line_11.setObjectName(u"line_11")
+        self.line_11.setFrameShape(QFrame.HLine)
+        self.line_11.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_152.addWidget(self.line_11)
+
+        self.frame_111 = QFrame(self.frame_109)
+        self.frame_111.setObjectName(u"frame_111")
+        self.frame_111.setFrameShape(QFrame.StyledPanel)
+        self.frame_111.setFrameShadow(QFrame.Raised)
+        self.gridLayout_4 = QGridLayout(self.frame_111)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_4.setHorizontalSpacing(115)
+        self.gridLayout_4.setVerticalSpacing(40)
+        self.gridLayout_4.setContentsMargins(-1, 30, -1, 30)
+        self.stock_simulator_stocks_owned_label = QLabel(self.frame_111)
+        self.stock_simulator_stocks_owned_label.setObjectName(u"stock_simulator_stocks_owned_label")
+
+        self.gridLayout_4.addWidget(self.stock_simulator_stocks_owned_label, 1, 1, 1, 1)
+
+        self.stock_simulator_username_label_2 = QLabel(self.frame_111)
+        self.stock_simulator_username_label_2.setObjectName(u"stock_simulator_username_label_2")
+
+        self.gridLayout_4.addWidget(self.stock_simulator_username_label_2, 0, 1, 1, 1)
+
+        self.label_30 = QLabel(self.frame_111)
+        self.label_30.setObjectName(u"label_30")
+
+        self.gridLayout_4.addWidget(self.label_30, 1, 0, 1, 1)
+
+        self.label_28 = QLabel(self.frame_111)
+        self.label_28.setObjectName(u"label_28")
+
+        self.gridLayout_4.addWidget(self.label_28, 0, 0, 1, 1)
+
+
+        self.verticalLayout_152.addWidget(self.frame_111)
+
+
+        self.verticalLayout_148.addWidget(self.frame_109)
+
+        self.frame_112 = QFrame(self.frame_108)
+        self.frame_112.setObjectName(u"frame_112")
+        self.frame_112.setMinimumSize(QSize(345, 0))
+        self.frame_112.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:10px;\n"
+"color:rgb(255, 255, 255);\n"
+"font:14pt \"MS Shell Dlg 2\";\n"
+"}\n"
+"\n"
+"#stock_simulator_delete_account_btn::hover{\n"
+"background-color: rgb(203, 0, 0);\n"
+"}\n"
+"#stock_simulator_delete_account_btn::pressed{\n"
+"	border:2px solid rgb(42, 44, 50);\n"
+"	background-color: rgb(158, 0, 0);\n"
+"}\n"
+"\n"
+"#stock_simulator_logout_btn::hover{\n"
+"	background-color: rgb(59, 62, 70);\n"
+"}\n"
+"#stock_simulator_logout_btn::pressed{\n"
+"	border:2px solid rgb(42, 44, 50);\n"
+"	background-color: rgb(70, 73, 83);\n"
+"}")
+        self.frame_112.setFrameShape(QFrame.StyledPanel)
+        self.frame_112.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_153 = QVBoxLayout(self.frame_112)
+        self.verticalLayout_153.setObjectName(u"verticalLayout_153")
+        self.label_32 = QLabel(self.frame_112)
+        self.label_32.setObjectName(u"label_32")
+        self.label_32.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_153.addWidget(self.label_32)
+
+        self.line_12 = QFrame(self.frame_112)
+        self.line_12.setObjectName(u"line_12")
+        self.line_12.setFrameShape(QFrame.HLine)
+        self.line_12.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_153.addWidget(self.line_12)
+
+        self.frame_113 = QFrame(self.frame_112)
+        self.frame_113.setObjectName(u"frame_113")
+        self.frame_113.setStyleSheet(u"")
+        self.frame_113.setFrameShape(QFrame.StyledPanel)
+        self.frame_113.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_150 = QVBoxLayout(self.frame_113)
+        self.verticalLayout_150.setObjectName(u"verticalLayout_150")
+        self.stock_simulator_delete_account_btn = QPushButton(self.frame_113)
+        self.stock_simulator_delete_account_btn.setObjectName(u"stock_simulator_delete_account_btn")
+        self.stock_simulator_delete_account_btn.setMinimumSize(QSize(225, 40))
+        self.stock_simulator_delete_account_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.stock_simulator_delete_account_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.stock_simulator_delete_account_btn.setStyleSheet(u"")
+        icon15 = QIcon()
+        icon15.addFile(u":/icons/icons/user-x.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.stock_simulator_delete_account_btn.setIcon(icon15)
+        self.stock_simulator_delete_account_btn.setIconSize(QSize(32, 32))
+        self.stock_simulator_delete_account_btn.setFlat(True)
+
+        self.verticalLayout_150.addWidget(self.stock_simulator_delete_account_btn, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_153.addWidget(self.frame_113)
+
+
+        self.verticalLayout_148.addWidget(self.frame_112)
+
+
+        self.verticalLayout_147.addWidget(self.frame_108, 0, Qt.AlignLeft|Qt.AlignTop)
+
         self.tabWidget.addTab(self.tab, "")
 
         self.verticalLayout_30.addWidget(self.tabWidget)
@@ -4139,6 +4376,482 @@ class Ui_MainWindow(object):
         self.settings.setObjectName(u"settings")
         self.verticalLayout_7 = QVBoxLayout(self.settings)
         self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.frame_114 = QFrame(self.settings)
+        self.frame_114.setObjectName(u"frame_114")
+        self.frame_114.setFrameShape(QFrame.StyledPanel)
+        self.frame_114.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_33 = QVBoxLayout(self.frame_114)
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.scrollArea_2 = QScrollArea(self.frame_114)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setMinimumSize(QSize(0, 0))
+        self.scrollArea_2.setStyleSheet(u"color: rgb(255, 255, 255);")
+        self.scrollArea_2.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_2 = QWidget()
+        self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 857, 698))
+        self.verticalLayout_159 = QVBoxLayout(self.scrollAreaWidgetContents_2)
+        self.verticalLayout_159.setObjectName(u"verticalLayout_159")
+        self.settings_stackedWidget = QStackedWidget(self.scrollAreaWidgetContents_2)
+        self.settings_stackedWidget.setObjectName(u"settings_stackedWidget")
+        self.settings_stackedWidget.setFrameShape(QFrame.NoFrame)
+        self.settings_main = QWidget()
+        self.settings_main.setObjectName(u"settings_main")
+        self.verticalLayout_53 = QVBoxLayout(self.settings_main)
+        self.verticalLayout_53.setSpacing(0)
+        self.verticalLayout_53.setObjectName(u"verticalLayout_53")
+        self.verticalLayout_53.setContentsMargins(0, 0, 0, 0)
+        self.frame_131 = QFrame(self.settings_main)
+        self.frame_131.setObjectName(u"frame_131")
+        self.frame_131.setStyleSheet(u"\n"
+"QLineEdit{\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(64, 67, 76);\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"border:2px solid rgba(105, 115, 132, 255);\n"
+"color: rgb(201, 210, 238);\n"
+"}\n"
+"\n"
+"QSpinBox{\n"
+"background-color: rgb(64, 67, 76);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"border:2px solid rgba(105, 115, 132, 255);\n"
+"color: rgb(201, 210, 238);\n"
+"}\n"
+"\n"
+"QComboBox{\n"
+"background-color: rgb(64, 67, 76);\n"
+"font: 12pt \"MS Shell Dlg 2\";\n"
+"border:none;\n"
+"border-radius:5px;\n"
+"border:2px solid rgba(105, 115, 132, 255);\n"
+"color: rgb(201, 210, 238);\n"
+"}\n"
+"")
+        self.frame_131.setFrameShape(QFrame.StyledPanel)
+        self.frame_131.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_167 = QVBoxLayout(self.frame_131)
+        self.verticalLayout_167.setSpacing(0)
+        self.verticalLayout_167.setObjectName(u"verticalLayout_167")
+        self.verticalLayout_167.setContentsMargins(0, 0, 0, 0)
+        self.frame_128 = QFrame(self.frame_131)
+        self.frame_128.setObjectName(u"frame_128")
+        self.frame_128.setMinimumSize(QSize(0, 0))
+        self.frame_128.setMaximumSize(QSize(16777215, 16777215))
+        self.frame_128.setFrameShape(QFrame.StyledPanel)
+        self.frame_128.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_128)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.horizontalLayout_18.setContentsMargins(-1, -1, -1, 28)
+        self.label_31 = QLabel(self.frame_128)
+        self.label_31.setObjectName(u"label_31")
+        self.label_31.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
+"")
+
+        self.horizontalLayout_18.addWidget(self.label_31, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_167.addWidget(self.frame_128)
+
+        self.frame_120 = QFrame(self.frame_131)
+        self.frame_120.setObjectName(u"frame_120")
+        self.frame_120.setFrameShape(QFrame.StyledPanel)
+        self.frame_120.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_162 = QVBoxLayout(self.frame_120)
+        self.verticalLayout_162.setSpacing(0)
+        self.verticalLayout_162.setObjectName(u"verticalLayout_162")
+        self.verticalLayout_162.setContentsMargins(-1, 28, -1, -1)
+        self.frame_124 = QFrame(self.frame_120)
+        self.frame_124.setObjectName(u"frame_124")
+        self.frame_124.setMaximumSize(QSize(16777215, 50))
+        self.frame_124.setSizeIncrement(QSize(0, 0))
+        self.frame_124.setFrameShape(QFrame.StyledPanel)
+        self.frame_124.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_57 = QHBoxLayout(self.frame_124)
+        self.horizontalLayout_57.setSpacing(0)
+        self.horizontalLayout_57.setObjectName(u"horizontalLayout_57")
+        self.horizontalLayout_57.setContentsMargins(15, 9, 13, 8)
+        self.label_40 = QLabel(self.frame_124)
+        self.label_40.setObjectName(u"label_40")
+        self.label_40.setMaximumSize(QSize(35, 16777215))
+        self.label_40.setPixmap(QPixmap(u":/icons/icons/activity.svg"))
+
+        self.horizontalLayout_57.addWidget(self.label_40)
+
+        self.label_37 = QLabel(self.frame_124)
+        self.label_37.setObjectName(u"label_37")
+        self.label_37.setMaximumSize(QSize(16777215, 50))
+        self.label_37.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_57.addWidget(self.label_37)
+
+
+        self.verticalLayout_162.addWidget(self.frame_124)
+
+        self.line_14 = QFrame(self.frame_120)
+        self.line_14.setObjectName(u"line_14")
+        self.line_14.setFrameShape(QFrame.HLine)
+        self.line_14.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_162.addWidget(self.line_14)
+
+        self.frame_125 = QFrame(self.frame_120)
+        self.frame_125.setObjectName(u"frame_125")
+        self.frame_125.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";")
+        self.frame_125.setFrameShape(QFrame.StyledPanel)
+        self.frame_125.setFrameShadow(QFrame.Raised)
+        self.gridLayout_7 = QGridLayout(self.frame_125)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_7.setHorizontalSpacing(36)
+        self.gridLayout_7.setVerticalSpacing(24)
+        self.label_38 = QLabel(self.frame_125)
+        self.label_38.setObjectName(u"label_38")
+        self.label_38.setToolTipDuration(0)
+        self.label_38.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";")
+
+        self.gridLayout_7.addWidget(self.label_38, 0, 0, 1, 1)
+
+        self.label_39 = QLabel(self.frame_125)
+        self.label_39.setObjectName(u"label_39")
+
+        self.gridLayout_7.addWidget(self.label_39, 1, 0, 1, 1)
+
+        self.settings_news_visible_checkBox = QCheckBox(self.frame_125)
+        self.settings_news_visible_checkBox.setObjectName(u"settings_news_visible_checkBox")
+        self.settings_news_visible_checkBox.setCursor(QCursor(Qt.PointingHandCursor))
+        self.settings_news_visible_checkBox.setCheckable(True)
+        self.settings_news_visible_checkBox.setChecked(True)
+        self.settings_news_visible_checkBox.setTristate(False)
+
+        self.gridLayout_7.addWidget(self.settings_news_visible_checkBox, 1, 1, 1, 1)
+
+        self.settings_extra_info_checkBox = QCheckBox(self.frame_125)
+        self.settings_extra_info_checkBox.setObjectName(u"settings_extra_info_checkBox")
+        self.settings_extra_info_checkBox.setChecked(True)
+
+        self.gridLayout_7.addWidget(self.settings_extra_info_checkBox, 0, 1, 1, 1)
+
+
+        self.verticalLayout_162.addWidget(self.frame_125, 0, Qt.AlignLeft)
+
+        self.line_16 = QFrame(self.frame_120)
+        self.line_16.setObjectName(u"line_16")
+        self.line_16.setFrameShape(QFrame.HLine)
+        self.line_16.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_162.addWidget(self.line_16)
+
+
+        self.verticalLayout_167.addWidget(self.frame_120)
+
+        self.frame_119 = QFrame(self.frame_131)
+        self.frame_119.setObjectName(u"frame_119")
+        self.frame_119.setFrameShape(QFrame.StyledPanel)
+        self.frame_119.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_160 = QVBoxLayout(self.frame_119)
+        self.verticalLayout_160.setSpacing(3)
+        self.verticalLayout_160.setObjectName(u"verticalLayout_160")
+        self.verticalLayout_160.setContentsMargins(-1, 9, -1, -1)
+        self.frame_122 = QFrame(self.frame_119)
+        self.frame_122.setObjectName(u"frame_122")
+        self.frame_122.setMaximumSize(QSize(16777215, 50))
+        self.frame_122.setFrameShape(QFrame.StyledPanel)
+        self.frame_122.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_58 = QHBoxLayout(self.frame_122)
+        self.horizontalLayout_58.setSpacing(0)
+        self.horizontalLayout_58.setObjectName(u"horizontalLayout_58")
+        self.horizontalLayout_58.setContentsMargins(9, 9, 9, 9)
+        self.label_41 = QLabel(self.frame_122)
+        self.label_41.setObjectName(u"label_41")
+        self.label_41.setMaximumSize(QSize(35, 16777215))
+        self.label_41.setPixmap(QPixmap(u":/icons/icons/book.svg"))
+
+        self.horizontalLayout_58.addWidget(self.label_41)
+
+        self.label_29 = QLabel(self.frame_122)
+        self.label_29.setObjectName(u"label_29")
+        self.label_29.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_58.addWidget(self.label_29)
+
+
+        self.verticalLayout_160.addWidget(self.frame_122)
+
+        self.line_13 = QFrame(self.frame_119)
+        self.line_13.setObjectName(u"line_13")
+        self.line_13.setFrameShape(QFrame.HLine)
+        self.line_13.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_160.addWidget(self.line_13)
+
+        self.frame_123 = QFrame(self.frame_119)
+        self.frame_123.setObjectName(u"frame_123")
+        self.frame_123.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";")
+        self.frame_123.setFrameShape(QFrame.StyledPanel)
+        self.frame_123.setFrameShadow(QFrame.Raised)
+        self.gridLayout_6 = QGridLayout(self.frame_123)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setHorizontalSpacing(25)
+        self.gridLayout_6.setVerticalSpacing(20)
+        self.settings_fontComboBox = QFontComboBox(self.frame_123)
+        self.settings_fontComboBox.setObjectName(u"settings_fontComboBox")
+        self.settings_fontComboBox.setEditable(False)
+
+        self.gridLayout_6.addWidget(self.settings_fontComboBox, 0, 1, 1, 1, Qt.AlignLeft)
+
+        self.label_35 = QLabel(self.frame_123)
+        self.label_35.setObjectName(u"label_35")
+
+        self.gridLayout_6.addWidget(self.label_35, 0, 0, 1, 1)
+
+        self.label_25 = QLabel(self.frame_123)
+        self.label_25.setObjectName(u"label_25")
+
+        self.gridLayout_6.addWidget(self.label_25, 2, 0, 1, 1)
+
+        self.settings_fontSizeComboBox = QSpinBox(self.frame_123)
+        self.settings_fontSizeComboBox.setObjectName(u"settings_fontSizeComboBox")
+        self.settings_fontSizeComboBox.setMinimumSize(QSize(0, 0))
+        self.settings_fontSizeComboBox.setStyleSheet(u"")
+        self.settings_fontSizeComboBox.setMinimum(8)
+        self.settings_fontSizeComboBox.setMaximum(14)
+        self.settings_fontSizeComboBox.setValue(12)
+
+        self.gridLayout_6.addWidget(self.settings_fontSizeComboBox, 2, 1, 1, 1, Qt.AlignLeft)
+
+
+        self.verticalLayout_160.addWidget(self.frame_123, 0, Qt.AlignLeft)
+
+        self.line_17 = QFrame(self.frame_119)
+        self.line_17.setObjectName(u"line_17")
+        self.line_17.setFrameShape(QFrame.HLine)
+        self.line_17.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_160.addWidget(self.line_17)
+
+
+        self.verticalLayout_167.addWidget(self.frame_119)
+
+        self.frame_121 = QFrame(self.frame_131)
+        self.frame_121.setObjectName(u"frame_121")
+        self.frame_121.setFrameShape(QFrame.StyledPanel)
+        self.frame_121.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_164 = QVBoxLayout(self.frame_121)
+        self.verticalLayout_164.setObjectName(u"verticalLayout_164")
+        self.verticalLayout_164.setContentsMargins(-1, 9, -1, -1)
+        self.frame_126 = QFrame(self.frame_121)
+        self.frame_126.setObjectName(u"frame_126")
+        self.frame_126.setMaximumSize(QSize(16777215, 50))
+        self.frame_126.setFrameShape(QFrame.StyledPanel)
+        self.frame_126.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_59 = QHBoxLayout(self.frame_126)
+        self.horizontalLayout_59.setSpacing(0)
+        self.horizontalLayout_59.setObjectName(u"horizontalLayout_59")
+        self.label_42 = QLabel(self.frame_126)
+        self.label_42.setObjectName(u"label_42")
+        self.label_42.setMaximumSize(QSize(35, 16777215))
+        self.label_42.setPixmap(QPixmap(u":/icons/icons/briefcase.svg"))
+
+        self.horizontalLayout_59.addWidget(self.label_42)
+
+        self.label_36 = QLabel(self.frame_126)
+        self.label_36.setObjectName(u"label_36")
+        self.label_36.setMaximumSize(QSize(16777215, 16777215))
+        self.label_36.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_59.addWidget(self.label_36)
+
+
+        self.verticalLayout_164.addWidget(self.frame_126)
+
+        self.line_15 = QFrame(self.frame_121)
+        self.line_15.setObjectName(u"line_15")
+        self.line_15.setFrameShape(QFrame.HLine)
+        self.line_15.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_164.addWidget(self.line_15)
+
+        self.frame_127 = QFrame(self.frame_121)
+        self.frame_127.setObjectName(u"frame_127")
+        self.frame_127.setStyleSheet(u"QPushButton{\n"
+"font: 11pt \"MS Shell Dlg 2\";\n"
+"border-radius:4px;\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(43, 49, 65);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(50, 56, 75);\n"
+"}\n"
+"")
+        self.frame_127.setFrameShape(QFrame.StyledPanel)
+        self.frame_127.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_166 = QVBoxLayout(self.frame_127)
+        self.verticalLayout_166.setObjectName(u"verticalLayout_166")
+        self.settings_view_users_btn = QPushButton(self.frame_127)
+        self.settings_view_users_btn.setObjectName(u"settings_view_users_btn")
+        self.settings_view_users_btn.setMinimumSize(QSize(120, 25))
+        self.settings_view_users_btn.setMaximumSize(QSize(16777215, 16777215))
+        self.settings_view_users_btn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.settings_view_users_btn.setFlat(True)
+
+        self.verticalLayout_166.addWidget(self.settings_view_users_btn)
+
+
+        self.verticalLayout_164.addWidget(self.frame_127, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_167.addWidget(self.frame_121)
+
+        self.settings_apply_settings = QPushButton(self.frame_131)
+        self.settings_apply_settings.setObjectName(u"settings_apply_settings")
+        self.settings_apply_settings.setMinimumSize(QSize(100, 25))
+        self.settings_apply_settings.setCursor(QCursor(Qt.PointingHandCursor))
+        self.settings_apply_settings.setStyleSheet(u"QPushButton{\n"
+"font: 8pt \"MS Shell Dlg 2\";\n"
+"border-radius:4px;\n"
+"background-color: rgb(83, 94, 125);\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(92, 105, 139);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(111, 126, 168);\n"
+"}\n"
+"")
+
+        self.verticalLayout_167.addWidget(self.settings_apply_settings, 0, Qt.AlignRight)
+
+
+        self.verticalLayout_53.addWidget(self.frame_131, 0, Qt.AlignHCenter|Qt.AlignTop)
+
+        self.settings_stackedWidget.addWidget(self.settings_main)
+        self.settings_sim_users = QWidget()
+        self.settings_sim_users.setObjectName(u"settings_sim_users")
+        self.verticalLayout_168 = QVBoxLayout(self.settings_sim_users)
+        self.verticalLayout_168.setObjectName(u"verticalLayout_168")
+        self.settings_return_to_homepage_button = QPushButton(self.settings_sim_users)
+        self.settings_return_to_homepage_button.setObjectName(u"settings_return_to_homepage_button")
+        self.settings_return_to_homepage_button.setStyleSheet(u"QPushButton{\n"
+"	color:rgb(255, 255, 255);\n"
+"	border:none;\n"
+"	border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(60, 88, 125);\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"	border-radius:7px;\n"
+"	background-color: rgb(71, 105, 149);\n"
+"}\n"
+"")
+        self.settings_return_to_homepage_button.setIcon(icon12)
+        self.settings_return_to_homepage_button.setIconSize(QSize(32, 32))
+        self.settings_return_to_homepage_button.setFlat(True)
+
+        self.verticalLayout_168.addWidget(self.settings_return_to_homepage_button, 0, Qt.AlignLeft)
+
+        self.frame_129 = QFrame(self.settings_sim_users)
+        self.frame_129.setObjectName(u"frame_129")
+        self.frame_129.setFrameShape(QFrame.StyledPanel)
+        self.frame_129.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_169 = QVBoxLayout(self.frame_129)
+        self.verticalLayout_169.setObjectName(u"verticalLayout_169")
+        self.frame_72 = QFrame(self.frame_129)
+        self.frame_72.setObjectName(u"frame_72")
+        self.frame_72.setFrameShape(QFrame.StyledPanel)
+        self.frame_72.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_165 = QVBoxLayout(self.frame_72)
+        self.verticalLayout_165.setObjectName(u"verticalLayout_165")
+        self.label_8 = QLabel(self.frame_72)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setStyleSheet(u"font: 16pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_165.addWidget(self.label_8, 0, Qt.AlignHCenter)
+
+        self.frame_130 = QFrame(self.frame_72)
+        self.frame_130.setObjectName(u"frame_130")
+        self.frame_130.setMinimumSize(QSize(423, 0))
+        self.frame_130.setFrameShape(QFrame.StyledPanel)
+        self.frame_130.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_170 = QVBoxLayout(self.frame_130)
+        self.verticalLayout_170.setObjectName(u"verticalLayout_170")
+        self.settings_users_table = QTableWidget(self.frame_130)
+        if (self.settings_users_table.columnCount() < 4):
+            self.settings_users_table.setColumnCount(4)
+        __qtablewidgetitem7 = QTableWidgetItem()
+        self.settings_users_table.setHorizontalHeaderItem(0, __qtablewidgetitem7)
+        __qtablewidgetitem8 = QTableWidgetItem()
+        self.settings_users_table.setHorizontalHeaderItem(1, __qtablewidgetitem8)
+        __qtablewidgetitem9 = QTableWidgetItem()
+        self.settings_users_table.setHorizontalHeaderItem(2, __qtablewidgetitem9)
+        __qtablewidgetitem10 = QTableWidgetItem()
+        self.settings_users_table.setHorizontalHeaderItem(3, __qtablewidgetitem10)
+        self.settings_users_table.setObjectName(u"settings_users_table")
+        self.settings_users_table.setMaximumSize(QSize(410, 16777215))
+        self.settings_users_table.setToolTipDuration(3)
+        self.settings_users_table.setStyleSheet(u"color: rgb(0, 0, 0);\n"
+"background-color: rgb(182, 182, 182);")
+
+        self.verticalLayout_170.addWidget(self.settings_users_table)
+
+
+        self.verticalLayout_165.addWidget(self.frame_130, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_169.addWidget(self.frame_72)
+
+        self.frame_73 = QFrame(self.frame_129)
+        self.frame_73.setObjectName(u"frame_73")
+        self.frame_73.setFrameShape(QFrame.StyledPanel)
+        self.frame_73.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_163 = QVBoxLayout(self.frame_73)
+        self.verticalLayout_163.setObjectName(u"verticalLayout_163")
+        self.label_5 = QLabel(self.frame_73)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setStyleSheet(u"font: 20pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_163.addWidget(self.label_5, 0, Qt.AlignHCenter)
+
+        self.settings_original_file_edit = QPlainTextEdit(self.frame_73)
+        self.settings_original_file_edit.setObjectName(u"settings_original_file_edit")
+        self.settings_original_file_edit.setMinimumSize(QSize(700, 0))
+        self.settings_original_file_edit.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";\n"
+"background-color: rgb(255, 255, 255);\n"
+"color: rgb(40, 40, 40);")
+        self.settings_original_file_edit.setReadOnly(True)
+
+        self.verticalLayout_163.addWidget(self.settings_original_file_edit)
+
+        self.setting_users_file_location = QLabel(self.frame_73)
+        self.setting_users_file_location.setObjectName(u"setting_users_file_location")
+
+        self.verticalLayout_163.addWidget(self.setting_users_file_location)
+
+
+        self.verticalLayout_169.addWidget(self.frame_73)
+
+
+        self.verticalLayout_168.addWidget(self.frame_129, 0, Qt.AlignHCenter)
+
+        self.settings_stackedWidget.addWidget(self.settings_sim_users)
+
+        self.verticalLayout_159.addWidget(self.settings_stackedWidget)
+
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_2)
+
+        self.verticalLayout_33.addWidget(self.scrollArea_2)
+
+
+        self.verticalLayout_7.addWidget(self.frame_114)
+
         self.stacked_menu_pages.addWidget(self.settings)
         self.about = QWidget()
         self.about.setObjectName(u"about")
@@ -4260,9 +4973,9 @@ class Ui_MainWindow(object):
         self.help_button = QPushButton(self.footer_right_frame)
         self.help_button.setObjectName(u"help_button")
         self.help_button.setFont(font14)
-        icon13 = QIcon()
-        icon13.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
-        self.help_button.setIcon(icon13)
+        icon16 = QIcon()
+        icon16.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
+        self.help_button.setIcon(icon16)
         self.help_button.setIconSize(QSize(32, 32))
         self.help_button.setFlat(True)
 
@@ -4287,15 +5000,18 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stacked_menu_pages.setCurrentIndex(3)
+        self.stacked_menu_pages.setCurrentIndex(4)
         self.ticker_label_title_analysis.setDefault(False)
         self.stock_analysis_stackedWidget.setCurrentIndex(0)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(0)
-        self.simulator_stacked_widget.setCurrentIndex(3)
-        self.tabWidget.setCurrentIndex(1)
+        self.simulator_stacked_widget.setCurrentIndex(0)
+        self.pushButton_5.setDefault(False)
+        self.tabWidget.setCurrentIndex(0)
+        self.simulator_user_icon_btn.setDefault(False)
         self.stock_sim_trade_stackedWidget.setCurrentIndex(0)
+        self.settings_stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -4428,135 +5144,34 @@ class Ui_MainWindow(object):
         self.forex_button_learn.setText(QCoreApplication.translate("MainWindow", u"Forex", None))
         self.crypto_button_learn.setText(QCoreApplication.translate("MainWindow", u"Cryptocurrency", None))
         self.learn_return_to_homepage_button.setText("")
-        self.stock_learning_content_header.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#000000;\">STOCKS</span></p><p align=\"center\"><span style=\" color:#000000;\"><br/></span></p><p align=\"center\"><span style=\" font-size:16pt; text-decoration: underline; color:#000000;\">Table of contents</span></p><p align=\"center\"><span style=\" color:#000000;\"><br/></span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">1. What is a stock?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">2. Investing in stocks</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">3. Wy do people invest in stocks</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">4. Why do companies issue stocks</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">5. Types of stock</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">6. Stock market capitalization</span></p><p align=\"center\"><span style=\" "
-                        "font-size:11pt; color:#000000;\">7. Dividends</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">8. Stock Splits</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">9. What are dividends?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">10. Finding Stocks for your portfolio</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">11. Finding a broker</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">12. What affects the price of stock</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#000000;\">13 . Stock terminology</span></p></body></html>", None))
+        self.label_22.setText(QCoreApplication.translate("MainWindow", u"STOCKS", None))
+        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Table of contents", None))
+        self.pushButton_12.setText(QCoreApplication.translate("MainWindow", u"1. What is a stock?", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"2. Investing in stocks", None))
+        self.pushButton_11.setText(QCoreApplication.translate("MainWindow", u"3. Why do people invest in stocks?", None))
+        self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"4. Why do companies issue stocks", None))
+        self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"5. Types of stock", None))
+        self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"6. Stock market capitalization", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"1. What is a stock", None))
-        self.label_5.setText(QCoreApplication.translate("MainWindow", u"A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation (e.g. Apple, Netflix, Amazon).\n"
-"\n"
-"This entitles the owner of the stock to a proportion of the corporation's assets and profits equal to how much stock they own.\n"
-"\n"
-"Units of stock are called \"shares.\"\n"
-"\n"
-"\n"
-"Stocks are bought and sold predominantly on stock exchanges, though there can be private sales as well, and are the foundation of many individual investors' portfolios.\n"
-"\n"
-"These transactions have to conform to government regulations which are meant to protect investors from fraudulent practices.\n"
-"\n"
-"\n"
-"When you own stock in a company, you are called a shareholder because you share in the company's profits.\n"
-"\n"
-"Public companies sell their stock through a stock market exchange, like the Nasdaq or the New York Stock Exchange.\n"
-"\n"
-"Investors can then buy and sell these shares among themselves through stockbrokers.\n"
-"\n"
-"The stock exchanges track the supply and d"
-                        "emand of each company's stock, which directly affects the stock's price.\n"
-"\n"
-"\n"
-"Stock prices fluctuate throughout the day, but investors who own stock hope that over time, the stock will increase in value.\n"
-"\n"
-"However, not every company or stock does so, companies can lose value or go out of business completely.\n"
-"\n"
-"When that happens, stock investors may lose all or part of their investment.\n"
-"\n"
-"That's why it's important for investors to spread their money around, buying stock in many different companies rather than focusing on just one.\n"
-"\n"
-"This is also called a portfolio.\n"
-"", None))
+        self.plainTextEdit.setDocumentTitle("")
+        self.plainTextEdit.setPlainText(QCoreApplication.translate("MainWindow", u"A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation (e.g. Apple, Netflix, Amazon).\\n\\nThis entitles the owner of the stock to a proportion of the corporation's assets and profits equal to how much stock they own.\\n\\nUnits of stock are called \"shares.\"\\n\\n\\nStocks are bought and sold predominantly on stock exchanges, though there can be private sales as well, and are the foundation of many individual investors' portfolios.\\n\\nThese transactions have to conform to government regulations which are meant to protect investors from fraudulent practices.\\n\\n\\nWhen you own stock in a company, you are called a shareholder because you share in the company's profits.\\n\\nPublic companies sell their stock through a stock market exchange, like the Nasdaq or the New York Stock Exchange.\\n\\nInvestors can then buy and sell these shares among themselves through stockbrokers.\\n\\nThe stock exchanges track the supply and demand of each company's stock, which"
+                        " directly affects the stock's price.\\n\\n\\nStock prices fluctuate throughout the day, but investors who own stock hope that over time, the stock will increase in value.\\n\\nHowever, not every company or stock does so, companies can lose value or go out of business completely.\\n\\nWhen that happens, stock investors may lose all or part of their investment.\\n\\nThat's why it's important for investors to spread their money around, buying stock in many different companies rather than focusing on just one.\\n\\nThis is also called a portfolio.\\n", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"2. Understanding stocks", None))
-        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Corporations issue (sell) stock to raise funds to operate their businesses.\n"
-"\n"
-"The holder of stock (a shareholder) has now bought a piece of the corporation and, depending on the type of shares held, may have a claim to a part of its assets and earnings.\n"
-"\n"
-"In other words, a shareholder is now an owner of the issuing company.\n"
-"\n"
-"Ownership is determined by the number of shares a person owns relative to the number of outstanding shares. For example, if a company has 1,000 shares of stock outstanding and one person owns 100 shares, that person would own and have claim to 10% of the company's assets and earnings.\n"
-"\n"
-"Stock holders do not own corporations; they own shares issued by corporations. But corporations are a special type of organization because the law treats them as legal persons. \n"
-"\n"
-"In other words, corporations file taxes, can borrow, can own property, can be sued, etc.\n"
-"\n"
-"The idea that a corporation is a \u201cperson\u201d means that the corporation owns its own asse"
-                        "ts. A corporate office full of chairs and tables belongs to the corporation, and not to the shareholders.", None))
+        self.plainTextEdit_2.setPlainText(QCoreApplication.translate("MainWindow", u"Corporations issue (sell) stock to raise funds to operate their businesses.\\n\\nThe holder of stock (a shareholder) has now bought a piece of the corporation and, depending on the type of shares held, may have a claim to a part of its assets and earnings.\\n\\nIn other words, a shareholder is now an owner of the issuing company.\\n\\nOwnership is determined by the number of shares a person owns relative to the number of outstanding shares. For example, if a company has 1,000 shares of stock outstanding and one person owns 100 shares, that person would own and have claim to 10% of the company's assets and earnings.\\n\\nStock holders do not own corporations; they own shares issued by corporations. But corporations are a special type of organization because the law treats them as legal persons. \\n\\nIn other words, corporations file taxes, can borrow, can own property, can be sued, etc.\\n\\nThe idea that a corporation is a \u201cperson\u201d means that the corporation owns its own assets. A corporate office f"
+                        "ull of chairs and tables belongs to the corporation, and not to the shareholders.", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", u"3. Why do people buy stocks", None))
-        self.label_12.setText(QCoreApplication.translate("MainWindow", u"The primary reason that people buy shares of companies is to make money. The idea is to buy low and sell high. \n"
-"For instance, if you buy 100 shares of Company B stock valued at $25 each, you will have made an initial investment totaling $2,500. Say the value of the share increases to 50$. Your profit will be of $2,500. \n"
-"However there is more to why people buy stocks, here are some other reasons:\n"
-"\n"
-"\n"
-" - Investing in stocks is an excellent way to grow wealth. For long-term investors, stocks are a good investment even during periods of market volatility\n"
-"\n"
-" \n"
-" - You can get rich with stocks, you just need to take the risk. You can grow wealth by putting your money into the stock market over a long timeframe.\n"
-"\n"
-"\n"
-" - It Doesn't Cost Much to Get Started\n"
-"\n"
-"\n"
-" - Protect. Taxes and inflation can impact your wealth.\n"
-"\n"
-"\n"
-" - Stocks Are Designed To Go Up In Price, the larger indexes including the Dow Jones and the S&P 500 are updated periodically. Companies that are "
-                        "not performing are pulled out of the indexes and are replaced by companies that are being traded more frequently\u2014among other factors. This ensures that the major indexes are always populated by companies that are earning money, and being traded frequently.\n"
-"\n"
-"\n"
-" - You Don't Have to Be a Genius. While an experienced investor may be able to grow their money faster than you\u2014that doesn't mean you can't buy stocks! And you don't need to be a Chartered Financial Analyst, portfolio manager or the next Warren Buffett to invest in stocks. Also, buying stocks and making money with them is clearly much easier than building a successful business from scratch! To invest in a company's stock you must read their annual report (which you can easily find online), set some money aside and understand basic math.\n"
-"\n"
-"\n"
-" - Another reason why people buy stocks is to support a company they like.\n"
-"It is funny to think of investing for sentimental reasons, but if you\u2019re the type of person who likes a"
-                        " product or a company and you wish to help ensure that it stays successful within the market, then this reason for stock investment describes you. Some people also want the power to help in making company decisions and this will happen when you become a shareholder. Shareholders can attend meetings that help the company they invest in make decisions that affect its income.", None))
+        self.plainTextEdit_3.setPlainText(QCoreApplication.translate("MainWindow", u"The primary reason that people buy shares of companies is to make money. The idea is to buy low and sell high. \\nFor instance, if you buy 100 shares of Company B stock valued at $25 each, you will have made an initial investment totaling $2,500. Say the value of the share increases to 50$. Your profit will be of $2,500. \\nHowever there is more to why people buy stocks, here are some other reasons:\\n\\n\\n - Investing in stocks is an excellent way to grow wealth. For long-term investors, stocks are a good investment even during periods of market volatility\\n\\n \\n - You can get rich with stocks, you just need to take the risk. You can grow wealth by putting your money into the stock market over a long timeframe.\\n\\n\\n - It Doesn't Cost Much to Get Started\\n\\n\\n - Protect. Taxes and inflation can impact your wealth.\\n\\n\\n - Stocks Are Designed To Go Up In Price, the larger indexes including the Dow Jones and the S&P 500 are updated periodically. Companies that are not performing are pulled out of t"
+                        "he indexes and are replaced by companies that are being traded more frequently\u2014among other factors. This ensures that the major indexes are always populated by companies that are earning money, and being traded frequently.\\n\\n\\n - You Don't Have to Be a Genius. While an experienced investor may be able to grow their money faster than you\u2014that doesn't mean you can't buy stocks! And you don't need to be a Chartered Financial Analyst, portfolio manager or the next Warren Buffett to invest in stocks. Also, buying stocks and making money with them is clearly much easier than building a successful business from scratch! To invest in a company's stock you must read their annual report (which you can easily find online), set some money aside and understand basic math.\\n\\n\\n - Another reason why people buy stocks is to support a company they like.\\nIt is funny to think of investing for sentimental reasons, but if you\u2019re the type of person who likes a product or a company and you wish to help ensur"
+                        "e that it stays successful within the market, then this reason for stock investment describes you. Some people also want the power to help in making company decisions and this will happen when you become a shareholder. Shareholders can attend meetings that help the company they invest in make decisions that affect its income.", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"4. Why do Companies issue stocks", None))
-        self.label_13.setText(QCoreApplication.translate("MainWindow", u"Corporations issue stock to raise money for growth and expansion. To raise money, corporations will issue stock by selling off a percentage of profits in a company.\n"
-"There are many reasons that a company would issue stock to raise money. Some of the common reasons include:\n"
-"\n"
-"\n"
-" - The development of new products\n"
-" \n"
-" - To purchase equipment\n"
-" \n"
-" - To buy new buildings\n"
-" \n"
-" - To increase inventory\n"
-" \n"
-" - To expand and grow staff\n"
-" \n"
-" - To reduce debt\n"
-" \n"
-" - To prepare for a merger or acquisition\n"
-" \n"
-" - To improve the value of a company\n"
-" \n"
-" - To provide for greater flexibility", None))
+        self.plainTextEdit_4.setPlainText(QCoreApplication.translate("MainWindow", u"Corporations issue stock to raise money for growth and expansion. To raise money, corporations will issue stock by selling off a percentage of profits in a company.\\nThere are many reasons that a company would issue stock to raise money. Some of the common reasons include:\\n\\n\\n - The development of new products\\n \\n - To purchase equipment\\n \\n - To buy new buildings\\n \\n - To increase inventory\\n \\n - To expand and grow staff\\n \\n - To reduce debt\\n \\n - To prepare for a merger or acquisition\\n \\n - To improve the value of a company\\n \\n - To provide for greater flexibility", None))
         self.label_9.setText(QCoreApplication.translate("MainWindow", u"5. Types of Stock", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"There are two main kinds of stocks, common stock and preferred stock.\n"
-"\n"
-"Common stock entitles owners to vote at shareholder meetings and receive dividends. They represent the majority of stock held by the public.\n"
-"Owners of common stock have voting rights and the right to dividend payouts, but there is one major drawback: If a company is forced to liquidate or go bankrupt, common shareholders are last in line when it comes to payouts.\n"
-"Preferred shareholders and bondholders must be paid out in full before common shareholders can begin receiving payments.\n"
-"\n"
-"Preferred stockholders usually don\u2019t have voting rights but they receive dividend payments before common stockholders do, and have priority over common stockholders if the company goes bankrupt and its assets are liquidated. Preferred stockholders have fewer rights than common stockholders, except when it comes to dividends.\n"
-"Companies that issue preferred stocks usually pay consistent dividends, and preferred stockholders have pr"
-                        "iority on dividends over common stockholders.  Investors buy preferred stock for its current income from dividends, so look for companies that make big profits to use preferred stock to return some of those profits via dividends.", None))
+        self.plainTextEdit_5.setPlainText(QCoreApplication.translate("MainWindow", u"There are two main kinds of stocks, common stock and preferred stock.\\n\\nCommon stock entitles owners to vote at shareholder meetings and receive dividends. They represent the majority of stock held by the public.\\nOwners of common stock have voting rights and the right to dividend payouts, but there is one major drawback: If a company is forced to liquidate or go bankrupt, common shareholders are last in line when it comes to payouts.\\nPreferred shareholders and bondholders must be paid out in full before common shareholders can begin receiving payments.\\n\\nPreferred stockholders usually don\u2019t have voting rights but they receive dividend payments before common stockholders do, and have priority over common stockholders if the company goes bankrupt and its assets are liquidated. Preferred stockholders have fewer rights than common stockholders, except when it comes to dividends.\\nCompanies that issue preferred stocks usually pay consistent dividends, and preferred stockholders have priority on divi"
+                        "dends over common stockholders.  Investors buy preferred stock for its current income from dividends, so look for companies that make big profits to use preferred stock to return some of those profits via dividends.", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"6. Market capitalization", None))
-        self.label_16.setText(QCoreApplication.translate("MainWindow", u"A way to categorize stocks is by the size of the company, as shown in its market capitalization. \n"
-"There are large-cap, mid-cap, and small-cap stocks. Shares in very small companies are sometimes called \u201cmicrocap\u201d stocks.\n"
-"The very lowest priced stocks are known as \u201cpenny stocks.\u201d These companies may have little or no earnings. Penny stocks do not pay dividends and are highly speculative.\n"
-"\n"
-"Market cap\u2014or market capitalization\u2014refers to the total value of all a company's shares of stock.\n"
-"It is calculated by multiplying the price of a stock by its total number of outstanding shares. For example, a company with 200 million shares selling at $50 a share would have a market cap of $10 billion.\n"
-"\n"
-"This value allows investors to understand the relative size of one company versus another. \n"
-"Market cap measures what a company is worth on the open market, as well as the market's perception of its future prospects, because it reflects what investors are willing to p"
-                        "ay for its stock.\n"
-"Below are the descriptions for 3 market cap sizes:\n"
-"\n"
-" - Large-cap companies are typically firms with a market value of $10 billion or more. Large-cap firms often have a reputation for producing quality goods and services, a history of consistent dividend payments, and steady growth. They are often dominant players within established industries, and their brand names may be familiar to a national consumer audience.\n"
-"\n"
-" - Mid-cap companies are typically businesses with a market value between $2 billion and $10 billion. Typically, these are established companies in industries experiencing or expected to experience rapid growth. These medium-sized companies may be in the process of increasing market share and improving overall competitiveness. This stage of growth is likely to determine whether a company eventually lives up to its full potential. Mid-cap stocks generally fall between large caps and small caps on the risk/return spectrum. Mid-caps may offer more growth potential t"
-                        "han large caps, and possibly less risk than small caps.\n"
-"\n"
-" - Small-cap companies are typically those with a market value of $300 million to $2 billion. Generally, these are young companies that serve niche markets or emerging industries. Small caps are considered the most aggressive and risky of the 3 categories. The relatively limited resources of small companies can potentially make them more susceptible to a business or economic downturn. They may also be vulnerable to the intense competition and uncertainties characteristic of untried, burgeoning markets. On the other hand, small-cap stocks may offer significant growth potential to long-term investors who can tolerate volatile stock price swings in the short term.", None))
+        self.plainTextEdit_6.setPlainText(QCoreApplication.translate("MainWindow", u"A way to categorize stocks is by the size of the company, as shown in its market capitalization. \\nThere are large-cap, mid-cap, and small-cap stocks. Shares in very small companies are sometimes called \u201cmicrocap\u201d stocks.\\nThe very lowest priced stocks are known as \u201cpenny stocks.\u201d These companies may have little or no earnings. Penny stocks do not pay dividends and are highly speculative.\\n\\nMarket cap\u2014or market capitalization\u2014refers to the total value of all a company's shares of stock.\\nIt is calculated by multiplying the price of a stock by its total number of outstanding shares. For example, a company with 200 million shares selling at $50 a share would have a market cap of $10 billion.\\n\\nThis value allows investors to understand the relative size of one company versus another. \\nMarket cap measures what a company is worth on the open market, as well as the market's perception of its future prospects, because it reflects what investors are willing to pay for its stock"
+                        ".\\nBelow are the descriptions for 3 market cap sizes:\\n\\n - Large-cap companies are typically firms with a market value of $10 billion or more. Large-cap firms often have a reputation for producing quality goods and services, a history of consistent dividend payments, and steady growth. They are often dominant players within established industries, and their brand names may be familiar to a national consumer audience.\\n\\n - Mid-cap companies are typically businesses with a market value between $2 billion and $10 billion. Typically, these are established companies in industries experiencing or expected to experience rapid growth. These medium-sized companies may be in the process of increasing market share and improving overall competitiveness. This stage of growth is likely to determine whether a company eventually lives up to its full potential. Mid-cap stocks generally fall between large caps and small caps on the risk/return spectrum. Mid-caps may offer more growth potential than large caps, and possib"
+                        "ly less risk than small caps.\\n\\n - Small-cap companies are typically those with a market value of $300 million to $2 billion. Generally, these are young companies that serve niche markets or emerging industries. Small caps are considered the most aggressive and risky of the 3 categories. The relatively limited resources of small companies can potentially make them more susceptible to a business or economic downturn. They may also be vulnerable to the intense competition and uncertainties characteristic of untried, burgeoning markets. On the other hand, small-cap stocks may offer significant growth potential to long-term investors who can tolerate volatile stock price swings in the short term.", None))
         self.crypto_learning_content_header.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">CRYPTOCURRENCY</span></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:16pt; text-decoration: underline; color:#ffffff;\">Table of contents</span></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">1. What is cryptocurrency?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">2. Blockchain technology</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">3. Cryptocurrency mining</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">4. Initial coin offering</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">5. Finding a broker</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">6. Chosing the right cryptocurrency</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">7. What affects the price of cryptocu"
                         "rrency</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">8. Cryptocurrency terminology</span></p></body></html>", None))
         self.forex_learning_content.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">FOREX (FOREIGN EXCHANGE)</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:14pt; color:#ffffff;\">TABLE OF CONTENTS</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">1. What is Forex trading?</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">2. History of the Forex market</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">3. Major currencies</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">4. Basic Forex terminology</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">5. Where trading happens</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">6. How to connect to the market</span></p></body></html>", None))
@@ -4564,6 +5179,7 @@ class Ui_MainWindow(object):
         self.simulator_start_page_content_label.setText(QCoreApplication.translate("MainWindow", u"Welcome to the trading simulator! Click the button below to start:", None))
         self.stock_simulator_start_btn.setText(QCoreApplication.translate("MainWindow", u"Start", None))
         self.simulator_return_to_homepage_button.setText("")
+        self.pushButton_5.setText("")
         self.simulator_login_to_username_entry.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter your username", None))
         self.simulator_continue_to_sim_btn.setText(QCoreApplication.translate("MainWindow", u"Continue", None))
         self.simulator_create_new_user_btn.setText(QCoreApplication.translate("MainWindow", u"Don't have one? Click here to create one", None))
@@ -4578,8 +5194,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_title.setWhatsThis("")
 #endif // QT_CONFIG(whatsthis)
         self.stock_simulator_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" font-size:20pt; color:#ffffff;\">STOCK SIMULATOR</span></p></body></html>", None))
-        self.simulator_return_to_homepage_button_3.setText("")
-        self.label_25.setText("")
+        self.label_18.setText("")
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Symbol", None));
         ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)
@@ -4594,13 +5209,15 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem5.setText(QCoreApplication.translate("MainWindow", u"Quantity", None));
         ___qtablewidgetitem6 = self.tableWidget.horizontalHeaderItem(6)
         ___qtablewidgetitem6.setText(QCoreApplication.translate("MainWindow", u"Total value", None));
+        self.simulator_user_icon_btn.setText("")
         self.stock_simulator_username_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.label_18.setText(QCoreApplication.translate("MainWindow", u"Account value", None))
+        self.label_27.setText(QCoreApplication.translate("MainWindow", u"Account value", None))
         self.stock_simulator_account_value_label.setText(QCoreApplication.translate("MainWindow", u"0", None))
-        self.label_20.setText(QCoreApplication.translate("MainWindow", u"Cash", None))
+        self.label_33.setText(QCoreApplication.translate("MainWindow", u"Cash", None))
         self.stock_simulator_cash_amount_label.setText(QCoreApplication.translate("MainWindow", u"0", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Total Gain/Loss", None))
+        self.label_34.setText(QCoreApplication.translate("MainWindow", u"Total Gain/Loss", None))
         self.stock_simulator_gainloss_label.setText(QCoreApplication.translate("MainWindow", u"0", None))
+        self.stock_simulator_logout_btn.setText(QCoreApplication.translate("MainWindow", u"  Logout", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Portfolio), QCoreApplication.translate("MainWindow", u"Portfolio", None))
         self.stock_simulator_order_details_title.setText(QCoreApplication.translate("MainWindow", u"ORDER DETAILS", None))
         self.stock_simulator_stock_ticker_label.setText(QCoreApplication.translate("MainWindow", u"Stock symbol", None))
@@ -4609,6 +5226,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_transaction_type_combobox.setItemText(1, QCoreApplication.translate("MainWindow", u"Sell", None))
 
         self.stock_simulator_quantity_label.setText(QCoreApplication.translate("MainWindow", u"Quantity", None))
+        self.stock_simulator_quantity_entry.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.stock_simulator_symbol_lookup_button.setText(QCoreApplication.translate("MainWindow", u"View stock...", None))
         self.stock_simulator_purchase_button_2.setText(QCoreApplication.translate("MainWindow", u"CLEAR ALL", None))
         self.stock_simulator_purchase_button.setText(QCoreApplication.translate("MainWindow", u"PREVIEW ORDER", None))
@@ -4625,8 +5243,54 @@ class Ui_MainWindow(object):
         self.stock_simulator_purchase_camcel_btn.setText(QCoreApplication.translate("MainWindow", u"CANCEL ORDER", None))
         self.stock_simulator_purchase_confirm_btn.setText(QCoreApplication.translate("MainWindow", u"BUY", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.Trade), QCoreApplication.translate("MainWindow", u"Trade", None))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.Performance), QCoreApplication.translate("MainWindow", u"Performance", None))
+        self.label_26.setText(QCoreApplication.translate("MainWindow", u"ACCOUNT DETAILS", None))
+        self.stock_simulator_stocks_owned_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_simulator_username_label_2.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_30.setText(QCoreApplication.translate("MainWindow", u"Stocks owned", None))
+        self.label_28.setText(QCoreApplication.translate("MainWindow", u"Username", None))
+        self.label_32.setText(QCoreApplication.translate("MainWindow", u"ACCOUNT ACTIONS", None))
+        self.stock_simulator_delete_account_btn.setText(QCoreApplication.translate("MainWindow", u"  Delete account", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Account", None))
+        self.label_31.setText(QCoreApplication.translate("MainWindow", u"SETTINGS", None))
+        self.label_40.setText("")
+        self.label_37.setText(QCoreApplication.translate("MainWindow", u"Stocks Page", None))
+        self.label_38.setText(QCoreApplication.translate("MainWindow", u"Ticker Extra Info", None))
+        self.label_39.setText(QCoreApplication.translate("MainWindow", u"News visible", None))
+        self.settings_news_visible_checkBox.setText("")
+        self.settings_extra_info_checkBox.setText("")
+        self.label_41.setText("")
+        self.label_29.setText(QCoreApplication.translate("MainWindow", u"Learning Section", None))
+        self.label_35.setText(QCoreApplication.translate("MainWindow", u"Font", None))
+        self.label_25.setText(QCoreApplication.translate("MainWindow", u"Font Size", None))
+        self.label_42.setText("")
+        self.label_36.setText(QCoreApplication.translate("MainWindow", u"Trading Simulator", None))
+        self.settings_view_users_btn.setText(QCoreApplication.translate("MainWindow", u"View users", None))
+        self.settings_apply_settings.setText(QCoreApplication.translate("MainWindow", u"Apply Settings", None))
+        self.settings_return_to_homepage_button.setText("")
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Users", None))
+        ___qtablewidgetitem7 = self.settings_users_table.horizontalHeaderItem(0)
+        ___qtablewidgetitem7.setText(QCoreApplication.translate("MainWindow", u"Id", None));
+        ___qtablewidgetitem8 = self.settings_users_table.horizontalHeaderItem(1)
+        ___qtablewidgetitem8.setText(QCoreApplication.translate("MainWindow", u"Name", None));
+        ___qtablewidgetitem9 = self.settings_users_table.horizontalHeaderItem(2)
+        ___qtablewidgetitem9.setText(QCoreApplication.translate("MainWindow", u"Cash", None));
+        ___qtablewidgetitem10 = self.settings_users_table.horizontalHeaderItem(3)
+        ___qtablewidgetitem10.setText(QCoreApplication.translate("MainWindow", u"Stocks owned", None));
+#if QT_CONFIG(tooltip)
+        self.settings_users_table.setToolTip(QCoreApplication.translate("MainWindow", u"double click on a user to delete", u"lllll"))
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(statustip)
+        self.settings_users_table.setStatusTip("")
+#endif // QT_CONFIG(statustip)
+#if QT_CONFIG(whatsthis)
+        self.settings_users_table.setWhatsThis("")
+#endif // QT_CONFIG(whatsthis)
+#if QT_CONFIG(accessibility)
+        self.settings_users_table.setAccessibleDescription("")
+#endif // QT_CONFIG(accessibility)
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"Original File", None))
+        self.settings_original_file_edit.setPlainText("")
+        self.setting_users_file_location.setText(QCoreApplication.translate("MainWindow", u"File Location: _", None))
         self.about_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">About</span></p></body></html>", None))
         self.github_symbol.setText("")
         self.github_link.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"https://github.com/Theo524/\"><span style=\" text-decoration: underline; color:#ffffff;\">Github</span></a></p></body></html>", None))
