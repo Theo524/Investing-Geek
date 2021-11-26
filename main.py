@@ -1,7 +1,7 @@
 import sys
 import os
 import re
-from datetime import date, datetime
+import datetime
 import yfinance as yf
 import datetime as dt
 from GoogleNews import GoogleNews
@@ -52,6 +52,14 @@ class MainWindow(QMainWindow):
         self.ui.restore_window_button.clicked.connect(lambda: self.restore_or_maximize_window())
         self.ui.minimize_window_button.clicked.connect(lambda: self.showMinimized())
 
+        # analysis btns
+        self.stock_analysis_buttons = {'1d': self.ui.one_day_button, '1w': self.ui.one_week_button,
+                                       '1m': self.ui.one_month_button, '1y': self.ui.one_year_button,
+                                       '5y': self.ui.five_year_button, 'max': self.ui.max_button.clicked}
+        self.stock_analysis_crypto_buttons = {'1d': self.ui.one_day_button_2, '1w': self.ui.one_week_button_2,
+                                              '1m': self.ui.one_month_button_2, '1y': self.ui.one_year_button_2,
+                                              '5y': self.ui.five_year_button_2, 'max': self.ui.max_button_2}
+
         # stock game(simulator)
         self.stock_game = StockGame()
 
@@ -59,13 +67,12 @@ class MainWindow(QMainWindow):
         self.set_starting_widgets()
 
     def apply_settings(self):
-        """Apply settings"""
+        """Apply settings to application"""
 
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
 
-        msg.setText("This is a message box")
-        msg.setInformativeText("This is additional information")
+        msg.setText("Are you sure you want to apply these settings?")
         msg.setWindowTitle("Settings")
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         return_val = msg.exec_()
@@ -76,7 +83,30 @@ class MainWindow(QMainWindow):
 
         if return_val == QMessageBox.Yes:
             print('Yes clicked.')
-            # Show ticker info
+            # hide all headings(first setting)
+            headings = (self.ui.home_header, self.ui.analysis_header, self.ui.learning_header,
+                        self.ui.simulator_header, self.ui.settings_header)
+            if self.ui.settings_show_headings_checkBox.checkState() == 0:
+                # unchecked
+                for header in headings:
+                    header.hide()
+
+                # home layout
+                self.ui.verticalLayout_8.setContentsMargins(9, 52, 9, 9)
+
+                # settings
+                self.ui.verticalLayout_167.setContentsMargins(9, 54, 9, 9)
+
+            elif self.ui.settings_show_headings_checkBox.checkState() == 2:
+                # checked
+                for header in headings:
+                    header.show()
+
+                # home layout
+                self.ui.verticalLayout_8.setContentsMargins(9, 0, 9, 9)
+                self.ui.verticalLayout_167.setContentsMargins(9, 0, 9, 9)
+
+            # Show ticker info(second setting)
             if self.ui.settings_extra_info_checkBox.checkState() == 0:
                 # unchecked
                 self.ui.ticker_label_title_analysis.setEnabled(False)
@@ -85,7 +115,7 @@ class MainWindow(QMainWindow):
                 # checked
                 self.ui.ticker_label_title_analysis.setEnabled(True)
 
-            # show news
+            # show news(third setting)
             if self.ui.settings_news_visible_checkBox.checkState() == 0:
                 # unchecked
                 self.ui.stock_analysis_news_frame.hide()
@@ -96,7 +126,7 @@ class MainWindow(QMainWindow):
                 self.ui.stock_analysis_news_frame.show()
                 self.ui.stock_analysis_news_frame_2.show()
 
-            # fonts
+            # fonts(fourth setting)
             font = self.ui.settings_fontComboBox.currentText()
             font_size = self.ui.settings_fontSizeComboBox.text()
             self.ui.stocks_tutorial_main_body.setStyleSheet(f"""
@@ -356,7 +386,10 @@ color:rgb(255, 0, 0);
         if self.ticker_type == 'stock' and market_state['state'] == 'Closed':
 
             # feedback
-            txt = 'Today is not a weekday. The stock market is currently closed. \nYou can search cryptocurrencies.'
+            weekday = True if market_state['weekday'] == 'yes' else False
+            txt = 'Today is not a weekday. The stock market is currently closed. \nYou can search cryptocurrencies.'\
+                if not weekday else 'The market opens from 14:30 pm  to 21:00 pm.' \
+                                    ' This assumes you are living in the UK. \nYou can search cryptocurrencies.'
             title = 'Market closed'
             self.display_feedback(msg_type='information', message=txt, title=title)
 
@@ -376,19 +409,43 @@ color:rgb(255, 0, 0);
 
     @staticmethod
     def check_market_state():
-        # Check date of the week
-        today = date.today()
-        time = datetime.now()
+        """Check market is open (Assumes you live in the uk)"""
+
+        # (note) monday is 0, sunday is 6
+        # us market opening time in the uk is from 2:30pm to 9 pm
+        # today's date details
+        today = datetime.date.today()
+        day = today.day
+        month = today.month
+        year = today.year
+
+        # current time
+        time = datetime.datetime.now()
+        # pass onto date time object for comparison, we pass the same date but different times
+        # 2:30 pm market open in uk
+        limit_down = datetime.datetime(day=day, month=month, year=year, hour=14, minute=30, second=0)
+        # 9:00 pm market open in us
+        limit_up = datetime.datetime(day=day, month=month, year=year, hour=21, minute=0, second=0)
+
+        # current time is between 2:30 pm and 9:00 pm
+        day_open = limit_down < time < limit_up
         am_or_pm = 'AM' if time.hour < 12 else 'PM'
 
+        # valid weekdays
+        valid = [0, 1, 2, 3, 4]
+        h = f'0{time.hour}' if len(str(time.hour)) == 1 else f'{time.hour}'
+        m = f'0{time.minute}' if len(str(time.minute)) == 1 else f'{time.minute}'
+
         # If date is weekend market is closed, else open
-        if today.isoweekday() == 6 or today.isoweekday() == 7:
-            state = 'Closed'
-            stock_info = today.strftime(f'%d %B, {time.hour}{time.minute} {am_or_pm} - Market {state}')
-            return {'state': state, 'am_or_pm': am_or_pm, 'stock_info': stock_info}
-        state = 'Open'
-        stock_info = today.strftime(f'%d %B, {time.hour}{time.minute} {am_or_pm} - Market {state}')
-        return {'state': state, 'am_or_pm': am_or_pm, 'stock_info': stock_info}
+        if today.weekday() not in valid or not day_open:
+            m_state = 'Closed'
+            stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} - Market {m_state}')
+            return {'state': m_state, 'am_or_pm': am_or_pm, 'stock_info': stock_info,
+                    'weekday': 'yes' if not day_open else 'no'}
+        m_state = 'Open'
+        stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} - Market {m_state}')
+        return {'state': m_state, 'am_or_pm': am_or_pm, 'stock_info': stock_info,
+                'weekday': 'yes' if not day_open else 'no'}
 
     def calc_crypto_worth(self, worth_of_one_unit):
         """Calculate the worth of n amount of crypto currency"""
@@ -399,6 +456,18 @@ color:rgb(255, 0, 0);
 
     def show_info_data(self, time_period):
         """Shows the line chart and info for a specific timeframe in the gui"""
+
+        # disable all buttons except the one clicked (checked btns)
+        if self.ticker_type == 'crypto':
+            for time, btn in self.stock_analysis_crypto_buttons.items():
+                if time != time_period:
+                    btn.setChecked(False)
+        if self.ticker_type == 'stock':
+            for time, btn in self.stock_analysis_buttons.items():
+                if time != time_period:
+                    btn.setChecked(False)
+
+        print(self)
 
         print(self.ticker_type)
         print('getting chart info...')
@@ -457,9 +526,9 @@ color:rgb(255, 0, 0);
                 self.ui.day_open_placeholder.setText(str(open_price))
                 self.ui.day_high_placeholder.setText(str(high))
                 self.ui.day_low_placeholder.setText(str(low))
-                self.ui.volume_placeholder.setText(str(volume))
-                self.ui.avg_volume_placeholder.setText(str(avg_volume))
-                self.ui.market_cap_placeholder.setText(str(mkt_cap))
+                self.ui.volume_placeholder.setText(self.format_money(volume))
+                self.ui.avg_volume_placeholder.setText(self.format_money(avg_volume))
+                self.ui.market_cap_placeholder.setText(self.format_money(mkt_cap))
                 self.ui.fifty_two_week_high_placeholder.setText(str(fifty_two_week_high))
                 self.ui.fifty_two_week_low_placeholder.setText(str(fifty_two_week_low))
 
@@ -479,14 +548,18 @@ color:rgb(255, 0, 0);
 
             if self.ticker_type == 'stock':
                 # values
-                highest = max(list(df['High'].values))
-                lowest = min(list(df['Low'].values))
-                avg = (float(highest) + float(lowest)) / 2
+                all_data = list(df['Close'].values)
+                highest = max(all_data)
+                lowest = min(all_data)
+                avg = (highest + lowest) / 2
+
+                # close date
+                date = df[df['Close'] == highest].index
 
                 # add info to entries
-                self.ui.day_high_placeholder.setText(str(round(highest)))
-                self.ui.day_low_placeholder.setText(str(round(lowest)))
-                self.ui.day_open_placeholder.setText(str(round(avg)))
+                self.ui.day_high_placeholder.setText(str(round(highest, 2)))
+                self.ui.day_low_placeholder.setText(str(round(lowest, 2)))
+                self.ui.day_open_placeholder.setText(str(round(avg, 2)))
 
             # add chart
             stock_line_series = QtCharts.QLineSeries()
@@ -579,7 +652,7 @@ color:rgb(255, 0, 0);
             # Ensures they appear
             self.ui.day_open.setText('Open')
             self.ui.volume_label.setText('Volume')
-            self.ui.avg_volume_placeholder.setText('Avg Volume')
+            self.ui.avg_volume.setText('Avg Volume')
             self.ui.fifty_two_week_high.setText('52wK High')
             self.ui.fifty_two_week_low.setText('52wK Low')
             self.ui.market_cap.setText('Mkt Cap')
@@ -691,11 +764,7 @@ font: 8pt "MS Shell Dlg 2";""")
                     print(self.stock_game.current_user)
 
                     # user found, display informative feedback
-                    msg = QMessageBox()
-                    msg.setIcon(QMessageBox.Information)
-                    msg.setText('User found')
-                    msg.setWindowTitle("Success")
-                    msg.exec_()
+                    self.display_feedback(message=f'Welcome {user_name}', title="Success", msg_type='information')
 
                     # add user details to stock page
                     self.add_user_data_to_simulator_tabs(val)
@@ -706,7 +775,8 @@ font: 8pt "MS Shell Dlg 2";""")
                     return
 
         # if the user was not found
-        txt = 'The user is not does not exist. Check the json file to find it'
+        txt = 'The user is not does not exist. Check the json file to find it.\n '\
+              'You can directly access the or go to settings to see it'
         title = "No user"
 
         self.display_feedback(message=txt, msg_type='warning', title=title)
@@ -870,6 +940,7 @@ font: 8pt "MS Shell Dlg 2";""")
         self.ticker_obj = yf.Ticker(self.ticker)
 
         # data
+        tradeable = self.ticker_obj.info['tradeable']
         bid = self.ticker_obj.info['bid']
         ask = self.ticker_obj.info['bid']
         full_name = self.ticker_obj.info['longName']
@@ -879,7 +950,7 @@ font: 8pt "MS Shell Dlg 2";""")
         ticker_type = self.stock_or_crypto()
 
         # ticker
-        if ticker_type == 'stock' and int(quantity) > 0:
+        if ticker_type == 'stock' and int(quantity) > 0 and tradeable:
             # SET TEXT
             self.ui.stock_name.setText(str(full_name))
             self.ui.price_label.setText(str(bid if transaction_type == 'buy' else ask))
@@ -899,11 +970,10 @@ font: 8pt "MS Shell Dlg 2";""")
             self.ui.stock_simulator_purchase_camcel_btn.clicked.connect(lambda: self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab))
 
         else:
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Critical)
-            msg.setText('Missing or invalid entries')
-            msg.setWindowTitle("Error")
-            msg.exec_()
+            txt = 'Missing or invalid entries' if tradeable else 'The stock is currently deemed un-tradeable'
+            title = 'Error'
+            # msg
+            self.display_feedback(title=title, message=txt, msg_type='critical')
 
         QApplication.restoreOverrideCursor()
 
@@ -1061,6 +1131,47 @@ font: 8pt "MS Shell Dlg 2";""")
         msg_obj.setText(message)
         msg_obj.setWindowTitle(title)
         msg_obj.exec_()
+
+    def format_money(self, num, sign=None):
+        """Convert numbers into cleaner format"""
+
+        num = float(num)
+
+        # decimal val of the number eg 4564.675 would be '675'
+        decimal_value = str(round(num, 2)).split('.')[1]
+
+        # number without float eg 78567.7657 becomes '78567'
+        version_no_float = int(round(num, 0))
+        # number but with comas eg 1000000 becomes '1,000,000'
+        num_with_comas = str("{:,}".format(version_no_float))
+        # length of the number
+        length = len(str(version_no_float))
+        # true for small numbers, false for abnormal numbers
+        normal = True if length <= 6 else False
+
+        # decide prefix
+        n_type = 'q'
+        if 7 <= length <= 9:
+            n_type = 'million'
+
+        elif 10 <= length <= 12:
+            n_type = 'billion'
+
+        elif 13 <= length <= 15:
+            n_type = 'trillion'
+
+        # get num
+        sections = num_with_comas.split(',')
+        first_part = sections[0]
+        large_num = '.'.join([first_part, decimal_value]) if decimal_value != '0' else f'{first_part}.{sections[1][:2]}'
+        short_num = '.'.join([num_with_comas, decimal_value]) if decimal_value != '0' else num_with_comas
+        final_str = f'{large_num} {n_type[0].upper()}' if not normal else short_num
+
+        if sign:
+            return f'{sign}{str(final_str)}'
+
+        else:
+            return str(final_str)
 
 
 class TickerInfo(QMainWindow):
