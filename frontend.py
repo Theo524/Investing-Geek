@@ -321,7 +321,8 @@ class Ui_MainWindow(object):
         icon9.addFile(u":/icons/icons/bell.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.about_icon.setIcon(icon9)
         self.about_icon.setIconSize(QSize(32, 32))
-        self.about_icon.setEnabled(False)
+        self.about_icon.setCheckable(False)
+        self.about_icon.setChecked(False)
         self.about_icon.setFlat(True)
 
         self.gridLayout.addWidget(self.about_icon, 5, 0, 1, 1, Qt.AlignLeft)
@@ -358,9 +359,26 @@ class Ui_MainWindow(object):
         self.home_page_scrollArea.setWidgetResizable(True)
         self.home_page_frame = QWidget()
         self.home_page_frame.setObjectName(u"home_page_frame")
-        self.home_page_frame.setGeometry(QRect(0, 0, 877, 718))
+        self.home_page_frame.setGeometry(QRect(0, 0, 860, 1410))
         self.verticalLayout_6 = QVBoxLayout(self.home_page_frame)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+        self.home_header = QFrame(self.home_page_frame)
+        self.home_header.setObjectName(u"home_header")
+        self.home_header.setFrameShape(QFrame.StyledPanel)
+        self.home_header.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_171 = QVBoxLayout(self.home_header)
+        self.verticalLayout_171.setObjectName(u"verticalLayout_171")
+        self.verticalLayout_171.setContentsMargins(-1, 0, -1, -1)
+        self.home_page_title = QLabel(self.home_header)
+        self.home_page_title.setObjectName(u"home_page_title")
+        self.home_page_title.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
+"")
+
+        self.verticalLayout_171.addWidget(self.home_page_title, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_6.addWidget(self.home_header, 0, Qt.AlignHCenter)
+
         self.home_page_body = QFrame(self.home_page_frame)
         self.home_page_body.setObjectName(u"home_page_body")
         self.home_page_body.setFrameShape(QFrame.NoFrame)
@@ -368,13 +386,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_8 = QVBoxLayout(self.home_page_body)
         self.verticalLayout_8.setSpacing(60)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.home_page_title = QLabel(self.home_page_body)
-        self.home_page_title.setObjectName(u"home_page_title")
-        self.home_page_title.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
-"")
-
-        self.verticalLayout_8.addWidget(self.home_page_title, 0, Qt.AlignHCenter)
-
+        self.verticalLayout_8.setContentsMargins(-1, 0, -1, -1)
         self.home_page_content = QLabel(self.home_page_body)
         self.home_page_content.setObjectName(u"home_page_content")
         self.home_page_content.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";\n"
@@ -401,28 +413,31 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2069))
+        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2042))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.header = QFrame(self.stock_analysis_frame)
-        self.header.setObjectName(u"header")
-        self.header.setFrameShape(QFrame.StyledPanel)
-        self.header.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_136 = QVBoxLayout(self.header)
+        self.analysis_header = QFrame(self.stock_analysis_frame)
+        self.analysis_header.setObjectName(u"analysis_header")
+        self.analysis_header.setFrameShape(QFrame.StyledPanel)
+        self.analysis_header.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_136 = QVBoxLayout(self.analysis_header)
         self.verticalLayout_136.setObjectName(u"verticalLayout_136")
-        self.frame_89 = QFrame(self.header)
+        self.verticalLayout_136.setContentsMargins(-1, 0, -1, -1)
+        self.frame_89 = QFrame(self.analysis_header)
         self.frame_89.setObjectName(u"frame_89")
         self.frame_89.setMinimumSize(QSize(0, 30))
         self.frame_89.setFrameShape(QFrame.StyledPanel)
         self.frame_89.setFrameShadow(QFrame.Raised)
         self.verticalLayout_137 = QVBoxLayout(self.frame_89)
         self.verticalLayout_137.setObjectName(u"verticalLayout_137")
+        self.verticalLayout_137.setContentsMargins(-1, 0, -1, -1)
         self.stock_analysis_title_frame = QFrame(self.frame_89)
         self.stock_analysis_title_frame.setObjectName(u"stock_analysis_title_frame")
         self.stock_analysis_title_frame.setFrameShape(QFrame.StyledPanel)
         self.stock_analysis_title_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.stock_analysis_title_frame)
         self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
+        self.horizontalLayout_10.setContentsMargins(-1, 0, -1, -1)
         self.stock_analysis_title = QLabel(self.stock_analysis_title_frame)
         self.stock_analysis_title.setObjectName(u"stock_analysis_title")
         self.stock_analysis_title.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";")
@@ -436,7 +451,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_136.addWidget(self.frame_89)
 
 
-        self.verticalLayout_10.addWidget(self.header)
+        self.verticalLayout_10.addWidget(self.analysis_header)
 
         self.stock_analysis_main_body = QFrame(self.stock_analysis_frame)
         self.stock_analysis_main_body.setObjectName(u"stock_analysis_main_body")
@@ -621,6 +636,10 @@ class Ui_MainWindow(object):
 "QPushButton::pressed{\n"
 "	background-color: rgb(47, 71, 99);\n"
 "	border:2px solid rgb(32, 36, 48);\n"
+"}\n"
+"QPushButton::checked{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
 "}")
         self.times_frame.setFrameShape(QFrame.StyledPanel)
         self.times_frame.setFrameShadow(QFrame.Raised)
@@ -633,6 +652,8 @@ class Ui_MainWindow(object):
         self.one_day_button.setMaximumSize(QSize(16777215, 16777215))
         self.one_day_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_day_button.setStyleSheet(u"")
+        self.one_day_button.setCheckable(True)
+        self.one_day_button.setChecked(False)
         self.one_day_button.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.one_day_button)
@@ -642,6 +663,7 @@ class Ui_MainWindow(object):
         self.one_week_button.setMinimumSize(QSize(115, 30))
         self.one_week_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_week_button.setStyleSheet(u"")
+        self.one_week_button.setCheckable(True)
         self.one_week_button.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.one_week_button)
@@ -651,6 +673,7 @@ class Ui_MainWindow(object):
         self.one_month_button.setMinimumSize(QSize(115, 30))
         self.one_month_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_month_button.setStyleSheet(u"")
+        self.one_month_button.setCheckable(True)
         self.one_month_button.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.one_month_button)
@@ -660,6 +683,7 @@ class Ui_MainWindow(object):
         self.one_year_button.setMinimumSize(QSize(115, 30))
         self.one_year_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_year_button.setStyleSheet(u"")
+        self.one_year_button.setCheckable(True)
         self.one_year_button.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.one_year_button)
@@ -669,6 +693,7 @@ class Ui_MainWindow(object):
         self.five_year_button.setMinimumSize(QSize(115, 30))
         self.five_year_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.five_year_button.setStyleSheet(u"")
+        self.five_year_button.setCheckable(True)
         self.five_year_button.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.five_year_button)
@@ -678,6 +703,7 @@ class Ui_MainWindow(object):
         self.max_button.setMinimumSize(QSize(115, 30))
         self.max_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.max_button.setStyleSheet(u"")
+        self.max_button.setCheckable(True)
         self.max_button.setFlat(False)
 
         self.horizontalLayout_11.addWidget(self.max_button)
@@ -1724,6 +1750,10 @@ class Ui_MainWindow(object):
 "QPushButton::pressed{\n"
 "	background-color: rgb(47, 71, 99);\n"
 "	border:2px solid rgb(32, 36, 48);\n"
+"}\n"
+"QPushButton::checked{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
 "}")
         self.times_frame_2.setFrameShape(QFrame.StyledPanel)
         self.times_frame_2.setFrameShadow(QFrame.Raised)
@@ -1736,6 +1766,7 @@ class Ui_MainWindow(object):
         self.one_day_button_2.setMaximumSize(QSize(16777215, 16777215))
         self.one_day_button_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_day_button_2.setStyleSheet(u"")
+        self.one_day_button_2.setCheckable(True)
         self.one_day_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.one_day_button_2)
@@ -1745,6 +1776,7 @@ class Ui_MainWindow(object):
         self.one_week_button_2.setMinimumSize(QSize(115, 30))
         self.one_week_button_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_week_button_2.setStyleSheet(u"")
+        self.one_week_button_2.setCheckable(True)
         self.one_week_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.one_week_button_2)
@@ -1754,6 +1786,7 @@ class Ui_MainWindow(object):
         self.one_month_button_2.setMinimumSize(QSize(115, 30))
         self.one_month_button_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_month_button_2.setStyleSheet(u"")
+        self.one_month_button_2.setCheckable(True)
         self.one_month_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.one_month_button_2)
@@ -1763,6 +1796,7 @@ class Ui_MainWindow(object):
         self.one_year_button_2.setMinimumSize(QSize(115, 30))
         self.one_year_button_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.one_year_button_2.setStyleSheet(u"")
+        self.one_year_button_2.setCheckable(True)
         self.one_year_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.one_year_button_2)
@@ -1772,6 +1806,7 @@ class Ui_MainWindow(object):
         self.five_year_button_2.setMinimumSize(QSize(115, 30))
         self.five_year_button_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.five_year_button_2.setStyleSheet(u"")
+        self.five_year_button_2.setCheckable(True)
         self.five_year_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.five_year_button_2)
@@ -1781,6 +1816,7 @@ class Ui_MainWindow(object):
         self.max_button_2.setMinimumSize(QSize(115, 30))
         self.max_button_2.setCursor(QCursor(Qt.PointingHandCursor))
         self.max_button_2.setStyleSheet(u"")
+        self.max_button_2.setCheckable(True)
         self.max_button_2.setFlat(False)
 
         self.horizontalLayout_19.addWidget(self.max_button_2)
@@ -2553,13 +2589,15 @@ class Ui_MainWindow(object):
         self.learn_start_page_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_44 = QVBoxLayout(self.learn_start_page_frame)
         self.verticalLayout_44.setObjectName(u"verticalLayout_44")
-        self.learn_start_page_title_frame = QFrame(self.learn_start_page_frame)
-        self.learn_start_page_title_frame.setObjectName(u"learn_start_page_title_frame")
-        self.learn_start_page_title_frame.setFrameShape(QFrame.StyledPanel)
-        self.learn_start_page_title_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_41 = QVBoxLayout(self.learn_start_page_title_frame)
+        self.verticalLayout_44.setContentsMargins(-1, 0, -1, -1)
+        self.learning_header = QFrame(self.learn_start_page_frame)
+        self.learning_header.setObjectName(u"learning_header")
+        self.learning_header.setFrameShape(QFrame.StyledPanel)
+        self.learning_header.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_41 = QVBoxLayout(self.learning_header)
         self.verticalLayout_41.setObjectName(u"verticalLayout_41")
-        self.learn_start_page_title_label = QLabel(self.learn_start_page_title_frame)
+        self.verticalLayout_41.setContentsMargins(-1, 0, -1, -1)
+        self.learn_start_page_title_label = QLabel(self.learning_header)
         self.learn_start_page_title_label.setObjectName(u"learn_start_page_title_label")
         self.learn_start_page_title_label.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
 "")
@@ -2567,7 +2605,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_41.addWidget(self.learn_start_page_title_label, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_44.addWidget(self.learn_start_page_title_frame)
+        self.verticalLayout_44.addWidget(self.learning_header)
 
         self.learn_start_page_content_frame_frame = QFrame(self.learn_start_page_frame)
         self.learn_start_page_content_frame_frame.setObjectName(u"learn_start_page_content_frame_frame")
@@ -2759,6 +2797,8 @@ class Ui_MainWindow(object):
 
         self.pushButton_12 = QPushButton(self.frame_78)
         self.pushButton_12.setObjectName(u"pushButton_12")
+        self.pushButton_12.setCheckable(False)
+        self.pushButton_12.setChecked(False)
         self.pushButton_12.setFlat(True)
 
         self.verticalLayout_149.addWidget(self.pushButton_12)
@@ -3049,35 +3089,45 @@ class Ui_MainWindow(object):
         self.simulator_start_page.setObjectName(u"simulator_start_page")
         self.verticalLayout_25 = QVBoxLayout(self.simulator_start_page)
         self.verticalLayout_25.setObjectName(u"verticalLayout_25")
-        self.simulator_start_page_frame = QFrame(self.simulator_start_page)
+        self.frame_128 = QFrame(self.simulator_start_page)
+        self.frame_128.setObjectName(u"frame_128")
+        self.frame_128.setFrameShape(QFrame.StyledPanel)
+        self.frame_128.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_173 = QVBoxLayout(self.frame_128)
+        self.verticalLayout_173.setObjectName(u"verticalLayout_173")
+        self.verticalLayout_173.setContentsMargins(-1, 0, -1, -1)
+        self.simulator_header = QFrame(self.frame_128)
+        self.simulator_header.setObjectName(u"simulator_header")
+        self.simulator_header.setFrameShape(QFrame.StyledPanel)
+        self.simulator_header.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_42 = QVBoxLayout(self.simulator_header)
+        self.verticalLayout_42.setObjectName(u"verticalLayout_42")
+        self.verticalLayout_42.setContentsMargins(-1, 0, -1, -1)
+        self.simulator_start_page_title_label = QLabel(self.simulator_header)
+        self.simulator_start_page_title_label.setObjectName(u"simulator_start_page_title_label")
+        self.simulator_start_page_title_label.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
+"")
+
+        self.verticalLayout_42.addWidget(self.simulator_start_page_title_label, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_173.addWidget(self.simulator_header)
+
+        self.simulator_start_page_frame = QFrame(self.frame_128)
         self.simulator_start_page_frame.setObjectName(u"simulator_start_page_frame")
         self.simulator_start_page_frame.setFrameShape(QFrame.StyledPanel)
         self.simulator_start_page_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_26 = QVBoxLayout(self.simulator_start_page_frame)
         self.verticalLayout_26.setSpacing(235)
         self.verticalLayout_26.setObjectName(u"verticalLayout_26")
-        self.simulator_start_page_title_frame = QFrame(self.simulator_start_page_frame)
-        self.simulator_start_page_title_frame.setObjectName(u"simulator_start_page_title_frame")
-        self.simulator_start_page_title_frame.setFrameShape(QFrame.StyledPanel)
-        self.simulator_start_page_title_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_42 = QVBoxLayout(self.simulator_start_page_title_frame)
-        self.verticalLayout_42.setObjectName(u"verticalLayout_42")
-        self.simulator_start_page_title_label = QLabel(self.simulator_start_page_title_frame)
-        self.simulator_start_page_title_label.setObjectName(u"simulator_start_page_title_label")
-        self.simulator_start_page_title_label.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
-"")
-
-        self.verticalLayout_42.addWidget(self.simulator_start_page_title_label)
-
-
-        self.verticalLayout_26.addWidget(self.simulator_start_page_title_frame, 0, Qt.AlignHCenter)
-
+        self.verticalLayout_26.setContentsMargins(-1, 0, -1, -1)
         self.simulator_start_page_content_frame = QFrame(self.simulator_start_page_frame)
         self.simulator_start_page_content_frame.setObjectName(u"simulator_start_page_content_frame")
         self.simulator_start_page_content_frame.setFrameShape(QFrame.StyledPanel)
         self.simulator_start_page_content_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_45 = QVBoxLayout(self.simulator_start_page_content_frame)
         self.verticalLayout_45.setObjectName(u"verticalLayout_45")
+        self.verticalLayout_45.setContentsMargins(-1, 250, -1, -1)
         self.simulator_start_page_title_frame_2 = QFrame(self.simulator_start_page_content_frame)
         self.simulator_start_page_title_frame_2.setObjectName(u"simulator_start_page_title_frame_2")
         self.simulator_start_page_title_frame_2.setStyleSheet(u"")
@@ -3135,7 +3185,10 @@ class Ui_MainWindow(object):
         self.verticalLayout_26.addWidget(self.simulator_start_page_content_frame)
 
 
-        self.verticalLayout_25.addWidget(self.simulator_start_page_frame, 0, Qt.AlignTop)
+        self.verticalLayout_173.addWidget(self.simulator_start_page_frame)
+
+
+        self.verticalLayout_25.addWidget(self.frame_128, 0, Qt.AlignTop)
 
         self.simulator_stacked_widget.addWidget(self.simulator_start_page)
         self.simulator_login_page = QWidget()
@@ -3401,7 +3454,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_scrollArea.setWidgetResizable(True)
         self.stock_simulator_scroll_area_frame = QWidget()
         self.stock_simulator_scroll_area_frame.setObjectName(u"stock_simulator_scroll_area_frame")
-        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 859, 700))
+        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 830, 639))
         self.stock_simulator_scroll_area_frame.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.verticalLayout_28 = QVBoxLayout(self.stock_simulator_scroll_area_frame)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
@@ -3460,7 +3513,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 797, 553))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 470))
         self.verticalLayout_121 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.frame_9 = QFrame(self.scrollAreaWidgetContents)
@@ -4382,6 +4435,7 @@ class Ui_MainWindow(object):
         self.frame_114.setFrameShadow(QFrame.Raised)
         self.verticalLayout_33 = QVBoxLayout(self.frame_114)
         self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.verticalLayout_33.setContentsMargins(-1, 0, -1, -1)
         self.scrollArea_2 = QScrollArea(self.frame_114)
         self.scrollArea_2.setObjectName(u"scrollArea_2")
         self.scrollArea_2.setMinimumSize(QSize(0, 0))
@@ -4390,7 +4444,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 857, 698))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 840, 727))
         self.verticalLayout_159 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_159.setObjectName(u"verticalLayout_159")
         self.settings_stackedWidget = QStackedWidget(self.scrollAreaWidgetContents_2)
@@ -4404,6 +4458,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_53.setContentsMargins(0, 0, 0, 0)
         self.frame_131 = QFrame(self.settings_main)
         self.frame_131.setObjectName(u"frame_131")
+        self.frame_131.setMaximumSize(QSize(350, 16777215))
         self.frame_131.setStyleSheet(u"\n"
 "QLineEdit{\n"
 "font: 12pt \"MS Shell Dlg 2\";\n"
@@ -4434,20 +4489,19 @@ class Ui_MainWindow(object):
 "")
         self.frame_131.setFrameShape(QFrame.StyledPanel)
         self.frame_131.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_167 = QVBoxLayout(self.frame_131)
-        self.verticalLayout_167.setSpacing(0)
-        self.verticalLayout_167.setObjectName(u"verticalLayout_167")
-        self.verticalLayout_167.setContentsMargins(0, 0, 0, 0)
-        self.frame_128 = QFrame(self.frame_131)
-        self.frame_128.setObjectName(u"frame_128")
-        self.frame_128.setMinimumSize(QSize(0, 0))
-        self.frame_128.setMaximumSize(QSize(16777215, 16777215))
-        self.frame_128.setFrameShape(QFrame.StyledPanel)
-        self.frame_128.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_18 = QHBoxLayout(self.frame_128)
+        self.verticalLayout_172 = QVBoxLayout(self.frame_131)
+        self.verticalLayout_172.setObjectName(u"verticalLayout_172")
+        self.verticalLayout_172.setContentsMargins(-1, 0, -1, -1)
+        self.settings_header = QFrame(self.frame_131)
+        self.settings_header.setObjectName(u"settings_header")
+        self.settings_header.setMinimumSize(QSize(0, 0))
+        self.settings_header.setMaximumSize(QSize(16777215, 16777215))
+        self.settings_header.setFrameShape(QFrame.StyledPanel)
+        self.settings_header.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.settings_header)
         self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
-        self.horizontalLayout_18.setContentsMargins(-1, -1, -1, 28)
-        self.label_31 = QLabel(self.frame_128)
+        self.horizontalLayout_18.setContentsMargins(-1, 0, -1, 28)
+        self.label_31 = QLabel(self.settings_header)
         self.label_31.setObjectName(u"label_31")
         self.label_31.setStyleSheet(u"font: 28pt \"MS Shell Dlg 2\";\n"
 "")
@@ -4455,7 +4509,91 @@ class Ui_MainWindow(object):
         self.horizontalLayout_18.addWidget(self.label_31, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_167.addWidget(self.frame_128)
+        self.verticalLayout_172.addWidget(self.settings_header)
+
+        self.frame_132 = QFrame(self.frame_131)
+        self.frame_132.setObjectName(u"frame_132")
+        self.frame_132.setFrameShape(QFrame.StyledPanel)
+        self.frame_132.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_167 = QVBoxLayout(self.frame_132)
+        self.verticalLayout_167.setSpacing(0)
+        self.verticalLayout_167.setObjectName(u"verticalLayout_167")
+        self.verticalLayout_167.setContentsMargins(-1, 9, -1, -1)
+        self.frame_133 = QFrame(self.frame_132)
+        self.frame_133.setObjectName(u"frame_133")
+        self.frame_133.setMaximumSize(QSize(16777215, 50))
+        self.frame_133.setFrameShape(QFrame.StyledPanel)
+        self.frame_133.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_60 = QHBoxLayout(self.frame_133)
+        self.horizontalLayout_60.setSpacing(0)
+        self.horizontalLayout_60.setObjectName(u"horizontalLayout_60")
+        self.horizontalLayout_60.setContentsMargins(15, -1, 13, -1)
+        self.label_43 = QLabel(self.frame_133)
+        self.label_43.setObjectName(u"label_43")
+        self.label_43.setMaximumSize(QSize(35, 16777215))
+        self.label_43.setPixmap(QPixmap(u":/icons/icons/tool.svg"))
+
+        self.horizontalLayout_60.addWidget(self.label_43)
+
+        self.label_44 = QLabel(self.frame_133)
+        self.label_44.setObjectName(u"label_44")
+        self.label_44.setMaximumSize(QSize(16777215, 16777215))
+        self.label_44.setStyleSheet(u"font: 18pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_60.addWidget(self.label_44)
+
+
+        self.verticalLayout_167.addWidget(self.frame_133)
+
+        self.line_18 = QFrame(self.frame_132)
+        self.line_18.setObjectName(u"line_18")
+        self.line_18.setFrameShape(QFrame.HLine)
+        self.line_18.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_167.addWidget(self.line_18)
+
+        self.frame_134 = QFrame(self.frame_132)
+        self.frame_134.setObjectName(u"frame_134")
+        self.frame_134.setStyleSheet(u"QPushButton{\n"
+"font: 11pt \"MS Shell Dlg 2\";\n"
+"border-radius:4px;\n"
+"}\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(43, 49, 65);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(50, 56, 75);\n"
+"}\n"
+"")
+        self.frame_134.setFrameShape(QFrame.StyledPanel)
+        self.frame_134.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_56 = QHBoxLayout(self.frame_134)
+        self.horizontalLayout_56.setSpacing(50)
+        self.horizontalLayout_56.setObjectName(u"horizontalLayout_56")
+        self.label_10 = QLabel(self.frame_134)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setStyleSheet(u"font: 11pt \"MS Shell Dlg 2\";")
+
+        self.horizontalLayout_56.addWidget(self.label_10)
+
+        self.settings_show_headings_checkBox = QCheckBox(self.frame_134)
+        self.settings_show_headings_checkBox.setObjectName(u"settings_show_headings_checkBox")
+        self.settings_show_headings_checkBox.setChecked(True)
+
+        self.horizontalLayout_56.addWidget(self.settings_show_headings_checkBox)
+
+
+        self.verticalLayout_167.addWidget(self.frame_134, 0, Qt.AlignLeft)
+
+        self.line_19 = QFrame(self.frame_132)
+        self.line_19.setObjectName(u"line_19")
+        self.line_19.setFrameShape(QFrame.HLine)
+        self.line_19.setFrameShadow(QFrame.Sunken)
+
+        self.verticalLayout_167.addWidget(self.line_19)
+
+
+        self.verticalLayout_172.addWidget(self.frame_132)
 
         self.frame_120 = QFrame(self.frame_131)
         self.frame_120.setObjectName(u"frame_120")
@@ -4464,7 +4602,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_162 = QVBoxLayout(self.frame_120)
         self.verticalLayout_162.setSpacing(0)
         self.verticalLayout_162.setObjectName(u"verticalLayout_162")
-        self.verticalLayout_162.setContentsMargins(-1, 28, -1, -1)
+        self.verticalLayout_162.setContentsMargins(-1, 9, -1, -1)
         self.frame_124 = QFrame(self.frame_120)
         self.frame_124.setObjectName(u"frame_124")
         self.frame_124.setMaximumSize(QSize(16777215, 50))
@@ -4546,7 +4684,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_162.addWidget(self.line_16)
 
 
-        self.verticalLayout_167.addWidget(self.frame_120)
+        self.verticalLayout_172.addWidget(self.frame_120)
 
         self.frame_119 = QFrame(self.frame_131)
         self.frame_119.setObjectName(u"frame_119")
@@ -4634,7 +4772,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_160.addWidget(self.line_17)
 
 
-        self.verticalLayout_167.addWidget(self.frame_119)
+        self.verticalLayout_172.addWidget(self.frame_119)
 
         self.frame_121 = QFrame(self.frame_131)
         self.frame_121.setObjectName(u"frame_121")
@@ -4705,7 +4843,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_164.addWidget(self.frame_127, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_167.addWidget(self.frame_121)
+        self.verticalLayout_172.addWidget(self.frame_121)
 
         self.settings_apply_settings = QPushButton(self.frame_131)
         self.settings_apply_settings.setObjectName(u"settings_apply_settings")
@@ -4724,7 +4862,7 @@ class Ui_MainWindow(object):
 "}\n"
 "")
 
-        self.verticalLayout_167.addWidget(self.settings_apply_settings, 0, Qt.AlignRight)
+        self.verticalLayout_172.addWidget(self.settings_apply_settings, 0, Qt.AlignRight)
 
 
         self.verticalLayout_53.addWidget(self.frame_131, 0, Qt.AlignHCenter|Qt.AlignTop)
@@ -5000,9 +5138,10 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stacked_menu_pages.setCurrentIndex(4)
+        self.about_icon.setDefault(False)
+        self.stacked_menu_pages.setCurrentIndex(0)
         self.ticker_label_title_analysis.setDefault(False)
-        self.stock_analysis_stackedWidget.setCurrentIndex(0)
+        self.stock_analysis_stackedWidget.setCurrentIndex(1)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(0)
@@ -5033,7 +5172,9 @@ class Ui_MainWindow(object):
         self.learn_icon.setText("")
         self.about_icon.setText("")
         self.home_page_title.setText(QCoreApplication.translate("MainWindow", u"HOME", None))
-        self.home_page_content.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Welcome to the future investor app!</p><p align=\"center\"><br/></p><p align=\"center\">This application is just meant to teach the basics of investing. You will be working with crypto, stocks and forex. </p><p align=\"center\"><br/></p><p align=\"center\">This application is meant for absolute begginers.<br/></p><p align=\"center\">Its features include:</p><p align=\"center\">- Quotes and chart visualization.</p><p align=\"center\">- Teaching on how stock, crypto and forex work.</p><p align=\"center\">- Quizzes to test knowledge.</p><p align=\"center\">- Trading simulator.</p><p align=\"center\">- Next day prediction. (Do not use a s real financial advice)</p></body></html>", None))
+        self.home_page_content.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\">Welcome to the future investor app!</p><p align=\"center\"><br/>I made this application as a means to learn the basics of stocks.</p><p align=\"center\">Below each section (left hand side menu) is described.</p><p align=\"center\"><br/></p><p align=\"center\"><br/></p><p align=\"center\"><br/><img src=\":/icons/icons/home.svg\"/><span style=\" font-size:16pt; font-weight:600;\">HOME SECTION</span><img src=\":/icons/icons/home.svg\"/></p><p align=\"center\">Current page. </p><p align=\"center\">Description of each page.<br/></p><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/activity.svg\"/><span style=\" font-size:16pt; font-weight:600;\">ANALYSIS SECTION</span><img src=\":/icons/icons/activity.svg\"/></p><p align=\"center\">Here you can search tickers. </p><p align=\"center\">Only companies and cryptocurrencies allowed.</p><p align=\"center\">Recent news for the selected ticker is shown(you can disable this in settings)</p><p align=\"center\">If"
+                        " you click on the ticker after the search, extra information about it is displayed</p><p align=\"center\">Can show line chart with a range of data from days to years<br/></p><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/book.svg\"/><span style=\" font-size:16pt; font-weight:600;\">LEARN</span><img src=\":/icons/icons/book.svg\"/></p><p align=\"center\">Content from multiple websites regarding stocks, crypto and forex.</p><p align=\"center\">Websites referenced at the end of page.</p><p align=\"center\"><br/></p><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/briefcase.svg\"/><span style=\" font-size:16pt; font-weight:600;\">Trade</span><img src=\":/icons/icons/briefcase.svg\"/><br/></p><p align=\"center\">A simple trading simulator</p><p align=\"center\">Must login with an existing username from the json file(trading.json)</p><p align=\"center\">You can create a user</p><p align=\"center\">You can buy and sell stocks</p><p align=\"center\">You can view your"
+                        " portfolio and delete the account whenever you want</p><p align=\"center\"><br/></p><p align=\"center\"><br/></p><p align=\"center\"><img src=\":/icons/icons/tool.svg\"/><span style=\" font-size:16pt; font-weight:600;\">SETTINGS</span><img src=\":/icons/icons/tool.svg\"/></p><p align=\"center\">Settings for application and certain pages</p><p align=\"center\">Here you can change the font and font size for the learning content.</p><p align=\"center\">You can show decide to show or not show headers on te whole application</p><p align=\"center\">You can decide whether news and extra information are displayed for the ticker.</p><p align=\"center\">You can also see the users in the trading simulator as well as the original file + location on your device</p></body></html>", None))
         self.stock_analysis_title.setText(QCoreApplication.translate("MainWindow", u"Currency/Stock analysis", None))
         self.search_entry.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search for a ticker", None))
         self.search_button.setText("")
@@ -5252,6 +5393,10 @@ class Ui_MainWindow(object):
         self.stock_simulator_delete_account_btn.setText(QCoreApplication.translate("MainWindow", u"  Delete account", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainWindow", u"Account", None))
         self.label_31.setText(QCoreApplication.translate("MainWindow", u"SETTINGS", None))
+        self.label_43.setText("")
+        self.label_44.setText(QCoreApplication.translate("MainWindow", u"General", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Show headings", None))
+        self.settings_show_headings_checkBox.setText("")
         self.label_40.setText("")
         self.label_37.setText(QCoreApplication.translate("MainWindow", u"Stocks Page", None))
         self.label_38.setText(QCoreApplication.translate("MainWindow", u"Ticker Extra Info", None))
