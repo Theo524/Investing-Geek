@@ -3,7 +3,6 @@ import os
 import re
 import datetime
 import yfinance as yf
-import datetime as dt
 from GoogleNews import GoogleNews
 from newspaper import Config
 import pandas as pd
@@ -69,44 +68,52 @@ class MainWindow(QMainWindow):
     def apply_settings(self):
         """Apply settings to application"""
 
+        # Confirm user wants to apply settings
         msg = QMessageBox()
         msg.setIcon(QMessageBox.Information)
-
         msg.setText("Are you sure you want to apply these settings?")
         msg.setWindowTitle("Settings")
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         return_val = msg.exec_()
 
+        # User clicked no
         if return_val == QMessageBox.No:
             print('No clicked')
             return
 
+        # User clicked yes
         if return_val == QMessageBox.Yes:
             print('Yes clicked.')
-            # hide all headings(first setting)
+            # all headings labels(for first setting)
             headings = (self.ui.home_header, self.ui.analysis_header, self.ui.learning_header,
                         self.ui.simulator_header, self.ui.settings_header)
+
+            # Checkstate 0 represents an unchecked button, Checkstate 2 represents a checked button
+
+            # HIDE/SHOW HEADINGS(FIRST SETTING)
             if self.ui.settings_show_headings_checkBox.checkState() == 0:
                 # unchecked
                 for header in headings:
+                    # Hide all headings
                     header.hide()
 
-                # home layout
+                # home layout adjustment
                 self.ui.verticalLayout_8.setContentsMargins(9, 52, 9, 9)
 
-                # settings
+                # settings layout adjustment
                 self.ui.verticalLayout_167.setContentsMargins(9, 54, 9, 9)
 
             elif self.ui.settings_show_headings_checkBox.checkState() == 2:
                 # checked
                 for header in headings:
+                    # Show all headings
                     header.show()
 
-                # home layout
+                # home layout adjustments
                 self.ui.verticalLayout_8.setContentsMargins(9, 0, 9, 9)
                 self.ui.verticalLayout_167.setContentsMargins(9, 0, 9, 9)
 
-            # Show ticker info(second setting)
+            # SHOW TICKER INFO (SECOND SETTING)
             if self.ui.settings_extra_info_checkBox.checkState() == 0:
                 # unchecked
                 self.ui.ticker_label_title_analysis.setEnabled(False)
@@ -115,18 +122,20 @@ class MainWindow(QMainWindow):
                 # checked
                 self.ui.ticker_label_title_analysis.setEnabled(True)
 
-            # show news(third setting)
+            # SHOW NEWS(THIRD SETTING)
             if self.ui.settings_news_visible_checkBox.checkState() == 0:
                 # unchecked
+                # hide news frame
                 self.ui.stock_analysis_news_frame.hide()
                 self.ui.stock_analysis_news_frame_2.hide()
 
             elif self.ui.settings_news_visible_checkBox.checkState() == 2:
                 # checked
+                # show news frame
                 self.ui.stock_analysis_news_frame.show()
                 self.ui.stock_analysis_news_frame_2.show()
 
-            # fonts(fourth setting)
+            # FONTS (FOURTH SETTING)
             font = self.ui.settings_fontComboBox.currentText()
             font_size = self.ui.settings_fontSizeComboBox.text()
             self.ui.stocks_tutorial_main_body.setStyleSheet(f"""
@@ -137,18 +146,26 @@ class MainWindow(QMainWindow):
     """)
 
     def restore_or_maximize_window(self):
+        """"Restores or minimizes window size"""
+
         if self.isMaximized():
+            # Maximized, show maximized window icon
             self.showNormal()
             self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\maximize.svg'))
         else:
+            # Minimized, show minimized window icon
             self.showMaximized()
             self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\minimize.svg'))
 
     def show_left_menu(self):
-        """Animation for left menu closing"""
+        """Animation for left menu closing and opening"""
+
+        # left menu frame
         width = self.ui.left_menu_cont_frame.width()
 
+        # default width is 40
         if width == 40:
+            # new width allows enough space for text labels
             new_width = 160
             # set ext
             self.ui.home_icon.setText('  Home')
@@ -168,16 +185,16 @@ class MainWindow(QMainWindow):
             self.ui.settings_icon.setText('')
             self.ui.about_icon.setText('')
 
-        # Animate
-        self.animation = QPropertyAnimation(self.ui.left_menu_cont_frame, b"minimumWidth")
-        self.animation.setDuration(250)
-        self.animation.setStartValue(width)
-        self.animation.setEndValue(new_width)
-        self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-        self.animation.start()
+        # Animation
+        animation = QPropertyAnimation(self.ui.left_menu_cont_frame, b"minimumWidth")
+        animation.setDuration(250)
+        animation.setStartValue(width)
+        animation.setEndValue(new_width)
+        animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        animation.start()
 
     def set_starting_widgets(self):
-        """Sets all pages/widgets and events"""
+        """Set all starting pages/widgets and events"""
 
         # applying settings button clicked
         self.ui.settings_apply_settings.clicked.connect(self.apply_settings)
@@ -202,15 +219,15 @@ class MainWindow(QMainWindow):
         self.ui.about_icon.clicked.connect(
             lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
 
-        # app starting page
+        # set app starting page
         self.ui.stacked_menu_pages.setCurrentWidget(self.ui.home_page)
 
-        # ticker search starting page (stock)
+        # set ticker search starting page
         self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
 
-        # learning page
+        # set learning page starting page
         self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page)
-        # learning page buttons
+        # set learning page buttons
         self.ui.stocks_button_learn.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.stocks_page))
         self.ui.crypto_button_learn.clicked.connect(
@@ -221,9 +238,9 @@ class MainWindow(QMainWindow):
         self.ui.learn_return_to_homepage_button.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page))
 
-        # simulator page
+        # simulator page starting page
         self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
-        # simulator trade tab starting widgdet
+        # simulator trading tab starting widget
         self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
         # simulator tab widget starting tab
         self.ui.tabWidget.setCurrentIndex(0)
@@ -409,7 +426,11 @@ color:rgb(255, 0, 0);
 
     @staticmethod
     def check_market_state():
-        """Check market is open (Assumes you live in the uk)"""
+        """Check market is open (Assumes you live in the uk)
+
+        :returns: Dictionary with data regarding market info
+        :rtype: dict
+        """
 
         # (note) monday is 0, sunday is 6
         # us market opening time in the uk is from 2:30pm to 9 pm
@@ -428,7 +449,7 @@ color:rgb(255, 0, 0);
         limit_up = datetime.datetime(day=day, month=month, year=year, hour=21, minute=0, second=0)
 
         # current time is between 2:30 pm and 9:00 pm
-        day_open = limit_down < time < limit_up
+        day_is_open = limit_down < time < limit_up
         am_or_pm = 'AM' if time.hour < 12 else 'PM'
 
         # valid weekdays
@@ -437,21 +458,29 @@ color:rgb(255, 0, 0);
         m = f'0{time.minute}' if len(str(time.minute)) == 1 else f'{time.minute}'
 
         # If date is weekend market is closed, else open
-        if today.weekday() not in valid or not day_open:
+        if today.weekday() not in valid or not day_is_open:
             m_state = 'Closed'
             stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} - Market {m_state}')
             return {'state': m_state, 'am_or_pm': am_or_pm, 'stock_info': stock_info,
-                    'weekday': 'yes' if not day_open else 'no'}
+                    'weekday': 'yes' if not day_is_open else 'no'}
         m_state = 'Open'
         stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} - Market {m_state}')
         return {'state': m_state, 'am_or_pm': am_or_pm, 'stock_info': stock_info,
-                'weekday': 'yes' if not day_open else 'no'}
+                'weekday': 'yes' if not day_is_open else 'no'}
 
     def calc_crypto_worth(self, worth_of_one_unit):
-        """Calculate the worth of n amount of crypto currency"""
+        """Calculate the worth of n amount of crypto currency
 
+        :param float worth_of_one_unit: Value of a single unit of the crypto currency
+        """
+
+        # Quantity of units
         amount = self.ui.first_currency_entry.text()
+
+        # Total worth
         final_val = int(amount) * worth_of_one_unit
+
+        # set text
         self.ui.second_currency_entry.setText(str(final_val))
 
     def show_info_data(self, time_period):
@@ -591,7 +620,14 @@ color:rgb(255, 0, 0);
 
     @staticmethod
     def get_data_for_chart(ticker, time_period):
-        """Get data required for a stock and timeframe"""
+        """Get data required for a stock and required time range
+
+        :param str ticker: The ticker to be searched
+        :param str time_period: Data time range
+
+        :returns: Data for the ticker, within the provided time range
+        :rtype: pandas.core.frame.DataFrame
+        """
 
         # ticker obj
         ticker = yf.Ticker(ticker)
@@ -599,6 +635,7 @@ color:rgb(255, 0, 0);
         if time_period == '1d':
             # 1 day data for the stock at 5 minute intervals
             data = ticker.history(period='1d', interval='5m')
+            print(type(data))
             return data
 
         # // FIX THIS (gives very inaccurate and strange data) ----------------------------------------------------------------
@@ -629,7 +666,10 @@ color:rgb(255, 0, 0);
             return data
 
     def reset_entries_for_stock_info_display(self, new='not_day'):
-        """Reset display labels for stock info"""
+        """Reset display labels for stock info
+
+        :param str new: Determines what type of data labels are shown for the stock charts
+        """
 
         if new == 'not_day':
             # Non-Day charts only show avg, high and close
@@ -658,9 +698,15 @@ color:rgb(255, 0, 0);
             self.ui.market_cap.setText('Mkt Cap')
 
     def stock_or_crypto(self):
-        """Determine whether the given ticker is a stock or cryptocurrency"""
+        """Determine whether the given ticker is a stock or cryptocurrency
+
+        :returns: The type of ticker
+        :rtype: str, bool
+        """
 
         try:
+            # Anytime a ticker is used it is placed on the 'self.ticker_obj' var.
+            # this allows for access and modification through the whole class and specifically its 'info' method
             if self.ticker_obj.info['quoteType'] == 'EQUITY':
                 return 'stock'
             elif self.ticker_obj.info['quoteType'] == 'CRYPTOCURRENCY':
@@ -671,7 +717,12 @@ color:rgb(255, 0, 0);
             return False
 
     def show_ticker_extraInfoWindow(self, ticker_type):
-        """Window with more info regarding ticker"""
+        """Window with more info regarding ticker
+
+        :param str ticker_type: Type of ticker being searched
+        """
+
+        # This will open a new window in ticker search page regarding the searched ticker
         ticker_window = TickerInfo(self.ticker, ticker_type)
 
     def load_news(self):
@@ -683,19 +734,27 @@ color:rgb(255, 0, 0);
         # news
         my_news = News(self.ticker)
         data_dict = my_news.news_data_dict
-        for key, val in data_dict.items():
-            print(key)
-            print(val)
-            print('\n\n\n\n')
+        # for key, val in data_dict.items():
+        #   print(key)
+        #  print(val)
+        # print('\n\n\n\n')
+        layouts = None
 
         if self.ticker_type == 'stock':
+            # layouts
             layouts = (self.ui.horizontalLayout_23, self.ui.horizontalLayout_25, self.ui.horizontalLayout_24)
 
         if self.ticker_type == 'crypto':
+            # layouts
             layouts = (self.ui.horizontalLayout_28, self.ui.horizontalLayout_30, self.ui.horizontalLayout_44)
 
+        # Here is how this works:
+        # Three rows (as seen in layouts), each row(layout) has three boxes. Each box has a piece of news.
+        # Each iteration goes through a row, in this we get the title, body and link frames in each box (3)
+        # This is done by traversing the layouts and widgets within until getting to the required ones
+        # and thus setting them with te required text
+        # The variable counter just helps with getting 3 items from the news dict at according to the loop
         counter = 0
-
         for layout in layouts:
             # first_box variables
             title_1 = layout.itemAt(0).widget().layout().itemAt(0).widget().layout().itemAt(0).widget()
@@ -712,7 +771,7 @@ color:rgb(255, 0, 0);
             body_3 = layout.itemAt(2).widget().layout().itemAt(1).widget().layout().itemAt(0).widget()
             link_3 = layout.itemAt(2).widget().layout().itemAt(2).widget().layout().itemAt(0).widget()
 
-            # set the text
+            # set the data
             title_1.setText(data_dict[counter]['title'])
             body_1.setText(data_dict[counter]['description'])
             hyperlink = linkTemplate.format(data_dict[counter]['link'], data_dict[counter]['media_src'],
@@ -738,47 +797,45 @@ font: 8pt "MS Shell Dlg 2";""")
 font: 8pt "MS Shell Dlg 2";""")
             link_3.setText(hyperlink)
 
-            # move to next row
+            # move to next row (layout)
             counter += 3
 
-        # Here the stock or crypto search concludess, so the button can be enabled
+        # Here the stock or crypto search concludes, so the button can be enabled
         self.ui.search_button.setEnabled(True)
 
     def simulator_login(self):
-        """Login to simulator"""
+        """Login to trading simulator"""
 
         # user_name
         user_name = self.ui.simulator_login_to_username_entry.text()
 
-        # open json to search user
-        with open("trading.json", 'r+') as file:
-            file_data = json.load(file)
+        # use stockgame class to verify user exists
+        exists = self.stock_game.user_exists(user_name)
 
-            # Loop trough all the users
-            for val in file_data['users']:
-                # Find the matching name
-                if val['data']['user_name'] == user_name:
-                    print('User found')
-                    # load user for stock game
-                    self.stock_game.load_user(user_name)
-                    print(self.stock_game.current_user)
+        if exists:
+            # user exists
+            # load user in stock game
+            self.stock_game.load_user(user_name)
+            print(self.stock_game.current_user)
 
-                    # user found, display informative feedback
-                    self.display_feedback(message=f'Welcome {user_name}', title="Success", msg_type='information')
+            # since user found, display informative feedback
+            self.display_feedback(message=f'Welcome {user_name}', title="Success", msg_type='information')
 
-                    # add user details to stock page
-                    self.add_user_data_to_simulator_tabs(val)
+            # add user details to stock page
+            self.add_user_data_to_simulator_tabs(self.stock_game.current_user)
 
-                    # set current page to actual simulator
-                    self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.stock_simulator_page)
+            # set current page to actual simulator
+            self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.stock_simulator_page)
 
-                    return
+            # End function here
+            return
 
         # if the user was not found
         txt = 'The user is not does not exist. Check the json file to find it.\n '\
               'You can directly access the or go to settings to see it'
         title = "No user"
 
+        # feedback
         self.display_feedback(message=txt, msg_type='warning', title=title)
 
     def simulator_register(self):
@@ -787,7 +844,7 @@ font: 8pt "MS Shell Dlg 2";""")
         # user
         new_user = self.ui.simulator_new_username_entry.text()
 
-        # if user does not exist don't create
+        # if user does exists don't create
         if not self.stock_game.user_exists(new_user):
             # create new user
             self.stock_game.create_user(new_user)
@@ -813,7 +870,9 @@ font: 8pt "MS Shell Dlg 2";""")
     def add_user_data_to_simulator_tabs(self, user_data):
         """Fill in user tables in simulator
 
-        user_data param dict format
+        :param dict user_data: Dictionary representing the user to be used
+
+        user_data format
         {
             "user_id": ?,
             "data": {
@@ -840,33 +899,34 @@ font: 8pt "MS Shell Dlg 2";""")
         account_value = user_data['data']['account_value']
         cash = user_data['data']['cash']
 
-        # set user profile data
+        # set account data into user profile labels (Portfolio tab)
         self.ui.stock_simulator_username_label.setText(str(name))
         self.ui.stock_simulator_account_value_label.setText(str(account_value))
         self.ui.stock_simulator_cash_amount_label.setText(str(cash))
         self.ui.stock_simulator_gainloss_label.setText(str(0))
 
-        # on account tab
+        # More user data(account tab)
         self.ui.stock_simulator_username_label_2.setText(str(name))
         portfolio_length = len(self.stock_game.get_portfolio())
         self.ui.stock_simulator_stocks_owned_label.setText(str(portfolio_length))
 
         # table widget
         table = self.ui.tableWidget
-        # remove previous rows
+        num_column = 7
+        # remove previous rows if there are any
         for i in reversed(range(table.rowCount())):
             table.removeRow(i)
-
-        num_rows = table.rowCount()
-        num_column = 7
 
         # set loading cursor for lengthy process of fetching user data
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # number of rows
+        # loop repeats number of rows(stock)
         for i in range(number_of_stocks):
-            # stock data
+
+            # Access each stock through its index
             stock = list(user_data['data']['portfolio'][i].keys())[0]
+
+            # More stock data
             ticker = yf.Ticker(stock).info
             stock_symbol = ticker['symbol']
             stock_name = ticker['longName']
@@ -877,10 +937,10 @@ font: 8pt "MS Shell Dlg 2";""")
             quantity = user_data['data']['portfolio'][i][stock]['quantity']
             total_value = current_price * quantity
 
-            # row
+            # insert row into table for the stock
             table.insertRow(i)
 
-            # add data
+            # add data to fields
             table.setItem(i, 0, QTableWidgetItem(str(stock_symbol)))
             table.setItem(i, 1, QTableWidgetItem(str(stock_name)))
             table.setItem(i, 2, QTableWidgetItem(str(current_price)))
@@ -889,7 +949,7 @@ font: 8pt "MS Shell Dlg 2";""")
             table.setItem(i, 5, QTableWidgetItem(str(quantity)))
             table.setItem(i, 6, QTableWidgetItem(str(total_value)))
 
-            # set text color and background color for row
+            # set text color and background color for each element in the row
             for column_num in range(num_column):
                 # i - row number, column_num - column number
                 table.item(i, column_num).setTextColor(QColor(255, 255, 255))
@@ -899,7 +959,9 @@ font: 8pt "MS Shell Dlg 2";""")
         QApplication.restoreOverrideCursor()
 
     def simulator_stock_lookup(self):
-        # ticker
+        """Lookup a ticker whilst in the trading simulator"""
+
+        # ticker name
         ticker = self.ui.stock_simulator_stock_ticker_entry.text()
 
         # make higher level reference for full access
@@ -908,16 +970,18 @@ font: 8pt "MS Shell Dlg 2";""")
 
         # ensure it a stock
         type_ticker = self.stock_or_crypto()
+        self.ticker_type = type_ticker
 
         if type_ticker == 'stock':
             # set text in analysis page search entry
-            self.ui.search_entry.setText(ticker)
-            # search
+            self.ui.search_entry.setText(ticker.upper())
+            # search ticker
             self.search_ticker_in_analysis()
             # set page
             self.ui.stacked_menu_pages.setCurrentWidget(self.ui.stock_analysis)
 
         else:
+            # display error
             msg = QMessageBox()
             msg.setIcon(QMessageBox.Critical)
             msg.setText('The ticker you entered does not exist or is incorrect.\n Remember you must use enter a stock')
@@ -929,7 +993,7 @@ font: 8pt "MS Shell Dlg 2";""")
 
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # entry data
+        # entries data
         stock_name = self.ui.stock_simulator_stock_ticker_entry.text().upper()
         transaction_type = self.ui.stock_simulator_transaction_type_combobox.currentText().lower()
         quantity = int(self.ui.stock_simulator_quantity_entry.text())
@@ -939,7 +1003,7 @@ font: 8pt "MS Shell Dlg 2";""")
         self.ticker = stock_name
         self.ticker_obj = yf.Ticker(self.ticker)
 
-        # data
+        # data about stock
         tradeable = self.ticker_obj.info['tradeable']
         bid = self.ticker_obj.info['bid']
         ask = self.ticker_obj.info['bid']
@@ -950,7 +1014,7 @@ font: 8pt "MS Shell Dlg 2";""")
         ticker_type = self.stock_or_crypto()
 
         # ticker
-        if ticker_type == 'stock' and int(quantity) > 0 and tradeable:
+        if ticker_type == 'stock' and int(quantity) > 0:
             # SET TEXT
             self.ui.stock_name.setText(str(full_name))
             self.ui.price_label.setText(str(bid if transaction_type == 'buy' else ask))
@@ -968,17 +1032,22 @@ font: 8pt "MS Shell Dlg 2";""")
 
             # cancel order button
             self.ui.stock_simulator_purchase_camcel_btn.clicked.connect(lambda: self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab))
+            QApplication.restoreOverrideCursor()
 
         else:
-            txt = 'Missing or invalid entries' if tradeable else 'The stock is currently deemed un-tradeable'
+            QApplication.restoreOverrideCursor()
+            txt = 'Missing or invalid entries'
             title = 'Error'
             # msg
             self.display_feedback(title=title, message=txt, msg_type='critical')
 
-        QApplication.restoreOverrideCursor()
-
     def perform_stock_trade(self, stock_name, transaction_type, quantity):
-        """Buy or sell stock"""
+        """Buy or sell stock
+
+        :param str stock_name: Name of stock to be bought or sold
+        :param int quantity: Units of the given stock to be bought or sold
+        :param str transaction_type: Type of transaction, can either be buy or sell
+        """
 
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
@@ -991,16 +1060,6 @@ font: 8pt "MS Shell Dlg 2";""")
             self.stock_game.load_user(self.stock_game.name)
             self.add_user_data_to_simulator_tabs(self.stock_game.current_user)
 
-            # feedback and return to previous page
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText('Stock succesfully bought')
-            msg.setWindowTitle("Success")
-            msg.exec_()
-
-            # return to previous page
-            self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
-
         if transaction_type == 'sell':
 
             # sell stock for user
@@ -1010,20 +1069,20 @@ font: 8pt "MS Shell Dlg 2";""")
             self.stock_game.load_user(self.stock_game.name)
             self.add_user_data_to_simulator_tabs(self.stock_game.current_user)
 
-            # feedback and return to previous page
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText('Stock succesfully sold')
-            msg.setWindowTitle("Success")
-            msg.exec_()
-
-            # return to previous page
-            self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
-
         QApplication.restoreOverrideCursor()
 
+        # feedback and return to previous page
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText('Stock successfully sold' if transaction_type == 'sell' else 'Stock successfully bought')
+        msg.setWindowTitle("Success")
+        msg.exec_()
+
+        # return to previous page
+        self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
+
     def simulator_delete_user(self):
-        """Delete account"""
+        """Delete account from trading simulator"""
 
         # delete user
         user = self.stock_game.name
@@ -1033,24 +1092,24 @@ font: 8pt "MS Shell Dlg 2";""")
         self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
 
     def show_trading_pg_data(self):
-        """Display simulator data"""
+        """Displays table with stock game users and display original file in settings"""
 
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # file
+        # files
         file = os.getcwd() + '\\trading.json'
         file_location_str = f'File Location: {file}'
 
         with open(file) as f:
-            # for file display
+            # for original file display
             txt = f.read()
 
         with open(file) as f:
-            # for table
+            # for table display
             file_data = json.load(f)
             users = [user for user in file_data['users']]
 
-        # table
+        # table display
         table = self.ui.settings_users_table
         # remove previous rows
         for i in reversed(range(table.rowCount())):
@@ -1064,8 +1123,7 @@ font: 8pt "MS Shell Dlg 2";""")
             cash = user['data']['cash']
             stocks_owned = len(user['data']['portfolio'])
 
-            # insert data
-            # row
+            # insert row
             table.insertRow(i)
 
             # add data
@@ -1075,7 +1133,7 @@ font: 8pt "MS Shell Dlg 2";""")
             table.setItem(i, 3, QTableWidgetItem(str(stocks_owned)))
 
             # colors
-            # set text color and background color for row
+            # set text color and background color for each row
             for column_num in range(num_column):
                 # i - row number, column_num - column number
                 table.item(i, column_num).setTextColor(QColor(255, 255, 255))
@@ -1083,8 +1141,8 @@ font: 8pt "MS Shell Dlg 2";""")
 
             i += 1
 
-        # add file content
-        for line in txt:
+        # original file display
+        for _ in txt:
             self.ui.settings_original_file_edit.setPlainText(str(txt))
         # file location sub heading
         self.ui.setting_users_file_location.setText(str(file_location_str))
@@ -1096,7 +1154,7 @@ font: 8pt "MS Shell Dlg 2";""")
 
     @staticmethod
     def display_feedback(**kwargs):
-        """feedback"""
+        """To help with alert messages"""
 
         # param
         try:
@@ -1111,6 +1169,7 @@ font: 8pt "MS Shell Dlg 2";""")
         # obj
         msg_obj = QMessageBox()
 
+        # messages
         if msg_type == 'error':
             msg_obj.setWindowTitle("Error")
             msg_obj.setIcon(QMessageBox.Critical)
@@ -1132,40 +1191,56 @@ font: 8pt "MS Shell Dlg 2";""")
         msg_obj.setWindowTitle(title)
         msg_obj.exec_()
 
-    def format_money(self, num, sign=None):
-        """Convert numbers into cleaner format"""
+    @staticmethod
+    def format_money(num, sign=None):
+        """Convert long decimal numbers into cleaner format
 
+        :param sign: Sign to be used, optional
+        :param float num: The number to be formated
+
+        :returns: Simplified version of the number with signs
+        :rtype: str
+        """
+
+        # long float number such as 765465.6742356097843416769
         num = float(num)
 
         # decimal val of the number eg 4564.675 would be '675'
         decimal_value = str(round(num, 2)).split('.')[1]
-
-        # number without float eg 78567.7657 becomes '78567'
+        # number without decimal part eg 78567.7657 becomes '78567'
         version_no_float = int(round(num, 0))
+
         # number but with comas eg 1000000 becomes '1,000,000'
         num_with_comas = str("{:,}".format(version_no_float))
-        # length of the number
+
+        # length of the number(with no decimals)
         length = len(str(version_no_float))
         # true for small numbers, false for abnormal numbers
         normal = True if length <= 6 else False
 
         # decide prefix
-        n_type = 'q'
+        prefix = 'q'
         if 7 <= length <= 9:
-            n_type = 'million'
+            prefix = 'million'
 
         elif 10 <= length <= 12:
-            n_type = 'billion'
+            prefix = 'billion'
 
         elif 13 <= length <= 15:
-            n_type = 'trillion'
+            prefix = 'trillion'
 
         # get num
+        # non decimal part with no comas
         sections = num_with_comas.split(',')
+        # take first num eg from ['18','000','000'] it is 18
         first_part = sections[0]
+
+        # for values over 1,000,000
         large_num = '.'.join([first_part, decimal_value]) if decimal_value != '0' else f'{first_part}.{sections[1][:2]}'
+
+        # for values under 1,000,000
         short_num = '.'.join([num_with_comas, decimal_value]) if decimal_value != '0' else num_with_comas
-        final_str = f'{large_num} {n_type[0].upper()}' if not normal else short_num
+        final_str = f'{large_num} {prefix[0].upper()}' if not normal else short_num
 
         if sign:
             return f'{sign}{str(final_str)}'
@@ -1176,6 +1251,7 @@ font: 8pt "MS Shell Dlg 2";""")
 
 class TickerInfo(QMainWindow):
     def __init__(self, ticker, ticker_type):
+        """Shows extra information for a selected ticker in ticker search page"""
         QMainWindow.__init__(self)
 
         # gui elements
@@ -1188,6 +1264,7 @@ class TickerInfo(QMainWindow):
 
         # ticker object
         ticker_obj = yf.Ticker(ticker)
+        print(ticker_obj.info.keys())
 
         if ticker_type == 'stock':
             # buttons
@@ -1234,9 +1311,9 @@ class TickerInfo(QMainWindow):
 class News:
     def __init__(self, ticker):
         # date
-        self.now = dt.date.today()
+        self.now = datetime.date.today()
         self.now = self.now.strftime('%m-%d-%Y')
-        self.yesterday = dt.date.today() - dt.timedelta(days=1)
+        self.yesterday = datetime.date.today() - datetime.timedelta(days=1)
         self.yesterday = self.yesterday.strftime('%m-%d-%Y')
         # config
         user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'

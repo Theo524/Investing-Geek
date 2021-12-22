@@ -413,7 +413,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2042))
+        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2040))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.analysis_header = QFrame(self.stock_analysis_frame)
@@ -2532,27 +2532,6 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_61.addWidget(self.frame_61)
 
-        self.frame_71 = QFrame(self.stock_analysis_news_frame_2)
-        self.frame_71.setObjectName(u"frame_71")
-        self.frame_71.setFrameShape(QFrame.StyledPanel)
-        self.frame_71.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_48 = QHBoxLayout(self.frame_71)
-        self.horizontalLayout_48.setObjectName(u"horizontalLayout_48")
-        self.pushButton_3 = QPushButton(self.frame_71)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setCursor(QCursor(Qt.ForbiddenCursor))
-
-        self.horizontalLayout_48.addWidget(self.pushButton_3, 0, Qt.AlignLeft)
-
-        self.pushButton_4 = QPushButton(self.frame_71)
-        self.pushButton_4.setObjectName(u"pushButton_4")
-        self.pushButton_4.setCursor(QCursor(Qt.ForbiddenCursor))
-
-        self.horizontalLayout_48.addWidget(self.pushButton_4, 0, Qt.AlignRight)
-
-
-        self.verticalLayout_61.addWidget(self.frame_71)
-
 
         self.verticalLayout_40.addWidget(self.stock_analysis_news_frame_2, 0, Qt.AlignHCenter)
 
@@ -2705,7 +2684,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 842, 3805))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3786))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -4444,7 +4423,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 840, 727))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 776, 727))
         self.verticalLayout_159 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_159.setObjectName(u"verticalLayout_159")
         self.settings_stackedWidget = QStackedWidget(self.scrollAreaWidgetContents_2)
@@ -5141,7 +5120,7 @@ class Ui_MainWindow(object):
         self.about_icon.setDefault(False)
         self.stacked_menu_pages.setCurrentIndex(0)
         self.ticker_label_title_analysis.setDefault(False)
-        self.stock_analysis_stackedWidget.setCurrentIndex(1)
+        self.stock_analysis_stackedWidget.setCurrentIndex(0)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(0)
@@ -5277,8 +5256,6 @@ class Ui_MainWindow(object):
         self.stock_news_title_20.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.stock_news_text_20.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.stock_news_media_20.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
-        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Next", None))
         self.learn_start_page_title_label.setText(QCoreApplication.translate("MainWindow", u"LEARN", None))
         self.what_do_you_wish_to_learn_label.setText(QCoreApplication.translate("MainWindow", u"What do you wish to learn?", None))
         self.stocks_button_learn.setText(QCoreApplication.translate("MainWindow", u"Stocks", None))
