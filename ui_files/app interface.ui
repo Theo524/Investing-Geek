@@ -22,11 +22,15 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(28, 32, 43);</string>
+   <string notr="true">#centralwidget{
+background-color: rgb(28, 32, 43);
+border-radius: 10px
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(28, 32, 43);</string>
+    <string notr="true">background-color: rgb(54, 79, 113);
+</string>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
     <property name="spacing">
@@ -48,7 +52,7 @@
      <widget class="QFrame" name="header_frame">
       <property name="styleSheet">
        <string notr="true">background-color: rgb(54, 79, 113);
-</string>
+border-radius:10px;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -132,7 +136,7 @@ QPushButton::pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../icons.qrc">
               <normaloff>:/icons/icons/align-left.svg</normaloff>:/icons/icons/align-left.svg</iconset>
             </property>
             <property name="iconSize">
@@ -205,7 +209,7 @@ QPushButton::pressed {
                 <string/>
                </property>
                <property name="pixmap">
-                <pixmap resource="icons.qrc">:/icons/icons/activity.svg</pixmap>
+                <pixmap resource="../icons.qrc">:/icons/icons/activity.svg</pixmap>
                </property>
               </widget>
              </item>
@@ -280,7 +284,7 @@ QPushButton::pressed {
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_22">
           <property name="spacing">
-           <number>10</number>
+           <number>25</number>
           </property>
           <property name="leftMargin">
            <number>0</number>
@@ -289,7 +293,7 @@ QPushButton::pressed {
            <number>0</number>
           </property>
           <property name="rightMargin">
-           <number>0</number>
+           <number>15</number>
           </property>
           <property name="bottomMargin">
            <number>0</number>
@@ -303,7 +307,7 @@ QPushButton::pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../icons.qrc">
               <normaloff>:/icons/icons/minus.svg</normaloff>:/icons/icons/minus.svg</iconset>
             </property>
             <property name="flat">
@@ -320,7 +324,7 @@ QPushButton::pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../icons.qrc">
               <normaloff>:/icons/icons/maximize.svg</normaloff>:/icons/icons/maximize.svg</iconset>
             </property>
             <property name="flat">
@@ -337,7 +341,7 @@ QPushButton::pressed {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../icons.qrc">
               <normaloff>:/icons/icons/x.svg</normaloff>:/icons/icons/x.svg</iconset>
             </property>
             <property name="iconSize">
@@ -490,7 +494,7 @@ QPushButton::pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="icons.qrc">
+                <iconset resource="../icons.qrc">
                  <normaloff>:/icons/icons/briefcase.svg</normaloff>:/icons/icons/briefcase.svg</iconset>
                </property>
                <property name="iconSize">
@@ -513,7 +517,7 @@ QPushButton::pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="icons.qrc">
+                <iconset resource="../icons.qrc">
                  <normaloff>:/icons/icons/activity.svg</normaloff>:/icons/icons/activity.svg</iconset>
                </property>
                <property name="iconSize">
@@ -539,7 +543,7 @@ QPushButton::pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="icons.qrc">
+                <iconset resource="../icons.qrc">
                  <normaloff>:/icons/icons/home.svg</normaloff>:/icons/icons/home.svg</iconset>
                </property>
                <property name="iconSize">
@@ -562,7 +566,7 @@ QPushButton::pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="icons.qrc">
+                <iconset resource="../icons.qrc">
                  <normaloff>:/icons/icons/tool.svg</normaloff>:/icons/icons/tool.svg</iconset>
                </property>
                <property name="iconSize">
@@ -585,7 +589,7 @@ QPushButton::pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="icons.qrc">
+                <iconset resource="../icons.qrc">
                  <normaloff>:/icons/icons/book.svg</normaloff>:/icons/icons/book.svg</iconset>
                </property>
                <property name="iconSize">
@@ -608,7 +612,7 @@ QPushButton::pressed {
                 <string/>
                </property>
                <property name="icon">
-                <iconset resource="icons.qrc">
+                <iconset resource="../icons.qrc">
                  <normaloff>:/icons/icons/bell.svg</normaloff>:/icons/icons/bell.svg</iconset>
                </property>
                <property name="iconSize">
@@ -786,7 +790,7 @@ QPushButton::pressed {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>860</width>
+                   <width>856</width>
                    <height>2040</height>
                   </rect>
                  </property>
@@ -957,7 +961,7 @@ QPushButton::pressed {
                               <string/>
                              </property>
                              <property name="icon">
-                              <iconset resource="icons.qrc">
+                              <iconset resource="../icons.qrc">
                                <normaloff>:/icons/icons/search.svg</normaloff>:/icons/icons/search.svg</iconset>
                              </property>
                              <property name="iconSize">
@@ -3111,7 +3115,7 @@ QPushButton::pressed {
                                   <string/>
                                  </property>
                                  <property name="icon">
-                                  <iconset resource="icons.qrc">
+                                  <iconset resource="../icons.qrc">
                                    <normaloff>:/icons/icons/chevrons-right.svg</normaloff>:/icons/icons/chevrons-right.svg</iconset>
                                  </property>
                                  <property name="iconSize">
@@ -4870,7 +4874,7 @@ QPushButton::pressed{
                        <x>0</x>
                        <y>0</y>
                        <width>788</width>
-                       <height>3786</height>
+                       <height>3805</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -4930,7 +4934,7 @@ QPushButton::pressed {
                                <string/>
                               </property>
                               <property name="icon">
-                               <iconset resource="icons.qrc">
+                               <iconset resource="../icons.qrc">
                                 <normaloff>:/icons/icons/chevron-left.svg</normaloff>:/icons/icons/chevron-left.svg</iconset>
                               </property>
                               <property name="iconSize">
@@ -5725,7 +5729,7 @@ QPushButton::pressed {
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset resource="icons.qrc">
+                     <iconset resource="../icons.qrc">
                       <normaloff>:/icons/icons/chevron-left.svg</normaloff>:/icons/icons/chevron-left.svg</iconset>
                     </property>
                     <property name="iconSize">
@@ -5769,7 +5773,7 @@ QPushButton::pressed {
                            <string/>
                           </property>
                           <property name="icon">
-                           <iconset resource="icons.qrc">
+                           <iconset resource="../icons.qrc">
                             <normaloff>:/icons/icons/user.svg</normaloff>:/icons/icons/user.svg</iconset>
                           </property>
                           <property name="iconSize">
@@ -5985,7 +5989,7 @@ QPushButton::pressed {
                      <string/>
                     </property>
                     <property name="icon">
-                     <iconset resource="icons.qrc">
+                     <iconset resource="../icons.qrc">
                       <normaloff>:/icons/icons/chevron-left.svg</normaloff>:/icons/icons/chevron-left.svg</iconset>
                     </property>
                     <property name="iconSize">
@@ -6301,7 +6305,7 @@ background-color: rgb(42, 44, 50);
                                   <x>0</x>
                                   <y>0</y>
                                   <width>285</width>
-                                  <height>470</height>
+                                  <height>515</height>
                                  </rect>
                                 </property>
                                 <layout class="QVBoxLayout" name="verticalLayout_121">
@@ -6552,7 +6556,7 @@ border-radius:10px;</string>
                                                 <string/>
                                                </property>
                                                <property name="icon">
-                                                <iconset resource="icons.qrc">
+                                                <iconset resource="../icons.qrc">
                                                  <normaloff>:/icons/icons/user.svg</normaloff>:/icons/icons/user.svg</iconset>
                                                </property>
                                                <property name="iconSize">
@@ -6762,7 +6766,7 @@ font:14pt &quot;MS Shell Dlg 2&quot;;
                                              <string>  Logout</string>
                                             </property>
                                             <property name="icon">
-                                             <iconset resource="icons.qrc">
+                                             <iconset resource="../icons.qrc">
                                               <normaloff>:/icons/icons/log-out.svg</normaloff>:/icons/icons/log-out.svg</iconset>
                                             </property>
                                             <property name="iconSize">
@@ -7103,7 +7107,7 @@ QPushButton::pressed {
                                           <string>View stock...</string>
                                          </property>
                                          <property name="icon">
-                                          <iconset resource="icons.qrc">
+                                          <iconset resource="../icons.qrc">
                                            <normaloff>:/icons/icons/search.svg</normaloff>:/icons/icons/search.svg</iconset>
                                          </property>
                                          <property name="flat">
@@ -7800,7 +7804,7 @@ background-color: rgb(203, 0, 0);
                                          <string>  Delete account</string>
                                         </property>
                                         <property name="icon">
-                                         <iconset resource="icons.qrc">
+                                         <iconset resource="../icons.qrc">
                                           <normaloff>:/icons/icons/user-x.svg</normaloff>:/icons/icons/user-x.svg</iconset>
                                         </property>
                                         <property name="iconSize">
@@ -8046,7 +8050,7 @@ color: rgb(201, 210, 238);
                                      <string/>
                                     </property>
                                     <property name="pixmap">
-                                     <pixmap resource="icons.qrc">:/icons/icons/tool.svg</pixmap>
+                                     <pixmap resource="../icons.qrc">:/icons/icons/tool.svg</pixmap>
                                     </property>
                                    </widget>
                                   </item>
@@ -8197,7 +8201,7 @@ QPushButton::pressed{
                                      <string/>
                                     </property>
                                     <property name="pixmap">
-                                     <pixmap resource="icons.qrc">:/icons/icons/activity.svg</pixmap>
+                                     <pixmap resource="../icons.qrc">:/icons/icons/activity.svg</pixmap>
                                     </property>
                                    </widget>
                                   </item>
@@ -8364,7 +8368,7 @@ QPushButton::pressed{
                                      <string/>
                                     </property>
                                     <property name="pixmap">
-                                     <pixmap resource="icons.qrc">:/icons/icons/book.svg</pixmap>
+                                     <pixmap resource="../icons.qrc">:/icons/icons/book.svg</pixmap>
                                     </property>
                                    </widget>
                                   </item>
@@ -8504,7 +8508,7 @@ QPushButton::pressed{
                                      <string/>
                                     </property>
                                     <property name="pixmap">
-                                     <pixmap resource="icons.qrc">:/icons/icons/briefcase.svg</pixmap>
+                                     <pixmap resource="../icons.qrc">:/icons/icons/briefcase.svg</pixmap>
                                     </property>
                                    </widget>
                                   </item>
@@ -8648,7 +8652,7 @@ QPushButton::pressed {
                             <string/>
                            </property>
                            <property name="icon">
-                            <iconset resource="icons.qrc">
+                            <iconset resource="../icons.qrc">
                              <normaloff>:/icons/icons/chevron-left.svg</normaloff>:/icons/icons/chevron-left.svg</iconset>
                            </property>
                            <property name="iconSize">
@@ -8926,7 +8930,7 @@ color: rgb(40, 40, 40);</string>
                    <string/>
                   </property>
                   <property name="pixmap">
-                   <pixmap resource="icons.qrc">:/icons/icons/github.svg</pixmap>
+                   <pixmap resource="../icons.qrc">:/icons/icons/github.svg</pixmap>
                   </property>
                  </widget>
                 </item>
@@ -8966,7 +8970,8 @@ color: rgb(40, 40, 40);</string>
     <item>
      <widget class="QFrame" name="footer_frame">
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(28, 32, 43);</string>
+       <string notr="true">background-color: rgb(28, 32, 43);
+border-radius:10px;</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -9064,7 +9069,7 @@ color: rgb(40, 40, 40);</string>
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="icons.qrc">
+             <iconset resource="../icons.qrc">
               <normaloff>:/icons/icons/help-circle.svg</normaloff>:/icons/icons/help-circle.svg</iconset>
             </property>
             <property name="iconSize">
@@ -9110,7 +9115,7 @@ color: rgb(40, 40, 40);</string>
   </widget>
  </widget>
  <resources>
-  <include location="icons.qrc"/>
+  <include location="../icons.qrc"/>
   <include location="icons.qrc"/>
   <include location="icons.qrc"/>
   <include location="icons.qrc"/>
