@@ -7,13 +7,15 @@ from GoogleNews import GoogleNews
 from newspaper import Config
 import pandas as pd
 import json
+from threading import *
+
 
 from PySide2 import QtCore, QtGui
 from frontend import *
 from PySide2 import *
 from PySide2.QtGui import QPainter
 from PySide2.QtCharts import QtCharts
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QVBoxLayout
 
 
 class MainWindow(QMainWindow):
@@ -35,8 +37,21 @@ class MainWindow(QMainWindow):
         self.ticker_obj = None
 
         # WINDOW SETTINGS
-        # self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
+        self.setWindowFlag(QtCore.Qt.FramelessWindowHint)
         self.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+        self.oldPos = self.pos()
+        # resizing
+        self.gripSize = 16
+        self.grips = []
+        for i in range(4):
+            grip = QSizeGrip(self)
+            grip.setStyleSheet("""
+            background-color: rgba(0, 0, 0, 0);
+            border-radius:10px;""")
+            grip.resize(self.gripSize, self.gripSize)
+            self.grips.append(grip)
+        # center window
+        self.center()
         # shadow
         self.shadow = QGraphicsDropShadowEffect(self)
         self.shadow.setBlurRadius(50)
@@ -44,9 +59,9 @@ class MainWindow(QMainWindow):
         self.shadow.setYOffset(0)
         self.shadow.setColor(QColor(0, 92, 157, 550))
         self.ui.centralwidget.setGraphicsEffect(self.shadow)
-        # size grip
-        QSizeGrip(self.ui.size_grip)
-        # window
+        # menu animation
+        self.animation = QPropertyAnimation(self.ui.left_menu_cont_frame, b"minimumWidth")
+        # window actions
         self.ui.close_window_button.clicked.connect(lambda: self.close())
         self.ui.restore_window_button.clicked.connect(lambda: self.restore_or_maximize_window())
         self.ui.minimize_window_button.clicked.connect(lambda: self.showMinimized())
@@ -54,7 +69,7 @@ class MainWindow(QMainWindow):
         # analysis btns
         self.stock_analysis_buttons = {'1d': self.ui.one_day_button, '1w': self.ui.one_week_button,
                                        '1m': self.ui.one_month_button, '1y': self.ui.one_year_button,
-                                       '5y': self.ui.five_year_button, 'max': self.ui.max_button.clicked}
+                                       '5y': self.ui.five_year_button, 'max': self.ui.max_button}
         self.stock_analysis_crypto_buttons = {'1d': self.ui.one_day_button_2, '1w': self.ui.one_week_button_2,
                                               '1m': self.ui.one_month_button_2, '1y': self.ui.one_year_button_2,
                                               '5y': self.ui.five_year_button_2, 'max': self.ui.max_button_2}
@@ -64,6 +79,60 @@ class MainWindow(QMainWindow):
 
         # set starting pages
         self.set_starting_widgets()
+
+    def resizeEvent(self, event):
+        QMainWindow.resizeEvent(self, event)
+        rect = self.rect()
+        # top left grip doesn't need to be moved...
+        # top right
+        self.grips[1].move(rect.right() - self.gripSize, 0)
+        # bottom right
+        self.grips[2].move(
+            rect.right() - self.gripSize, rect.bottom() - self.gripSize)
+        # bottom left
+        self.grips[3].move(0, rect.bottom() - self.gripSize)
+
+    def center(self):
+        self.setGeometry(
+            QtWidgets.QStyle.alignedRect(
+                QtCore.Qt.LeftToRight,
+                QtCore.Qt.AlignCenter,
+                self.size(),
+                QtGui.QGuiApplication.primaryScreen().availableGeometry(),
+            ),
+        )
+
+    def mousePressEvent(self, event):
+        self.oldPos = event.globalPos()
+
+    def mouseMoveEvent(self, event):
+        if self.isMaximized():
+            # can't drag a maximized window
+            return
+        delta = QPoint(event.globalPos() - self.oldPos)
+        self.move(self.x() + delta.x(), self.y() + delta.y())
+        self.oldPos = event.globalPos()
+
+    def restore_or_maximize_window(self):
+        """"Restores or minimizes window size"""
+
+        if self.isMaximized():
+            # Maximized, show maximized window icon
+            self.showNormal()
+            self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\maximize.svg'))
+
+            # show border radius
+            self.ui.header_frame.setStyleSheet(u"background-color: rgb(54, 79, 113);\n"
+                                            "border-radius:10px;")
+
+        else:
+            # Minimized, show minimized window icon
+            self.showMaximized()
+            self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\minimize.svg'))
+
+            # hide border radius
+            self.ui.header_frame.setStyleSheet(u"background-color: rgb(54, 79, 113);\n"
+                                            "border-radius:none;")
 
     def apply_settings(self):
         """Apply settings to application"""
@@ -145,18 +214,6 @@ class MainWindow(QMainWindow):
     font: {str(font_size)}pt \"{str(font)}\";
     """)
 
-    def restore_or_maximize_window(self):
-        """"Restores or minimizes window size"""
-
-        if self.isMaximized():
-            # Maximized, show maximized window icon
-            self.showNormal()
-            self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\maximize.svg'))
-        else:
-            # Minimized, show minimized window icon
-            self.showMaximized()
-            self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\minimize.svg'))
-
     def show_left_menu(self):
         """Animation for left menu closing and opening"""
 
@@ -166,7 +223,7 @@ class MainWindow(QMainWindow):
         # default width is 40
         if width == 40:
             # new width allows enough space for text labels
-            new_width = 160
+            new_width = 140
             # set ext
             self.ui.home_icon.setText('  Home')
             self.ui.stock_analysis_icon.setText('  View')
@@ -186,12 +243,16 @@ class MainWindow(QMainWindow):
             self.ui.about_icon.setText('')
 
         # Animation
-        animation = QPropertyAnimation(self.ui.left_menu_cont_frame, b"minimumWidth")
-        animation.setDuration(250)
-        animation.setStartValue(width)
-        animation.setEndValue(new_width)
-        animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
-        animation.start()
+        self.animation.setDuration(250)
+        self.animation.setStartValue(width)
+        self.animation.setEndValue(new_width)
+        self.animation.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+        self.animation.start()
+
+        try:
+            self.ui.left_menu_cont_frame.set()
+        except AttributeError:
+            pass
 
     def set_starting_widgets(self):
         """Set all starting pages/widgets and events"""
@@ -200,7 +261,7 @@ class MainWindow(QMainWindow):
         self.ui.settings_apply_settings.clicked.connect(self.apply_settings)
 
         # Ticker analysis page search button
-        self.ui.search_button.clicked.connect(self.search_ticker_in_analysis)
+        self.ui.search_button.clicked.connect(self.search_ticker_in_analysis())
 
         # Hide/show menu labels animation
         self.ui.menu_icon_button.clicked.connect(self.show_left_menu)
@@ -284,7 +345,7 @@ class MainWindow(QMainWindow):
         self.ui.search_button.setEnabled(False)
 
         # set loading pointer for lenghty procces of stock/crypto search
-        QApplication.setOverrideCursor(Qt.WaitCursor)
+        #QApplication.setOverrideCursor(Qt.WaitCursor)
 
         # ticker name
         ticker = self.ui.search_entry.text()
@@ -422,7 +483,7 @@ color:rgb(255, 0, 0);
             self.ui.search_button.setEnabled(True)
 
         # restore loading cursor
-        QApplication.restoreOverrideCursor()
+        #QApplication.restoreOverrideCursor()
 
     @staticmethod
     def check_market_state():
@@ -494,9 +555,9 @@ color:rgb(255, 0, 0);
         if self.ticker_type == 'stock':
             for time, btn in self.stock_analysis_buttons.items():
                 if time != time_period:
+                    print(btn)
                     btn.setChecked(False)
 
-        print(self)
 
         print(self.ticker_type)
         print('getting chart info...')
@@ -1376,6 +1437,9 @@ class StockGame:
         }
         """
 
+        # check file exists
+        self.file_exists()
+
         self.name = None
         self.current_user = None
 
@@ -1637,7 +1701,8 @@ class StockGame:
                                     # delete the stock if the value is all lost
                                     delete_stock = True
                                     # rebuild dict
-                                    new_data = [data for data in val['data']['portfolio'] if list(data.keys())[0] != ticker_name]
+                                    new_data = [data for data in val['data']['portfolio'] if
+                                                list(data.keys())[0] != ticker_name]
 
                                     # clear user portfolio
                                     val['data']['portfolio'].clear()
@@ -1713,6 +1778,20 @@ class StockGame:
             return
 
         return self.current_user['data']['portfolio']
+
+    @staticmethod
+    def file_exists():
+        """Ensure trading.json exists"""
+
+        try:
+            with open("trading.json", "r") as f:
+                pass
+
+        except FileNotFoundError:
+            # file doesn't exist
+            with open("trading.json", "w") as jsonFile:
+                json_obj = {"users": []}
+                json.dump(json_obj, jsonFile, indent=4)
 
 
 if __name__ == '__main__':
