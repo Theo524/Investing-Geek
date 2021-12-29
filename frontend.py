@@ -25,10 +25,14 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         MainWindow.setFont(font)
-        MainWindow.setStyleSheet(u"background-color: rgb(28, 32, 43);")
+        MainWindow.setStyleSheet(u"#centralwidget{\n"
+"background-color: rgb(28, 32, 43);\n"
+"border-radius: 10px\n"
+"}")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.centralwidget.setStyleSheet(u"background-color: rgb(28, 32, 43);")
+        self.centralwidget.setStyleSheet(u"background-color: rgb(54, 79, 113);\n"
+"")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -36,7 +40,7 @@ class Ui_MainWindow(object):
         self.header_frame = QFrame(self.centralwidget)
         self.header_frame.setObjectName(u"header_frame")
         self.header_frame.setStyleSheet(u"background-color: rgb(54, 79, 113);\n"
-"")
+"border-radius:10px;")
         self.header_frame.setFrameShape(QFrame.NoFrame)
         self.header_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout = QHBoxLayout(self.header_frame)
@@ -166,9 +170,9 @@ class Ui_MainWindow(object):
         self.header_right_frame.setFrameShape(QFrame.StyledPanel)
         self.header_right_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_22 = QHBoxLayout(self.header_right_frame)
-        self.horizontalLayout_22.setSpacing(10)
+        self.horizontalLayout_22.setSpacing(25)
         self.horizontalLayout_22.setObjectName(u"horizontalLayout_22")
-        self.horizontalLayout_22.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_22.setContentsMargins(0, 0, 15, 0)
         self.minimize_window_button = QPushButton(self.header_right_frame)
         self.minimize_window_button.setObjectName(u"minimize_window_button")
         self.minimize_window_button.setCursor(QCursor(Qt.PointingHandCursor))
@@ -413,7 +417,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2040))
+        self.stock_analysis_frame.setGeometry(QRect(0, 0, 856, 2040))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.analysis_header = QFrame(self.stock_analysis_frame)
@@ -2684,7 +2688,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3786))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3805))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -3492,7 +3496,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 470))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 515))
         self.verticalLayout_121 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.frame_9 = QFrame(self.scrollAreaWidgetContents)
@@ -5053,7 +5057,8 @@ class Ui_MainWindow(object):
 
         self.footer_frame = QFrame(self.centralwidget)
         self.footer_frame.setObjectName(u"footer_frame")
-        self.footer_frame.setStyleSheet(u"background-color: rgb(28, 32, 43);")
+        self.footer_frame.setStyleSheet(u"background-color: rgb(28, 32, 43);\n"
+"border-radius:10px;")
         self.footer_frame.setFrameShape(QFrame.NoFrame)
         self.footer_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.footer_frame)
@@ -5419,6 +5424,8 @@ class Ui_MainWindow(object):
         self.developed_by_theo_brown.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Developed by Theo Brown</span></p></body></html>", None))
         self.help_button.setText("")
     # retranslateUi
+
+
 
 
 # Ticker extra info frontend
