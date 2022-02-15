@@ -1,20 +1,29 @@
+"""Change from pyside2 to pyqt5"""
+
 import sys
 import os
 import re
 import datetime
+import threading
+
+import PyQt5
+import PySide2
+import requests.exceptions
 import yfinance as yf
 from GoogleNews import GoogleNews
 from newspaper import Config
 import pandas as pd
 import json
-from threading import *
+from bs4 import BeautifulSoup
+import requests
+import pyqtgraph
 
 
-from PySide2 import QtCore, QtGui
+from PyQt5 import QtCore, QtGui
 from frontend import *
-from PySide2 import *
-from PySide2.QtGui import QPainter
-from PySide2.QtCharts import QtCharts
+from PyQt5 import *
+from PyQt5.QtGui import QPainter
+#from PyQt5.QtCharts import QtCharts
 from PyQt5.QtWidgets import QMessageBox, QVBoxLayout
 
 
@@ -65,6 +74,13 @@ class MainWindow(QMainWindow):
         self.ui.close_window_button.clicked.connect(lambda: self.close())
         self.ui.restore_window_button.clicked.connect(lambda: self.restore_or_maximize_window())
         self.ui.minimize_window_button.clicked.connect(lambda: self.showMinimized())
+
+        # graph line
+        self.crypto_graph_line = None
+        self.stock_graph_line = None
+        # graph widgets
+        self.crypto_graphWidget = pyqtgraph.PlotWidget()
+        self.stock_graphWidget = pyqtgraph.PlotWidget()
 
         # analysis btns
         self.stock_analysis_buttons = {'1d': self.ui.one_day_button, '1w': self.ui.one_week_button,
@@ -261,7 +277,10 @@ class MainWindow(QMainWindow):
         self.ui.settings_apply_settings.clicked.connect(self.apply_settings)
 
         # Ticker analysis page search button
-        self.ui.search_button.clicked.connect(self.search_ticker_in_analysis())
+        self.ui.search_button.clicked.connect(self.search_ticker_in_analysis)
+        # add graphs widgets to the pages
+        self.ui.stock_analysis_chart_cont.addWidget(self.stock_graphWidget)
+        self.ui.crypto_analysis_chart_cont.addWidget(self.crypto_graphWidget)
 
         # Hide/show menu labels animation
         self.ui.menu_icon_button.clicked.connect(self.show_left_menu)
@@ -333,7 +352,7 @@ class MainWindow(QMainWindow):
             lambda: self.ui.tabWidget.setCurrentIndex(3))
 
         # settings page
-        self.ui.settings_view_users_btn.clicked.connect(self.show_trading_pg_data)
+        self.ui.settings_view_users_btn.clicked.connect(self.update_trading_settings_pg_data)
         self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_main)
         self.ui.settings_return_to_homepage_button.clicked.connect(
             lambda: self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_main))
@@ -341,11 +360,11 @@ class MainWindow(QMainWindow):
     def search_ticker_in_analysis(self):
         """Searching for a ticker"""
 
+        # for lengthy process and so that the user waits
+        QApplication.setOverrideCursor(Qt.WaitCursor)
+
         # Temporarily disable button
         self.ui.search_button.setEnabled(False)
-
-        # set loading pointer for lenghty procces of stock/crypto search
-        #QApplication.setOverrideCursor(Qt.WaitCursor)
 
         # ticker name
         ticker = self.ui.search_entry.text()
@@ -353,17 +372,35 @@ class MainWindow(QMainWindow):
         self.ticker = ticker
         self.ticker_obj = yf.Ticker(self.ticker)
 
-        # function verifies if it a stock or crypto
-        self.ticker_type = self.stock_or_crypto()
+        # function verifies if it a stock or crypto, also use it to determine whether user is connected to the internet
+        try:
+            self.ticker_type = self.stock_or_crypto()
+        except requests.exceptions.ConnectionError:
+
+            # restore cursor
+            QApplication.restoreOverrideCursor()
+
+            # feedback and and exit function
+            self.display_feedback(msg_type='error',
+                                  message='You must be connected to a network to search for a ticker...',
+                                  title='No connection')
+
+            # clear entry
+            self.ui.search_entry.clear()
+
+
+
+            return
+
         # get market data
         market_state = self.check_market_state()
 
         if self.ticker_type == 'stock' and market_state['state'] == 'Open':
+            # load news (Too time consuming, commented out until I figure out how to fix it)
+            #self.load_news()
+
             # stock info label
             stock_info = market_state['stock_info']
-            # print all info for ticker(temporal)
-            # for key, value in self.ticker_obj.info.items():
-            #   print(key, ":", value)
 
             # day info for stock
             name = self.ticker_obj.info['longName']
@@ -408,16 +445,18 @@ color:rgb(255, 0, 0);
             self.ui.five_year_button.clicked.connect(lambda: self.show_info_data('5y'))
             self.ui.max_button.clicked.connect(lambda: self.show_info_data('max'))
 
-            # display news
-            self.load_news()
+            # restore cursor
+            QApplication.restoreOverrideCursor()
+
+            # enable search button
+            self.ui.search_button.setEnabled(True)
 
         if self.ticker_type == 'crypto':
+            # load news (Too time consuming, commented out until I figure out how to fix it)
+            #self.load_news()
 
             # stock info
             crypto_info = market_state['stock_info']
-            # print all info for ticker(temporal)
-            for key, value in self.ticker_obj.info.items():
-                print(key, ":", value)
 
             # quote info for crypto
             name = self.ticker_obj.info['name']
@@ -459,15 +498,18 @@ color:rgb(255, 0, 0);
             self.ui.five_year_button_2.clicked.connect(lambda: self.show_info_data('5y'))
             self.ui.max_button_2.clicked.connect(lambda: self.show_info_data('max'))
 
-            self.load_news()
+            # restore cursor
+            QApplication.restoreOverrideCursor()
+
+            # enable search button
+            self.ui.search_button.setEnabled(True)
 
         if self.ticker_type == 'stock' and market_state['state'] == 'Closed':
+            # restore cursor
+            QApplication.restoreOverrideCursor()
 
             # feedback
-            weekday = True if market_state['weekday'] == 'yes' else False
-            txt = 'Today is not a weekday. The stock market is currently closed. \nYou can search cryptocurrencies.'\
-                if not weekday else 'The market opens from 14:30 pm  to 21:00 pm.' \
-                                    ' This assumes you are living in the UK. \nYou can search cryptocurrencies.'
+            txt = 'Market is closed right now. You can search cryptocurrencies.'
             title = 'Market closed'
             self.display_feedback(msg_type='information', message=txt, title=title)
 
@@ -475,6 +517,9 @@ color:rgb(255, 0, 0);
             self.ui.search_button.setEnabled(True)
 
         if not self.ticker_type:
+            # restore cursor
+            QApplication.restoreOverrideCursor()
+
             txt = 'The ticker you entered is either incorrect or there is no data on it'
             title = 'Erroneous data'
             self.display_feedback(msg_type='warning', message=txt, title=title)
@@ -482,52 +527,51 @@ color:rgb(255, 0, 0);
             # enable search
             self.ui.search_button.setEnabled(True)
 
-        # restore loading cursor
-        #QApplication.restoreOverrideCursor()
+        # enable search button
+        self.ui.search_button.setEnabled(True)
 
-    @staticmethod
-    def check_market_state():
+    def check_market_state(self):
         """Check market is open (Assumes you live in the uk)
 
         :returns: Dictionary with data regarding market info
         :rtype: dict
         """
 
+        market_status = ''
+
+        # determine if market is open or closed with the help of yahoo finance site
+        session = requests.session()
+        response = session.get('https://finance.yahoo.com/quote/%5EGSPC?p=%5EGSPC')
+        if response.status_code == 200:
+            # html text
+            page = response.text
+            soup = BeautifulSoup(page, "html.parser")
+
+            # market description
+            market = soup.find_all('div', id='quote-market-notice')
+            # convert message e.g. 'As of  10:42AM EST. Market open.' To the last sentence
+            market_status = market[0].text.split('.')[1].strip()
+
         # (note) monday is 0, sunday is 6
-        # us market opening time in the uk is from 2:30pm to 9 pm
         # today's date details
         today = datetime.date.today()
-        day = today.day
-        month = today.month
-        year = today.year
 
         # current time
         time = datetime.datetime.now()
-        # pass onto date time object for comparison, we pass the same date but different times
-        # 2:30 pm market open in uk
-        limit_down = datetime.datetime(day=day, month=month, year=year, hour=14, minute=30, second=0)
-        # 9:00 pm market open in us
-        limit_up = datetime.datetime(day=day, month=month, year=year, hour=21, minute=0, second=0)
-
-        # current time is between 2:30 pm and 9:00 pm
-        day_is_open = limit_down < time < limit_up
+        # am or pm
         am_or_pm = 'AM' if time.hour < 12 else 'PM'
 
-        # valid weekdays
-        valid = [0, 1, 2, 3, 4]
+        # make one digit numbers 2-digit with a zero in front
         h = f'0{time.hour}' if len(str(time.hour)) == 1 else f'{time.hour}'
         m = f'0{time.minute}' if len(str(time.minute)) == 1 else f'{time.minute}'
 
         # If date is weekend market is closed, else open
-        if today.weekday() not in valid or not day_is_open:
-            m_state = 'Closed'
-            stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} - Market {m_state}')
-            return {'state': m_state, 'am_or_pm': am_or_pm, 'stock_info': stock_info,
-                    'weekday': 'yes' if not day_is_open else 'no'}
-        m_state = 'Open'
-        stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} - Market {m_state}')
-        return {'state': m_state, 'am_or_pm': am_or_pm, 'stock_info': stock_info,
-                'weekday': 'yes' if not day_is_open else 'no'}
+        print(market_status)
+        msg = f"- {market_status}" if self.ticker_type == "stock" else ''
+        m_state = 'Open' if market_status == 'Market open' else 'Closed'
+        stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} {msg}')
+
+        return {'state': m_state, 'stock_info': stock_info}
 
     def calc_crypto_worth(self, worth_of_one_unit):
         """Calculate the worth of n amount of crypto currency
@@ -544,34 +588,40 @@ color:rgb(255, 0, 0);
         # set text
         self.ui.second_currency_entry.setText(str(final_val))
 
+    def add_line_to_graph(self, date, close):
+        """Add lines to graph"""
+
+        if self.ticker_type == 'stock':
+
+            # range
+            self.stock_graphWidget.setYRange(min(close), max(close))
+            self.stock_graphWidget.setXRange(min(date), max(date))
+
+            # plot data: x, y values
+            axis = pyqtgraph.DateAxisItem()
+            self.stock_graphWidget.setAxisItems({'bottom': axis})
+            self.stock_graphWidget.enableMouse(False)
+            self.stock_graph_line = self.stock_graphWidget.plot(x=date, y=close, symbolBrush=0.2, name='green')
+
+        if self.ticker_type == 'crypto':
+            # range
+            self.crypto_graphWidget.setYRange(min(close), max(close))
+            self.crypto_graphWidget.setXRange(min(date), max(date))
+
+            # plot data: x, y values
+            axis = pyqtgraph.DateAxisItem()
+            self.crypto_graphWidget.setAxisItems({'bottom': axis})
+            self.crypto_graphWidget.enableMouse(False)
+            self.crypto_graph_line = self.crypto_graphWidget.plot(x=date, y=close, symbolBrush=0.2, name='green')
+
     def show_info_data(self, time_period):
         """Shows the line chart and info for a specific timeframe in the gui"""
 
-        # disable all buttons except the one clicked (checked btns)
-        if self.ticker_type == 'crypto':
-            for time, btn in self.stock_analysis_crypto_buttons.items():
-                if time != time_period:
-                    btn.setChecked(False)
-        if self.ticker_type == 'stock':
-            for time, btn in self.stock_analysis_buttons.items():
-                if time != time_period:
-                    print(btn)
-                    btn.setChecked(False)
-
-
-        print(self.ticker_type)
-        print('getting chart info...')
-
-        # Before anything delete the current chart displayed
-        if self.ticker_type == 'stock':
-            layout = self.ui.stock_analysis_chart_cont
-        elif self.ticker_type == 'crypto':
-            layout = self.ui.crypto_analysis_chart_cont
-
-        # of course, check if there is a chart in place
-        if layout.count() > 0:
-            # if there is, delete it
-            layout.removeWidget(self.current_stock_chart)
+        # delete previous lines
+        if self.crypto_graph_line is not None:
+            self.crypto_graph_line.clear()
+        if self.stock_graph_line is not None:
+            self.stock_graph_line.clear()
 
         if time_period == '1d':
             if self.ticker_type == 'stock':
@@ -582,26 +632,37 @@ color:rgb(255, 0, 0);
             df = self.get_data_for_chart(self.ticker, time_period)
 
             # add line chart
-            stock_line_series = QtCharts.QLineSeries()
-
-            for index, row in df.iterrows():
+            #stock_line_series = QtCharts.QLineSeries()
+            #for index, row in df.iterrows():
                 # add stock data values for chart (date, close)
-                stock_line_series.append(float(index.value), float(row['Close']))
-
+             #   stock_line_series.append(float(index.value), float(row['Close']))
             # chart creation
-            chart = QtCharts.QChart()
-            chart.addSeries(stock_line_series)
+            #chart = QtCharts.QChart()
+            ##chart_view = QtCharts.QChartView(graphWidget)
+            #chart_view.setRenderHint(QPainter.Antialiasing)
+            #chart.setAnimationOptions(QtCharts.QChart.AllAnimations)
+            #chart_view.chart().setTheme(QtCharts.QChart.ChartThemeDark)
+            #chart_view.setRenderHint(QPainter.Antialiasing)
+            # add
+            #chart.addSeries(stock_line_series)
 
-            chart_view = QtCharts.QChartView(chart)
-            chart_view.setRenderHint(QPainter.Antialiasing)
-            chart.setAnimationOptions(QtCharts.QChart.AllAnimations)
-            chart_view.chart().setTheme(QtCharts.QChart.ChartThemeDark)
-            chart_view.setRenderHint(QPainter.Antialiasing)
+            # data for plot
+            date = []
+            close = []
+
+            # add data to lists
+            for index, row in df.iterrows():
+                date.append(index)
+                close.append(row['Close'])
+
+            # convert date timestamps to int(seconds)
+            date = [i.timestamp() for i in date]
+
+            # add line to graph with data from df
+            self.add_line_to_graph(date, close)
 
             # add chart to layout
             if self.ticker_type == 'stock':
-                self.ui.stock_analysis_chart_cont.addWidget(chart_view)
-
                 # add info about stock
                 # required info
                 volume = self.ticker_obj.info['volume']
@@ -622,12 +683,6 @@ color:rgb(255, 0, 0);
                 self.ui.fifty_two_week_high_placeholder.setText(str(fifty_two_week_high))
                 self.ui.fifty_two_week_low_placeholder.setText(str(fifty_two_week_low))
 
-            if self.ticker_type == 'crypto':
-                self.ui.crypto_analysis_chart_cont.addWidget(chart_view)
-
-            # keep reference to later delete it
-            self.current_stock_chart = chart_view
-
         else:
             # place new stock data entries for non day entries
             if self.ticker_type == 'stock':
@@ -637,7 +692,7 @@ color:rgb(255, 0, 0);
             df = self.get_data_for_chart(self.ticker, time_period)
 
             if self.ticker_type == 'stock':
-                # values
+                # values from entries
                 all_data = list(df['Close'].values)
                 highest = max(all_data)
                 lowest = min(all_data)
@@ -651,33 +706,21 @@ color:rgb(255, 0, 0);
                 self.ui.day_low_placeholder.setText(str(round(lowest, 2)))
                 self.ui.day_open_placeholder.setText(str(round(avg, 2)))
 
-            # add chart
-            stock_line_series = QtCharts.QLineSeries()
 
-            # add data to line chart
+            # data for plot
+            date = []
+            close = []
+
+            # add data to lists
             for index, row in df.iterrows():
-                # stock data (date, close)
-                stock_line_series.append(float(index.value), float(row['Close']))
+                date.append(index)
+                close.append(row['Close'])
 
-            # chart creation
-            chart = QtCharts.QChart()
-            chart.addSeries(stock_line_series)
+            # convert date timestamps to int(seconds)
+            date = [i.timestamp() for i in date]
 
-            chart_view = QtCharts.QChartView(chart)
-            chart_view.setRenderHint(QPainter.Antialiasing)
-            chart.setAnimationOptions(QtCharts.QChart.AllAnimations)
-            chart_view.chart().setTheme(QtCharts.QChart.ChartThemeDark)
-
-            if self.ticker_type == 'stock':
-                # add chart to layout
-                self.ui.stock_analysis_chart_cont.addWidget(chart_view)
-
-            if self.ticker_type == 'crypto':
-                # add chart to layout
-                self.ui.crypto_analysis_chart_cont.addWidget(chart_view)
-
-            # keep reference for later deletion
-            self.current_stock_chart = chart_view
+            # add line to graph with data from df
+            self.add_line_to_graph(date, close)
 
     @staticmethod
     def get_data_for_chart(ticker, time_period):
@@ -696,7 +739,6 @@ color:rgb(255, 0, 0);
         if time_period == '1d':
             # 1 day data for the stock at 5 minute intervals
             data = ticker.history(period='1d', interval='5m')
-            print(type(data))
             return data
 
         # // FIX THIS (gives very inaccurate and strange data) ----------------------------------------------------------------
@@ -787,7 +829,8 @@ color:rgb(255, 0, 0);
         ticker_window = TickerInfo(self.ticker, ticker_type)
 
     def load_news(self):
-        """Load related news for given ticker"""
+
+        """Load related news for given ticker, happens in a different thread as it is a long process"""
 
         # link
         linkTemplate = '<p><a href={0}>{1}</a> • {2}</p>'
@@ -795,10 +838,11 @@ color:rgb(255, 0, 0);
         # news
         my_news = News(self.ticker)
         data_dict = my_news.news_data_dict
-        # for key, val in data_dict.items():
-        #   print(key)
-        #  print(val)
-        # print('\n\n\n\n')
+        for key, val in data_dict.items():
+            print(key)
+            print(val)
+            print('\n\n\n\n')
+
         layouts = None
 
         if self.ticker_type == 'stock':
@@ -870,14 +914,13 @@ font: 8pt "MS Shell Dlg 2";""")
         # user_name
         user_name = self.ui.simulator_login_to_username_entry.text()
 
-        # use stockgame class to verify user exists
+        # use stock game class to verify user exists
         exists = self.stock_game.user_exists(user_name)
 
         if exists:
             # user exists
             # load user in stock game
             self.stock_game.load_user(user_name)
-            print(self.stock_game.current_user)
 
             # since user found, display informative feedback
             self.display_feedback(message=f'Welcome {user_name}', title="Success", msg_type='information')
@@ -893,7 +936,8 @@ font: 8pt "MS Shell Dlg 2";""")
 
         # if the user was not found
         txt = 'The user is not does not exist. Check the json file to find it.\n '\
-              'You can directly access the or go to settings to see it'
+              'You can directly access it or go to setting to see its location.\n' \
+              'You can also create a new user if yu want to.'
         title = "No user"
 
         # feedback
@@ -911,29 +955,21 @@ font: 8pt "MS Shell Dlg 2";""")
             self.stock_game.create_user(new_user)
 
             # display feedback
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Information)
-            msg.setText('User successfully created.')
-            msg.setWindowTitle("Success")
-            msg.exec_()
+            self.display_feedback(msg_type='information', msg='User successfully created.', title='Success')
 
             # return to login
             self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page)
 
         else:
             # if user exists don't create
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Critical)
-            msg.setText('User already exists. Enter another name.')
-            msg.setWindowTitle("Error")
-            msg.exec_()
+            self.display_feedback(msg_type='critical', msg='User already exists. Enter another name', title='Error')
 
     def add_user_data_to_simulator_tabs(self, user_data):
         """Fill in user tables in simulator
 
         :param dict user_data: Dictionary representing the user to be used
 
-        user_data format
+        user_data dict format
         {
             "user_id": ?,
             "data": {
@@ -1043,11 +1079,9 @@ font: 8pt "MS Shell Dlg 2";""")
 
         else:
             # display error
-            msg = QMessageBox()
-            msg.setIcon(QMessageBox.Critical)
-            msg.setText('The ticker you entered does not exist or is incorrect.\n Remember you must use enter a stock')
-            msg.setWindowTitle("Error")
-            msg.exec_()
+            self.display_feedback(msg_type='critical', title='Error',
+                                  msg='The ticker you entered does not exist or is incorrect. \n'
+                                      'Remember you must use enter a stock')
 
     def preview_order(self):
         """Preview order"""
@@ -1065,7 +1099,6 @@ font: 8pt "MS Shell Dlg 2";""")
         self.ticker_obj = yf.Ticker(self.ticker)
 
         # data about stock
-        tradeable = self.ticker_obj.info['tradeable']
         bid = self.ticker_obj.info['bid']
         ask = self.ticker_obj.info['bid']
         full_name = self.ticker_obj.info['longName']
@@ -1089,10 +1122,12 @@ font: 8pt "MS Shell Dlg 2";""")
             self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_confirm_transaction_page)
 
             # finally update and perform trade on portfolio
-            self.ui.stock_simulator_purchase_confirm_btn.clicked.connect(lambda: self.perform_stock_trade(stock_name, transaction_type, quantity))
+            self.ui.stock_simulator_purchase_confirm_btn.clicked.connect(
+                lambda: self.perform_stock_trade(stock_name, transaction_type, quantity))
 
             # cancel order button
-            self.ui.stock_simulator_purchase_camcel_btn.clicked.connect(lambda: self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab))
+            self.ui.stock_simulator_purchase_camcel_btn.clicked.connect(
+                lambda: self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab))
             QApplication.restoreOverrideCursor()
 
         else:
@@ -1133,11 +1168,9 @@ font: 8pt "MS Shell Dlg 2";""")
         QApplication.restoreOverrideCursor()
 
         # feedback and return to previous page
-        msg = QMessageBox()
-        msg.setIcon(QMessageBox.Information)
-        msg.setText('Stock successfully sold' if transaction_type == 'sell' else 'Stock successfully bought')
-        msg.setWindowTitle("Success")
-        msg.exec_()
+        self.display_feedback(msg_type='information', title='Success',
+                              msg='Stock successfully sold' if transaction_type == 'sell' else\
+                                  'Stock successfully bought')
 
         # return to previous page
         self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
@@ -1149,10 +1182,16 @@ font: 8pt "MS Shell Dlg 2";""")
         user = self.stock_game.name
         self.stock_game.delete_user(user)
 
+        # message
+        self.display_feedback(msg_type='information', msg='User successfully deleted', title='Success')
+
+        # update table data
+        self.update_trading_settings_pg_data()
+
         # return to start
         self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
 
-    def show_trading_pg_data(self):
+    def update_trading_settings_pg_data(self):
         """Displays table with stock game users and display original file in settings"""
 
         QApplication.setOverrideCursor(Qt.WaitCursor)
@@ -1210,6 +1249,10 @@ font: 8pt "MS Shell Dlg 2";""")
 
         QApplication.restoreOverrideCursor()
 
+        # go to the page
+        self.go_to_sim_users_pg()
+
+    def go_to_sim_users_pg(self):
         # finally set page
         self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_sim_users)
 
@@ -1231,19 +1274,19 @@ font: 8pt "MS Shell Dlg 2";""")
         msg_obj = QMessageBox()
 
         # messages
-        if msg_type == 'error':
+        if msg_type.lower() == 'error':
             msg_obj.setWindowTitle("Error")
             msg_obj.setIcon(QMessageBox.Critical)
 
-        if msg_type == 'information':
+        if msg_type.lower() == 'information':
             msg_obj.setWindowTitle("Information")
             msg_obj.setIcon(QMessageBox.Information)
 
-        if msg_type == 'warning':
+        if msg_type.lower() == 'warning':
             msg_obj.setWindowTitle("Warning")
             msg_obj.setIcon(QMessageBox.Warning)
 
-        if msg_type == 'critical':
+        if msg_type.lower() == 'critical':
             msg_obj.setWindowTitle("Critical")
             msg_obj.setIcon(QMessageBox.Critical)
 
@@ -1376,6 +1419,10 @@ class News:
         self.now = self.now.strftime('%m-%d-%Y')
         self.yesterday = datetime.date.today() - datetime.timedelta(days=1)
         self.yesterday = self.yesterday.strftime('%m-%d-%Y')
+        # google news extrating
+        self.googlenews = GoogleNews(start=self.yesterday, end=self.now)
+        self.ticker = ticker
+
         # config
         user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'
         config = Config()
@@ -1383,35 +1430,62 @@ class News:
         config.request_timeout = 10
 
         # data
-        self.news_data_dict = {}
+        self.news_data_dict = self.get_dict()
 
-        # fill dict
-        self.get_dict(ticker)
+    def get_dict(self):
 
-    def get_dict(self, ticker):
-        # save the company name in a variable
-        company_name = ticker
         # As long as the company name is valid, not empty...
-        if company_name != '':
-            print(f'Searching for and analyzing {company_name}, Please be patient, it might take a while...')
+        if self.ticker != '':
+            print(f'Searching for and analyzing {self.ticker}, This will be done in a different thread\n'
+                  f'Please be patient, it might take a while...')
 
-            # Extract News with Google News
-            googlenews = GoogleNews(start=self.yesterday, end=self.now)
-            googlenews.search(company_name)
-            result = googlenews.result()
-            # store the results
-            df = pd.DataFrame(result)
+            # ran in different thread
+            self.news_thread()
 
-            # fill empty dict
-            for index, row in df.iterrows():
-                self.news_data_dict[index] = {'title': row['title'],
-                                              'media_src': row['media'],
-                                              'date': row['date'],
-                                              'datetime': row['datetime'],
-                                              'description': row['desc'],
-                                              'link': row['link'][:-1]
-                                              if row['link'][-1] == '/' else row[
-                                                  'link']}  # remove '/' from end of link str
+            # Opening JSON file that just got written
+            with open('temp/news/NewsIn.json', 'r') as openfile:
+                # Reading from json file
+                json_object = json.load(openfile)
+
+            return json_object
+
+    def news_thread(self):
+        """Will get news and write to an external file"""
+        t = threading.Thread(target=self.write_news)
+        t.start()
+        t.join()
+
+    def write_news(self):
+        """Write news data to file"""
+
+        self.googlenews.search(self.ticker)
+        result = self.googlenews.result()
+
+        # store the results
+        df = pd.DataFrame(result)
+
+        # result to be stored
+        dictionary = {}
+
+        # fill empty dict
+        for index, row in df.iterrows():
+            dictionary[index] = {'title': row['title'],
+                                          'media_src': row['media'],
+                                          'date': row['date'],
+                                          'datetime': row['datetime'],
+                                          'description': row['desc'],
+                                          'link': row['link'][:-1]
+                                          if row['link'][-1] == '/' else row[
+                                              'link']}  # remove '/' from end of link str
+
+
+        # write to json file
+        # Serializing json
+        json_object = json.dumps(dictionary, indent=4)
+
+        # Writing to sample.json
+        with open("temp/news/NewsIn.json", "w") as outfile:
+            outfile.write(json_object)
 
 
 class StockGame:
