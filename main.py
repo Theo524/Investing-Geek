@@ -4,10 +4,7 @@ import sys
 import os
 import re
 import datetime
-import threading
-
-import PyQt5
-import PySide2
+import time
 import requests.exceptions
 import yfinance as yf
 from GoogleNews import GoogleNews
@@ -17,19 +14,23 @@ import json
 from bs4 import BeautifulSoup
 import requests
 import pyqtgraph
+from configparser import ConfigParser
 
 
 from PyQt5 import QtCore, QtGui
 from frontend import *
 from PyQt5 import *
 from PyQt5.QtGui import QPainter
-#from PyQt5.QtCharts import QtCharts
-from PyQt5.QtWidgets import QMessageBox, QVBoxLayout
+from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtCore import pyqtSlot, pyqtSignal
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
+
+        # threading
+        self.thread_manager = QThreadPool()
 
         # gui elements
         self.ui = Ui_MainWindow()
@@ -96,6 +97,10 @@ class MainWindow(QMainWindow):
         # set starting pages
         self.set_starting_widgets()
 
+        # hide news frame
+        self.ui.stock_analysis_news_frame.hide()
+        self.ui.stock_analysis_news_frame_2.hide()
+
     def resizeEvent(self, event):
         QMainWindow.resizeEvent(self, event)
         rect = self.rect()
@@ -161,6 +166,12 @@ class MainWindow(QMainWindow):
         msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         return_val = msg.exec_()
 
+        # config file
+        config = ConfigParser()
+        file = 'config.ini'
+        config.read(file)
+        settings = config["settings"]
+
         # User clicked no
         if return_val == QMessageBox.No:
             print('No clicked')
@@ -182,6 +193,9 @@ class MainWindow(QMainWindow):
                     # Hide all headings
                     header.hide()
 
+                # apply to configfile
+                settings["show_headings"] = 'False'
+
                 # home layout adjustment
                 self.ui.verticalLayout_8.setContentsMargins(9, 52, 9, 9)
 
@@ -198,14 +212,23 @@ class MainWindow(QMainWindow):
                 self.ui.verticalLayout_8.setContentsMargins(9, 0, 9, 9)
                 self.ui.verticalLayout_167.setContentsMargins(9, 0, 9, 9)
 
+                # apply to configfile
+                settings["show_headings"] = 'True'
+
             # SHOW TICKER INFO (SECOND SETTING)
             if self.ui.settings_extra_info_checkBox.checkState() == 0:
                 # unchecked
                 self.ui.ticker_label_title_analysis.setEnabled(False)
 
+                # apply to configfile
+                settings["ticker_info"] = 'False'
+
             elif self.ui.settings_extra_info_checkBox.checkState() == 2:
                 # checked
                 self.ui.ticker_label_title_analysis.setEnabled(True)
+
+                # apply to configfile
+                settings["ticker_info"] = 'True'
 
             # SHOW NEWS(THIRD SETTING)
             if self.ui.settings_news_visible_checkBox.checkState() == 0:
@@ -214,11 +237,17 @@ class MainWindow(QMainWindow):
                 self.ui.stock_analysis_news_frame.hide()
                 self.ui.stock_analysis_news_frame_2.hide()
 
+                # apply to configfile
+                settings["news_visible"] = 'False'
+
             elif self.ui.settings_news_visible_checkBox.checkState() == 2:
                 # checked
                 # show news frame
                 self.ui.stock_analysis_news_frame.show()
                 self.ui.stock_analysis_news_frame_2.show()
+
+                # apply to configfile
+                settings["news_visible"] = 'True'
 
             # FONTS (FOURTH SETTING)
             font = self.ui.settings_fontComboBox.currentText()
@@ -229,6 +258,15 @@ class MainWindow(QMainWindow):
     color:rgb(255, 255, 255);
     font: {str(font_size)}pt \"{str(font)}\";
     """)
+
+            # apply to configfile
+            settings["font"] = str(font_size)
+            settings["font_size"] = str(font)
+
+            # changes have been applied to ui, apply them now to config.ini
+            # Write changes back to file
+            with open('config.ini', 'w') as configfile:
+                config.write(configfile)
 
     def show_left_menu(self):
         """Animation for left menu closing and opening"""
@@ -277,7 +315,13 @@ class MainWindow(QMainWindow):
         self.ui.settings_apply_settings.clicked.connect(self.apply_settings)
 
         # Ticker analysis page search button
-        self.ui.search_button.clicked.connect(self.search_ticker_in_analysis)
+        #self.ui.search_button.clicked.connect(self.search_ticker_in_analysis)
+        self.ui.search_button.clicked.connect(self.my_custom_search)
+        # hide progressbar frame
+        self.ui.progressbar_frame.hide()
+        # button for progress bar widget disabled
+        self.ui.search_show_data_button.setEnabled(False)
+        self.ui.search_show_data_button.clicked.connect(self.display_ticker_search_results)
         # add graphs widgets to the pages
         self.ui.stock_analysis_chart_cont.addWidget(self.stock_graphWidget)
         self.ui.crypto_analysis_chart_cont.addWidget(self.crypto_graphWidget)
@@ -357,24 +401,70 @@ class MainWindow(QMainWindow):
         self.ui.settings_return_to_homepage_button.clicked.connect(
             lambda: self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_main))
 
-    def search_ticker_in_analysis(self):
-        """Searching for a ticker"""
+    def my_custom_search(self):
+        ticker = self.ui.search_entry.text()
+        self.ticker = ticker
+        # write ticker to file
+        with open(os.getcwd() + '\\temp\\search\\TickerName.txt', 'w') as f:
+            f.write(ticker)
 
-        # for lengthy process and so that the user waits
+            # make loading frame visible
+            self.ui.progressbar_frame.show()
+            # Temporarily disable main search button
+            self.ui.search_button.setEnabled(False)
+
+            ######thread######
+            # Step 2: Create a QThread object
+            self.thread = QThread()
+            # Step 3: Create a worker object
+            self.worker = LoadTickerData()
+            # Step 4: Move worker to the thread
+            self.worker.moveToThread(self.thread)
+            # Step 5: Connect signals and slots
+            self.thread.started.connect(self.worker.run)
+            self.worker.done.connect(self.thread.quit)
+            self.worker.done.connect(self.worker.deleteLater)
+            self.thread.finished.connect(self.thread.deleteLater)
+            #custom
+            self.worker.progress.connect(self.update_progressBar)
+            self.worker.message.connect(self.update_search_message)
+            self.worker.done.connect(self.search_thread_finished)
+            # Step 6: Start the thread
+            self.thread.start()
+
+    def update_progressBar(self, count):
+        self.ui.progressBar.setValue(count)
+
+    def update_search_message(self, msg):
+        self.ui.search_show_data_button.setText(msg)
+
+    def search_thread_finished(self):
+        # Enable bar button
+        self.ui.search_show_data_button.setEnabled(True)
+        # Enable main search button
+        self.ui.search_button.setEnabled(True)
+
+        # display feedback if the user is on a different page
+        if self.ui.stacked_menu_pages.currentWidget() != self.ui.stock_analysis:
+            self.display_feedback(message='Search finished', msg_type='information', title='Done')
+
+    def display_ticker_search_results(self):
+        # hide progressbar frame again
+        self.ui.progressbar_frame.hide()
+
+        # cursor
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        # Temporarily disable button
-        self.ui.search_button.setEnabled(False)
+        with open(os.getcwd() + '\\temp\\search\\TickerIn.json', 'r') as f:
+            data = json.load(f)
 
-        # ticker name
-        ticker = self.ui.search_entry.text()
-        # make higher level reference for full access
-        self.ticker = ticker
-        self.ticker_obj = yf.Ticker(self.ticker)
+        # file contents
+        self.ticker_obj = data
 
         # function verifies if it a stock or crypto, also use it to determine whether user is connected to the internet
         try:
             self.ticker_type = self.stock_or_crypto()
+
         except requests.exceptions.ConnectionError:
 
             # restore cursor
@@ -388,8 +478,6 @@ class MainWindow(QMainWindow):
             # clear entry
             self.ui.search_entry.clear()
 
-
-
             return
 
         # get market data
@@ -397,27 +485,27 @@ class MainWindow(QMainWindow):
 
         if self.ticker_type == 'stock' and market_state['state'] == 'Open':
             # load news (Too time consuming, commented out until I figure out how to fix it)
-            #self.load_news()
+            # self.load_news()
 
             # stock info label
             stock_info = market_state['stock_info']
 
             # day info for stock
-            name = self.ticker_obj.info['longName']
-            price = self.ticker_obj.info['currentPrice']
-            prev_close = self.ticker_obj.info['previousClose']
+            name = self.ticker_obj['longName']
+            price = self.ticker_obj['currentPrice']
+            prev_close = self.ticker_obj['previousClose']
             change_amount = price - prev_close
             change_percentage = change_amount / prev_close * 100
             symbol = '▲' if change_amount > 0 else '▼'
             # set color
             if symbol == '▲':
                 self.ui.stock_change_frame.setStyleSheet("""QLabel{
-color:rgb(0, 255, 0);
-}""")
+        color:rgb(0, 255, 0);
+        }""")
             else:
                 self.ui.stock_change_frame.setStyleSheet("""QLabel{
-color:rgb(255, 0, 0);
-}""")
+        color:rgb(255, 0, 0);
+        }""")
 
             # set stock page as current page
             self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
@@ -453,19 +541,16 @@ color:rgb(255, 0, 0);
 
         if self.ticker_type == 'crypto':
             # load news (Too time consuming, commented out until I figure out how to fix it)
-            #self.load_news()
+            # self.load_news()
 
             # stock info
             crypto_info = market_state['stock_info']
 
             # quote info for crypto
-            name = self.ticker_obj.info['name']
-            pair = self.ticker_obj.info['symbol']
-            price = self.ticker_obj.info['regularMarketPrice']
-            currency = self.ticker_obj.info['currency']
-
-            # set currency page as starting page
-            self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_currency_page)
+            name = self.ticker_obj['name']
+            pair = self.ticker_obj['symbol']
+            price = self.ticker_obj['regularMarketPrice']
+            currency = self.ticker_obj['currency']
 
             # connect command to title(stock name)
             self.ui.ticker_label_title_analysis.clicked.connect(lambda: self.show_ticker_extraInfoWindow('crypto'))
@@ -566,7 +651,6 @@ color:rgb(255, 0, 0);
         m = f'0{time.minute}' if len(str(time.minute)) == 1 else f'{time.minute}'
 
         # If date is weekend market is closed, else open
-        print(market_status)
         msg = f"- {market_status}" if self.ticker_type == "stock" else ''
         m_state = 'Open' if market_status == 'Market open' else 'Closed'
         stock_info = today.strftime(f'%A %d %B, {h}:{m} {am_or_pm} {msg}')
@@ -625,8 +709,12 @@ color:rgb(255, 0, 0);
 
         if time_period == '1d':
             if self.ticker_type == 'stock':
-                # reset stock info entries, to allocate day entries
+                # reset stock info entries, to allocate day entries and also set page to display
+                self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
                 self.reset_entries_for_stock_info_display('day')
+
+            else:
+                self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_currency_page)
 
             # get dataframe for 1d worth of stocks
             df = self.get_data_for_chart(self.ticker, time_period)
@@ -665,14 +753,14 @@ color:rgb(255, 0, 0);
             if self.ticker_type == 'stock':
                 # add info about stock
                 # required info
-                volume = self.ticker_obj.info['volume']
-                avg_volume = self.ticker_obj.info['averageVolume']
-                open_price = self.ticker_obj.info['open']
-                high = self.ticker_obj.info['dayHigh']
-                low = self.ticker_obj.info['dayLow']
-                mkt_cap = self.ticker_obj.info['marketCap']
-                fifty_two_week_high = self.ticker_obj.info['fiftyTwoWeekHigh']
-                fifty_two_week_low = self.ticker_obj.info['fiftyTwoWeekLow']
+                volume = self.ticker_obj['volume']
+                avg_volume = self.ticker_obj['averageVolume']
+                open_price = self.ticker_obj['open']
+                high = self.ticker_obj['dayHigh']
+                low = self.ticker_obj['dayLow']
+                mkt_cap = self.ticker_obj['marketCap']
+                fifty_two_week_high = self.ticker_obj['fiftyTwoWeekHigh']
+                fifty_two_week_low = self.ticker_obj['fiftyTwoWeekLow']
                 # set chart info display
                 self.ui.day_open_placeholder.setText(str(open_price))
                 self.ui.day_high_placeholder.setText(str(high))
@@ -810,11 +898,11 @@ color:rgb(255, 0, 0);
         try:
             # Anytime a ticker is used it is placed on the 'self.ticker_obj' var.
             # this allows for access and modification through the whole class and specifically its 'info' method
-            if self.ticker_obj.info['quoteType'] == 'EQUITY':
+            if self.ticker_obj['quoteType'] == 'EQUITY':
                 return 'stock'
-            elif self.ticker_obj.info['quoteType'] == 'CRYPTOCURRENCY':
+            elif self.ticker_obj['quoteType'] == 'CRYPTOCURRENCY':
                 return 'crypto'
-            elif self.ticker_obj.info['quoteType'] == 'MUTUALFUND':
+            elif self.ticker_obj['quoteType'] == 'MUTUALFUND':
                 return 'mutual fund'
         except KeyError:
             return False
@@ -1099,9 +1187,9 @@ font: 8pt "MS Shell Dlg 2";""")
         self.ticker_obj = yf.Ticker(self.ticker)
 
         # data about stock
-        bid = self.ticker_obj.info['bid']
-        ask = self.ticker_obj.info['bid']
-        full_name = self.ticker_obj.info['longName']
+        bid = self.ticker_obj['bid']
+        ask = self.ticker_obj['bid']
+        full_name = self.ticker_obj['longName']
         total_spread = (ask - bid) * int(quantity)
         total = str(bid * quantity) if transaction_type == 'buy' else str(ask * quantity)
 
@@ -1440,20 +1528,14 @@ class News:
                   f'Please be patient, it might take a while...')
 
             # ran in different thread
-            self.news_thread()
+            self.write_news()
 
             # Opening JSON file that just got written
-            with open('temp/news/NewsIn.json', 'r') as openfile:
+            with open('temp/search/TickerNews.json', 'r') as openfile:
                 # Reading from json file
                 json_object = json.load(openfile)
 
             return json_object
-
-    def news_thread(self):
-        """Will get news and write to an external file"""
-        t = threading.Thread(target=self.write_news)
-        t.start()
-        t.join()
 
     def write_news(self):
         """Write news data to file"""
@@ -1478,13 +1560,12 @@ class News:
                                           if row['link'][-1] == '/' else row[
                                               'link']}  # remove '/' from end of link str
 
-
         # write to json file
         # Serializing json
         json_object = json.dumps(dictionary, indent=4)
 
         # Writing to sample.json
-        with open("temp/news/NewsIn.json", "w") as outfile:
+        with open("temp/search/TickerNews.json", "w") as outfile:
             outfile.write(json_object)
 
 
@@ -1867,6 +1948,121 @@ class StockGame:
                 json_obj = {"users": []}
                 json.dump(json_obj, jsonFile, indent=4)
 
+
+class LoadTickerData(QObject):
+    done = pyqtSignal()
+    progress = pyqtSignal(int)
+    message = pyqtSignal(str)
+
+    @pyqtSlot()
+    def run(self):
+        count = 0
+
+        self.message.emit(f'Plese wait, the time this takes\n relies on your network connection...')
+        count += 3
+        self.progress.emit(count)
+        time.sleep(2)
+
+        # get ticker
+        with open(os.getcwd() + '\\temp\\search\\TickerName.txt', 'r') as f:
+            ticker = f.read()
+
+        self.message.emit(f'Fetching data for {ticker}\nfrom yfinance...')
+        count += 2
+        self.progress.emit(count)
+
+        #########################################
+        # get ticker data
+        obj = yf.Ticker(ticker).info
+
+        # progressbar
+        for i in range(len(obj)//2):
+            # bar
+            count += 1
+            time.sleep(.15)
+            self.progress.emit(count)
+
+        json_data = json.dumps(obj, indent=4)
+        # Writing to data to sample.json
+        with open("temp/search/TickerData.json", "w") as outfile:
+            outfile.write(json_data)
+
+        # read config file to see if the news are to be shown
+        config_obj = ConfigParser()
+        config_obj.read("config.ini")
+        newsparam = config_obj["settings"]["news_visible"]
+
+        if newsparam == 'True':
+            #########################################
+            self.message.emit('Searching GoogleNews...')
+            # get news
+            # date
+            now = datetime.date.today().strftime('%m-%d-%Y')
+            yesterday = (datetime.date.today() - datetime.timedelta(days=1)).strftime('%m-%d-%Y')
+            # google news extrating
+            googlenews = GoogleNews(start=yesterday, end=now)
+            with open(os.getcwd() + '\\temp\\news\\NewsTicker.txt', 'r') as f:
+                ticker = f.read()
+
+            # config
+            user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'
+            config = Config()
+            config.browser_user_agent = user_agent
+            config.request_timeout = 10
+
+            googlenews.search(ticker)
+            result = googlenews.result()
+            self.message.emit('Creating Dataframe...')
+
+            # store the results
+            df = pd.DataFrame(result)
+
+            # result to be stored
+            dictionary = {}
+
+            # fill empty dict
+            for index, row in df.iterrows():
+                dictionary[index] = {'title': row['title'],
+                                              'media_src': row['media'],
+                                              'date': row['date'],
+                                              'datetime': row['datetime'],
+                                              'description': row['desc'],
+                                              'link': row['link'][:-1]
+                                              if row['link'][-1] == '/' else row[
+                                                  'link']}  # remove '/' from end of link str
+                # 50 left in terms of progrss count so since this is 10 loops, make it increase by 5 each time
+                # leaveing us at 90 progress
+                time.sleep(.5)
+                count += 5
+                self.progress.emit(count)
+
+            # write to json file
+            # Serializing json
+            json_object = json.dumps(dictionary, indent=4)
+
+            # Writing to sample.json
+            with open("temp/search/TickerNews.json", "w") as outfile:
+                outfile.write(json_object)
+
+            count += 10
+            self.progress.emit(count)
+
+            # done
+            self.done.emit()
+
+        if newsparam == 'False':
+            self.message.emit('Finishing...')
+
+            # handle the remaining progress bar count
+            remainder = 100 - count
+            for i in range(remainder):
+                count += 1
+                time.sleep(.1)
+                self.progress.emit(count)
+
+            self.message.emit('Done!\n'
+                              'Click here to see the results!')
+            self.done.emit()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
