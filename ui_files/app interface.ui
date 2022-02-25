@@ -680,7 +680,7 @@ QPushButton::pressed {
              <number>0</number>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="home_page">
              <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -790,8 +790,8 @@ QPushButton::pressed {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>856</width>
-                   <height>2040</height>
+                   <width>860</width>
+                   <height>2175</height>
                   </rect>
                  </property>
                  <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -812,7 +812,7 @@ QPushButton::pressed {
                        <property name="minimumSize">
                         <size>
                          <width>0</width>
-                         <height>30</height>
+                         <height>75</height>
                         </size>
                        </property>
                        <property name="frameShape">
@@ -827,6 +827,12 @@ QPushButton::pressed {
                         </property>
                         <item>
                          <widget class="QFrame" name="stock_analysis_title_frame">
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>0</height>
+                           </size>
+                          </property>
                           <property name="frameShape">
                            <enum>QFrame::StyledPanel</enum>
                           </property>
@@ -890,7 +896,7 @@ QPushButton::pressed {
                          <widget class="QFrame" name="frame_90">
                           <property name="minimumSize">
                            <size>
-                            <width>0</width>
+                            <width>265</width>
                             <height>0</height>
                            </size>
                           </property>
@@ -900,49 +906,58 @@ QPushButton::pressed {
                           <property name="frameShadow">
                            <enum>QFrame::Raised</enum>
                           </property>
-                          <layout class="QHBoxLayout" name="horizontalLayout_3">
+                          <layout class="QVBoxLayout" name="verticalLayout_174">
                            <item>
-                            <widget class="QLineEdit" name="search_entry">
-                             <property name="minimumSize">
-                              <size>
-                               <width>0</width>
-                               <height>0</height>
-                              </size>
+                            <widget class="QFrame" name="search_frame">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
                              </property>
-                             <property name="maximumSize">
-                              <size>
-                               <width>200</width>
-                               <height>16777215</height>
-                              </size>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
                              </property>
-                             <property name="font">
-                              <font>
-                               <family>MS Shell Dlg 2</family>
-                               <pointsize>11</pointsize>
-                               <weight>50</weight>
-                               <italic>false</italic>
-                               <bold>false</bold>
-                              </font>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">background-color: rgb(0, 0, 0, 0 );
+                             <layout class="QHBoxLayout" name="horizontalLayout_3">
+                              <item>
+                               <widget class="QLineEdit" name="search_entry">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>200</width>
+                                  <height>16777215</height>
+                                 </size>
+                                </property>
+                                <property name="font">
+                                 <font>
+                                  <family>MS Shell Dlg 2</family>
+                                  <pointsize>11</pointsize>
+                                  <weight>50</weight>
+                                  <italic>false</italic>
+                                  <bold>false</bold>
+                                 </font>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">background-color: rgb(0, 0, 0, 0 );
 border:none;
 border-bottom:2px solid rgba(105, 115, 132, 255);
 color:rgba(255, 255, 255, 230);
 font: 11pt &quot;MS Shell Dlg 2&quot;;</string>
-                             </property>
-                             <property name="placeholderText">
-                              <string>Search for a ticker</string>
-                             </property>
-                            </widget>
-                           </item>
-                           <item>
-                            <widget class="QPushButton" name="search_button">
-                             <property name="cursor">
-                              <cursorShape>PointingHandCursor</cursorShape>
-                             </property>
-                             <property name="styleSheet">
-                              <string notr="true">QPushButton{
+                                </property>
+                                <property name="placeholderText">
+                                 <string>Search for a ticker</string>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QPushButton" name="search_button">
+                                <property name="cursor">
+                                 <cursorShape>PointingHandCursor</cursorShape>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true">QPushButton{
 	border:none;
 	border-radius:7px;
 }
@@ -956,23 +971,100 @@ QPushButton::pressed {
 	border-radius:7px;
 	background-color:rgb(66, 74, 99);
 }</string>
+                                </property>
+                                <property name="text">
+                                 <string/>
+                                </property>
+                                <property name="icon">
+                                 <iconset resource="../icons.qrc">
+                                  <normaloff>:/icons/icons/search.svg</normaloff>:/icons/icons/search.svg</iconset>
+                                </property>
+                                <property name="iconSize">
+                                 <size>
+                                  <width>24</width>
+                                  <height>24</height>
+                                 </size>
+                                </property>
+                                <property name="flat">
+                                 <bool>true</bool>
+                                </property>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QFrame" name="progressbar_frame">
+                             <property name="frameShape">
+                              <enum>QFrame::StyledPanel</enum>
                              </property>
-                             <property name="text">
-                              <string/>
+                             <property name="frameShadow">
+                              <enum>QFrame::Raised</enum>
                              </property>
-                             <property name="icon">
-                              <iconset resource="../icons.qrc">
-                               <normaloff>:/icons/icons/search.svg</normaloff>:/icons/icons/search.svg</iconset>
-                             </property>
-                             <property name="iconSize">
-                              <size>
-                               <width>24</width>
-                               <height>24</height>
-                              </size>
-                             </property>
-                             <property name="flat">
-                              <bool>true</bool>
-                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_175">
+                              <item>
+                               <widget class="QProgressBar" name="progressBar">
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="value">
+                                 <number>0</number>
+                                </property>
+                                <property name="textVisible">
+                                 <bool>true</bool>
+                                </property>
+                               </widget>
+                              </item>
+                              <item>
+                               <widget class="QFrame" name="search_show_data_frame">
+                                <property name="frameShape">
+                                 <enum>QFrame::StyledPanel</enum>
+                                </property>
+                                <property name="frameShadow">
+                                 <enum>QFrame::Raised</enum>
+                                </property>
+                                <layout class="QVBoxLayout" name="verticalLayout_176">
+                                 <item>
+                                  <widget class="QPushButton" name="search_show_data_button">
+                                   <property name="minimumSize">
+                                    <size>
+                                     <width>0</width>
+                                     <height>34</height>
+                                    </size>
+                                   </property>
+                                   <property name="cursor">
+                                    <cursorShape>PointingHandCursor</cursorShape>
+                                   </property>
+                                   <property name="styleSheet">
+                                    <string notr="true">QPushButton{
+	font: 8pt &quot;MS Shell Dlg 2&quot;;
+	border:none;
+	border-radius:7px;
+}
+
+QPushButton::hover {
+	border-radius:10px;
+	background-color: rgb(49, 56, 74);
+}
+
+QPushButton::pressed {
+	border-radius:10px;
+	background-color:rgb(66, 74, 99);
+}</string>
+                                   </property>
+                                   <property name="text">
+                                    <string>Plese wait, the time this takes
+ relies on your network connection...</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
                             </widget>
                            </item>
                           </layout>
@@ -1150,10 +1242,6 @@ QPushButton::hover{
 	background-color: rgb(80, 119, 167);
 }
 QPushButton::pressed{
-	background-color: rgb(47, 71, 99);
-	border:2px solid rgb(32, 36, 48);
-}
-QPushButton::checked{
 	background-color: rgb(47, 71, 99);
 	border:2px solid rgb(32, 36, 48);
 }</string>
@@ -3152,10 +3240,6 @@ QPushButton::hover{
 QPushButton::pressed{
 	background-color: rgb(47, 71, 99);
 	border:2px solid rgb(32, 36, 48);
-}
-QPushButton::checked{
-	background-color: rgb(47, 71, 99);
-	border:2px solid rgb(32, 36, 48);
 }</string>
                            </property>
                            <property name="frameShape">
@@ -4874,7 +4958,7 @@ QPushButton::pressed{
                        <x>0</x>
                        <y>0</y>
                        <width>788</width>
-                       <height>3805</height>
+                       <height>3786</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -6305,7 +6389,7 @@ background-color: rgb(42, 44, 50);
                                   <x>0</x>
                                   <y>0</y>
                                   <width>285</width>
-                                  <height>515</height>
+                                  <height>470</height>
                                  </rect>
                                 </property>
                                 <layout class="QVBoxLayout" name="verticalLayout_121">
@@ -7880,7 +7964,7 @@ background-color: rgb(203, 0, 0);
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>776</width>
+                      <width>840</width>
                       <height>727</height>
                      </rect>
                     </property>
@@ -8281,7 +8365,7 @@ QPushButton::pressed{
                                      <bool>true</bool>
                                     </property>
                                     <property name="checked">
-                                     <bool>true</bool>
+                                     <bool>false</bool>
                                     </property>
                                     <property name="tristate">
                                      <bool>false</bool>
@@ -9116,8 +9200,8 @@ border-radius:10px;</string>
  </widget>
  <resources>
   <include location="../icons.qrc"/>
-  <include location="icons.qrc"/>
-  <include location="icons.qrc"/>
+  <include location="../icons.qrc"/>
+  <include location="../icons.qrc"/>
   <include location="icons.qrc"/>
  </resources>
  <connections/>

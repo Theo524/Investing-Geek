@@ -417,7 +417,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 856, 2040))
+        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2175))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.analysis_header = QFrame(self.stock_analysis_frame)
@@ -429,7 +429,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_136.setContentsMargins(-1, 0, -1, -1)
         self.frame_89 = QFrame(self.analysis_header)
         self.frame_89.setObjectName(u"frame_89")
-        self.frame_89.setMinimumSize(QSize(0, 30))
+        self.frame_89.setMinimumSize(QSize(0, 75))
         self.frame_89.setFrameShape(QFrame.StyledPanel)
         self.frame_89.setFrameShadow(QFrame.Raised)
         self.verticalLayout_137 = QVBoxLayout(self.frame_89)
@@ -437,6 +437,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_137.setContentsMargins(-1, 0, -1, -1)
         self.stock_analysis_title_frame = QFrame(self.frame_89)
         self.stock_analysis_title_frame.setObjectName(u"stock_analysis_title_frame")
+        self.stock_analysis_title_frame.setMinimumSize(QSize(0, 0))
         self.stock_analysis_title_frame.setFrameShape(QFrame.StyledPanel)
         self.stock_analysis_title_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_10 = QHBoxLayout(self.stock_analysis_title_frame)
@@ -473,12 +474,18 @@ class Ui_MainWindow(object):
         self.verticalLayout_138.setObjectName(u"verticalLayout_138")
         self.frame_90 = QFrame(self.frame_92)
         self.frame_90.setObjectName(u"frame_90")
-        self.frame_90.setMinimumSize(QSize(0, 0))
+        self.frame_90.setMinimumSize(QSize(265, 0))
         self.frame_90.setFrameShape(QFrame.StyledPanel)
         self.frame_90.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_3 = QHBoxLayout(self.frame_90)
+        self.verticalLayout_174 = QVBoxLayout(self.frame_90)
+        self.verticalLayout_174.setObjectName(u"verticalLayout_174")
+        self.search_frame = QFrame(self.frame_90)
+        self.search_frame.setObjectName(u"search_frame")
+        self.search_frame.setFrameShape(QFrame.StyledPanel)
+        self.search_frame.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_3 = QHBoxLayout(self.search_frame)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.search_entry = QLineEdit(self.frame_90)
+        self.search_entry = QLineEdit(self.search_frame)
         self.search_entry.setObjectName(u"search_entry")
         self.search_entry.setMinimumSize(QSize(0, 0))
         self.search_entry.setMaximumSize(QSize(200, 16777215))
@@ -497,7 +504,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.search_entry)
 
-        self.search_button = QPushButton(self.frame_90)
+        self.search_button = QPushButton(self.search_frame)
         self.search_button.setObjectName(u"search_button")
         self.search_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.search_button.setStyleSheet(u"QPushButton{\n"
@@ -521,6 +528,57 @@ class Ui_MainWindow(object):
         self.search_button.setFlat(True)
 
         self.horizontalLayout_3.addWidget(self.search_button)
+
+
+        self.verticalLayout_174.addWidget(self.search_frame)
+
+        self.progressbar_frame = QFrame(self.frame_90)
+        self.progressbar_frame.setObjectName(u"progressbar_frame")
+        self.progressbar_frame.setFrameShape(QFrame.StyledPanel)
+        self.progressbar_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_175 = QVBoxLayout(self.progressbar_frame)
+        self.verticalLayout_175.setObjectName(u"verticalLayout_175")
+        self.progressBar = QProgressBar(self.progressbar_frame)
+        self.progressBar.setObjectName(u"progressBar")
+        self.progressBar.setMinimumSize(QSize(0, 0))
+        self.progressBar.setValue(0)
+        self.progressBar.setTextVisible(True)
+
+        self.verticalLayout_175.addWidget(self.progressBar)
+
+        self.search_show_data_frame = QFrame(self.progressbar_frame)
+        self.search_show_data_frame.setObjectName(u"search_show_data_frame")
+        self.search_show_data_frame.setFrameShape(QFrame.StyledPanel)
+        self.search_show_data_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_176 = QVBoxLayout(self.search_show_data_frame)
+        self.verticalLayout_176.setObjectName(u"verticalLayout_176")
+        self.search_show_data_button = QPushButton(self.search_show_data_frame)
+        self.search_show_data_button.setObjectName(u"search_show_data_button")
+        self.search_show_data_button.setMinimumSize(QSize(0, 34))
+        self.search_show_data_button.setCursor(QCursor(Qt.PointingHandCursor))
+        self.search_show_data_button.setStyleSheet(u"QPushButton{\n"
+"	font: 8pt \"MS Shell Dlg 2\";\n"
+"	border:none;\n"
+"	border-radius:7px;\n"
+"}\n"
+"\n"
+"QPushButton::hover {\n"
+"	border-radius:10px;\n"
+"	background-color: rgb(49, 56, 74);\n"
+"}\n"
+"\n"
+"QPushButton::pressed {\n"
+"	border-radius:10px;\n"
+"	background-color:rgb(66, 74, 99);\n"
+"}")
+
+        self.verticalLayout_176.addWidget(self.search_show_data_button)
+
+
+        self.verticalLayout_175.addWidget(self.search_show_data_frame)
+
+
+        self.verticalLayout_174.addWidget(self.progressbar_frame)
 
 
         self.verticalLayout_138.addWidget(self.frame_90, 0, Qt.AlignRight)
@@ -638,10 +696,6 @@ class Ui_MainWindow(object):
 "	background-color: rgb(80, 119, 167);\n"
 "}\n"
 "QPushButton::pressed{\n"
-"	background-color: rgb(47, 71, 99);\n"
-"	border:2px solid rgb(32, 36, 48);\n"
-"}\n"
-"QPushButton::checked{\n"
 "	background-color: rgb(47, 71, 99);\n"
 "	border:2px solid rgb(32, 36, 48);\n"
 "}")
@@ -1754,10 +1808,6 @@ class Ui_MainWindow(object):
 "QPushButton::pressed{\n"
 "	background-color: rgb(47, 71, 99);\n"
 "	border:2px solid rgb(32, 36, 48);\n"
-"}\n"
-"QPushButton::checked{\n"
-"	background-color: rgb(47, 71, 99);\n"
-"	border:2px solid rgb(32, 36, 48);\n"
 "}")
         self.times_frame_2.setFrameShape(QFrame.StyledPanel)
         self.times_frame_2.setFrameShadow(QFrame.Raised)
@@ -2688,7 +2738,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3805))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3786))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -3496,7 +3546,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 515))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 470))
         self.verticalLayout_121 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.frame_9 = QFrame(self.scrollAreaWidgetContents)
@@ -4427,7 +4477,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 776, 727))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 840, 727))
         self.verticalLayout_159 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_159.setObjectName(u"verticalLayout_159")
         self.settings_stackedWidget = QStackedWidget(self.scrollAreaWidgetContents_2)
@@ -4645,7 +4695,7 @@ class Ui_MainWindow(object):
         self.settings_news_visible_checkBox.setObjectName(u"settings_news_visible_checkBox")
         self.settings_news_visible_checkBox.setCursor(QCursor(Qt.PointingHandCursor))
         self.settings_news_visible_checkBox.setCheckable(True)
-        self.settings_news_visible_checkBox.setChecked(True)
+        self.settings_news_visible_checkBox.setChecked(False)
         self.settings_news_visible_checkBox.setTristate(False)
 
         self.gridLayout_7.addWidget(self.settings_news_visible_checkBox, 1, 1, 1, 1)
@@ -5123,7 +5173,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.about_icon.setDefault(False)
-        self.stacked_menu_pages.setCurrentIndex(0)
+        self.stacked_menu_pages.setCurrentIndex(1)
         self.ticker_label_title_analysis.setDefault(False)
         self.stock_analysis_stackedWidget.setCurrentIndex(0)
         self.stacked_charts.setCurrentIndex(0)
@@ -5162,6 +5212,8 @@ class Ui_MainWindow(object):
         self.stock_analysis_title.setText(QCoreApplication.translate("MainWindow", u"Currency/Stock analysis", None))
         self.search_entry.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Search for a ticker", None))
         self.search_button.setText("")
+        self.search_show_data_button.setText(QCoreApplication.translate("MainWindow", u"Plese wait, the time this takes\n"
+" relies on your network connection...", None))
         self.ticker_label_title_analysis.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.price_traded_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.change_direction_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
@@ -5424,8 +5476,6 @@ class Ui_MainWindow(object):
         self.developed_by_theo_brown.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Developed by Theo Brown</span></p></body></html>", None))
         self.help_button.setText("")
     # retranslateUi
-
-
 
 
 # Ticker extra info frontend
