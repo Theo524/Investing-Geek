@@ -11,10 +11,11 @@ from GoogleNews import GoogleNews
 from newspaper import Config
 import pandas as pd
 import json
-from bs4 import BeautifulSoup
 import requests
 import pyqtgraph
 from configparser import ConfigParser
+from bs4 import BeautifulSoup
+
 
 
 from PyQt5 import QtCore, QtGui
@@ -96,10 +97,7 @@ class MainWindow(QMainWindow):
 
         # set starting pages
         self.set_starting_widgets()
-
-        # hide news frame
-        self.ui.stock_analysis_news_frame.hide()
-        self.ui.stock_analysis_news_frame_2.hide()
+        self.set_starting_settings()
 
     def resizeEvent(self, event):
         QMainWindow.resizeEvent(self, event)
@@ -260,13 +258,110 @@ class MainWindow(QMainWindow):
     """)
 
             # apply to configfile
-            settings["font"] = str(font_size)
-            settings["font_size"] = str(font)
+            settings["font"] = str(font)
+            settings["font_size"] = str(font_size)
 
             # changes have been applied to ui, apply them now to config.ini
             # Write changes back to file
             with open('config.ini', 'w') as configfile:
                 config.write(configfile)
+
+            self.display_feedback(msg_type='information', message='Settings successfully applied', title='Success!')
+
+    def set_starting_settings(self):
+        """Read config file and use the values there
+        """
+
+        # config file
+        config = ConfigParser()
+        file = 'config.ini'
+        config.read(file)
+        settings = config["settings"]
+
+        # all headings labels(for first setting)
+        headings = (self.ui.home_header, self.ui.analysis_header, self.ui.learning_header,
+                    self.ui.simulator_header, self.ui.settings_header)
+
+        # HIDE/SHOW HEADINGS(FIRST SETTING)
+        if settings["show_headings"] == 'False':
+            # unchecked
+            for header in headings:
+                # Hide all headings
+                header.hide()
+
+            # change ui
+            self.ui.settings_show_headings_checkBox.setChecked(False)
+
+            # home layout adjustment
+            self.ui.verticalLayout_8.setContentsMargins(9, 52, 9, 9)
+
+            # settings layout adjustment
+            self.ui.verticalLayout_167.setContentsMargins(9, 54, 9, 9)
+
+        elif settings["show_headings"] == 'True':
+            # checked
+            for header in headings:
+                # Show all headings
+                header.show()
+
+            # home layout adjustments
+            self.ui.verticalLayout_8.setContentsMargins(9, 0, 9, 9)
+            self.ui.verticalLayout_167.setContentsMargins(9, 0, 9, 9)
+
+            # change ui
+            self.ui.settings_show_headings_checkBox.setChecked(True)
+
+        # SHOW TICKER INFO (SECOND SETTING)
+        if settings["ticker_info"] == 'False':
+            # unchecked
+            self.ui.ticker_label_title_analysis.setEnabled(False)
+
+            # change ui
+            self.ui.settings_extra_info_checkBox.setChecked(False)
+
+        elif settings["ticker_info"] == 'True':
+            # checked
+            self.ui.ticker_label_title_analysis.setEnabled(True)
+
+            # change ui
+            self.ui.settings_extra_info_checkBox.setChecked(True)
+
+        # SHOW NEWS(THIRD SETTING)
+        if settings["news_visible"] == 'False':
+            # unchecked
+            # hide news frame
+            self.ui.stock_analysis_news_frame.hide()
+            self.ui.stock_analysis_news_frame_2.hide()
+
+            # change ui
+            self.ui.settings_news_visible_checkBox.setChecked(False)
+
+        elif settings["news_visible"] == 'True':
+            print('hi')
+            # checked
+            # hide news frame
+            self.ui.stock_analysis_news_frame.show()
+            self.ui.stock_analysis_news_frame_2.show()
+
+            # change ui
+            self.ui.settings_news_visible_checkBox.setChecked(True)
+
+        # FONTS (FOURTH SETTING)
+        font = settings["font"]
+        font_size = settings["font_size"]
+        self.ui.stocks_tutorial_main_body.setStyleSheet(f"""
+    background-color: rgb(26, 29, 39);
+    border-radius:10px;
+    color:rgb(255, 255, 255);
+    font: {str(font_size)}pt \"{str(font)}\";
+    """)
+
+        font = QFont(font, int(font_size))
+
+        # change ui
+        self.ui.settings_fontComboBox.setFont(font)
+        self.ui.settings_fontSizeComboBox.setValue(int(font_size))
+        print(settings["news_visible"])
 
     def show_left_menu(self):
         """Animation for left menu closing and opening"""
@@ -438,15 +533,43 @@ class MainWindow(QMainWindow):
     def update_search_message(self, msg):
         self.ui.search_show_data_button.setText(msg)
 
-    def search_thread_finished(self):
-        # Enable bar button
-        self.ui.search_show_data_button.setEnabled(True)
-        # Enable main search button
-        self.ui.search_button.setEnabled(True)
+    def search_thread_finished(self, flag):
 
-        # display feedback if the user is on a different page
-        if self.ui.stacked_menu_pages.currentWidget() != self.ui.stock_analysis:
-            self.display_feedback(message='Search finished', msg_type='information', title='Done')
+        if flag:
+            # Enable bar button
+            self.ui.search_show_data_button.setEnabled(True)
+            # Enable main search button
+            self.ui.search_button.setEnabled(True)
+
+            # display feedback if the user is on a different page
+            if self.ui.stacked_menu_pages.currentWidget() != self.ui.stock_analysis:
+                self.display_feedback(message='Search finished', msg_type='information', title='Done')
+
+        if not flag:
+            # the ticker does not exist
+
+            # Disable bar button
+            self.ui.search_show_data_button.setEnabled(False)
+            # Enable main search button
+            self.ui.search_button.setEnabled(True)
+
+            # end progress bar
+            self.ui.search_show_data_button.setText('Ending...')
+            progressbar_val = self.ui.progressBar.value()
+            remainder = 100 - progressbar_val
+            for i in range(remainder):
+                progressbar_val += 2
+                time.sleep(.01)
+                self.ui.progressBar.setValue(progressbar_val)
+
+            # clear_text
+            self.ui.search_entry.clear()
+            # hide progressbar frame
+            self.ui.progressbar_frame.hide()
+
+            # feedback
+            self.display_feedback(message='The ticker you entered does not seem to exist',
+                                  msg_type='information', title='Error')
 
     def display_ticker_search_results(self):
         # hide progressbar frame again
@@ -455,7 +578,7 @@ class MainWindow(QMainWindow):
         # cursor
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        with open(os.getcwd() + '\\temp\\search\\TickerIn.json', 'r') as f:
+        with open(os.getcwd() + '\\temp\\search\\TickerData.json', 'r') as f:
             data = json.load(f)
 
         # file contents
@@ -484,8 +607,8 @@ class MainWindow(QMainWindow):
         market_state = self.check_market_state()
 
         if self.ticker_type == 'stock' and market_state['state'] == 'Open':
+            self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
             # load news (Too time consuming, commented out until I figure out how to fix it)
-            # self.load_news()
 
             # stock info label
             stock_info = market_state['stock_info']
@@ -506,10 +629,6 @@ class MainWindow(QMainWindow):
                 self.ui.stock_change_frame.setStyleSheet("""QLabel{
         color:rgb(255, 0, 0);
         }""")
-
-            # set stock page as current page
-            self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
-
             # connect command to title for extra info(stock name)
             self.ui.ticker_label_title_analysis.clicked.connect(lambda: self.show_ticker_extraInfoWindow('stock'))
 
@@ -520,7 +639,6 @@ class MainWindow(QMainWindow):
             self.ui.change_direction_label.setText(symbol)
             self.ui.change_amount_label.setText(str(round(change_amount, 2)))
             self.ui.change_percentage.setText(f'({str(round(change_percentage, 2))})%')
-            print('Data Retrieved')
 
             # add chart for 1 day
             self.show_info_data('1d')
@@ -533,6 +651,9 @@ class MainWindow(QMainWindow):
             self.ui.five_year_button.clicked.connect(lambda: self.show_info_data('5y'))
             self.ui.max_button.clicked.connect(lambda: self.show_info_data('max'))
 
+            # load news
+            self.load_news()
+
             # restore cursor
             QApplication.restoreOverrideCursor()
 
@@ -542,6 +663,7 @@ class MainWindow(QMainWindow):
         if self.ticker_type == 'crypto':
             # load news (Too time consuming, commented out until I figure out how to fix it)
             # self.load_news()
+            self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_currency_page)
 
             # stock info
             crypto_info = market_state['stock_info']
@@ -582,6 +704,9 @@ class MainWindow(QMainWindow):
             self.ui.one_year_button_2.clicked.connect(lambda: self.show_info_data('1y'))
             self.ui.five_year_button_2.clicked.connect(lambda: self.show_info_data('5y'))
             self.ui.max_button_2.clicked.connect(lambda: self.show_info_data('max'))
+
+            # load news
+            self.load_news()
 
             # restore cursor
             QApplication.restoreOverrideCursor()
@@ -634,8 +759,9 @@ class MainWindow(QMainWindow):
 
             # market description
             market = soup.find_all('div', id='quote-market-notice')
+            print(market[0].text)
             # convert message e.g. 'As of  10:42AM EST. Market open.' To the last sentence
-            market_status = market[0].text.split('.')[1].strip()
+            market_status = 'Market open' if 'open' in market[0].text else 'Market closed'
 
         # (note) monday is 0, sunday is 6
         # today's date details
@@ -700,6 +826,7 @@ class MainWindow(QMainWindow):
 
     def show_info_data(self, time_period):
         """Shows the line chart and info for a specific timeframe in the gui"""
+        print(self.ticker_type)
 
         # delete previous lines
         if self.crypto_graph_line is not None:
@@ -713,7 +840,7 @@ class MainWindow(QMainWindow):
                 self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_stock_page)
                 self.reset_entries_for_stock_info_display('day')
 
-            else:
+            if self.ticker_type == 'crypto':
                 self.ui.stock_analysis_stackedWidget.setCurrentWidget(self.ui.stock_analysis_currency_page)
 
             # get dataframe for 1d worth of stocks
@@ -921,25 +1048,25 @@ class MainWindow(QMainWindow):
         """Load related news for given ticker, happens in a different thread as it is a long process"""
 
         # link
-        linkTemplate = '<p><a href={0}>{1}</a> • {2}</p>'
+        linkTemplate = '<p><a href={0}>{1}</p>'
 
-        # news
-        my_news = News(self.ticker)
-        data_dict = my_news.news_data_dict
-        for key, val in data_dict.items():
-            print(key)
-            print(val)
-            print('\n\n\n\n')
+        with open(os.getcwd() + '\\temp\\search\\TickerNews.json', 'r') as f:
+            data = json.load(f)
+
+        # file contents
+        news = data
+
 
         layouts = None
 
         if self.ticker_type == 'stock':
             # layouts
-            layouts = (self.ui.horizontalLayout_23, self.ui.horizontalLayout_25, self.ui.horizontalLayout_24)
+            layouts = (self.ui.horizontalLayout_23, self.ui.horizontalLayout_24, self.ui.horizontalLayout_25,
+                       self.ui.horizontalLayout_27)
 
-        if self.ticker_type == 'crypto':
+        #if self.ticker_type == 'crypto':
             # layouts
-            layouts = (self.ui.horizontalLayout_28, self.ui.horizontalLayout_30, self.ui.horizontalLayout_44)
+            #layouts = (self.ui.horizontalLayout_28, self.ui.horizontalLayout_30, self.ui.horizontalLayout_44)
 
         # Here is how this works:
         # Three rows (as seen in layouts), each row(layout) has three boxes. Each box has a piece of news.
@@ -949,52 +1076,66 @@ class MainWindow(QMainWindow):
         # The variable counter just helps with getting 3 items from the news dict at according to the loop
         counter = 0
         for layout in layouts:
-            # first_box variables
-            title_1 = layout.itemAt(0).widget().layout().itemAt(0).widget().layout().itemAt(0).widget()
-            body_1 = layout.itemAt(0).widget().layout().itemAt(1).widget().layout().itemAt(0).widget()
-            link_1 = layout.itemAt(0).widget().layout().itemAt(2).widget().layout().itemAt(0).widget()
+            try:
+                # first_box variables
+                title_1 = layout.itemAt(0).widget().layout().itemAt(0).widget().layout().itemAt(0).widget()
+                text_1 = layout.itemAt(0).widget().layout().itemAt(1).widget().widget().layout().itemAt(0).widget()
+                date_1 = layout.itemAt(0).widget().layout().itemAt(2).widget().layout().itemAt(0).widget()
+                dot_1 = layout.itemAt(0).widget().layout().itemAt(2).widget().layout().itemAt(1).widget()
+                source_and_link_1 = layout.itemAt(0).widget().layout().itemAt(2).widget().layout().itemAt(2).widget()
 
-            # second box variables
-            title_2 = layout.itemAt(1).widget().layout().itemAt(0).widget().layout().itemAt(0).widget()
-            body_2 = layout.itemAt(1).widget().layout().itemAt(1).widget().layout().itemAt(0).widget()
-            link_2 = layout.itemAt(1).widget().layout().itemAt(2).widget().layout().itemAt(0).widget()
+                # second box variables
+                title_2 = layout.itemAt(1).widget().layout().itemAt(0).widget().layout().itemAt(0).widget()
+                text_2 = layout.itemAt(1).widget().layout().itemAt(1).widget().widget().layout().itemAt(0).widget()
+                date_2 = layout.itemAt(1).widget().layout().itemAt(2).widget().layout().itemAt(0).widget()
+                dot_2 = layout.itemAt(1).widget().layout().itemAt(2).widget().layout().itemAt(1).widget()
+                source_and_link_2 = layout.itemAt(1).widget().layout().itemAt(2).widget().layout().itemAt(2).widget()
 
-            # third box variables
-            title_3 = layout.itemAt(2).widget().layout().itemAt(0).widget().layout().itemAt(0).widget()
-            body_3 = layout.itemAt(2).widget().layout().itemAt(1).widget().layout().itemAt(0).widget()
-            link_3 = layout.itemAt(2).widget().layout().itemAt(2).widget().layout().itemAt(0).widget()
+                # third box variables
+                title_3 = layout.itemAt(2).widget().layout().itemAt(0).widget().layout().itemAt(0).widget()
+                text_3 = layout.itemAt(2).widget().layout().itemAt(1).widget().widget().layout().itemAt(0).widget()
+                date_3 = layout.itemAt(2).widget().layout().itemAt(2).widget().layout().itemAt(0).widget()
+                dot_3 = layout.itemAt(2).widget().layout().itemAt(2).widget().layout().itemAt(1).widget()
+                source_and_link_3 = layout.itemAt(2).widget().layout().itemAt(2).widget().layout().itemAt(2).widget()
 
-            # set the data
-            title_1.setText(data_dict[counter]['title'])
-            body_1.setText(data_dict[counter]['description'])
-            hyperlink = linkTemplate.format(data_dict[counter]['link'], data_dict[counter]['media_src'],
-                                            data_dict[counter]['date'])
-            link_1.setOpenExternalLinks(True)
-            link_1.setText(hyperlink)
+                # set the data(1st)
+                title_1.setText(news[counter]['title'])
+                text_1.setText(news[counter]['description'])
+                date_1.setText(news[counter]['time'])
+                dot_1.setText('•')
 
-            title_2.setText(data_dict[counter + 1]['title'])
-            body_2.setText(data_dict[counter + 1]['description'])
-            hyperlink = linkTemplate.format(data_dict[counter + 1]['link'], data_dict[counter + 1]['media_src'],
-                                            data_dict[counter + 1]['date'])
-            link_2.setOpenExternalLinks(True)
-            link_2.setStyleSheet("""color: rgb(221, 221, 221);
-font: 8pt "MS Shell Dlg 2";""")
-            link_2.setText(hyperlink)
+                hyperlink = linkTemplate.format(news[counter]['link'], news[counter]['source'])
+                source_and_link_1.setOpenExternalLinks(True)
+                source_and_link_1.setText(hyperlink)
 
-            title_3.setText(data_dict[counter + 2]['title'])
-            body_3.setText(data_dict[counter + 2]['description'])
-            hyperlink = linkTemplate.format(data_dict[counter + 2]['link'], data_dict[counter + 2]['media_src'],
-                                            data_dict[counter + 2]['date'])
-            link_3.setOpenExternalLinks(True)
-            link_3.setStyleSheet("""color: rgb(221, 221, 221);
-font: 8pt "MS Shell Dlg 2";""")
-            link_3.setText(hyperlink)
+                # set the data(2nd)
+                title_2.setText(news[counter+1]['title'])
+                text_2.setText(news[counter+1]['description'])
+                date_2.setText(news[counter+1]['time'])
+                dot_2.setText('•')
 
-            # move to next row (layout)
-            counter += 3
+                hyperlink = linkTemplate.format(news[counter+1]['link'], news[counter+1]['source'])
+                source_and_link_2.setOpenExternalLinks(True)
+                source_and_link_2.setText(hyperlink)
+
+                # set the data(3rd)
+                title_3.setText(news[counter+2]['title'])
+                text_3.setText(news[counter+2]['description'])
+                date_3.setText(news[counter+2]['time'])
+                dot_3.setText('•')
+
+                hyperlink = linkTemplate.format(news[counter+2]['link'], news[counter+2]['source'])
+                source_and_link_3.setOpenExternalLinks(True)
+                source_and_link_3.setText(hyperlink)
+
+                # move to next row (layout)
+                counter += 3
+            except IndexError:
+                break
+
 
         # Here the stock or crypto search concludes, so the button can be enabled
-        self.ui.search_button.setEnabled(True)
+        #self.ui.search_button.setEnabled(True)
 
     def simulator_login(self):
         """Login to trading simulator"""
@@ -1950,119 +2091,159 @@ class StockGame:
 
 
 class LoadTickerData(QObject):
-    done = pyqtSignal()
+    done = pyqtSignal(bool)
     progress = pyqtSignal(int)
     message = pyqtSignal(str)
 
+    # bar count
+    count = 0
+
     @pyqtSlot()
     def run(self):
-        count = 0
+        self.show_message(f'Please wait, the time this takes\n relies on your network connection...')
 
-        self.message.emit(f'Plese wait, the time this takes\n relies on your network connection...')
-        count += 3
-        self.progress.emit(count)
-        time.sleep(2)
+        # bar
+        self.increase_progress_bar(5, 'slow')
+
+        # ticker data loading
+        ticker_name, ticker_type = self.load_ticker_data()
+
+        # read config file to see if the news are to be shown
+        config_obj = ConfigParser()
+        config_obj.read("config.ini")
+        news_setting = config_obj["settings"]["news_visible"]
+
+        if news_setting == 'True' and ticker_type == 'EQUITY':
+
+            # news for stock
+            self.load_news(ticker_name)
+
+        if news_setting == 'False':
+
+            # end
+            self.thread_done(True)
+
+    def show_message(self, msg):
+        self.message.emit(msg)
+
+    def increase_progress_bar(self, val, speed):
+        for i in range(val):
+            self.count += 1
+            self.progress.emit(self.count)
+
+            if speed == 'normal':
+                time.sleep(.1)
+
+            if speed == 'slow':
+                time.sleep(.8)
+
+            if speed == 'fast':
+                time.sleep(.05)
+
+    def load_ticker_data(self):
+        """Write data from the ticker to files"""
 
         # get ticker
         with open(os.getcwd() + '\\temp\\search\\TickerName.txt', 'r') as f:
-            ticker = f.read()
+            ticker_name = f.read()
 
-        self.message.emit(f'Fetching data for {ticker}\nfrom yfinance...')
-        count += 2
-        self.progress.emit(count)
+        self.show_message(f'Fetching data for {ticker_name}\nfrom yfinance...')
 
-        #########################################
+        # bar
+        self.increase_progress_bar(5, 'normal')
+
         # get ticker data
-        obj = yf.Ticker(ticker).info
+        ticker = yf.Ticker(ticker_name)
+        obj = ticker.info
+        ticker_type = None
+
+        try:
+            ticker_type = obj['quoteType']
+        except KeyError:
+            # if the ticker isn't crypto or stock, exit the thread
+            self.thread_done(False)
 
         # progressbar
-        for i in range(len(obj)//2):
-            # bar
-            count += 1
-            time.sleep(.15)
-            self.progress.emit(count)
+        self.increase_progress_bar(len(obj) // 3, 'normal')
 
+        # write data to file
         json_data = json.dumps(obj, indent=4)
         # Writing to data to sample.json
         with open("temp/search/TickerData.json", "w") as outfile:
             outfile.write(json_data)
 
-        # read config file to see if the news are to be shown
-        config_obj = ConfigParser()
-        config_obj.read("config.ini")
-        newsparam = config_obj["settings"]["news_visible"]
+        try:
+            # cryptocurrency
+            ticker_name = obj['name']
+        except KeyError:
+            # stock
+            ticker_name = obj['longName'].split(',')[0]
 
-        if newsparam == 'True':
-            #########################################
-            self.message.emit('Searching GoogleNews...')
-            # get news
-            # date
-            now = datetime.date.today().strftime('%m-%d-%Y')
-            yesterday = (datetime.date.today() - datetime.timedelta(days=1)).strftime('%m-%d-%Y')
-            # google news extrating
-            googlenews = GoogleNews(start=yesterday, end=now)
-            with open(os.getcwd() + '\\temp\\news\\NewsTicker.txt', 'r') as f:
-                ticker = f.read()
+        return ticker_name, ticker_type
 
-            # config
-            user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:78.0) Gecko/20100101 Firefox/78.0'
-            config = Config()
-            config.browser_user_agent = user_agent
-            config.request_timeout = 10
+    def load_news(self, ticker):
+        #########################################
+        self.show_message('Retrieving News...')
+        # Parameters
+        # Data
+        url = f'https://www.bing.com/news/search?q={ticker}&FORM=HDRSC6'
+        header = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36'
 
-            googlenews.search(ticker)
-            result = googlenews.result()
-            self.message.emit('Creating Dataframe...')
+        # requesting data from site
+        req = requests.get(url=url, headers={'user-agent': header}, timeout=None).text
+        html = BeautifulSoup(req, features="lxml")
+        news_table = html.find(id='algocore').find_all('div', class_='news-card newsitem cardcommon b_cards2')
 
-            # store the results
-            df = pd.DataFrame(result)
+        # dict
+        news = []
 
-            # result to be stored
-            dictionary = {}
+        for row in news_table:
+            try:
+                # data
+                source = row['data-author']
+                title = row['data-title']
+                description = row.find(class_='snippet').text
+                time = row.find_all('span')[2]['aria-label']
+                link = row.find(href=True)['href']
 
-            # fill empty dict
-            for index, row in df.iterrows():
-                dictionary[index] = {'title': row['title'],
-                                              'media_src': row['media'],
-                                              'date': row['date'],
-                                              'datetime': row['datetime'],
-                                              'description': row['desc'],
-                                              'link': row['link'][:-1]
-                                              if row['link'][-1] == '/' else row[
-                                                  'link']}  # remove '/' from end of link str
-                # 50 left in terms of progrss count so since this is 10 loops, make it increase by 5 each time
-                # leaveing us at 90 progress
-                time.sleep(.5)
-                count += 5
-                self.progress.emit(count)
+                # save data
+                data = {'source': source, 'title': title, 'description': description, 'time': time, 'link': link}
+                news.append(data)
 
-            # write to json file
-            # Serializing json
-            json_object = json.dumps(dictionary, indent=4)
+                # progressbar
+                self.count += 1
+                time.sleep(.3)
+                self.progress.emit(self.count)
 
-            # Writing to sample.json
-            with open("temp/search/TickerNews.json", "w") as outfile:
-                outfile.write(json_object)
+            except AttributeError:
+                pass
 
-            count += 10
-            self.progress.emit(count)
+        # write data to file
+        json_data = json.dumps(news, indent=4)
+        # Writing to data to sample.json
+        with open("temp/search/TickerNews.json", "w") as outfile:
+            outfile.write(json_data)
 
-            # done
-            self.done.emit()
+        self.thread_done(True)
 
-        if newsparam == 'False':
-            self.message.emit('Finishing...')
+    def thread_done(self, data_was_loaded,):
+        # complete progress bar
+        self.show_message('Finishing...')
 
-            # handle the remaining progress bar count
-            remainder = 100 - count
-            for i in range(remainder):
-                count += 1
-                time.sleep(.1)
-                self.progress.emit(count)
+        # handle the remaining progress bar
+        remainder = 100 - self.count
+        self.increase_progress_bar(remainder, 'fast')
 
-            self.message.emit('Done!\n'
+        # done
+        if data_was_loaded:
+            self.show_message('Done!\n'
                               'Click here to see the results!')
-            self.done.emit()
+            self.done.emit(True)
+
+        if not data_was_loaded:
+            self.show_message('Something went wrong')
+            self.done.emit(False)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
