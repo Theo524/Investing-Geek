@@ -417,7 +417,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2175))
+        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2444))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.analysis_header = QFrame(self.stock_analysis_frame)
@@ -460,6 +460,8 @@ class Ui_MainWindow(object):
 
         self.stock_analysis_main_body = QFrame(self.stock_analysis_frame)
         self.stock_analysis_main_body.setObjectName(u"stock_analysis_main_body")
+        self.stock_analysis_main_body.setMinimumSize(QSize(0, 0))
+        self.stock_analysis_main_body.setMaximumSize(QSize(16777215, 16777215))
         self.stock_analysis_main_body.setFrameShape(QFrame.StyledPanel)
         self.stock_analysis_main_body.setFrameShadow(QFrame.Raised)
         self.verticalLayout_35 = QVBoxLayout(self.stock_analysis_main_body)
@@ -621,6 +623,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_stackedWidget = QStackedWidget(self.stock_analysis_main_body)
         self.stock_analysis_stackedWidget.setObjectName(u"stock_analysis_stackedWidget")
         self.stock_analysis_stackedWidget.setMinimumSize(QSize(0, 0))
+        self.stock_analysis_stackedWidget.setMaximumSize(QSize(16777215, 16777215))
         self.stock_analysis_stock_page = QWidget()
         self.stock_analysis_stock_page.setObjectName(u"stock_analysis_stock_page")
         self.verticalLayout_36 = QVBoxLayout(self.stock_analysis_stock_page)
@@ -995,7 +998,6 @@ class Ui_MainWindow(object):
         self.stock_analysis_news_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_57 = QVBoxLayout(self.stock_analysis_news_frame)
         self.verticalLayout_57.setObjectName(u"verticalLayout_57")
-        self.verticalLayout_57.setContentsMargins(-1, 50, -1, -1)
         self.frame_8 = QFrame(self.stock_analysis_news_frame)
         self.frame_8.setObjectName(u"frame_8")
         self.frame_8.setFrameShape(QFrame.StyledPanel)
@@ -1006,659 +1008,1002 @@ class Ui_MainWindow(object):
         self.label.setObjectName(u"label")
         self.label.setStyleSheet(u"font: 22pt \"MS Shell Dlg 2\";")
 
-        self.verticalLayout_58.addWidget(self.label, 0, Qt.AlignHCenter)
+        self.verticalLayout_58.addWidget(self.label)
 
 
-        self.verticalLayout_57.addWidget(self.frame_8)
+        self.verticalLayout_57.addWidget(self.frame_8, 0, Qt.AlignHCenter)
 
-        self.frame_10 = QFrame(self.stock_analysis_news_frame)
+        self.frame_233 = QFrame(self.stock_analysis_news_frame)
+        self.frame_233.setObjectName(u"frame_233")
+        self.frame_233.setMinimumSize(QSize(0, 0))
+        self.frame_233.setStyleSheet(u"")
+        self.frame_233.setFrameShape(QFrame.StyledPanel)
+        self.frame_233.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_23 = QHBoxLayout(self.frame_233)
+        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
+        self.frame_234 = QFrame(self.frame_233)
+        self.frame_234.setObjectName(u"frame_234")
+        self.frame_234.setMinimumSize(QSize(100, 281))
+        self.frame_234.setMaximumSize(QSize(250, 268))
+        self.frame_234.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_234.setFrameShape(QFrame.Box)
+        self.frame_234.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_231 = QVBoxLayout(self.frame_234)
+        self.verticalLayout_231.setObjectName(u"verticalLayout_231")
+        self.frame_10 = QFrame(self.frame_234)
         self.frame_10.setObjectName(u"frame_10")
-        self.frame_10.setMinimumSize(QSize(0, 300))
-        self.frame_10.setStyleSheet(u"")
         self.frame_10.setFrameShape(QFrame.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_23 = QHBoxLayout(self.frame_10)
-        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
-        self.frame_12 = QFrame(self.frame_10)
-        self.frame_12.setObjectName(u"frame_12")
-        self.frame_12.setMinimumSize(QSize(100, 100))
-        self.frame_12.setMaximumSize(QSize(250, 280))
-        self.frame_12.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_12.setFrameShape(QFrame.Box)
-        self.frame_12.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_59 = QVBoxLayout(self.frame_12)
+        self.verticalLayout_59 = QVBoxLayout(self.frame_10)
         self.verticalLayout_59.setObjectName(u"verticalLayout_59")
-        self.stock_news_title_frame = QFrame(self.frame_12)
-        self.stock_news_title_frame.setObjectName(u"stock_news_title_frame")
-        self.stock_news_title_frame.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_60 = QVBoxLayout(self.stock_news_title_frame)
+        self.label_12 = QLabel(self.frame_10)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_12.setWordWrap(True)
+
+        self.verticalLayout_59.addWidget(self.label_12)
+
+
+        self.verticalLayout_231.addWidget(self.frame_10)
+
+        self.scrollArea_3 = QScrollArea(self.frame_234)
+        self.scrollArea_3.setObjectName(u"scrollArea_3")
+        self.scrollArea_3.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_3.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_60 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_60.setObjectName(u"verticalLayout_60")
-        self.stock_news_title = QLabel(self.stock_news_title_frame)
-        self.stock_news_title.setObjectName(u"stock_news_title")
-        self.stock_news_title.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title.setWordWrap(True)
+        self.stock_news_text_51 = QLabel(self.scrollAreaWidgetContents_3)
+        self.stock_news_text_51.setObjectName(u"stock_news_text_51")
+        self.stock_news_text_51.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_51.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_51.setWordWrap(True)
+        self.stock_news_text_51.setOpenExternalLinks(False)
+        self.stock_news_text_51.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
-        self.verticalLayout_60.addWidget(self.stock_news_title)
+        self.verticalLayout_60.addWidget(self.stock_news_text_51)
+
+        self.scrollArea_3.setWidget(self.scrollAreaWidgetContents_3)
+
+        self.verticalLayout_231.addWidget(self.scrollArea_3)
+
+        self.frame_236 = QFrame(self.frame_234)
+        self.frame_236.setObjectName(u"frame_236")
+        self.frame_236.setFrameShape(QFrame.StyledPanel)
+        self.frame_236.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_97 = QHBoxLayout(self.frame_236)
+        self.horizontalLayout_97.setObjectName(u"horizontalLayout_97")
+        self.stock_news_media_51 = QLabel(self.frame_236)
+        self.stock_news_media_51.setObjectName(u"stock_news_media_51")
+        self.stock_news_media_51.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_51.setWordWrap(True)
+
+        self.horizontalLayout_97.addWidget(self.stock_news_media_51)
+
+        self.label_13 = QLabel(self.frame_236)
+        self.label_13.setObjectName(u"label_13")
+
+        self.horizontalLayout_97.addWidget(self.label_13)
+
+        self.label_81 = QLabel(self.frame_236)
+        self.label_81.setObjectName(u"label_81")
+
+        self.horizontalLayout_97.addWidget(self.label_81)
 
 
-        self.verticalLayout_59.addWidget(self.stock_news_title_frame)
+        self.verticalLayout_231.addWidget(self.frame_236, 0, Qt.AlignRight|Qt.AlignBottom)
 
-        self.frame_29 = QFrame(self.frame_12)
-        self.frame_29.setObjectName(u"frame_29")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.frame_29.sizePolicy().hasHeightForWidth())
-        self.frame_29.setSizePolicy(sizePolicy1)
-        self.frame_29.setMinimumSize(QSize(0, 0))
-        self.frame_29.setFrameShape(QFrame.StyledPanel)
-        self.frame_29.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_80 = QVBoxLayout(self.frame_29)
+
+        self.horizontalLayout_23.addWidget(self.frame_234)
+
+        self.frame_235 = QFrame(self.frame_233)
+        self.frame_235.setObjectName(u"frame_235")
+        self.frame_235.setMinimumSize(QSize(100, 281))
+        self.frame_235.setMaximumSize(QSize(250, 268))
+        self.frame_235.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_235.setFrameShape(QFrame.Box)
+        self.frame_235.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_232 = QVBoxLayout(self.frame_235)
+        self.verticalLayout_232.setObjectName(u"verticalLayout_232")
+        self.frame_11 = QFrame(self.frame_235)
+        self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_63 = QVBoxLayout(self.frame_11)
+        self.verticalLayout_63.setObjectName(u"verticalLayout_63")
+        self.label_16 = QLabel(self.frame_11)
+        self.label_16.setObjectName(u"label_16")
+        self.label_16.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_16.setWordWrap(True)
+
+        self.verticalLayout_63.addWidget(self.label_16)
+
+
+        self.verticalLayout_232.addWidget(self.frame_11)
+
+        self.scrollArea_4 = QScrollArea(self.frame_235)
+        self.scrollArea_4.setObjectName(u"scrollArea_4")
+        self.scrollArea_4.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_4.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_4 = QWidget()
+        self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_64 = QVBoxLayout(self.scrollAreaWidgetContents_4)
+        self.verticalLayout_64.setObjectName(u"verticalLayout_64")
+        self.stock_news_text_52 = QLabel(self.scrollAreaWidgetContents_4)
+        self.stock_news_text_52.setObjectName(u"stock_news_text_52")
+        self.stock_news_text_52.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_52.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_52.setWordWrap(True)
+        self.stock_news_text_52.setOpenExternalLinks(False)
+        self.stock_news_text_52.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_64.addWidget(self.stock_news_text_52)
+
+        self.scrollArea_4.setWidget(self.scrollAreaWidgetContents_4)
+
+        self.verticalLayout_232.addWidget(self.scrollArea_4)
+
+        self.frame_237 = QFrame(self.frame_235)
+        self.frame_237.setObjectName(u"frame_237")
+        self.frame_237.setFrameShape(QFrame.StyledPanel)
+        self.frame_237.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_98 = QHBoxLayout(self.frame_237)
+        self.horizontalLayout_98.setObjectName(u"horizontalLayout_98")
+        self.stock_news_media_52 = QLabel(self.frame_237)
+        self.stock_news_media_52.setObjectName(u"stock_news_media_52")
+        self.stock_news_media_52.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_52.setWordWrap(True)
+
+        self.horizontalLayout_98.addWidget(self.stock_news_media_52)
+
+        self.label_63 = QLabel(self.frame_237)
+        self.label_63.setObjectName(u"label_63")
+
+        self.horizontalLayout_98.addWidget(self.label_63)
+
+        self.label_82 = QLabel(self.frame_237)
+        self.label_82.setObjectName(u"label_82")
+
+        self.horizontalLayout_98.addWidget(self.label_82)
+
+
+        self.verticalLayout_232.addWidget(self.frame_237, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_23.addWidget(self.frame_235)
+
+        self.frame_238 = QFrame(self.frame_233)
+        self.frame_238.setObjectName(u"frame_238")
+        self.frame_238.setMinimumSize(QSize(100, 281))
+        self.frame_238.setMaximumSize(QSize(250, 268))
+        self.frame_238.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_238.setFrameShape(QFrame.Box)
+        self.frame_238.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_233 = QVBoxLayout(self.frame_238)
+        self.verticalLayout_233.setObjectName(u"verticalLayout_233")
+        self.frame_12 = QFrame(self.frame_238)
+        self.frame_12.setObjectName(u"frame_12")
+        self.frame_12.setFrameShape(QFrame.StyledPanel)
+        self.frame_12.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_68 = QVBoxLayout(self.frame_12)
+        self.verticalLayout_68.setObjectName(u"verticalLayout_68")
+        self.label_64 = QLabel(self.frame_12)
+        self.label_64.setObjectName(u"label_64")
+        self.label_64.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_64.setWordWrap(True)
+
+        self.verticalLayout_68.addWidget(self.label_64)
+
+
+        self.verticalLayout_233.addWidget(self.frame_12)
+
+        self.scrollArea_5 = QScrollArea(self.frame_238)
+        self.scrollArea_5.setObjectName(u"scrollArea_5")
+        self.scrollArea_5.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_5.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_5 = QWidget()
+        self.scrollAreaWidgetContents_5.setObjectName(u"scrollAreaWidgetContents_5")
+        self.scrollAreaWidgetContents_5.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_69 = QVBoxLayout(self.scrollAreaWidgetContents_5)
+        self.verticalLayout_69.setObjectName(u"verticalLayout_69")
+        self.stock_news_text_53 = QLabel(self.scrollAreaWidgetContents_5)
+        self.stock_news_text_53.setObjectName(u"stock_news_text_53")
+        self.stock_news_text_53.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_53.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_53.setWordWrap(True)
+        self.stock_news_text_53.setOpenExternalLinks(False)
+        self.stock_news_text_53.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_69.addWidget(self.stock_news_text_53)
+
+        self.scrollArea_5.setWidget(self.scrollAreaWidgetContents_5)
+
+        self.verticalLayout_233.addWidget(self.scrollArea_5)
+
+        self.frame_239 = QFrame(self.frame_238)
+        self.frame_239.setObjectName(u"frame_239")
+        self.frame_239.setFrameShape(QFrame.StyledPanel)
+        self.frame_239.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_99 = QHBoxLayout(self.frame_239)
+        self.horizontalLayout_99.setObjectName(u"horizontalLayout_99")
+        self.stock_news_media_53 = QLabel(self.frame_239)
+        self.stock_news_media_53.setObjectName(u"stock_news_media_53")
+        self.stock_news_media_53.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_53.setWordWrap(True)
+
+        self.horizontalLayout_99.addWidget(self.stock_news_media_53)
+
+        self.label_65 = QLabel(self.frame_239)
+        self.label_65.setObjectName(u"label_65")
+
+        self.horizontalLayout_99.addWidget(self.label_65)
+
+        self.label_83 = QLabel(self.frame_239)
+        self.label_83.setObjectName(u"label_83")
+
+        self.horizontalLayout_99.addWidget(self.label_83)
+
+
+        self.verticalLayout_233.addWidget(self.frame_239, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_23.addWidget(self.frame_238)
+
+
+        self.verticalLayout_57.addWidget(self.frame_233)
+
+        self.frame_240 = QFrame(self.stock_analysis_news_frame)
+        self.frame_240.setObjectName(u"frame_240")
+        self.frame_240.setMinimumSize(QSize(0, 0))
+        self.frame_240.setStyleSheet(u"")
+        self.frame_240.setFrameShape(QFrame.StyledPanel)
+        self.frame_240.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_24 = QHBoxLayout(self.frame_240)
+        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
+        self.frame_241 = QFrame(self.frame_240)
+        self.frame_241.setObjectName(u"frame_241")
+        self.frame_241.setMinimumSize(QSize(100, 281))
+        self.frame_241.setMaximumSize(QSize(250, 268))
+        self.frame_241.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_241.setFrameShape(QFrame.Box)
+        self.frame_241.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_234 = QVBoxLayout(self.frame_241)
+        self.verticalLayout_234.setObjectName(u"verticalLayout_234")
+        self.frame_13 = QFrame(self.frame_241)
+        self.frame_13.setObjectName(u"frame_13")
+        self.frame_13.setFrameShape(QFrame.StyledPanel)
+        self.frame_13.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_70 = QVBoxLayout(self.frame_13)
+        self.verticalLayout_70.setObjectName(u"verticalLayout_70")
+        self.label_66 = QLabel(self.frame_13)
+        self.label_66.setObjectName(u"label_66")
+        self.label_66.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_66.setWordWrap(True)
+
+        self.verticalLayout_70.addWidget(self.label_66)
+
+
+        self.verticalLayout_234.addWidget(self.frame_13)
+
+        self.scrollArea_6 = QScrollArea(self.frame_241)
+        self.scrollArea_6.setObjectName(u"scrollArea_6")
+        self.scrollArea_6.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_6.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_6 = QWidget()
+        self.scrollAreaWidgetContents_6.setObjectName(u"scrollAreaWidgetContents_6")
+        self.scrollAreaWidgetContents_6.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_71 = QVBoxLayout(self.scrollAreaWidgetContents_6)
+        self.verticalLayout_71.setObjectName(u"verticalLayout_71")
+        self.stock_news_text_54 = QLabel(self.scrollAreaWidgetContents_6)
+        self.stock_news_text_54.setObjectName(u"stock_news_text_54")
+        self.stock_news_text_54.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_54.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_54.setWordWrap(True)
+        self.stock_news_text_54.setOpenExternalLinks(False)
+        self.stock_news_text_54.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_71.addWidget(self.stock_news_text_54)
+
+        self.scrollArea_6.setWidget(self.scrollAreaWidgetContents_6)
+
+        self.verticalLayout_234.addWidget(self.scrollArea_6)
+
+        self.frame_242 = QFrame(self.frame_241)
+        self.frame_242.setObjectName(u"frame_242")
+        self.frame_242.setFrameShape(QFrame.StyledPanel)
+        self.frame_242.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_100 = QHBoxLayout(self.frame_242)
+        self.horizontalLayout_100.setObjectName(u"horizontalLayout_100")
+        self.stock_news_media_54 = QLabel(self.frame_242)
+        self.stock_news_media_54.setObjectName(u"stock_news_media_54")
+        self.stock_news_media_54.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_54.setWordWrap(True)
+
+        self.horizontalLayout_100.addWidget(self.stock_news_media_54)
+
+        self.label_67 = QLabel(self.frame_242)
+        self.label_67.setObjectName(u"label_67")
+
+        self.horizontalLayout_100.addWidget(self.label_67)
+
+        self.label_84 = QLabel(self.frame_242)
+        self.label_84.setObjectName(u"label_84")
+
+        self.horizontalLayout_100.addWidget(self.label_84)
+
+
+        self.verticalLayout_234.addWidget(self.frame_242, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_24.addWidget(self.frame_241)
+
+        self.frame_243 = QFrame(self.frame_240)
+        self.frame_243.setObjectName(u"frame_243")
+        self.frame_243.setMinimumSize(QSize(100, 281))
+        self.frame_243.setMaximumSize(QSize(250, 268))
+        self.frame_243.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_243.setFrameShape(QFrame.Box)
+        self.frame_243.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_235 = QVBoxLayout(self.frame_243)
+        self.verticalLayout_235.setObjectName(u"verticalLayout_235")
+        self.frame_14 = QFrame(self.frame_243)
+        self.frame_14.setObjectName(u"frame_14")
+        self.frame_14.setFrameShape(QFrame.StyledPanel)
+        self.frame_14.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_72 = QVBoxLayout(self.frame_14)
+        self.verticalLayout_72.setObjectName(u"verticalLayout_72")
+        self.label_68 = QLabel(self.frame_14)
+        self.label_68.setObjectName(u"label_68")
+        self.label_68.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_68.setWordWrap(True)
+
+        self.verticalLayout_72.addWidget(self.label_68)
+
+
+        self.verticalLayout_235.addWidget(self.frame_14)
+
+        self.scrollArea_7 = QScrollArea(self.frame_243)
+        self.scrollArea_7.setObjectName(u"scrollArea_7")
+        self.scrollArea_7.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_7.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_7 = QWidget()
+        self.scrollAreaWidgetContents_7.setObjectName(u"scrollAreaWidgetContents_7")
+        self.scrollAreaWidgetContents_7.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_73 = QVBoxLayout(self.scrollAreaWidgetContents_7)
+        self.verticalLayout_73.setObjectName(u"verticalLayout_73")
+        self.stock_news_text_55 = QLabel(self.scrollAreaWidgetContents_7)
+        self.stock_news_text_55.setObjectName(u"stock_news_text_55")
+        self.stock_news_text_55.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_55.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_55.setWordWrap(True)
+        self.stock_news_text_55.setOpenExternalLinks(False)
+        self.stock_news_text_55.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_73.addWidget(self.stock_news_text_55)
+
+        self.scrollArea_7.setWidget(self.scrollAreaWidgetContents_7)
+
+        self.verticalLayout_235.addWidget(self.scrollArea_7)
+
+        self.frame_244 = QFrame(self.frame_243)
+        self.frame_244.setObjectName(u"frame_244")
+        self.frame_244.setFrameShape(QFrame.StyledPanel)
+        self.frame_244.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_101 = QHBoxLayout(self.frame_244)
+        self.horizontalLayout_101.setObjectName(u"horizontalLayout_101")
+        self.stock_news_media_55 = QLabel(self.frame_244)
+        self.stock_news_media_55.setObjectName(u"stock_news_media_55")
+        self.stock_news_media_55.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_55.setWordWrap(True)
+
+        self.horizontalLayout_101.addWidget(self.stock_news_media_55)
+
+        self.label_69 = QLabel(self.frame_244)
+        self.label_69.setObjectName(u"label_69")
+
+        self.horizontalLayout_101.addWidget(self.label_69)
+
+        self.label_85 = QLabel(self.frame_244)
+        self.label_85.setObjectName(u"label_85")
+
+        self.horizontalLayout_101.addWidget(self.label_85)
+
+
+        self.verticalLayout_235.addWidget(self.frame_244, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_24.addWidget(self.frame_243)
+
+        self.frame_245 = QFrame(self.frame_240)
+        self.frame_245.setObjectName(u"frame_245")
+        self.frame_245.setMinimumSize(QSize(100, 281))
+        self.frame_245.setMaximumSize(QSize(250, 268))
+        self.frame_245.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_245.setFrameShape(QFrame.Box)
+        self.frame_245.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_236 = QVBoxLayout(self.frame_245)
+        self.verticalLayout_236.setObjectName(u"verticalLayout_236")
+        self.frame_15 = QFrame(self.frame_245)
+        self.frame_15.setObjectName(u"frame_15")
+        self.frame_15.setFrameShape(QFrame.StyledPanel)
+        self.frame_15.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_74 = QVBoxLayout(self.frame_15)
+        self.verticalLayout_74.setObjectName(u"verticalLayout_74")
+        self.label_70 = QLabel(self.frame_15)
+        self.label_70.setObjectName(u"label_70")
+        self.label_70.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_70.setWordWrap(True)
+
+        self.verticalLayout_74.addWidget(self.label_70)
+
+
+        self.verticalLayout_236.addWidget(self.frame_15)
+
+        self.scrollArea_8 = QScrollArea(self.frame_245)
+        self.scrollArea_8.setObjectName(u"scrollArea_8")
+        self.scrollArea_8.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_8.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_8 = QWidget()
+        self.scrollAreaWidgetContents_8.setObjectName(u"scrollAreaWidgetContents_8")
+        self.scrollAreaWidgetContents_8.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_75 = QVBoxLayout(self.scrollAreaWidgetContents_8)
+        self.verticalLayout_75.setObjectName(u"verticalLayout_75")
+        self.stock_news_text_56 = QLabel(self.scrollAreaWidgetContents_8)
+        self.stock_news_text_56.setObjectName(u"stock_news_text_56")
+        self.stock_news_text_56.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_56.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_56.setWordWrap(True)
+        self.stock_news_text_56.setOpenExternalLinks(False)
+        self.stock_news_text_56.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_75.addWidget(self.stock_news_text_56)
+
+        self.scrollArea_8.setWidget(self.scrollAreaWidgetContents_8)
+
+        self.verticalLayout_236.addWidget(self.scrollArea_8)
+
+        self.frame_246 = QFrame(self.frame_245)
+        self.frame_246.setObjectName(u"frame_246")
+        self.frame_246.setFrameShape(QFrame.StyledPanel)
+        self.frame_246.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_102 = QHBoxLayout(self.frame_246)
+        self.horizontalLayout_102.setObjectName(u"horizontalLayout_102")
+        self.stock_news_media_56 = QLabel(self.frame_246)
+        self.stock_news_media_56.setObjectName(u"stock_news_media_56")
+        self.stock_news_media_56.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_56.setWordWrap(True)
+
+        self.horizontalLayout_102.addWidget(self.stock_news_media_56)
+
+        self.label_71 = QLabel(self.frame_246)
+        self.label_71.setObjectName(u"label_71")
+
+        self.horizontalLayout_102.addWidget(self.label_71)
+
+        self.label_86 = QLabel(self.frame_246)
+        self.label_86.setObjectName(u"label_86")
+
+        self.horizontalLayout_102.addWidget(self.label_86)
+
+
+        self.verticalLayout_236.addWidget(self.frame_246, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_24.addWidget(self.frame_245)
+
+
+        self.verticalLayout_57.addWidget(self.frame_240)
+
+        self.frame_247 = QFrame(self.stock_analysis_news_frame)
+        self.frame_247.setObjectName(u"frame_247")
+        self.frame_247.setMinimumSize(QSize(0, 0))
+        self.frame_247.setStyleSheet(u"")
+        self.frame_247.setFrameShape(QFrame.StyledPanel)
+        self.frame_247.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_25 = QHBoxLayout(self.frame_247)
+        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
+        self.frame_248 = QFrame(self.frame_247)
+        self.frame_248.setObjectName(u"frame_248")
+        self.frame_248.setMinimumSize(QSize(100, 281))
+        self.frame_248.setMaximumSize(QSize(250, 268))
+        self.frame_248.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_248.setFrameShape(QFrame.Box)
+        self.frame_248.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_237 = QVBoxLayout(self.frame_248)
+        self.verticalLayout_237.setObjectName(u"verticalLayout_237")
+        self.frame_16 = QFrame(self.frame_248)
+        self.frame_16.setObjectName(u"frame_16")
+        self.frame_16.setFrameShape(QFrame.StyledPanel)
+        self.frame_16.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_76 = QVBoxLayout(self.frame_16)
+        self.verticalLayout_76.setObjectName(u"verticalLayout_76")
+        self.label_72 = QLabel(self.frame_16)
+        self.label_72.setObjectName(u"label_72")
+        self.label_72.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_72.setWordWrap(True)
+
+        self.verticalLayout_76.addWidget(self.label_72)
+
+
+        self.verticalLayout_237.addWidget(self.frame_16)
+
+        self.scrollArea_9 = QScrollArea(self.frame_248)
+        self.scrollArea_9.setObjectName(u"scrollArea_9")
+        self.scrollArea_9.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_9.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_9 = QWidget()
+        self.scrollAreaWidgetContents_9.setObjectName(u"scrollAreaWidgetContents_9")
+        self.scrollAreaWidgetContents_9.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_77 = QVBoxLayout(self.scrollAreaWidgetContents_9)
+        self.verticalLayout_77.setObjectName(u"verticalLayout_77")
+        self.stock_news_text_57 = QLabel(self.scrollAreaWidgetContents_9)
+        self.stock_news_text_57.setObjectName(u"stock_news_text_57")
+        self.stock_news_text_57.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_57.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_57.setWordWrap(True)
+        self.stock_news_text_57.setOpenExternalLinks(False)
+        self.stock_news_text_57.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_77.addWidget(self.stock_news_text_57)
+
+        self.scrollArea_9.setWidget(self.scrollAreaWidgetContents_9)
+
+        self.verticalLayout_237.addWidget(self.scrollArea_9)
+
+        self.frame_249 = QFrame(self.frame_248)
+        self.frame_249.setObjectName(u"frame_249")
+        self.frame_249.setFrameShape(QFrame.StyledPanel)
+        self.frame_249.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_103 = QHBoxLayout(self.frame_249)
+        self.horizontalLayout_103.setObjectName(u"horizontalLayout_103")
+        self.stock_news_media_57 = QLabel(self.frame_249)
+        self.stock_news_media_57.setObjectName(u"stock_news_media_57")
+        self.stock_news_media_57.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_57.setWordWrap(True)
+
+        self.horizontalLayout_103.addWidget(self.stock_news_media_57)
+
+        self.label_73 = QLabel(self.frame_249)
+        self.label_73.setObjectName(u"label_73")
+
+        self.horizontalLayout_103.addWidget(self.label_73)
+
+        self.label_87 = QLabel(self.frame_249)
+        self.label_87.setObjectName(u"label_87")
+
+        self.horizontalLayout_103.addWidget(self.label_87)
+
+
+        self.verticalLayout_237.addWidget(self.frame_249, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_25.addWidget(self.frame_248)
+
+        self.frame_250 = QFrame(self.frame_247)
+        self.frame_250.setObjectName(u"frame_250")
+        self.frame_250.setMinimumSize(QSize(100, 281))
+        self.frame_250.setMaximumSize(QSize(250, 268))
+        self.frame_250.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_250.setFrameShape(QFrame.Box)
+        self.frame_250.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_238 = QVBoxLayout(self.frame_250)
+        self.verticalLayout_238.setObjectName(u"verticalLayout_238")
+        self.frame_17 = QFrame(self.frame_250)
+        self.frame_17.setObjectName(u"frame_17")
+        self.frame_17.setFrameShape(QFrame.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_78 = QVBoxLayout(self.frame_17)
+        self.verticalLayout_78.setObjectName(u"verticalLayout_78")
+        self.label_74 = QLabel(self.frame_17)
+        self.label_74.setObjectName(u"label_74")
+        self.label_74.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_74.setWordWrap(True)
+
+        self.verticalLayout_78.addWidget(self.label_74)
+
+
+        self.verticalLayout_238.addWidget(self.frame_17)
+
+        self.scrollArea_10 = QScrollArea(self.frame_250)
+        self.scrollArea_10.setObjectName(u"scrollArea_10")
+        self.scrollArea_10.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_10.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_10 = QWidget()
+        self.scrollAreaWidgetContents_10.setObjectName(u"scrollAreaWidgetContents_10")
+        self.scrollAreaWidgetContents_10.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_79 = QVBoxLayout(self.scrollAreaWidgetContents_10)
+        self.verticalLayout_79.setObjectName(u"verticalLayout_79")
+        self.stock_news_text_58 = QLabel(self.scrollAreaWidgetContents_10)
+        self.stock_news_text_58.setObjectName(u"stock_news_text_58")
+        self.stock_news_text_58.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_58.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_58.setWordWrap(True)
+        self.stock_news_text_58.setOpenExternalLinks(False)
+        self.stock_news_text_58.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_79.addWidget(self.stock_news_text_58)
+
+        self.scrollArea_10.setWidget(self.scrollAreaWidgetContents_10)
+
+        self.verticalLayout_238.addWidget(self.scrollArea_10)
+
+        self.frame_251 = QFrame(self.frame_250)
+        self.frame_251.setObjectName(u"frame_251")
+        self.frame_251.setFrameShape(QFrame.StyledPanel)
+        self.frame_251.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_104 = QHBoxLayout(self.frame_251)
+        self.horizontalLayout_104.setObjectName(u"horizontalLayout_104")
+        self.stock_news_media_58 = QLabel(self.frame_251)
+        self.stock_news_media_58.setObjectName(u"stock_news_media_58")
+        self.stock_news_media_58.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_58.setWordWrap(True)
+
+        self.horizontalLayout_104.addWidget(self.stock_news_media_58)
+
+        self.label_75 = QLabel(self.frame_251)
+        self.label_75.setObjectName(u"label_75")
+
+        self.horizontalLayout_104.addWidget(self.label_75)
+
+        self.label_88 = QLabel(self.frame_251)
+        self.label_88.setObjectName(u"label_88")
+
+        self.horizontalLayout_104.addWidget(self.label_88)
+
+
+        self.verticalLayout_238.addWidget(self.frame_251, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_25.addWidget(self.frame_250)
+
+        self.frame_252 = QFrame(self.frame_247)
+        self.frame_252.setObjectName(u"frame_252")
+        self.frame_252.setMinimumSize(QSize(100, 281))
+        self.frame_252.setMaximumSize(QSize(250, 268))
+        self.frame_252.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_252.setFrameShape(QFrame.Box)
+        self.frame_252.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_239 = QVBoxLayout(self.frame_252)
+        self.verticalLayout_239.setObjectName(u"verticalLayout_239")
+        self.frame_18 = QFrame(self.frame_252)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setFrameShape(QFrame.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_80 = QVBoxLayout(self.frame_18)
         self.verticalLayout_80.setObjectName(u"verticalLayout_80")
-        self.stock_news_text = QLabel(self.frame_29)
-        self.stock_news_text.setObjectName(u"stock_news_text")
-        self.stock_news_text.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text.setWordWrap(True)
-        self.stock_news_text.setOpenExternalLinks(False)
-        self.stock_news_text.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.label_76 = QLabel(self.frame_18)
+        self.label_76.setObjectName(u"label_76")
+        self.label_76.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_76.setWordWrap(True)
 
-        self.verticalLayout_80.addWidget(self.stock_news_text)
+        self.verticalLayout_80.addWidget(self.label_76)
 
 
-        self.verticalLayout_59.addWidget(self.frame_29)
+        self.verticalLayout_239.addWidget(self.frame_18)
 
-        self.frame_21 = QFrame(self.frame_12)
+        self.scrollArea_11 = QScrollArea(self.frame_252)
+        self.scrollArea_11.setObjectName(u"scrollArea_11")
+        self.scrollArea_11.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_11.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_11 = QWidget()
+        self.scrollAreaWidgetContents_11.setObjectName(u"scrollAreaWidgetContents_11")
+        self.scrollAreaWidgetContents_11.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_81 = QVBoxLayout(self.scrollAreaWidgetContents_11)
+        self.verticalLayout_81.setObjectName(u"verticalLayout_81")
+        self.stock_news_text_59 = QLabel(self.scrollAreaWidgetContents_11)
+        self.stock_news_text_59.setObjectName(u"stock_news_text_59")
+        self.stock_news_text_59.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_59.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_59.setWordWrap(True)
+        self.stock_news_text_59.setOpenExternalLinks(False)
+        self.stock_news_text_59.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_81.addWidget(self.stock_news_text_59)
+
+        self.scrollArea_11.setWidget(self.scrollAreaWidgetContents_11)
+
+        self.verticalLayout_239.addWidget(self.scrollArea_11)
+
+        self.frame_253 = QFrame(self.frame_252)
+        self.frame_253.setObjectName(u"frame_253")
+        self.frame_253.setFrameShape(QFrame.StyledPanel)
+        self.frame_253.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_105 = QHBoxLayout(self.frame_253)
+        self.horizontalLayout_105.setObjectName(u"horizontalLayout_105")
+        self.stock_news_media_59 = QLabel(self.frame_253)
+        self.stock_news_media_59.setObjectName(u"stock_news_media_59")
+        self.stock_news_media_59.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_59.setWordWrap(True)
+
+        self.horizontalLayout_105.addWidget(self.stock_news_media_59)
+
+        self.label_77 = QLabel(self.frame_253)
+        self.label_77.setObjectName(u"label_77")
+
+        self.horizontalLayout_105.addWidget(self.label_77)
+
+        self.label_89 = QLabel(self.frame_253)
+        self.label_89.setObjectName(u"label_89")
+
+        self.horizontalLayout_105.addWidget(self.label_89)
+
+
+        self.verticalLayout_239.addWidget(self.frame_253, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_25.addWidget(self.frame_252)
+
+
+        self.verticalLayout_57.addWidget(self.frame_247)
+
+        self.frame_254 = QFrame(self.stock_analysis_news_frame)
+        self.frame_254.setObjectName(u"frame_254")
+        self.frame_254.setMinimumSize(QSize(0, 0))
+        self.frame_254.setStyleSheet(u"")
+        self.frame_254.setFrameShape(QFrame.StyledPanel)
+        self.frame_254.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_27 = QHBoxLayout(self.frame_254)
+        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
+        self.frame_255 = QFrame(self.frame_254)
+        self.frame_255.setObjectName(u"frame_255")
+        self.frame_255.setMinimumSize(QSize(100, 281))
+        self.frame_255.setMaximumSize(QSize(250, 268))
+        self.frame_255.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_255.setFrameShape(QFrame.Box)
+        self.frame_255.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_240 = QVBoxLayout(self.frame_255)
+        self.verticalLayout_240.setObjectName(u"verticalLayout_240")
+        self.frame_19 = QFrame(self.frame_255)
+        self.frame_19.setObjectName(u"frame_19")
+        self.frame_19.setFrameShape(QFrame.StyledPanel)
+        self.frame_19.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_82 = QVBoxLayout(self.frame_19)
+        self.verticalLayout_82.setObjectName(u"verticalLayout_82")
+        self.label_78 = QLabel(self.frame_19)
+        self.label_78.setObjectName(u"label_78")
+        self.label_78.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_78.setWordWrap(True)
+
+        self.verticalLayout_82.addWidget(self.label_78)
+
+
+        self.verticalLayout_240.addWidget(self.frame_19)
+
+        self.scrollArea_12 = QScrollArea(self.frame_255)
+        self.scrollArea_12.setObjectName(u"scrollArea_12")
+        self.scrollArea_12.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_12.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_12 = QWidget()
+        self.scrollAreaWidgetContents_12.setObjectName(u"scrollAreaWidgetContents_12")
+        self.scrollAreaWidgetContents_12.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_83 = QVBoxLayout(self.scrollAreaWidgetContents_12)
+        self.verticalLayout_83.setObjectName(u"verticalLayout_83")
+        self.stock_news_text_60 = QLabel(self.scrollAreaWidgetContents_12)
+        self.stock_news_text_60.setObjectName(u"stock_news_text_60")
+        self.stock_news_text_60.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_60.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_60.setWordWrap(True)
+        self.stock_news_text_60.setOpenExternalLinks(False)
+        self.stock_news_text_60.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_83.addWidget(self.stock_news_text_60)
+
+        self.scrollArea_12.setWidget(self.scrollAreaWidgetContents_12)
+
+        self.verticalLayout_240.addWidget(self.scrollArea_12)
+
+        self.frame_256 = QFrame(self.frame_255)
+        self.frame_256.setObjectName(u"frame_256")
+        self.frame_256.setFrameShape(QFrame.StyledPanel)
+        self.frame_256.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_106 = QHBoxLayout(self.frame_256)
+        self.horizontalLayout_106.setObjectName(u"horizontalLayout_106")
+        self.stock_news_media_60 = QLabel(self.frame_256)
+        self.stock_news_media_60.setObjectName(u"stock_news_media_60")
+        self.stock_news_media_60.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_60.setWordWrap(True)
+
+        self.horizontalLayout_106.addWidget(self.stock_news_media_60)
+
+        self.label_79 = QLabel(self.frame_256)
+        self.label_79.setObjectName(u"label_79")
+
+        self.horizontalLayout_106.addWidget(self.label_79)
+
+        self.label_90 = QLabel(self.frame_256)
+        self.label_90.setObjectName(u"label_90")
+
+        self.horizontalLayout_106.addWidget(self.label_90)
+
+
+        self.verticalLayout_240.addWidget(self.frame_256, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_27.addWidget(self.frame_255)
+
+        self.frame_257 = QFrame(self.frame_254)
+        self.frame_257.setObjectName(u"frame_257")
+        self.frame_257.setMinimumSize(QSize(100, 281))
+        self.frame_257.setMaximumSize(QSize(250, 268))
+        self.frame_257.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_257.setFrameShape(QFrame.Box)
+        self.frame_257.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_241 = QVBoxLayout(self.frame_257)
+        self.verticalLayout_241.setObjectName(u"verticalLayout_241")
+        self.frame_20 = QFrame(self.frame_257)
+        self.frame_20.setObjectName(u"frame_20")
+        self.frame_20.setFrameShape(QFrame.StyledPanel)
+        self.frame_20.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_84 = QVBoxLayout(self.frame_20)
+        self.verticalLayout_84.setObjectName(u"verticalLayout_84")
+        self.label_80 = QLabel(self.frame_20)
+        self.label_80.setObjectName(u"label_80")
+        self.label_80.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_80.setWordWrap(True)
+
+        self.verticalLayout_84.addWidget(self.label_80)
+
+
+        self.verticalLayout_241.addWidget(self.frame_20)
+
+        self.scrollArea_13 = QScrollArea(self.frame_257)
+        self.scrollArea_13.setObjectName(u"scrollArea_13")
+        self.scrollArea_13.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_13.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_13 = QWidget()
+        self.scrollAreaWidgetContents_13.setObjectName(u"scrollAreaWidgetContents_13")
+        self.scrollAreaWidgetContents_13.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_85 = QVBoxLayout(self.scrollAreaWidgetContents_13)
+        self.verticalLayout_85.setObjectName(u"verticalLayout_85")
+        self.stock_news_text_61 = QLabel(self.scrollAreaWidgetContents_13)
+        self.stock_news_text_61.setObjectName(u"stock_news_text_61")
+        self.stock_news_text_61.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_61.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_61.setWordWrap(True)
+        self.stock_news_text_61.setOpenExternalLinks(False)
+        self.stock_news_text_61.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_85.addWidget(self.stock_news_text_61)
+
+        self.scrollArea_13.setWidget(self.scrollAreaWidgetContents_13)
+
+        self.verticalLayout_241.addWidget(self.scrollArea_13)
+
+        self.frame_258 = QFrame(self.frame_257)
+        self.frame_258.setObjectName(u"frame_258")
+        self.frame_258.setFrameShape(QFrame.StyledPanel)
+        self.frame_258.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_107 = QHBoxLayout(self.frame_258)
+        self.horizontalLayout_107.setObjectName(u"horizontalLayout_107")
+        self.stock_news_media_61 = QLabel(self.frame_258)
+        self.stock_news_media_61.setObjectName(u"stock_news_media_61")
+        self.stock_news_media_61.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_61.setWordWrap(True)
+
+        self.horizontalLayout_107.addWidget(self.stock_news_media_61)
+
+        self.label_91 = QLabel(self.frame_258)
+        self.label_91.setObjectName(u"label_91")
+
+        self.horizontalLayout_107.addWidget(self.label_91)
+
+        self.label_92 = QLabel(self.frame_258)
+        self.label_92.setObjectName(u"label_92")
+
+        self.horizontalLayout_107.addWidget(self.label_92)
+
+
+        self.verticalLayout_241.addWidget(self.frame_258, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_27.addWidget(self.frame_257)
+
+        self.frame_259 = QFrame(self.frame_254)
+        self.frame_259.setObjectName(u"frame_259")
+        self.frame_259.setMinimumSize(QSize(100, 281))
+        self.frame_259.setMaximumSize(QSize(250, 268))
+        self.frame_259.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_259.setFrameShape(QFrame.Box)
+        self.frame_259.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_242 = QVBoxLayout(self.frame_259)
+        self.verticalLayout_242.setObjectName(u"verticalLayout_242")
+        self.frame_21 = QFrame(self.frame_259)
         self.frame_21.setObjectName(u"frame_21")
         self.frame_21.setFrameShape(QFrame.StyledPanel)
         self.frame_21.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_27 = QHBoxLayout(self.frame_21)
-        self.horizontalLayout_27.setObjectName(u"horizontalLayout_27")
-        self.stock_news_media = QLabel(self.frame_21)
-        self.stock_news_media.setObjectName(u"stock_news_media")
-        self.stock_news_media.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media.setWordWrap(True)
-
-        self.horizontalLayout_27.addWidget(self.stock_news_media, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_59.addWidget(self.frame_21, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_23.addWidget(self.frame_12)
-
-        self.frame_14 = QFrame(self.frame_10)
-        self.frame_14.setObjectName(u"frame_14")
-        self.frame_14.setMinimumSize(QSize(100, 100))
-        self.frame_14.setMaximumSize(QSize(250, 280))
-        self.frame_14.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_14.setFrameShape(QFrame.Box)
-        self.frame_14.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_70 = QVBoxLayout(self.frame_14)
-        self.verticalLayout_70.setObjectName(u"verticalLayout_70")
-        self.stock_news_title_frame_6 = QFrame(self.frame_14)
-        self.stock_news_title_frame_6.setObjectName(u"stock_news_title_frame_6")
-        self.stock_news_title_frame_6.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_6.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_71 = QVBoxLayout(self.stock_news_title_frame_6)
-        self.verticalLayout_71.setObjectName(u"verticalLayout_71")
-        self.stock_news_title_6 = QLabel(self.stock_news_title_frame_6)
-        self.stock_news_title_6.setObjectName(u"stock_news_title_6")
-        self.stock_news_title_6.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_6.setWordWrap(True)
-
-        self.verticalLayout_71.addWidget(self.stock_news_title_6)
-
-
-        self.verticalLayout_70.addWidget(self.stock_news_title_frame_6)
-
-        self.frame_33 = QFrame(self.frame_14)
-        self.frame_33.setObjectName(u"frame_33")
-        sizePolicy1.setHeightForWidth(self.frame_33.sizePolicy().hasHeightForWidth())
-        self.frame_33.setSizePolicy(sizePolicy1)
-        self.frame_33.setMinimumSize(QSize(0, 0))
-        self.frame_33.setFrameShape(QFrame.StyledPanel)
-        self.frame_33.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_84 = QVBoxLayout(self.frame_33)
-        self.verticalLayout_84.setObjectName(u"verticalLayout_84")
-        self.stock_news_text_6 = QLabel(self.frame_33)
-        self.stock_news_text_6.setObjectName(u"stock_news_text_6")
-        self.stock_news_text_6.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_6.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_6.setWordWrap(True)
-        self.stock_news_text_6.setOpenExternalLinks(False)
-        self.stock_news_text_6.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_84.addWidget(self.stock_news_text_6)
-
-
-        self.verticalLayout_70.addWidget(self.frame_33)
-
-        self.frame_26 = QFrame(self.frame_14)
-        self.frame_26.setObjectName(u"frame_26")
-        self.frame_26.setFrameShape(QFrame.StyledPanel)
-        self.frame_26.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_32 = QHBoxLayout(self.frame_26)
-        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
-        self.stock_news_media_6 = QLabel(self.frame_26)
-        self.stock_news_media_6.setObjectName(u"stock_news_media_6")
-        self.stock_news_media_6.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_6.setWordWrap(True)
-
-        self.horizontalLayout_32.addWidget(self.stock_news_media_6, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_70.addWidget(self.frame_26, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_23.addWidget(self.frame_14)
-
-        self.frame_13 = QFrame(self.frame_10)
-        self.frame_13.setObjectName(u"frame_13")
-        self.frame_13.setMinimumSize(QSize(100, 100))
-        self.frame_13.setMaximumSize(QSize(250, 280))
-        self.frame_13.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_13.setFrameShape(QFrame.Box)
-        self.frame_13.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_68 = QVBoxLayout(self.frame_13)
-        self.verticalLayout_68.setObjectName(u"verticalLayout_68")
-        self.stock_news_title_frame_5 = QFrame(self.frame_13)
-        self.stock_news_title_frame_5.setObjectName(u"stock_news_title_frame_5")
-        self.stock_news_title_frame_5.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_5.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_69 = QVBoxLayout(self.stock_news_title_frame_5)
-        self.verticalLayout_69.setObjectName(u"verticalLayout_69")
-        self.stock_news_title_5 = QLabel(self.stock_news_title_frame_5)
-        self.stock_news_title_5.setObjectName(u"stock_news_title_5")
-        self.stock_news_title_5.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_5.setWordWrap(True)
-
-        self.verticalLayout_69.addWidget(self.stock_news_title_5)
-
-
-        self.verticalLayout_68.addWidget(self.stock_news_title_frame_5)
-
-        self.frame_32 = QFrame(self.frame_13)
-        self.frame_32.setObjectName(u"frame_32")
-        sizePolicy1.setHeightForWidth(self.frame_32.sizePolicy().hasHeightForWidth())
-        self.frame_32.setSizePolicy(sizePolicy1)
-        self.frame_32.setMinimumSize(QSize(0, 0))
-        self.frame_32.setFrameShape(QFrame.StyledPanel)
-        self.frame_32.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_83 = QVBoxLayout(self.frame_32)
-        self.verticalLayout_83.setObjectName(u"verticalLayout_83")
-        self.stock_news_text_5 = QLabel(self.frame_32)
-        self.stock_news_text_5.setObjectName(u"stock_news_text_5")
-        self.stock_news_text_5.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_5.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_5.setWordWrap(True)
-        self.stock_news_text_5.setOpenExternalLinks(False)
-        self.stock_news_text_5.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_83.addWidget(self.stock_news_text_5)
-
-
-        self.verticalLayout_68.addWidget(self.frame_32)
-
-        self.frame_24 = QFrame(self.frame_13)
-        self.frame_24.setObjectName(u"frame_24")
-        self.frame_24.setFrameShape(QFrame.StyledPanel)
-        self.frame_24.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_31 = QHBoxLayout(self.frame_24)
-        self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
-        self.stock_news_media_5 = QLabel(self.frame_24)
-        self.stock_news_media_5.setObjectName(u"stock_news_media_5")
-        self.stock_news_media_5.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_5.setWordWrap(True)
-
-        self.horizontalLayout_31.addWidget(self.stock_news_media_5, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_68.addWidget(self.frame_24, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_23.addWidget(self.frame_13)
-
-
-        self.verticalLayout_57.addWidget(self.frame_10)
-
-        self.frame_18 = QFrame(self.stock_analysis_news_frame)
-        self.frame_18.setObjectName(u"frame_18")
-        self.frame_18.setMinimumSize(QSize(0, 300))
-        self.frame_18.setStyleSheet(u"")
-        self.frame_18.setFrameShape(QFrame.StyledPanel)
-        self.frame_18.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_25 = QHBoxLayout(self.frame_18)
-        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
-        self.frame_19 = QFrame(self.frame_18)
-        self.frame_19.setObjectName(u"frame_19")
-        self.frame_19.setMinimumSize(QSize(100, 100))
-        self.frame_19.setMaximumSize(QSize(250, 280))
-        self.frame_19.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_19.setFrameShape(QFrame.Box)
-        self.frame_19.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_78 = QVBoxLayout(self.frame_19)
-        self.verticalLayout_78.setObjectName(u"verticalLayout_78")
-        self.stock_news_title_frame_10 = QFrame(self.frame_19)
-        self.stock_news_title_frame_10.setObjectName(u"stock_news_title_frame_10")
-        self.stock_news_title_frame_10.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_10.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_79 = QVBoxLayout(self.stock_news_title_frame_10)
-        self.verticalLayout_79.setObjectName(u"verticalLayout_79")
-        self.stock_news_title_10 = QLabel(self.stock_news_title_frame_10)
-        self.stock_news_title_10.setObjectName(u"stock_news_title_10")
-        self.stock_news_title_10.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_10.setWordWrap(True)
-
-        self.verticalLayout_79.addWidget(self.stock_news_title_10)
-
-
-        self.verticalLayout_78.addWidget(self.stock_news_title_frame_10)
-
-        self.frame_38 = QFrame(self.frame_19)
-        self.frame_38.setObjectName(u"frame_38")
-        sizePolicy1.setHeightForWidth(self.frame_38.sizePolicy().hasHeightForWidth())
-        self.frame_38.setSizePolicy(sizePolicy1)
-        self.frame_38.setMinimumSize(QSize(0, 0))
-        self.frame_38.setFrameShape(QFrame.StyledPanel)
-        self.frame_38.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_88 = QVBoxLayout(self.frame_38)
-        self.verticalLayout_88.setObjectName(u"verticalLayout_88")
-        self.stock_news_text_10 = QLabel(self.frame_38)
-        self.stock_news_text_10.setObjectName(u"stock_news_text_10")
-        self.stock_news_text_10.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_10.setWordWrap(True)
-        self.stock_news_text_10.setOpenExternalLinks(False)
-        self.stock_news_text_10.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_88.addWidget(self.stock_news_text_10)
-
-
-        self.verticalLayout_78.addWidget(self.frame_38)
-
-        self.frame_39 = QFrame(self.frame_19)
-        self.frame_39.setObjectName(u"frame_39")
-        self.frame_39.setFrameShape(QFrame.StyledPanel)
-        self.frame_39.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_36 = QHBoxLayout(self.frame_39)
-        self.horizontalLayout_36.setObjectName(u"horizontalLayout_36")
-        self.stock_news_media_10 = QLabel(self.frame_39)
-        self.stock_news_media_10.setObjectName(u"stock_news_media_10")
-        self.stock_news_media_10.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_10.setWordWrap(True)
-
-        self.horizontalLayout_36.addWidget(self.stock_news_media_10, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_78.addWidget(self.frame_39, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_25.addWidget(self.frame_19)
-
-        self.frame_20 = QFrame(self.frame_18)
-        self.frame_20.setObjectName(u"frame_20")
-        self.frame_20.setMinimumSize(QSize(100, 100))
-        self.frame_20.setMaximumSize(QSize(250, 280))
-        self.frame_20.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_20.setFrameShape(QFrame.Box)
-        self.frame_20.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_89 = QVBoxLayout(self.frame_20)
-        self.verticalLayout_89.setObjectName(u"verticalLayout_89")
-        self.stock_news_title_frame_11 = QFrame(self.frame_20)
-        self.stock_news_title_frame_11.setObjectName(u"stock_news_title_frame_11")
-        self.stock_news_title_frame_11.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_11.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_90 = QVBoxLayout(self.stock_news_title_frame_11)
-        self.verticalLayout_90.setObjectName(u"verticalLayout_90")
-        self.stock_news_title_11 = QLabel(self.stock_news_title_frame_11)
-        self.stock_news_title_11.setObjectName(u"stock_news_title_11")
-        self.stock_news_title_11.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_11.setWordWrap(True)
-
-        self.verticalLayout_90.addWidget(self.stock_news_title_11)
-
-
-        self.verticalLayout_89.addWidget(self.stock_news_title_frame_11)
-
-        self.frame_40 = QFrame(self.frame_20)
-        self.frame_40.setObjectName(u"frame_40")
-        sizePolicy1.setHeightForWidth(self.frame_40.sizePolicy().hasHeightForWidth())
-        self.frame_40.setSizePolicy(sizePolicy1)
-        self.frame_40.setMinimumSize(QSize(0, 0))
-        self.frame_40.setFrameShape(QFrame.StyledPanel)
-        self.frame_40.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_91 = QVBoxLayout(self.frame_40)
-        self.verticalLayout_91.setObjectName(u"verticalLayout_91")
-        self.stock_news_text_11 = QLabel(self.frame_40)
-        self.stock_news_text_11.setObjectName(u"stock_news_text_11")
-        self.stock_news_text_11.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_11.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_11.setWordWrap(True)
-        self.stock_news_text_11.setOpenExternalLinks(False)
-        self.stock_news_text_11.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_91.addWidget(self.stock_news_text_11)
-
-
-        self.verticalLayout_89.addWidget(self.frame_40)
-
-        self.frame_41 = QFrame(self.frame_20)
-        self.frame_41.setObjectName(u"frame_41")
-        self.frame_41.setFrameShape(QFrame.StyledPanel)
-        self.frame_41.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_37 = QHBoxLayout(self.frame_41)
-        self.horizontalLayout_37.setObjectName(u"horizontalLayout_37")
-        self.stock_news_media_11 = QLabel(self.frame_41)
-        self.stock_news_media_11.setObjectName(u"stock_news_media_11")
-        self.stock_news_media_11.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_11.setWordWrap(True)
-
-        self.horizontalLayout_37.addWidget(self.stock_news_media_11, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_89.addWidget(self.frame_41, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_25.addWidget(self.frame_20)
-
-        self.frame_42 = QFrame(self.frame_18)
-        self.frame_42.setObjectName(u"frame_42")
-        self.frame_42.setMinimumSize(QSize(100, 100))
-        self.frame_42.setMaximumSize(QSize(250, 280))
-        self.frame_42.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_42.setFrameShape(QFrame.Box)
-        self.frame_42.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_92 = QVBoxLayout(self.frame_42)
-        self.verticalLayout_92.setObjectName(u"verticalLayout_92")
-        self.stock_news_title_frame_12 = QFrame(self.frame_42)
-        self.stock_news_title_frame_12.setObjectName(u"stock_news_title_frame_12")
-        self.stock_news_title_frame_12.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_12.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_93 = QVBoxLayout(self.stock_news_title_frame_12)
-        self.verticalLayout_93.setObjectName(u"verticalLayout_93")
-        self.stock_news_title_12 = QLabel(self.stock_news_title_frame_12)
-        self.stock_news_title_12.setObjectName(u"stock_news_title_12")
-        self.stock_news_title_12.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_12.setWordWrap(True)
-
-        self.verticalLayout_93.addWidget(self.stock_news_title_12)
-
-
-        self.verticalLayout_92.addWidget(self.stock_news_title_frame_12)
-
-        self.frame_43 = QFrame(self.frame_42)
-        self.frame_43.setObjectName(u"frame_43")
-        sizePolicy1.setHeightForWidth(self.frame_43.sizePolicy().hasHeightForWidth())
-        self.frame_43.setSizePolicy(sizePolicy1)
-        self.frame_43.setMinimumSize(QSize(0, 0))
-        self.frame_43.setFrameShape(QFrame.StyledPanel)
-        self.frame_43.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_94 = QVBoxLayout(self.frame_43)
-        self.verticalLayout_94.setObjectName(u"verticalLayout_94")
-        self.stock_news_text_12 = QLabel(self.frame_43)
-        self.stock_news_text_12.setObjectName(u"stock_news_text_12")
-        self.stock_news_text_12.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_12.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_12.setWordWrap(True)
-        self.stock_news_text_12.setOpenExternalLinks(False)
-        self.stock_news_text_12.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_94.addWidget(self.stock_news_text_12)
-
-
-        self.verticalLayout_92.addWidget(self.frame_43)
-
-        self.frame_44 = QFrame(self.frame_42)
-        self.frame_44.setObjectName(u"frame_44")
-        self.frame_44.setFrameShape(QFrame.StyledPanel)
-        self.frame_44.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_38 = QHBoxLayout(self.frame_44)
-        self.horizontalLayout_38.setObjectName(u"horizontalLayout_38")
-        self.stock_news_media_12 = QLabel(self.frame_44)
-        self.stock_news_media_12.setObjectName(u"stock_news_media_12")
-        self.stock_news_media_12.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_12.setWordWrap(True)
-
-        self.horizontalLayout_38.addWidget(self.stock_news_media_12, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_92.addWidget(self.frame_44, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_25.addWidget(self.frame_42)
-
-
-        self.verticalLayout_57.addWidget(self.frame_18)
-
-        self.frame_11 = QFrame(self.stock_analysis_news_frame)
-        self.frame_11.setObjectName(u"frame_11")
-        self.frame_11.setMinimumSize(QSize(0, 300))
-        self.frame_11.setStyleSheet(u"")
-        self.frame_11.setFrameShape(QFrame.StyledPanel)
-        self.frame_11.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_24 = QHBoxLayout(self.frame_11)
-        self.horizontalLayout_24.setObjectName(u"horizontalLayout_24")
-        self.frame_15 = QFrame(self.frame_11)
-        self.frame_15.setObjectName(u"frame_15")
-        self.frame_15.setMinimumSize(QSize(100, 100))
-        self.frame_15.setMaximumSize(QSize(250, 280))
-        self.frame_15.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_15.setFrameShape(QFrame.Box)
-        self.frame_15.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_72 = QVBoxLayout(self.frame_15)
-        self.verticalLayout_72.setObjectName(u"verticalLayout_72")
-        self.stock_news_title_frame_7 = QFrame(self.frame_15)
-        self.stock_news_title_frame_7.setObjectName(u"stock_news_title_frame_7")
-        self.stock_news_title_frame_7.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_7.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_73 = QVBoxLayout(self.stock_news_title_frame_7)
-        self.verticalLayout_73.setObjectName(u"verticalLayout_73")
-        self.stock_news_title_7 = QLabel(self.stock_news_title_frame_7)
-        self.stock_news_title_7.setObjectName(u"stock_news_title_7")
-        self.stock_news_title_7.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_7.setWordWrap(True)
-
-        self.verticalLayout_73.addWidget(self.stock_news_title_7)
-
-
-        self.verticalLayout_72.addWidget(self.stock_news_title_frame_7)
-
-        self.frame_34 = QFrame(self.frame_15)
-        self.frame_34.setObjectName(u"frame_34")
-        sizePolicy1.setHeightForWidth(self.frame_34.sizePolicy().hasHeightForWidth())
-        self.frame_34.setSizePolicy(sizePolicy1)
-        self.frame_34.setMinimumSize(QSize(0, 0))
-        self.frame_34.setFrameShape(QFrame.StyledPanel)
-        self.frame_34.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_85 = QVBoxLayout(self.frame_34)
-        self.verticalLayout_85.setObjectName(u"verticalLayout_85")
-        self.stock_news_text_7 = QLabel(self.frame_34)
-        self.stock_news_text_7.setObjectName(u"stock_news_text_7")
-        self.stock_news_text_7.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_7.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_7.setWordWrap(True)
-        self.stock_news_text_7.setOpenExternalLinks(False)
-        self.stock_news_text_7.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_85.addWidget(self.stock_news_text_7)
-
-
-        self.verticalLayout_72.addWidget(self.frame_34)
-
-        self.frame_27 = QFrame(self.frame_15)
-        self.frame_27.setObjectName(u"frame_27")
-        self.frame_27.setFrameShape(QFrame.StyledPanel)
-        self.frame_27.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_33 = QHBoxLayout(self.frame_27)
-        self.horizontalLayout_33.setObjectName(u"horizontalLayout_33")
-        self.stock_news_media_7 = QLabel(self.frame_27)
-        self.stock_news_media_7.setObjectName(u"stock_news_media_7")
-        self.stock_news_media_7.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_7.setWordWrap(True)
-
-        self.horizontalLayout_33.addWidget(self.stock_news_media_7, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_72.addWidget(self.frame_27, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_24.addWidget(self.frame_15)
-
-        self.frame_16 = QFrame(self.frame_11)
-        self.frame_16.setObjectName(u"frame_16")
-        self.frame_16.setMinimumSize(QSize(100, 100))
-        self.frame_16.setMaximumSize(QSize(250, 280))
-        self.frame_16.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_16.setFrameShape(QFrame.Box)
-        self.frame_16.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_74 = QVBoxLayout(self.frame_16)
-        self.verticalLayout_74.setObjectName(u"verticalLayout_74")
-        self.stock_news_title_frame_8 = QFrame(self.frame_16)
-        self.stock_news_title_frame_8.setObjectName(u"stock_news_title_frame_8")
-        self.stock_news_title_frame_8.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_8.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_75 = QVBoxLayout(self.stock_news_title_frame_8)
-        self.verticalLayout_75.setObjectName(u"verticalLayout_75")
-        self.stock_news_title_8 = QLabel(self.stock_news_title_frame_8)
-        self.stock_news_title_8.setObjectName(u"stock_news_title_8")
-        self.stock_news_title_8.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_8.setWordWrap(True)
-
-        self.verticalLayout_75.addWidget(self.stock_news_title_8)
-
-
-        self.verticalLayout_74.addWidget(self.stock_news_title_frame_8)
-
-        self.frame_35 = QFrame(self.frame_16)
-        self.frame_35.setObjectName(u"frame_35")
-        sizePolicy1.setHeightForWidth(self.frame_35.sizePolicy().hasHeightForWidth())
-        self.frame_35.setSizePolicy(sizePolicy1)
-        self.frame_35.setMinimumSize(QSize(0, 0))
-        self.frame_35.setFrameShape(QFrame.StyledPanel)
-        self.frame_35.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_86 = QVBoxLayout(self.frame_35)
+        self.verticalLayout_86 = QVBoxLayout(self.frame_21)
         self.verticalLayout_86.setObjectName(u"verticalLayout_86")
-        self.stock_news_text_8 = QLabel(self.frame_35)
-        self.stock_news_text_8.setObjectName(u"stock_news_text_8")
-        self.stock_news_text_8.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_8.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_8.setWordWrap(True)
-        self.stock_news_text_8.setOpenExternalLinks(False)
-        self.stock_news_text_8.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.label_93 = QLabel(self.frame_21)
+        self.label_93.setObjectName(u"label_93")
+        self.label_93.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_93.setWordWrap(True)
 
-        self.verticalLayout_86.addWidget(self.stock_news_text_8)
+        self.verticalLayout_86.addWidget(self.label_93)
 
 
-        self.verticalLayout_74.addWidget(self.frame_35)
+        self.verticalLayout_242.addWidget(self.frame_21)
 
-        self.frame_28 = QFrame(self.frame_16)
-        self.frame_28.setObjectName(u"frame_28")
-        self.frame_28.setFrameShape(QFrame.StyledPanel)
-        self.frame_28.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_34 = QHBoxLayout(self.frame_28)
-        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
-        self.stock_news_media_8 = QLabel(self.frame_28)
-        self.stock_news_media_8.setObjectName(u"stock_news_media_8")
-        self.stock_news_media_8.setStyleSheet(u"color: rgb(221, 221, 221);\n"
-"font: 8pt \"MS Shell Dlg 2\";")
-        self.stock_news_media_8.setWordWrap(True)
-
-        self.horizontalLayout_34.addWidget(self.stock_news_media_8, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_74.addWidget(self.frame_28, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_24.addWidget(self.frame_16)
-
-        self.frame_17 = QFrame(self.frame_11)
-        self.frame_17.setObjectName(u"frame_17")
-        self.frame_17.setMinimumSize(QSize(100, 100))
-        self.frame_17.setMaximumSize(QSize(250, 280))
-        self.frame_17.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_17.setFrameShape(QFrame.Box)
-        self.frame_17.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_76 = QVBoxLayout(self.frame_17)
-        self.verticalLayout_76.setObjectName(u"verticalLayout_76")
-        self.stock_news_title_frame_9 = QFrame(self.frame_17)
-        self.stock_news_title_frame_9.setObjectName(u"stock_news_title_frame_9")
-        self.stock_news_title_frame_9.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_9.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_77 = QVBoxLayout(self.stock_news_title_frame_9)
-        self.verticalLayout_77.setObjectName(u"verticalLayout_77")
-        self.stock_news_title_9 = QLabel(self.stock_news_title_frame_9)
-        self.stock_news_title_9.setObjectName(u"stock_news_title_9")
-        self.stock_news_title_9.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_9.setWordWrap(True)
-
-        self.verticalLayout_77.addWidget(self.stock_news_title_9)
-
-
-        self.verticalLayout_76.addWidget(self.stock_news_title_frame_9)
-
-        self.frame_36 = QFrame(self.frame_17)
-        self.frame_36.setObjectName(u"frame_36")
-        sizePolicy1.setHeightForWidth(self.frame_36.sizePolicy().hasHeightForWidth())
-        self.frame_36.setSizePolicy(sizePolicy1)
-        self.frame_36.setMinimumSize(QSize(0, 0))
-        self.frame_36.setFrameShape(QFrame.StyledPanel)
-        self.frame_36.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_87 = QVBoxLayout(self.frame_36)
+        self.scrollArea_14 = QScrollArea(self.frame_259)
+        self.scrollArea_14.setObjectName(u"scrollArea_14")
+        self.scrollArea_14.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_14.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_14 = QWidget()
+        self.scrollAreaWidgetContents_14.setObjectName(u"scrollAreaWidgetContents_14")
+        self.scrollAreaWidgetContents_14.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_87 = QVBoxLayout(self.scrollAreaWidgetContents_14)
         self.verticalLayout_87.setObjectName(u"verticalLayout_87")
-        self.stock_news_text_9 = QLabel(self.frame_36)
-        self.stock_news_text_9.setObjectName(u"stock_news_text_9")
-        self.stock_news_text_9.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_9.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_9.setWordWrap(True)
-        self.stock_news_text_9.setOpenExternalLinks(False)
-        self.stock_news_text_9.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.stock_news_text_62 = QLabel(self.scrollAreaWidgetContents_14)
+        self.stock_news_text_62.setObjectName(u"stock_news_text_62")
+        self.stock_news_text_62.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_62.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_62.setWordWrap(True)
+        self.stock_news_text_62.setOpenExternalLinks(False)
+        self.stock_news_text_62.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
-        self.verticalLayout_87.addWidget(self.stock_news_text_9)
+        self.verticalLayout_87.addWidget(self.stock_news_text_62)
+
+        self.scrollArea_14.setWidget(self.scrollAreaWidgetContents_14)
+
+        self.verticalLayout_242.addWidget(self.scrollArea_14)
+
+        self.frame_260 = QFrame(self.frame_259)
+        self.frame_260.setObjectName(u"frame_260")
+        self.frame_260.setFrameShape(QFrame.StyledPanel)
+        self.frame_260.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_108 = QHBoxLayout(self.frame_260)
+        self.horizontalLayout_108.setObjectName(u"horizontalLayout_108")
+        self.stock_news_media_62 = QLabel(self.frame_260)
+        self.stock_news_media_62.setObjectName(u"stock_news_media_62")
+        self.stock_news_media_62.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_62.setWordWrap(True)
+
+        self.horizontalLayout_108.addWidget(self.stock_news_media_62)
+
+        self.label_94 = QLabel(self.frame_260)
+        self.label_94.setObjectName(u"label_94")
+
+        self.horizontalLayout_108.addWidget(self.label_94)
+
+        self.label_95 = QLabel(self.frame_260)
+        self.label_95.setObjectName(u"label_95")
+
+        self.horizontalLayout_108.addWidget(self.label_95)
 
 
-        self.verticalLayout_76.addWidget(self.frame_36)
-
-        self.frame_37 = QFrame(self.frame_17)
-        self.frame_37.setObjectName(u"frame_37")
-        self.frame_37.setFrameShape(QFrame.StyledPanel)
-        self.frame_37.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_35 = QHBoxLayout(self.frame_37)
-        self.horizontalLayout_35.setObjectName(u"horizontalLayout_35")
-        self.stock_news_media_9 = QLabel(self.frame_37)
-        self.stock_news_media_9.setObjectName(u"stock_news_media_9")
-        self.stock_news_media_9.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_9.setWordWrap(True)
-
-        self.horizontalLayout_35.addWidget(self.stock_news_media_9, 0, Qt.AlignBottom)
+        self.verticalLayout_242.addWidget(self.frame_260, 0, Qt.AlignRight|Qt.AlignBottom)
 
 
-        self.verticalLayout_76.addWidget(self.frame_37, 0, Qt.AlignBottom)
+        self.horizontalLayout_27.addWidget(self.frame_259)
 
 
-        self.horizontalLayout_24.addWidget(self.frame_17)
-
-
-        self.verticalLayout_57.addWidget(self.frame_11)
+        self.verticalLayout_57.addWidget(self.frame_254)
 
 
         self.verticalLayout_36.addWidget(self.stock_analysis_news_frame)
@@ -1666,6 +2011,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_stackedWidget.addWidget(self.stock_analysis_stock_page)
         self.stock_analysis_currency_page = QWidget()
         self.stock_analysis_currency_page.setObjectName(u"stock_analysis_currency_page")
+        self.stock_analysis_currency_page.setMaximumSize(QSize(16777215, 2089))
         self.verticalLayout_40 = QVBoxLayout(self.stock_analysis_currency_page)
         self.verticalLayout_40.setObjectName(u"verticalLayout_40")
         self.crypto_quote_frame = QFrame(self.stock_analysis_currency_page)
@@ -1880,12 +2226,14 @@ class Ui_MainWindow(object):
 
         self.charts_2 = QFrame(self.stock_analysis_currency_page)
         self.charts_2.setObjectName(u"charts_2")
+        self.charts_2.setMaximumSize(QSize(16777215, 16777215))
         self.charts_2.setFrameShape(QFrame.StyledPanel)
         self.charts_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_37 = QVBoxLayout(self.charts_2)
         self.verticalLayout_37.setObjectName(u"verticalLayout_37")
         self.stacked_charts_2 = QStackedWidget(self.charts_2)
         self.stacked_charts_2.setObjectName(u"stacked_charts_2")
+        self.stacked_charts_2.setMaximumSize(QSize(16777215, 16777215))
         self.week_page_2 = QWidget()
         self.week_page_2.setObjectName(u"week_page_2")
         self.verticalLayout_38 = QVBoxLayout(self.week_page_2)
@@ -1922,9 +2270,8 @@ class Ui_MainWindow(object):
         self.stock_analysis_news_frame_2.setMaximumSize(QSize(1050, 16777215))
         self.stock_analysis_news_frame_2.setFrameShape(QFrame.StyledPanel)
         self.stock_analysis_news_frame_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_61 = QVBoxLayout(self.stock_analysis_news_frame_2)
-        self.verticalLayout_61.setObjectName(u"verticalLayout_61")
-        self.verticalLayout_61.setContentsMargins(-1, 50, -1, -1)
+        self.verticalLayout_111 = QVBoxLayout(self.stock_analysis_news_frame_2)
+        self.verticalLayout_111.setObjectName(u"verticalLayout_111")
         self.frame_22 = QFrame(self.stock_analysis_news_frame_2)
         self.frame_22.setObjectName(u"frame_22")
         self.frame_22.setFrameShape(QFrame.StyledPanel)
@@ -1938,653 +2285,999 @@ class Ui_MainWindow(object):
         self.verticalLayout_62.addWidget(self.label_2, 0, Qt.AlignHCenter)
 
 
-        self.verticalLayout_61.addWidget(self.frame_22)
+        self.verticalLayout_111.addWidget(self.frame_22)
 
-        self.frame_23 = QFrame(self.stock_analysis_news_frame_2)
-        self.frame_23.setObjectName(u"frame_23")
-        self.frame_23.setMinimumSize(QSize(0, 300))
-        self.frame_23.setStyleSheet(u"")
-        self.frame_23.setFrameShape(QFrame.StyledPanel)
-        self.frame_23.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_28 = QHBoxLayout(self.frame_23)
-        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
-        self.frame_25 = QFrame(self.frame_23)
-        self.frame_25.setObjectName(u"frame_25")
-        self.frame_25.setMinimumSize(QSize(100, 100))
-        self.frame_25.setMaximumSize(QSize(250, 280))
-        self.frame_25.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+        self.frame_275 = QFrame(self.stock_analysis_news_frame_2)
+        self.frame_275.setObjectName(u"frame_275")
+        self.frame_275.setMinimumSize(QSize(0, 0))
+        self.frame_275.setStyleSheet(u"")
+        self.frame_275.setFrameShape(QFrame.StyledPanel)
+        self.frame_275.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_30 = QHBoxLayout(self.frame_275)
+        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
+        self.frame_276 = QFrame(self.frame_275)
+        self.frame_276.setObjectName(u"frame_276")
+        self.frame_276.setMinimumSize(QSize(100, 281))
+        self.frame_276.setMaximumSize(QSize(250, 268))
+        self.frame_276.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
 "")
-        self.frame_25.setFrameShape(QFrame.Box)
-        self.frame_25.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_63 = QVBoxLayout(self.frame_25)
-        self.verticalLayout_63.setObjectName(u"verticalLayout_63")
-        self.stock_news_title_frame_2 = QFrame(self.frame_25)
-        self.stock_news_title_frame_2.setObjectName(u"stock_news_title_frame_2")
-        self.stock_news_title_frame_2.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_64 = QVBoxLayout(self.stock_news_title_frame_2)
-        self.verticalLayout_64.setObjectName(u"verticalLayout_64")
-        self.stock_news_title_2 = QLabel(self.stock_news_title_frame_2)
-        self.stock_news_title_2.setObjectName(u"stock_news_title_2")
-        self.stock_news_title_2.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_2.setWordWrap(True)
+        self.frame_276.setFrameShape(QFrame.Box)
+        self.frame_276.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_249 = QVBoxLayout(self.frame_276)
+        self.verticalLayout_249.setObjectName(u"verticalLayout_249")
+        self.frame_29 = QFrame(self.frame_276)
+        self.frame_29.setObjectName(u"frame_29")
+        self.frame_29.setFrameShape(QFrame.StyledPanel)
+        self.frame_29.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_99 = QVBoxLayout(self.frame_29)
+        self.verticalLayout_99.setObjectName(u"verticalLayout_99")
+        self.label_51 = QLabel(self.frame_29)
+        self.label_51.setObjectName(u"label_51")
+        self.label_51.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_51.setWordWrap(True)
 
-        self.verticalLayout_64.addWidget(self.stock_news_title_2)
+        self.verticalLayout_99.addWidget(self.label_51)
 
 
-        self.verticalLayout_63.addWidget(self.stock_news_title_frame_2)
+        self.verticalLayout_249.addWidget(self.frame_29)
 
-        self.frame_30 = QFrame(self.frame_25)
+        self.scrollArea_21 = QScrollArea(self.frame_276)
+        self.scrollArea_21.setObjectName(u"scrollArea_21")
+        self.scrollArea_21.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_21.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_21 = QWidget()
+        self.scrollAreaWidgetContents_21.setObjectName(u"scrollAreaWidgetContents_21")
+        self.scrollAreaWidgetContents_21.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_100 = QVBoxLayout(self.scrollAreaWidgetContents_21)
+        self.verticalLayout_100.setObjectName(u"verticalLayout_100")
+        self.stock_news_text_69 = QLabel(self.scrollAreaWidgetContents_21)
+        self.stock_news_text_69.setObjectName(u"stock_news_text_69")
+        self.stock_news_text_69.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_69.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_69.setWordWrap(True)
+        self.stock_news_text_69.setOpenExternalLinks(False)
+        self.stock_news_text_69.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_100.addWidget(self.stock_news_text_69)
+
+        self.scrollArea_21.setWidget(self.scrollAreaWidgetContents_21)
+
+        self.verticalLayout_249.addWidget(self.scrollArea_21)
+
+        self.frame_277 = QFrame(self.frame_276)
+        self.frame_277.setObjectName(u"frame_277")
+        self.frame_277.setFrameShape(QFrame.StyledPanel)
+        self.frame_277.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_115 = QHBoxLayout(self.frame_277)
+        self.horizontalLayout_115.setObjectName(u"horizontalLayout_115")
+        self.stock_news_media_69 = QLabel(self.frame_277)
+        self.stock_news_media_69.setObjectName(u"stock_news_media_69")
+        self.stock_news_media_69.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_69.setWordWrap(True)
+
+        self.horizontalLayout_115.addWidget(self.stock_news_media_69)
+
+        self.label_52 = QLabel(self.frame_277)
+        self.label_52.setObjectName(u"label_52")
+
+        self.horizontalLayout_115.addWidget(self.label_52)
+
+        self.label_108 = QLabel(self.frame_277)
+        self.label_108.setObjectName(u"label_108")
+
+        self.horizontalLayout_115.addWidget(self.label_108)
+
+
+        self.verticalLayout_249.addWidget(self.frame_277, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_30.addWidget(self.frame_276)
+
+        self.frame_278 = QFrame(self.frame_275)
+        self.frame_278.setObjectName(u"frame_278")
+        self.frame_278.setMinimumSize(QSize(100, 281))
+        self.frame_278.setMaximumSize(QSize(250, 268))
+        self.frame_278.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_278.setFrameShape(QFrame.Box)
+        self.frame_278.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_250 = QVBoxLayout(self.frame_278)
+        self.verticalLayout_250.setObjectName(u"verticalLayout_250")
+        self.frame_30 = QFrame(self.frame_278)
         self.frame_30.setObjectName(u"frame_30")
-        sizePolicy1.setHeightForWidth(self.frame_30.sizePolicy().hasHeightForWidth())
-        self.frame_30.setSizePolicy(sizePolicy1)
-        self.frame_30.setMinimumSize(QSize(0, 0))
         self.frame_30.setFrameShape(QFrame.StyledPanel)
         self.frame_30.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_81 = QVBoxLayout(self.frame_30)
-        self.verticalLayout_81.setObjectName(u"verticalLayout_81")
-        self.stock_news_text_2 = QLabel(self.frame_30)
-        self.stock_news_text_2.setObjectName(u"stock_news_text_2")
-        self.stock_news_text_2.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_2.setWordWrap(True)
-        self.stock_news_text_2.setOpenExternalLinks(False)
-        self.stock_news_text_2.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.verticalLayout_101 = QVBoxLayout(self.frame_30)
+        self.verticalLayout_101.setObjectName(u"verticalLayout_101")
+        self.label_53 = QLabel(self.frame_30)
+        self.label_53.setObjectName(u"label_53")
+        self.label_53.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_53.setWordWrap(True)
 
-        self.verticalLayout_81.addWidget(self.stock_news_text_2)
+        self.verticalLayout_101.addWidget(self.label_53)
 
 
-        self.verticalLayout_63.addWidget(self.frame_30)
+        self.verticalLayout_250.addWidget(self.frame_30)
 
-        self.frame_31 = QFrame(self.frame_25)
+        self.scrollArea_22 = QScrollArea(self.frame_278)
+        self.scrollArea_22.setObjectName(u"scrollArea_22")
+        self.scrollArea_22.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_22.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_22 = QWidget()
+        self.scrollAreaWidgetContents_22.setObjectName(u"scrollAreaWidgetContents_22")
+        self.scrollAreaWidgetContents_22.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_102 = QVBoxLayout(self.scrollAreaWidgetContents_22)
+        self.verticalLayout_102.setObjectName(u"verticalLayout_102")
+        self.stock_news_text_70 = QLabel(self.scrollAreaWidgetContents_22)
+        self.stock_news_text_70.setObjectName(u"stock_news_text_70")
+        self.stock_news_text_70.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_70.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_70.setWordWrap(True)
+        self.stock_news_text_70.setOpenExternalLinks(False)
+        self.stock_news_text_70.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_102.addWidget(self.stock_news_text_70)
+
+        self.scrollArea_22.setWidget(self.scrollAreaWidgetContents_22)
+
+        self.verticalLayout_250.addWidget(self.scrollArea_22)
+
+        self.frame_279 = QFrame(self.frame_278)
+        self.frame_279.setObjectName(u"frame_279")
+        self.frame_279.setFrameShape(QFrame.StyledPanel)
+        self.frame_279.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_116 = QHBoxLayout(self.frame_279)
+        self.horizontalLayout_116.setObjectName(u"horizontalLayout_116")
+        self.stock_news_media_70 = QLabel(self.frame_279)
+        self.stock_news_media_70.setObjectName(u"stock_news_media_70")
+        self.stock_news_media_70.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_70.setWordWrap(True)
+
+        self.horizontalLayout_116.addWidget(self.stock_news_media_70)
+
+        self.label_109 = QLabel(self.frame_279)
+        self.label_109.setObjectName(u"label_109")
+
+        self.horizontalLayout_116.addWidget(self.label_109)
+
+        self.label_110 = QLabel(self.frame_279)
+        self.label_110.setObjectName(u"label_110")
+
+        self.horizontalLayout_116.addWidget(self.label_110)
+
+
+        self.verticalLayout_250.addWidget(self.frame_279, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_30.addWidget(self.frame_278)
+
+        self.frame_280 = QFrame(self.frame_275)
+        self.frame_280.setObjectName(u"frame_280")
+        self.frame_280.setMinimumSize(QSize(100, 281))
+        self.frame_280.setMaximumSize(QSize(250, 268))
+        self.frame_280.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_280.setFrameShape(QFrame.Box)
+        self.frame_280.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_251 = QVBoxLayout(self.frame_280)
+        self.verticalLayout_251.setObjectName(u"verticalLayout_251")
+        self.frame_31 = QFrame(self.frame_280)
         self.frame_31.setObjectName(u"frame_31")
         self.frame_31.setFrameShape(QFrame.StyledPanel)
         self.frame_31.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_29 = QHBoxLayout(self.frame_31)
-        self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
-        self.stock_news_media_2 = QLabel(self.frame_31)
-        self.stock_news_media_2.setObjectName(u"stock_news_media_2")
-        self.stock_news_media_2.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_2.setWordWrap(True)
-
-        self.horizontalLayout_29.addWidget(self.stock_news_media_2, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_63.addWidget(self.frame_31, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_28.addWidget(self.frame_25)
-
-        self.frame_45 = QFrame(self.frame_23)
-        self.frame_45.setObjectName(u"frame_45")
-        self.frame_45.setMinimumSize(QSize(100, 100))
-        self.frame_45.setMaximumSize(QSize(250, 280))
-        self.frame_45.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_45.setFrameShape(QFrame.Box)
-        self.frame_45.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_82 = QVBoxLayout(self.frame_45)
-        self.verticalLayout_82.setObjectName(u"verticalLayout_82")
-        self.stock_news_title_frame_13 = QFrame(self.frame_45)
-        self.stock_news_title_frame_13.setObjectName(u"stock_news_title_frame_13")
-        self.stock_news_title_frame_13.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_13.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_95 = QVBoxLayout(self.stock_news_title_frame_13)
-        self.verticalLayout_95.setObjectName(u"verticalLayout_95")
-        self.stock_news_title_13 = QLabel(self.stock_news_title_frame_13)
-        self.stock_news_title_13.setObjectName(u"stock_news_title_13")
-        self.stock_news_title_13.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_13.setWordWrap(True)
-
-        self.verticalLayout_95.addWidget(self.stock_news_title_13)
-
-
-        self.verticalLayout_82.addWidget(self.stock_news_title_frame_13)
-
-        self.frame_46 = QFrame(self.frame_45)
-        self.frame_46.setObjectName(u"frame_46")
-        sizePolicy1.setHeightForWidth(self.frame_46.sizePolicy().hasHeightForWidth())
-        self.frame_46.setSizePolicy(sizePolicy1)
-        self.frame_46.setMinimumSize(QSize(0, 0))
-        self.frame_46.setFrameShape(QFrame.StyledPanel)
-        self.frame_46.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_96 = QVBoxLayout(self.frame_46)
-        self.verticalLayout_96.setObjectName(u"verticalLayout_96")
-        self.stock_news_text_13 = QLabel(self.frame_46)
-        self.stock_news_text_13.setObjectName(u"stock_news_text_13")
-        self.stock_news_text_13.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_13.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_13.setWordWrap(True)
-        self.stock_news_text_13.setOpenExternalLinks(False)
-        self.stock_news_text_13.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_96.addWidget(self.stock_news_text_13)
-
-
-        self.verticalLayout_82.addWidget(self.frame_46)
-
-        self.frame_47 = QFrame(self.frame_45)
-        self.frame_47.setObjectName(u"frame_47")
-        self.frame_47.setFrameShape(QFrame.StyledPanel)
-        self.frame_47.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_39 = QHBoxLayout(self.frame_47)
-        self.horizontalLayout_39.setObjectName(u"horizontalLayout_39")
-        self.stock_news_media_13 = QLabel(self.frame_47)
-        self.stock_news_media_13.setObjectName(u"stock_news_media_13")
-        self.stock_news_media_13.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_13.setWordWrap(True)
-
-        self.horizontalLayout_39.addWidget(self.stock_news_media_13, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_82.addWidget(self.frame_47, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_28.addWidget(self.frame_45)
-
-        self.frame_48 = QFrame(self.frame_23)
-        self.frame_48.setObjectName(u"frame_48")
-        self.frame_48.setMinimumSize(QSize(100, 100))
-        self.frame_48.setMaximumSize(QSize(250, 280))
-        self.frame_48.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_48.setFrameShape(QFrame.Box)
-        self.frame_48.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_97 = QVBoxLayout(self.frame_48)
-        self.verticalLayout_97.setObjectName(u"verticalLayout_97")
-        self.stock_news_title_frame_14 = QFrame(self.frame_48)
-        self.stock_news_title_frame_14.setObjectName(u"stock_news_title_frame_14")
-        self.stock_news_title_frame_14.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_14.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_98 = QVBoxLayout(self.stock_news_title_frame_14)
-        self.verticalLayout_98.setObjectName(u"verticalLayout_98")
-        self.stock_news_title_14 = QLabel(self.stock_news_title_frame_14)
-        self.stock_news_title_14.setObjectName(u"stock_news_title_14")
-        self.stock_news_title_14.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_14.setWordWrap(True)
-
-        self.verticalLayout_98.addWidget(self.stock_news_title_14)
-
-
-        self.verticalLayout_97.addWidget(self.stock_news_title_frame_14)
-
-        self.frame_49 = QFrame(self.frame_48)
-        self.frame_49.setObjectName(u"frame_49")
-        sizePolicy1.setHeightForWidth(self.frame_49.sizePolicy().hasHeightForWidth())
-        self.frame_49.setSizePolicy(sizePolicy1)
-        self.frame_49.setMinimumSize(QSize(0, 0))
-        self.frame_49.setFrameShape(QFrame.StyledPanel)
-        self.frame_49.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_99 = QVBoxLayout(self.frame_49)
-        self.verticalLayout_99.setObjectName(u"verticalLayout_99")
-        self.stock_news_text_14 = QLabel(self.frame_49)
-        self.stock_news_text_14.setObjectName(u"stock_news_text_14")
-        self.stock_news_text_14.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_14.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_14.setWordWrap(True)
-        self.stock_news_text_14.setOpenExternalLinks(False)
-        self.stock_news_text_14.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_99.addWidget(self.stock_news_text_14)
-
-
-        self.verticalLayout_97.addWidget(self.frame_49)
-
-        self.frame_50 = QFrame(self.frame_48)
-        self.frame_50.setObjectName(u"frame_50")
-        self.frame_50.setFrameShape(QFrame.StyledPanel)
-        self.frame_50.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_40 = QHBoxLayout(self.frame_50)
-        self.horizontalLayout_40.setObjectName(u"horizontalLayout_40")
-        self.stock_news_media_14 = QLabel(self.frame_50)
-        self.stock_news_media_14.setObjectName(u"stock_news_media_14")
-        self.stock_news_media_14.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_14.setWordWrap(True)
-
-        self.horizontalLayout_40.addWidget(self.stock_news_media_14, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_97.addWidget(self.frame_50, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_28.addWidget(self.frame_48)
-
-
-        self.verticalLayout_61.addWidget(self.frame_23)
-
-        self.frame_51 = QFrame(self.stock_analysis_news_frame_2)
-        self.frame_51.setObjectName(u"frame_51")
-        self.frame_51.setMinimumSize(QSize(0, 300))
-        self.frame_51.setStyleSheet(u"")
-        self.frame_51.setFrameShape(QFrame.StyledPanel)
-        self.frame_51.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_30 = QHBoxLayout(self.frame_51)
-        self.horizontalLayout_30.setObjectName(u"horizontalLayout_30")
-        self.frame_52 = QFrame(self.frame_51)
-        self.frame_52.setObjectName(u"frame_52")
-        self.frame_52.setMinimumSize(QSize(100, 100))
-        self.frame_52.setMaximumSize(QSize(250, 280))
-        self.frame_52.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_52.setFrameShape(QFrame.Box)
-        self.frame_52.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_100 = QVBoxLayout(self.frame_52)
-        self.verticalLayout_100.setObjectName(u"verticalLayout_100")
-        self.stock_news_title_frame_15 = QFrame(self.frame_52)
-        self.stock_news_title_frame_15.setObjectName(u"stock_news_title_frame_15")
-        self.stock_news_title_frame_15.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_15.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_101 = QVBoxLayout(self.stock_news_title_frame_15)
-        self.verticalLayout_101.setObjectName(u"verticalLayout_101")
-        self.stock_news_title_15 = QLabel(self.stock_news_title_frame_15)
-        self.stock_news_title_15.setObjectName(u"stock_news_title_15")
-        self.stock_news_title_15.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_15.setWordWrap(True)
-
-        self.verticalLayout_101.addWidget(self.stock_news_title_15)
-
-
-        self.verticalLayout_100.addWidget(self.stock_news_title_frame_15)
-
-        self.frame_53 = QFrame(self.frame_52)
-        self.frame_53.setObjectName(u"frame_53")
-        sizePolicy1.setHeightForWidth(self.frame_53.sizePolicy().hasHeightForWidth())
-        self.frame_53.setSizePolicy(sizePolicy1)
-        self.frame_53.setMinimumSize(QSize(0, 0))
-        self.frame_53.setFrameShape(QFrame.StyledPanel)
-        self.frame_53.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_102 = QVBoxLayout(self.frame_53)
-        self.verticalLayout_102.setObjectName(u"verticalLayout_102")
-        self.stock_news_text_15 = QLabel(self.frame_53)
-        self.stock_news_text_15.setObjectName(u"stock_news_text_15")
-        self.stock_news_text_15.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_15.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_15.setWordWrap(True)
-        self.stock_news_text_15.setOpenExternalLinks(False)
-        self.stock_news_text_15.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_102.addWidget(self.stock_news_text_15)
-
-
-        self.verticalLayout_100.addWidget(self.frame_53)
-
-        self.frame_54 = QFrame(self.frame_52)
-        self.frame_54.setObjectName(u"frame_54")
-        self.frame_54.setFrameShape(QFrame.StyledPanel)
-        self.frame_54.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_41 = QHBoxLayout(self.frame_54)
-        self.horizontalLayout_41.setObjectName(u"horizontalLayout_41")
-        self.stock_news_media_15 = QLabel(self.frame_54)
-        self.stock_news_media_15.setObjectName(u"stock_news_media_15")
-        self.stock_news_media_15.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_15.setWordWrap(True)
-
-        self.horizontalLayout_41.addWidget(self.stock_news_media_15, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_100.addWidget(self.frame_54, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_30.addWidget(self.frame_52)
-
-        self.frame_55 = QFrame(self.frame_51)
-        self.frame_55.setObjectName(u"frame_55")
-        self.frame_55.setMinimumSize(QSize(100, 100))
-        self.frame_55.setMaximumSize(QSize(250, 280))
-        self.frame_55.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_55.setFrameShape(QFrame.Box)
-        self.frame_55.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_103 = QVBoxLayout(self.frame_55)
+        self.verticalLayout_103 = QVBoxLayout(self.frame_31)
         self.verticalLayout_103.setObjectName(u"verticalLayout_103")
-        self.stock_news_title_frame_16 = QFrame(self.frame_55)
-        self.stock_news_title_frame_16.setObjectName(u"stock_news_title_frame_16")
-        self.stock_news_title_frame_16.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_16.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_104 = QVBoxLayout(self.stock_news_title_frame_16)
+        self.label_111 = QLabel(self.frame_31)
+        self.label_111.setObjectName(u"label_111")
+        self.label_111.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_111.setWordWrap(True)
+
+        self.verticalLayout_103.addWidget(self.label_111)
+
+
+        self.verticalLayout_251.addWidget(self.frame_31)
+
+        self.scrollArea_23 = QScrollArea(self.frame_280)
+        self.scrollArea_23.setObjectName(u"scrollArea_23")
+        self.scrollArea_23.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_23.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_23 = QWidget()
+        self.scrollAreaWidgetContents_23.setObjectName(u"scrollAreaWidgetContents_23")
+        self.scrollAreaWidgetContents_23.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_104 = QVBoxLayout(self.scrollAreaWidgetContents_23)
         self.verticalLayout_104.setObjectName(u"verticalLayout_104")
-        self.stock_news_title_16 = QLabel(self.stock_news_title_frame_16)
-        self.stock_news_title_16.setObjectName(u"stock_news_title_16")
-        self.stock_news_title_16.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_16.setWordWrap(True)
+        self.stock_news_text_71 = QLabel(self.scrollAreaWidgetContents_23)
+        self.stock_news_text_71.setObjectName(u"stock_news_text_71")
+        self.stock_news_text_71.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_71.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_71.setWordWrap(True)
+        self.stock_news_text_71.setOpenExternalLinks(False)
+        self.stock_news_text_71.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
-        self.verticalLayout_104.addWidget(self.stock_news_title_16)
+        self.verticalLayout_104.addWidget(self.stock_news_text_71)
+
+        self.scrollArea_23.setWidget(self.scrollAreaWidgetContents_23)
+
+        self.verticalLayout_251.addWidget(self.scrollArea_23)
+
+        self.frame_281 = QFrame(self.frame_280)
+        self.frame_281.setObjectName(u"frame_281")
+        self.frame_281.setFrameShape(QFrame.StyledPanel)
+        self.frame_281.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_117 = QHBoxLayout(self.frame_281)
+        self.horizontalLayout_117.setObjectName(u"horizontalLayout_117")
+        self.stock_news_media_71 = QLabel(self.frame_281)
+        self.stock_news_media_71.setObjectName(u"stock_news_media_71")
+        self.stock_news_media_71.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_71.setWordWrap(True)
+
+        self.horizontalLayout_117.addWidget(self.stock_news_media_71)
+
+        self.label_112 = QLabel(self.frame_281)
+        self.label_112.setObjectName(u"label_112")
+
+        self.horizontalLayout_117.addWidget(self.label_112)
+
+        self.label_113 = QLabel(self.frame_281)
+        self.label_113.setObjectName(u"label_113")
+
+        self.horizontalLayout_117.addWidget(self.label_113)
 
 
-        self.verticalLayout_103.addWidget(self.stock_news_title_frame_16)
+        self.verticalLayout_251.addWidget(self.frame_281, 0, Qt.AlignRight|Qt.AlignBottom)
 
-        self.frame_56 = QFrame(self.frame_55)
-        self.frame_56.setObjectName(u"frame_56")
-        sizePolicy1.setHeightForWidth(self.frame_56.sizePolicy().hasHeightForWidth())
-        self.frame_56.setSizePolicy(sizePolicy1)
-        self.frame_56.setMinimumSize(QSize(0, 0))
-        self.frame_56.setFrameShape(QFrame.StyledPanel)
-        self.frame_56.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_105 = QVBoxLayout(self.frame_56)
+
+        self.horizontalLayout_30.addWidget(self.frame_280)
+
+
+        self.verticalLayout_111.addWidget(self.frame_275)
+
+        self.frame_268 = QFrame(self.stock_analysis_news_frame_2)
+        self.frame_268.setObjectName(u"frame_268")
+        self.frame_268.setMinimumSize(QSize(0, 0))
+        self.frame_268.setStyleSheet(u"")
+        self.frame_268.setFrameShape(QFrame.StyledPanel)
+        self.frame_268.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_29 = QHBoxLayout(self.frame_268)
+        self.horizontalLayout_29.setObjectName(u"horizontalLayout_29")
+        self.frame_269 = QFrame(self.frame_268)
+        self.frame_269.setObjectName(u"frame_269")
+        self.frame_269.setMinimumSize(QSize(100, 281))
+        self.frame_269.setMaximumSize(QSize(250, 268))
+        self.frame_269.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_269.setFrameShape(QFrame.Box)
+        self.frame_269.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_246 = QVBoxLayout(self.frame_269)
+        self.verticalLayout_246.setObjectName(u"verticalLayout_246")
+        self.frame_26 = QFrame(self.frame_269)
+        self.frame_26.setObjectName(u"frame_26")
+        self.frame_26.setFrameShape(QFrame.StyledPanel)
+        self.frame_26.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_93 = QVBoxLayout(self.frame_26)
+        self.verticalLayout_93.setObjectName(u"verticalLayout_93")
+        self.label_48 = QLabel(self.frame_26)
+        self.label_48.setObjectName(u"label_48")
+        self.label_48.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_48.setWordWrap(True)
+
+        self.verticalLayout_93.addWidget(self.label_48)
+
+
+        self.verticalLayout_246.addWidget(self.frame_26)
+
+        self.scrollArea_18 = QScrollArea(self.frame_269)
+        self.scrollArea_18.setObjectName(u"scrollArea_18")
+        self.scrollArea_18.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_18.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_18 = QWidget()
+        self.scrollAreaWidgetContents_18.setObjectName(u"scrollAreaWidgetContents_18")
+        self.scrollAreaWidgetContents_18.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_94 = QVBoxLayout(self.scrollAreaWidgetContents_18)
+        self.verticalLayout_94.setObjectName(u"verticalLayout_94")
+        self.stock_news_text_66 = QLabel(self.scrollAreaWidgetContents_18)
+        self.stock_news_text_66.setObjectName(u"stock_news_text_66")
+        self.stock_news_text_66.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_66.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_66.setWordWrap(True)
+        self.stock_news_text_66.setOpenExternalLinks(False)
+        self.stock_news_text_66.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_94.addWidget(self.stock_news_text_66)
+
+        self.scrollArea_18.setWidget(self.scrollAreaWidgetContents_18)
+
+        self.verticalLayout_246.addWidget(self.scrollArea_18)
+
+        self.frame_270 = QFrame(self.frame_269)
+        self.frame_270.setObjectName(u"frame_270")
+        self.frame_270.setFrameShape(QFrame.StyledPanel)
+        self.frame_270.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_112 = QHBoxLayout(self.frame_270)
+        self.horizontalLayout_112.setObjectName(u"horizontalLayout_112")
+        self.stock_news_media_66 = QLabel(self.frame_270)
+        self.stock_news_media_66.setObjectName(u"stock_news_media_66")
+        self.stock_news_media_66.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_66.setWordWrap(True)
+
+        self.horizontalLayout_112.addWidget(self.stock_news_media_66)
+
+        self.label_49 = QLabel(self.frame_270)
+        self.label_49.setObjectName(u"label_49")
+
+        self.horizontalLayout_112.addWidget(self.label_49)
+
+        self.label_102 = QLabel(self.frame_270)
+        self.label_102.setObjectName(u"label_102")
+
+        self.horizontalLayout_112.addWidget(self.label_102)
+
+
+        self.verticalLayout_246.addWidget(self.frame_270, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_29.addWidget(self.frame_269)
+
+        self.frame_271 = QFrame(self.frame_268)
+        self.frame_271.setObjectName(u"frame_271")
+        self.frame_271.setMinimumSize(QSize(100, 281))
+        self.frame_271.setMaximumSize(QSize(250, 268))
+        self.frame_271.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_271.setFrameShape(QFrame.Box)
+        self.frame_271.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_247 = QVBoxLayout(self.frame_271)
+        self.verticalLayout_247.setObjectName(u"verticalLayout_247")
+        self.frame_27 = QFrame(self.frame_271)
+        self.frame_27.setObjectName(u"frame_27")
+        self.frame_27.setFrameShape(QFrame.StyledPanel)
+        self.frame_27.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_95 = QVBoxLayout(self.frame_27)
+        self.verticalLayout_95.setObjectName(u"verticalLayout_95")
+        self.label_50 = QLabel(self.frame_27)
+        self.label_50.setObjectName(u"label_50")
+        self.label_50.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_50.setWordWrap(True)
+
+        self.verticalLayout_95.addWidget(self.label_50)
+
+
+        self.verticalLayout_247.addWidget(self.frame_27)
+
+        self.scrollArea_19 = QScrollArea(self.frame_271)
+        self.scrollArea_19.setObjectName(u"scrollArea_19")
+        self.scrollArea_19.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_19.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_19 = QWidget()
+        self.scrollAreaWidgetContents_19.setObjectName(u"scrollAreaWidgetContents_19")
+        self.scrollAreaWidgetContents_19.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_96 = QVBoxLayout(self.scrollAreaWidgetContents_19)
+        self.verticalLayout_96.setObjectName(u"verticalLayout_96")
+        self.stock_news_text_67 = QLabel(self.scrollAreaWidgetContents_19)
+        self.stock_news_text_67.setObjectName(u"stock_news_text_67")
+        self.stock_news_text_67.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_67.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_67.setWordWrap(True)
+        self.stock_news_text_67.setOpenExternalLinks(False)
+        self.stock_news_text_67.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_96.addWidget(self.stock_news_text_67)
+
+        self.scrollArea_19.setWidget(self.scrollAreaWidgetContents_19)
+
+        self.verticalLayout_247.addWidget(self.scrollArea_19)
+
+        self.frame_272 = QFrame(self.frame_271)
+        self.frame_272.setObjectName(u"frame_272")
+        self.frame_272.setFrameShape(QFrame.StyledPanel)
+        self.frame_272.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_113 = QHBoxLayout(self.frame_272)
+        self.horizontalLayout_113.setObjectName(u"horizontalLayout_113")
+        self.stock_news_media_67 = QLabel(self.frame_272)
+        self.stock_news_media_67.setObjectName(u"stock_news_media_67")
+        self.stock_news_media_67.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_67.setWordWrap(True)
+
+        self.horizontalLayout_113.addWidget(self.stock_news_media_67)
+
+        self.label_103 = QLabel(self.frame_272)
+        self.label_103.setObjectName(u"label_103")
+
+        self.horizontalLayout_113.addWidget(self.label_103)
+
+        self.label_104 = QLabel(self.frame_272)
+        self.label_104.setObjectName(u"label_104")
+
+        self.horizontalLayout_113.addWidget(self.label_104)
+
+
+        self.verticalLayout_247.addWidget(self.frame_272, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_29.addWidget(self.frame_271)
+
+        self.frame_273 = QFrame(self.frame_268)
+        self.frame_273.setObjectName(u"frame_273")
+        self.frame_273.setMinimumSize(QSize(100, 281))
+        self.frame_273.setMaximumSize(QSize(250, 268))
+        self.frame_273.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_273.setFrameShape(QFrame.Box)
+        self.frame_273.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_248 = QVBoxLayout(self.frame_273)
+        self.verticalLayout_248.setObjectName(u"verticalLayout_248")
+        self.frame_28 = QFrame(self.frame_273)
+        self.frame_28.setObjectName(u"frame_28")
+        self.frame_28.setFrameShape(QFrame.StyledPanel)
+        self.frame_28.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_97 = QVBoxLayout(self.frame_28)
+        self.verticalLayout_97.setObjectName(u"verticalLayout_97")
+        self.label_105 = QLabel(self.frame_28)
+        self.label_105.setObjectName(u"label_105")
+        self.label_105.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_105.setWordWrap(True)
+
+        self.verticalLayout_97.addWidget(self.label_105)
+
+
+        self.verticalLayout_248.addWidget(self.frame_28)
+
+        self.scrollArea_20 = QScrollArea(self.frame_273)
+        self.scrollArea_20.setObjectName(u"scrollArea_20")
+        self.scrollArea_20.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_20.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_20 = QWidget()
+        self.scrollAreaWidgetContents_20.setObjectName(u"scrollAreaWidgetContents_20")
+        self.scrollAreaWidgetContents_20.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_98 = QVBoxLayout(self.scrollAreaWidgetContents_20)
+        self.verticalLayout_98.setObjectName(u"verticalLayout_98")
+        self.stock_news_text_68 = QLabel(self.scrollAreaWidgetContents_20)
+        self.stock_news_text_68.setObjectName(u"stock_news_text_68")
+        self.stock_news_text_68.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_68.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_68.setWordWrap(True)
+        self.stock_news_text_68.setOpenExternalLinks(False)
+        self.stock_news_text_68.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_98.addWidget(self.stock_news_text_68)
+
+        self.scrollArea_20.setWidget(self.scrollAreaWidgetContents_20)
+
+        self.verticalLayout_248.addWidget(self.scrollArea_20)
+
+        self.frame_274 = QFrame(self.frame_273)
+        self.frame_274.setObjectName(u"frame_274")
+        self.frame_274.setFrameShape(QFrame.StyledPanel)
+        self.frame_274.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_114 = QHBoxLayout(self.frame_274)
+        self.horizontalLayout_114.setObjectName(u"horizontalLayout_114")
+        self.stock_news_media_68 = QLabel(self.frame_274)
+        self.stock_news_media_68.setObjectName(u"stock_news_media_68")
+        self.stock_news_media_68.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_68.setWordWrap(True)
+
+        self.horizontalLayout_114.addWidget(self.stock_news_media_68)
+
+        self.label_106 = QLabel(self.frame_274)
+        self.label_106.setObjectName(u"label_106")
+
+        self.horizontalLayout_114.addWidget(self.label_106)
+
+        self.label_107 = QLabel(self.frame_274)
+        self.label_107.setObjectName(u"label_107")
+
+        self.horizontalLayout_114.addWidget(self.label_107)
+
+
+        self.verticalLayout_248.addWidget(self.frame_274, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_29.addWidget(self.frame_273)
+
+
+        self.verticalLayout_111.addWidget(self.frame_268)
+
+        self.frame_282 = QFrame(self.stock_analysis_news_frame_2)
+        self.frame_282.setObjectName(u"frame_282")
+        self.frame_282.setMinimumSize(QSize(0, 0))
+        self.frame_282.setStyleSheet(u"")
+        self.frame_282.setFrameShape(QFrame.StyledPanel)
+        self.frame_282.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_31 = QHBoxLayout(self.frame_282)
+        self.horizontalLayout_31.setObjectName(u"horizontalLayout_31")
+        self.frame_283 = QFrame(self.frame_282)
+        self.frame_283.setObjectName(u"frame_283")
+        self.frame_283.setMinimumSize(QSize(100, 281))
+        self.frame_283.setMaximumSize(QSize(250, 268))
+        self.frame_283.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_283.setFrameShape(QFrame.Box)
+        self.frame_283.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_252 = QVBoxLayout(self.frame_283)
+        self.verticalLayout_252.setObjectName(u"verticalLayout_252")
+        self.frame_32 = QFrame(self.frame_283)
+        self.frame_32.setObjectName(u"frame_32")
+        self.frame_32.setFrameShape(QFrame.StyledPanel)
+        self.frame_32.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_105 = QVBoxLayout(self.frame_32)
         self.verticalLayout_105.setObjectName(u"verticalLayout_105")
-        self.stock_news_text_16 = QLabel(self.frame_56)
-        self.stock_news_text_16.setObjectName(u"stock_news_text_16")
-        self.stock_news_text_16.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_16.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_16.setWordWrap(True)
-        self.stock_news_text_16.setOpenExternalLinks(False)
-        self.stock_news_text_16.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.label_60 = QLabel(self.frame_32)
+        self.label_60.setObjectName(u"label_60")
+        self.label_60.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_60.setWordWrap(True)
 
-        self.verticalLayout_105.addWidget(self.stock_news_text_16)
+        self.verticalLayout_105.addWidget(self.label_60)
 
 
-        self.verticalLayout_103.addWidget(self.frame_56)
+        self.verticalLayout_252.addWidget(self.frame_32)
 
-        self.frame_57 = QFrame(self.frame_55)
-        self.frame_57.setObjectName(u"frame_57")
-        self.frame_57.setFrameShape(QFrame.StyledPanel)
-        self.frame_57.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_42 = QHBoxLayout(self.frame_57)
-        self.horizontalLayout_42.setObjectName(u"horizontalLayout_42")
-        self.stock_news_media_16 = QLabel(self.frame_57)
-        self.stock_news_media_16.setObjectName(u"stock_news_media_16")
-        self.stock_news_media_16.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_16.setWordWrap(True)
-
-        self.horizontalLayout_42.addWidget(self.stock_news_media_16, 0, Qt.AlignBottom)
-
-
-        self.verticalLayout_103.addWidget(self.frame_57, 0, Qt.AlignBottom)
-
-
-        self.horizontalLayout_30.addWidget(self.frame_55)
-
-        self.frame_58 = QFrame(self.frame_51)
-        self.frame_58.setObjectName(u"frame_58")
-        self.frame_58.setMinimumSize(QSize(100, 100))
-        self.frame_58.setMaximumSize(QSize(250, 280))
-        self.frame_58.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
-"")
-        self.frame_58.setFrameShape(QFrame.Box)
-        self.frame_58.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_106 = QVBoxLayout(self.frame_58)
+        self.scrollArea_24 = QScrollArea(self.frame_283)
+        self.scrollArea_24.setObjectName(u"scrollArea_24")
+        self.scrollArea_24.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_24.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_24 = QWidget()
+        self.scrollAreaWidgetContents_24.setObjectName(u"scrollAreaWidgetContents_24")
+        self.scrollAreaWidgetContents_24.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_106 = QVBoxLayout(self.scrollAreaWidgetContents_24)
         self.verticalLayout_106.setObjectName(u"verticalLayout_106")
-        self.stock_news_title_frame_17 = QFrame(self.frame_58)
-        self.stock_news_title_frame_17.setObjectName(u"stock_news_title_frame_17")
-        self.stock_news_title_frame_17.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_17.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_107 = QVBoxLayout(self.stock_news_title_frame_17)
+        self.stock_news_text_72 = QLabel(self.scrollAreaWidgetContents_24)
+        self.stock_news_text_72.setObjectName(u"stock_news_text_72")
+        self.stock_news_text_72.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_72.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_72.setWordWrap(True)
+        self.stock_news_text_72.setOpenExternalLinks(False)
+        self.stock_news_text_72.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_106.addWidget(self.stock_news_text_72)
+
+        self.scrollArea_24.setWidget(self.scrollAreaWidgetContents_24)
+
+        self.verticalLayout_252.addWidget(self.scrollArea_24)
+
+        self.frame_284 = QFrame(self.frame_283)
+        self.frame_284.setObjectName(u"frame_284")
+        self.frame_284.setFrameShape(QFrame.StyledPanel)
+        self.frame_284.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_118 = QHBoxLayout(self.frame_284)
+        self.horizontalLayout_118.setObjectName(u"horizontalLayout_118")
+        self.stock_news_media_72 = QLabel(self.frame_284)
+        self.stock_news_media_72.setObjectName(u"stock_news_media_72")
+        self.stock_news_media_72.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_72.setWordWrap(True)
+
+        self.horizontalLayout_118.addWidget(self.stock_news_media_72)
+
+        self.label_61 = QLabel(self.frame_284)
+        self.label_61.setObjectName(u"label_61")
+
+        self.horizontalLayout_118.addWidget(self.label_61)
+
+        self.label_114 = QLabel(self.frame_284)
+        self.label_114.setObjectName(u"label_114")
+
+        self.horizontalLayout_118.addWidget(self.label_114)
+
+
+        self.verticalLayout_252.addWidget(self.frame_284, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_31.addWidget(self.frame_283)
+
+        self.frame_285 = QFrame(self.frame_282)
+        self.frame_285.setObjectName(u"frame_285")
+        self.frame_285.setMinimumSize(QSize(100, 281))
+        self.frame_285.setMaximumSize(QSize(250, 268))
+        self.frame_285.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_285.setFrameShape(QFrame.Box)
+        self.frame_285.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_253 = QVBoxLayout(self.frame_285)
+        self.verticalLayout_253.setObjectName(u"verticalLayout_253")
+        self.frame_33 = QFrame(self.frame_285)
+        self.frame_33.setObjectName(u"frame_33")
+        self.frame_33.setFrameShape(QFrame.StyledPanel)
+        self.frame_33.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_107 = QVBoxLayout(self.frame_33)
         self.verticalLayout_107.setObjectName(u"verticalLayout_107")
-        self.stock_news_title_17 = QLabel(self.stock_news_title_frame_17)
-        self.stock_news_title_17.setObjectName(u"stock_news_title_17")
-        self.stock_news_title_17.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_17.setWordWrap(True)
+        self.label_62 = QLabel(self.frame_33)
+        self.label_62.setObjectName(u"label_62")
+        self.label_62.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_62.setWordWrap(True)
 
-        self.verticalLayout_107.addWidget(self.stock_news_title_17)
+        self.verticalLayout_107.addWidget(self.label_62)
 
 
-        self.verticalLayout_106.addWidget(self.stock_news_title_frame_17)
+        self.verticalLayout_253.addWidget(self.frame_33)
 
-        self.frame_59 = QFrame(self.frame_58)
-        self.frame_59.setObjectName(u"frame_59")
-        sizePolicy1.setHeightForWidth(self.frame_59.sizePolicy().hasHeightForWidth())
-        self.frame_59.setSizePolicy(sizePolicy1)
-        self.frame_59.setMinimumSize(QSize(0, 0))
-        self.frame_59.setFrameShape(QFrame.StyledPanel)
-        self.frame_59.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_108 = QVBoxLayout(self.frame_59)
+        self.scrollArea_25 = QScrollArea(self.frame_285)
+        self.scrollArea_25.setObjectName(u"scrollArea_25")
+        self.scrollArea_25.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_25.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_25 = QWidget()
+        self.scrollAreaWidgetContents_25.setObjectName(u"scrollAreaWidgetContents_25")
+        self.scrollAreaWidgetContents_25.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_108 = QVBoxLayout(self.scrollAreaWidgetContents_25)
         self.verticalLayout_108.setObjectName(u"verticalLayout_108")
-        self.stock_news_text_17 = QLabel(self.frame_59)
-        self.stock_news_text_17.setObjectName(u"stock_news_text_17")
-        self.stock_news_text_17.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_17.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_17.setWordWrap(True)
-        self.stock_news_text_17.setOpenExternalLinks(False)
-        self.stock_news_text_17.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.stock_news_text_73 = QLabel(self.scrollAreaWidgetContents_25)
+        self.stock_news_text_73.setObjectName(u"stock_news_text_73")
+        self.stock_news_text_73.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_73.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_73.setWordWrap(True)
+        self.stock_news_text_73.setOpenExternalLinks(False)
+        self.stock_news_text_73.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
-        self.verticalLayout_108.addWidget(self.stock_news_text_17)
+        self.verticalLayout_108.addWidget(self.stock_news_text_73)
+
+        self.scrollArea_25.setWidget(self.scrollAreaWidgetContents_25)
+
+        self.verticalLayout_253.addWidget(self.scrollArea_25)
+
+        self.frame_286 = QFrame(self.frame_285)
+        self.frame_286.setObjectName(u"frame_286")
+        self.frame_286.setFrameShape(QFrame.StyledPanel)
+        self.frame_286.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_119 = QHBoxLayout(self.frame_286)
+        self.horizontalLayout_119.setObjectName(u"horizontalLayout_119")
+        self.stock_news_media_73 = QLabel(self.frame_286)
+        self.stock_news_media_73.setObjectName(u"stock_news_media_73")
+        self.stock_news_media_73.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_73.setWordWrap(True)
+
+        self.horizontalLayout_119.addWidget(self.stock_news_media_73)
+
+        self.label_115 = QLabel(self.frame_286)
+        self.label_115.setObjectName(u"label_115")
+
+        self.horizontalLayout_119.addWidget(self.label_115)
+
+        self.label_116 = QLabel(self.frame_286)
+        self.label_116.setObjectName(u"label_116")
+
+        self.horizontalLayout_119.addWidget(self.label_116)
 
 
-        self.verticalLayout_106.addWidget(self.frame_59)
-
-        self.frame_60 = QFrame(self.frame_58)
-        self.frame_60.setObjectName(u"frame_60")
-        self.frame_60.setFrameShape(QFrame.StyledPanel)
-        self.frame_60.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_43 = QHBoxLayout(self.frame_60)
-        self.horizontalLayout_43.setObjectName(u"horizontalLayout_43")
-        self.stock_news_media_17 = QLabel(self.frame_60)
-        self.stock_news_media_17.setObjectName(u"stock_news_media_17")
-        self.stock_news_media_17.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_17.setWordWrap(True)
-
-        self.horizontalLayout_43.addWidget(self.stock_news_media_17, 0, Qt.AlignBottom)
+        self.verticalLayout_253.addWidget(self.frame_286, 0, Qt.AlignRight|Qt.AlignBottom)
 
 
-        self.verticalLayout_106.addWidget(self.frame_60, 0, Qt.AlignBottom)
+        self.horizontalLayout_31.addWidget(self.frame_285)
 
-
-        self.horizontalLayout_30.addWidget(self.frame_58)
-
-
-        self.verticalLayout_61.addWidget(self.frame_51)
-
-        self.frame_61 = QFrame(self.stock_analysis_news_frame_2)
-        self.frame_61.setObjectName(u"frame_61")
-        self.frame_61.setMinimumSize(QSize(0, 300))
-        self.frame_61.setStyleSheet(u"")
-        self.frame_61.setFrameShape(QFrame.StyledPanel)
-        self.frame_61.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_44 = QHBoxLayout(self.frame_61)
-        self.horizontalLayout_44.setObjectName(u"horizontalLayout_44")
-        self.frame_62 = QFrame(self.frame_61)
-        self.frame_62.setObjectName(u"frame_62")
-        self.frame_62.setMinimumSize(QSize(100, 100))
-        self.frame_62.setMaximumSize(QSize(250, 280))
-        self.frame_62.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+        self.frame_287 = QFrame(self.frame_282)
+        self.frame_287.setObjectName(u"frame_287")
+        self.frame_287.setMinimumSize(QSize(100, 281))
+        self.frame_287.setMaximumSize(QSize(250, 268))
+        self.frame_287.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
 "")
-        self.frame_62.setFrameShape(QFrame.Box)
-        self.frame_62.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_109 = QVBoxLayout(self.frame_62)
+        self.frame_287.setFrameShape(QFrame.Box)
+        self.frame_287.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_254 = QVBoxLayout(self.frame_287)
+        self.verticalLayout_254.setObjectName(u"verticalLayout_254")
+        self.frame_34 = QFrame(self.frame_287)
+        self.frame_34.setObjectName(u"frame_34")
+        self.frame_34.setFrameShape(QFrame.StyledPanel)
+        self.frame_34.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_109 = QVBoxLayout(self.frame_34)
         self.verticalLayout_109.setObjectName(u"verticalLayout_109")
-        self.stock_news_title_frame_18 = QFrame(self.frame_62)
-        self.stock_news_title_frame_18.setObjectName(u"stock_news_title_frame_18")
-        self.stock_news_title_frame_18.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_18.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_110 = QVBoxLayout(self.stock_news_title_frame_18)
+        self.label_117 = QLabel(self.frame_34)
+        self.label_117.setObjectName(u"label_117")
+        self.label_117.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_117.setWordWrap(True)
+
+        self.verticalLayout_109.addWidget(self.label_117)
+
+
+        self.verticalLayout_254.addWidget(self.frame_34)
+
+        self.scrollArea_26 = QScrollArea(self.frame_287)
+        self.scrollArea_26.setObjectName(u"scrollArea_26")
+        self.scrollArea_26.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_26.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_26 = QWidget()
+        self.scrollAreaWidgetContents_26.setObjectName(u"scrollAreaWidgetContents_26")
+        self.scrollAreaWidgetContents_26.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_110 = QVBoxLayout(self.scrollAreaWidgetContents_26)
         self.verticalLayout_110.setObjectName(u"verticalLayout_110")
-        self.stock_news_title_18 = QLabel(self.stock_news_title_frame_18)
-        self.stock_news_title_18.setObjectName(u"stock_news_title_18")
-        self.stock_news_title_18.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_18.setWordWrap(True)
+        self.stock_news_text_74 = QLabel(self.scrollAreaWidgetContents_26)
+        self.stock_news_text_74.setObjectName(u"stock_news_text_74")
+        self.stock_news_text_74.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_74.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_74.setWordWrap(True)
+        self.stock_news_text_74.setOpenExternalLinks(False)
+        self.stock_news_text_74.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
-        self.verticalLayout_110.addWidget(self.stock_news_title_18)
+        self.verticalLayout_110.addWidget(self.stock_news_text_74)
 
+        self.scrollArea_26.setWidget(self.scrollAreaWidgetContents_26)
 
-        self.verticalLayout_109.addWidget(self.stock_news_title_frame_18)
+        self.verticalLayout_254.addWidget(self.scrollArea_26)
 
-        self.frame_63 = QFrame(self.frame_62)
-        self.frame_63.setObjectName(u"frame_63")
-        sizePolicy1.setHeightForWidth(self.frame_63.sizePolicy().hasHeightForWidth())
-        self.frame_63.setSizePolicy(sizePolicy1)
-        self.frame_63.setMinimumSize(QSize(0, 0))
-        self.frame_63.setFrameShape(QFrame.StyledPanel)
-        self.frame_63.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_111 = QVBoxLayout(self.frame_63)
-        self.verticalLayout_111.setObjectName(u"verticalLayout_111")
-        self.stock_news_text_18 = QLabel(self.frame_63)
-        self.stock_news_text_18.setObjectName(u"stock_news_text_18")
-        self.stock_news_text_18.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_18.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_18.setWordWrap(True)
-        self.stock_news_text_18.setOpenExternalLinks(False)
-        self.stock_news_text_18.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.frame_288 = QFrame(self.frame_287)
+        self.frame_288.setObjectName(u"frame_288")
+        self.frame_288.setFrameShape(QFrame.StyledPanel)
+        self.frame_288.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_120 = QHBoxLayout(self.frame_288)
+        self.horizontalLayout_120.setObjectName(u"horizontalLayout_120")
+        self.stock_news_media_74 = QLabel(self.frame_288)
+        self.stock_news_media_74.setObjectName(u"stock_news_media_74")
+        self.stock_news_media_74.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_74.setWordWrap(True)
 
-        self.verticalLayout_111.addWidget(self.stock_news_text_18)
+        self.horizontalLayout_120.addWidget(self.stock_news_media_74)
 
+        self.label_118 = QLabel(self.frame_288)
+        self.label_118.setObjectName(u"label_118")
 
-        self.verticalLayout_109.addWidget(self.frame_63)
+        self.horizontalLayout_120.addWidget(self.label_118)
 
-        self.frame_64 = QFrame(self.frame_62)
-        self.frame_64.setObjectName(u"frame_64")
-        self.frame_64.setFrameShape(QFrame.StyledPanel)
-        self.frame_64.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_45 = QHBoxLayout(self.frame_64)
-        self.horizontalLayout_45.setObjectName(u"horizontalLayout_45")
-        self.stock_news_media_18 = QLabel(self.frame_64)
-        self.stock_news_media_18.setObjectName(u"stock_news_media_18")
-        self.stock_news_media_18.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_18.setWordWrap(True)
+        self.label_119 = QLabel(self.frame_288)
+        self.label_119.setObjectName(u"label_119")
 
-        self.horizontalLayout_45.addWidget(self.stock_news_media_18, 0, Qt.AlignBottom)
+        self.horizontalLayout_120.addWidget(self.label_119)
 
 
-        self.verticalLayout_109.addWidget(self.frame_64, 0, Qt.AlignBottom)
+        self.verticalLayout_254.addWidget(self.frame_288, 0, Qt.AlignRight|Qt.AlignBottom)
 
 
-        self.horizontalLayout_44.addWidget(self.frame_62)
+        self.horizontalLayout_31.addWidget(self.frame_287)
 
-        self.frame_65 = QFrame(self.frame_61)
-        self.frame_65.setObjectName(u"frame_65")
-        self.frame_65.setMinimumSize(QSize(100, 100))
-        self.frame_65.setMaximumSize(QSize(250, 280))
-        self.frame_65.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+
+        self.verticalLayout_111.addWidget(self.frame_282)
+
+        self.frame_261 = QFrame(self.stock_analysis_news_frame_2)
+        self.frame_261.setObjectName(u"frame_261")
+        self.frame_261.setMinimumSize(QSize(0, 0))
+        self.frame_261.setStyleSheet(u"")
+        self.frame_261.setFrameShape(QFrame.StyledPanel)
+        self.frame_261.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_28 = QHBoxLayout(self.frame_261)
+        self.horizontalLayout_28.setObjectName(u"horizontalLayout_28")
+        self.frame_262 = QFrame(self.frame_261)
+        self.frame_262.setObjectName(u"frame_262")
+        self.frame_262.setMinimumSize(QSize(100, 281))
+        self.frame_262.setMaximumSize(QSize(250, 268))
+        self.frame_262.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
 "")
-        self.frame_65.setFrameShape(QFrame.Box)
-        self.frame_65.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_112 = QVBoxLayout(self.frame_65)
-        self.verticalLayout_112.setObjectName(u"verticalLayout_112")
-        self.stock_news_title_frame_19 = QFrame(self.frame_65)
-        self.stock_news_title_frame_19.setObjectName(u"stock_news_title_frame_19")
-        self.stock_news_title_frame_19.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_19.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_113 = QVBoxLayout(self.stock_news_title_frame_19)
-        self.verticalLayout_113.setObjectName(u"verticalLayout_113")
-        self.stock_news_title_19 = QLabel(self.stock_news_title_frame_19)
-        self.stock_news_title_19.setObjectName(u"stock_news_title_19")
-        self.stock_news_title_19.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_19.setWordWrap(True)
+        self.frame_262.setFrameShape(QFrame.Box)
+        self.frame_262.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_243 = QVBoxLayout(self.frame_262)
+        self.verticalLayout_243.setObjectName(u"verticalLayout_243")
+        self.frame_23 = QFrame(self.frame_262)
+        self.frame_23.setObjectName(u"frame_23")
+        self.frame_23.setFrameShape(QFrame.StyledPanel)
+        self.frame_23.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_61 = QVBoxLayout(self.frame_23)
+        self.verticalLayout_61.setObjectName(u"verticalLayout_61")
+        self.label_45 = QLabel(self.frame_23)
+        self.label_45.setObjectName(u"label_45")
+        self.label_45.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_45.setWordWrap(True)
 
-        self.verticalLayout_113.addWidget(self.stock_news_title_19)
-
-
-        self.verticalLayout_112.addWidget(self.stock_news_title_frame_19)
-
-        self.frame_66 = QFrame(self.frame_65)
-        self.frame_66.setObjectName(u"frame_66")
-        sizePolicy1.setHeightForWidth(self.frame_66.sizePolicy().hasHeightForWidth())
-        self.frame_66.setSizePolicy(sizePolicy1)
-        self.frame_66.setMinimumSize(QSize(0, 0))
-        self.frame_66.setFrameShape(QFrame.StyledPanel)
-        self.frame_66.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_114 = QVBoxLayout(self.frame_66)
-        self.verticalLayout_114.setObjectName(u"verticalLayout_114")
-        self.stock_news_text_19 = QLabel(self.frame_66)
-        self.stock_news_text_19.setObjectName(u"stock_news_text_19")
-        self.stock_news_text_19.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_19.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_19.setWordWrap(True)
-        self.stock_news_text_19.setOpenExternalLinks(False)
-        self.stock_news_text_19.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_114.addWidget(self.stock_news_text_19)
+        self.verticalLayout_61.addWidget(self.label_45)
 
 
-        self.verticalLayout_112.addWidget(self.frame_66)
+        self.verticalLayout_243.addWidget(self.frame_23)
 
-        self.frame_67 = QFrame(self.frame_65)
-        self.frame_67.setObjectName(u"frame_67")
-        self.frame_67.setFrameShape(QFrame.StyledPanel)
-        self.frame_67.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_46 = QHBoxLayout(self.frame_67)
-        self.horizontalLayout_46.setObjectName(u"horizontalLayout_46")
-        self.stock_news_media_19 = QLabel(self.frame_67)
-        self.stock_news_media_19.setObjectName(u"stock_news_media_19")
-        self.stock_news_media_19.setStyleSheet(u"color: rgb(221, 221, 221);\n"
-"font: 8pt \"MS Shell Dlg 2\";")
-        self.stock_news_media_19.setWordWrap(True)
+        self.scrollArea_15 = QScrollArea(self.frame_262)
+        self.scrollArea_15.setObjectName(u"scrollArea_15")
+        self.scrollArea_15.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_15.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_15 = QWidget()
+        self.scrollAreaWidgetContents_15.setObjectName(u"scrollAreaWidgetContents_15")
+        self.scrollAreaWidgetContents_15.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_88 = QVBoxLayout(self.scrollAreaWidgetContents_15)
+        self.verticalLayout_88.setObjectName(u"verticalLayout_88")
+        self.stock_news_text_63 = QLabel(self.scrollAreaWidgetContents_15)
+        self.stock_news_text_63.setObjectName(u"stock_news_text_63")
+        self.stock_news_text_63.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_63.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_63.setWordWrap(True)
+        self.stock_news_text_63.setOpenExternalLinks(False)
+        self.stock_news_text_63.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
-        self.horizontalLayout_46.addWidget(self.stock_news_media_19, 0, Qt.AlignBottom)
+        self.verticalLayout_88.addWidget(self.stock_news_text_63)
+
+        self.scrollArea_15.setWidget(self.scrollAreaWidgetContents_15)
+
+        self.verticalLayout_243.addWidget(self.scrollArea_15)
+
+        self.frame_263 = QFrame(self.frame_262)
+        self.frame_263.setObjectName(u"frame_263")
+        self.frame_263.setFrameShape(QFrame.StyledPanel)
+        self.frame_263.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_109 = QHBoxLayout(self.frame_263)
+        self.horizontalLayout_109.setObjectName(u"horizontalLayout_109")
+        self.stock_news_media_63 = QLabel(self.frame_263)
+        self.stock_news_media_63.setObjectName(u"stock_news_media_63")
+        self.stock_news_media_63.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_63.setWordWrap(True)
+
+        self.horizontalLayout_109.addWidget(self.stock_news_media_63)
+
+        self.label_46 = QLabel(self.frame_263)
+        self.label_46.setObjectName(u"label_46")
+
+        self.horizontalLayout_109.addWidget(self.label_46)
+
+        self.label_96 = QLabel(self.frame_263)
+        self.label_96.setObjectName(u"label_96")
+
+        self.horizontalLayout_109.addWidget(self.label_96)
 
 
-        self.verticalLayout_112.addWidget(self.frame_67, 0, Qt.AlignBottom)
+        self.verticalLayout_243.addWidget(self.frame_263, 0, Qt.AlignRight|Qt.AlignBottom)
 
 
-        self.horizontalLayout_44.addWidget(self.frame_65)
+        self.horizontalLayout_28.addWidget(self.frame_262)
 
-        self.frame_68 = QFrame(self.frame_61)
-        self.frame_68.setObjectName(u"frame_68")
-        self.frame_68.setMinimumSize(QSize(100, 100))
-        self.frame_68.setMaximumSize(QSize(250, 280))
-        self.frame_68.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+        self.frame_264 = QFrame(self.frame_261)
+        self.frame_264.setObjectName(u"frame_264")
+        self.frame_264.setMinimumSize(QSize(100, 281))
+        self.frame_264.setMaximumSize(QSize(250, 268))
+        self.frame_264.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
 "")
-        self.frame_68.setFrameShape(QFrame.Box)
-        self.frame_68.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_115 = QVBoxLayout(self.frame_68)
-        self.verticalLayout_115.setObjectName(u"verticalLayout_115")
-        self.stock_news_title_frame_20 = QFrame(self.frame_68)
-        self.stock_news_title_frame_20.setObjectName(u"stock_news_title_frame_20")
-        self.stock_news_title_frame_20.setFrameShape(QFrame.StyledPanel)
-        self.stock_news_title_frame_20.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_116 = QVBoxLayout(self.stock_news_title_frame_20)
-        self.verticalLayout_116.setObjectName(u"verticalLayout_116")
-        self.stock_news_title_20 = QLabel(self.stock_news_title_frame_20)
-        self.stock_news_title_20.setObjectName(u"stock_news_title_20")
-        self.stock_news_title_20.setStyleSheet(u"color:rgb(234, 234, 234);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
-        self.stock_news_title_20.setWordWrap(True)
+        self.frame_264.setFrameShape(QFrame.Box)
+        self.frame_264.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_244 = QVBoxLayout(self.frame_264)
+        self.verticalLayout_244.setObjectName(u"verticalLayout_244")
+        self.frame_24 = QFrame(self.frame_264)
+        self.frame_24.setObjectName(u"frame_24")
+        self.frame_24.setFrameShape(QFrame.StyledPanel)
+        self.frame_24.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_89 = QVBoxLayout(self.frame_24)
+        self.verticalLayout_89.setObjectName(u"verticalLayout_89")
+        self.label_47 = QLabel(self.frame_24)
+        self.label_47.setObjectName(u"label_47")
+        self.label_47.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_47.setWordWrap(True)
 
-        self.verticalLayout_116.addWidget(self.stock_news_title_20)
-
-
-        self.verticalLayout_115.addWidget(self.stock_news_title_frame_20)
-
-        self.frame_69 = QFrame(self.frame_68)
-        self.frame_69.setObjectName(u"frame_69")
-        sizePolicy1.setHeightForWidth(self.frame_69.sizePolicy().hasHeightForWidth())
-        self.frame_69.setSizePolicy(sizePolicy1)
-        self.frame_69.setMinimumSize(QSize(0, 0))
-        self.frame_69.setFrameShape(QFrame.StyledPanel)
-        self.frame_69.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_117 = QVBoxLayout(self.frame_69)
-        self.verticalLayout_117.setObjectName(u"verticalLayout_117")
-        self.stock_news_text_20 = QLabel(self.frame_69)
-        self.stock_news_text_20.setObjectName(u"stock_news_text_20")
-        self.stock_news_text_20.setStyleSheet(u"color:rgb(209, 209, 209);")
-        self.stock_news_text_20.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
-        self.stock_news_text_20.setWordWrap(True)
-        self.stock_news_text_20.setOpenExternalLinks(False)
-        self.stock_news_text_20.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
-
-        self.verticalLayout_117.addWidget(self.stock_news_text_20)
+        self.verticalLayout_89.addWidget(self.label_47)
 
 
-        self.verticalLayout_115.addWidget(self.frame_69)
+        self.verticalLayout_244.addWidget(self.frame_24)
 
-        self.frame_70 = QFrame(self.frame_68)
-        self.frame_70.setObjectName(u"frame_70")
-        self.frame_70.setFrameShape(QFrame.StyledPanel)
-        self.frame_70.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_47 = QHBoxLayout(self.frame_70)
-        self.horizontalLayout_47.setObjectName(u"horizontalLayout_47")
-        self.stock_news_media_20 = QLabel(self.frame_70)
-        self.stock_news_media_20.setObjectName(u"stock_news_media_20")
-        self.stock_news_media_20.setStyleSheet(u"color: rgb(221, 221, 221);")
-        self.stock_news_media_20.setWordWrap(True)
+        self.scrollArea_16 = QScrollArea(self.frame_264)
+        self.scrollArea_16.setObjectName(u"scrollArea_16")
+        self.scrollArea_16.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_16.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_16 = QWidget()
+        self.scrollAreaWidgetContents_16.setObjectName(u"scrollAreaWidgetContents_16")
+        self.scrollAreaWidgetContents_16.setGeometry(QRect(0, 0, 228, 175))
+        self.verticalLayout_90 = QVBoxLayout(self.scrollAreaWidgetContents_16)
+        self.verticalLayout_90.setObjectName(u"verticalLayout_90")
+        self.stock_news_text_64 = QLabel(self.scrollAreaWidgetContents_16)
+        self.stock_news_text_64.setObjectName(u"stock_news_text_64")
+        self.stock_news_text_64.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_64.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_64.setWordWrap(True)
+        self.stock_news_text_64.setOpenExternalLinks(False)
+        self.stock_news_text_64.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
 
-        self.horizontalLayout_47.addWidget(self.stock_news_media_20, 0, Qt.AlignBottom)
+        self.verticalLayout_90.addWidget(self.stock_news_text_64)
+
+        self.scrollArea_16.setWidget(self.scrollAreaWidgetContents_16)
+
+        self.verticalLayout_244.addWidget(self.scrollArea_16)
+
+        self.frame_265 = QFrame(self.frame_264)
+        self.frame_265.setObjectName(u"frame_265")
+        self.frame_265.setFrameShape(QFrame.StyledPanel)
+        self.frame_265.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_110 = QHBoxLayout(self.frame_265)
+        self.horizontalLayout_110.setObjectName(u"horizontalLayout_110")
+        self.stock_news_media_64 = QLabel(self.frame_265)
+        self.stock_news_media_64.setObjectName(u"stock_news_media_64")
+        self.stock_news_media_64.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_64.setWordWrap(True)
+
+        self.horizontalLayout_110.addWidget(self.stock_news_media_64)
+
+        self.label_97 = QLabel(self.frame_265)
+        self.label_97.setObjectName(u"label_97")
+
+        self.horizontalLayout_110.addWidget(self.label_97)
+
+        self.label_98 = QLabel(self.frame_265)
+        self.label_98.setObjectName(u"label_98")
+
+        self.horizontalLayout_110.addWidget(self.label_98)
 
 
-        self.verticalLayout_115.addWidget(self.frame_70, 0, Qt.AlignBottom)
+        self.verticalLayout_244.addWidget(self.frame_265, 0, Qt.AlignRight|Qt.AlignBottom)
 
 
-        self.horizontalLayout_44.addWidget(self.frame_68)
+        self.horizontalLayout_28.addWidget(self.frame_264)
+
+        self.frame_266 = QFrame(self.frame_261)
+        self.frame_266.setObjectName(u"frame_266")
+        self.frame_266.setMinimumSize(QSize(100, 281))
+        self.frame_266.setMaximumSize(QSize(250, 268))
+        self.frame_266.setStyleSheet(u"background-color: rgb(45, 50, 67);\n"
+"")
+        self.frame_266.setFrameShape(QFrame.Box)
+        self.frame_266.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_245 = QVBoxLayout(self.frame_266)
+        self.verticalLayout_245.setObjectName(u"verticalLayout_245")
+        self.frame_25 = QFrame(self.frame_266)
+        self.frame_25.setObjectName(u"frame_25")
+        self.frame_25.setFrameShape(QFrame.StyledPanel)
+        self.frame_25.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_91 = QVBoxLayout(self.frame_25)
+        self.verticalLayout_91.setObjectName(u"verticalLayout_91")
+        self.label_99 = QLabel(self.frame_25)
+        self.label_99.setObjectName(u"label_99")
+        self.label_99.setStyleSheet(u"font: 12pt \"MS Shell Dlg 2\";")
+        self.label_99.setWordWrap(True)
+
+        self.verticalLayout_91.addWidget(self.label_99)
 
 
-        self.verticalLayout_61.addWidget(self.frame_61)
+        self.verticalLayout_245.addWidget(self.frame_25)
+
+        self.scrollArea_17 = QScrollArea(self.frame_266)
+        self.scrollArea_17.setObjectName(u"scrollArea_17")
+        self.scrollArea_17.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_17.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_17 = QWidget()
+        self.scrollAreaWidgetContents_17.setObjectName(u"scrollAreaWidgetContents_17")
+        self.scrollAreaWidgetContents_17.setGeometry(QRect(0, 0, 227, 175))
+        self.verticalLayout_92 = QVBoxLayout(self.scrollAreaWidgetContents_17)
+        self.verticalLayout_92.setObjectName(u"verticalLayout_92")
+        self.stock_news_text_65 = QLabel(self.scrollAreaWidgetContents_17)
+        self.stock_news_text_65.setObjectName(u"stock_news_text_65")
+        self.stock_news_text_65.setStyleSheet(u"color:rgb(209, 209, 209);\n"
+"font: 10pt \"MS Shell Dlg 2\";")
+        self.stock_news_text_65.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignTop)
+        self.stock_news_text_65.setWordWrap(True)
+        self.stock_news_text_65.setOpenExternalLinks(False)
+        self.stock_news_text_65.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+
+        self.verticalLayout_92.addWidget(self.stock_news_text_65)
+
+        self.scrollArea_17.setWidget(self.scrollAreaWidgetContents_17)
+
+        self.verticalLayout_245.addWidget(self.scrollArea_17)
+
+        self.frame_267 = QFrame(self.frame_266)
+        self.frame_267.setObjectName(u"frame_267")
+        self.frame_267.setFrameShape(QFrame.StyledPanel)
+        self.frame_267.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_111 = QHBoxLayout(self.frame_267)
+        self.horizontalLayout_111.setObjectName(u"horizontalLayout_111")
+        self.stock_news_media_65 = QLabel(self.frame_267)
+        self.stock_news_media_65.setObjectName(u"stock_news_media_65")
+        self.stock_news_media_65.setStyleSheet(u"color: rgb(221, 221, 221);")
+        self.stock_news_media_65.setWordWrap(True)
+
+        self.horizontalLayout_111.addWidget(self.stock_news_media_65)
+
+        self.label_100 = QLabel(self.frame_267)
+        self.label_100.setObjectName(u"label_100")
+
+        self.horizontalLayout_111.addWidget(self.label_100)
+
+        self.label_101 = QLabel(self.frame_267)
+        self.label_101.setObjectName(u"label_101")
+
+        self.horizontalLayout_111.addWidget(self.label_101)
+
+
+        self.verticalLayout_245.addWidget(self.frame_267, 0, Qt.AlignRight|Qt.AlignBottom)
+
+
+        self.horizontalLayout_28.addWidget(self.frame_266)
+
+
+        self.verticalLayout_111.addWidget(self.frame_261)
 
 
         self.verticalLayout_40.addWidget(self.stock_analysis_news_frame_2, 0, Qt.AlignHCenter)
@@ -2738,7 +3431,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3786))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3805))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -2874,11 +3567,11 @@ class Ui_MainWindow(object):
 
         self.stocks_tutorial_main_body = QFrame(self.stock_tutorial_all)
         self.stocks_tutorial_main_body.setObjectName(u"stocks_tutorial_main_body")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.stocks_tutorial_main_body.sizePolicy().hasHeightForWidth())
-        self.stocks_tutorial_main_body.setSizePolicy(sizePolicy2)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.stocks_tutorial_main_body.sizePolicy().hasHeightForWidth())
+        self.stocks_tutorial_main_body.setSizePolicy(sizePolicy1)
         self.stocks_tutorial_main_body.setMinimumSize(QSize(750, 0))
         self.stocks_tutorial_main_body.setMaximumSize(QSize(16777215, 16777215))
         self.stocks_tutorial_main_body.setStyleSheet(u"background-color: rgb(26, 29, 39);\n"
@@ -3266,8 +3959,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_127.setObjectName(u"verticalLayout_127")
         self.pushButton_5 = QPushButton(self.frame_82)
         self.pushButton_5.setObjectName(u"pushButton_5")
-        sizePolicy2.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
-        self.pushButton_5.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.pushButton_5.sizePolicy().hasHeightForWidth())
+        self.pushButton_5.setSizePolicy(sizePolicy1)
         icon13 = QIcon()
         icon13.addFile(u":/icons/icons/user.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.pushButton_5.setIcon(icon13)
@@ -3311,8 +4004,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_129.setContentsMargins(0, 16, 0, 0)
         self.simulator_continue_to_sim_btn = QPushButton(self.frame_86)
         self.simulator_continue_to_sim_btn.setObjectName(u"simulator_continue_to_sim_btn")
-        sizePolicy2.setHeightForWidth(self.simulator_continue_to_sim_btn.sizePolicy().hasHeightForWidth())
-        self.simulator_continue_to_sim_btn.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.simulator_continue_to_sim_btn.sizePolicy().hasHeightForWidth())
+        self.simulator_continue_to_sim_btn.setSizePolicy(sizePolicy1)
         self.simulator_continue_to_sim_btn.setMinimumSize(QSize(115, 30))
         self.simulator_continue_to_sim_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.simulator_continue_to_sim_btn.setStyleSheet(u"QPushButton{\n"
@@ -3335,11 +4028,11 @@ class Ui_MainWindow(object):
 
         self.simulator_create_new_user_btn = QPushButton(self.frame_86)
         self.simulator_create_new_user_btn.setObjectName(u"simulator_create_new_user_btn")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.simulator_create_new_user_btn.sizePolicy().hasHeightForWidth())
-        self.simulator_create_new_user_btn.setSizePolicy(sizePolicy3)
+        sizePolicy2 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.simulator_create_new_user_btn.sizePolicy().hasHeightForWidth())
+        self.simulator_create_new_user_btn.setSizePolicy(sizePolicy2)
         self.simulator_create_new_user_btn.setMinimumSize(QSize(230, 20))
         self.simulator_create_new_user_btn.setCursor(QCursor(Qt.PointingHandCursor))
         self.simulator_create_new_user_btn.setStyleSheet(u"QPushButton {\n"
@@ -3507,8 +4200,8 @@ class Ui_MainWindow(object):
 
         self.stock_simulator_main_body = QFrame(self.stock_simulator_scroll_area_frame)
         self.stock_simulator_main_body.setObjectName(u"stock_simulator_main_body")
-        sizePolicy2.setHeightForWidth(self.stock_simulator_main_body.sizePolicy().hasHeightForWidth())
-        self.stock_simulator_main_body.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.stock_simulator_main_body.sizePolicy().hasHeightForWidth())
+        self.stock_simulator_main_body.setSizePolicy(sizePolicy1)
         self.stock_simulator_main_body.setMinimumSize(QSize(0, 0))
         self.stock_simulator_main_body.setMaximumSize(QSize(2020, 16777215))
         self.stock_simulator_main_body.setLayoutDirection(Qt.LeftToRight)
@@ -3546,7 +4239,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 470))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 515))
         self.verticalLayout_121 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.frame_9 = QFrame(self.scrollAreaWidgetContents)
@@ -3636,8 +4329,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_122.setContentsMargins(-1, 0, -1, -1)
         self.frame_79 = QFrame(self.frame_75)
         self.frame_79.setObjectName(u"frame_79")
-        sizePolicy2.setHeightForWidth(self.frame_79.sizePolicy().hasHeightForWidth())
-        self.frame_79.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.frame_79.sizePolicy().hasHeightForWidth())
+        self.frame_79.setSizePolicy(sizePolicy1)
         self.frame_79.setStyleSheet(u"background-color: rgb(42, 44, 50);\n"
 "")
         self.frame_79.setFrameShape(QFrame.StyledPanel)
@@ -3971,8 +4664,8 @@ class Ui_MainWindow(object):
         self.verticalLayout_139.setContentsMargins(-1, 57, -1, -1)
         self.stock_simulator_symbol_lookup_button = QPushButton(self.frame_95)
         self.stock_simulator_symbol_lookup_button.setObjectName(u"stock_simulator_symbol_lookup_button")
-        sizePolicy2.setHeightForWidth(self.stock_simulator_symbol_lookup_button.sizePolicy().hasHeightForWidth())
-        self.stock_simulator_symbol_lookup_button.setSizePolicy(sizePolicy2)
+        sizePolicy1.setHeightForWidth(self.stock_simulator_symbol_lookup_button.sizePolicy().hasHeightForWidth())
+        self.stock_simulator_symbol_lookup_button.setSizePolicy(sizePolicy1)
         self.stock_simulator_symbol_lookup_button.setMinimumSize(QSize(150, 35))
         self.stock_simulator_symbol_lookup_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.stock_simulator_symbol_lookup_button.setStyleSheet(u"QPushButton {\n"
@@ -4477,7 +5170,7 @@ class Ui_MainWindow(object):
         self.scrollArea_2.setWidgetResizable(True)
         self.scrollAreaWidgetContents_2 = QWidget()
         self.scrollAreaWidgetContents_2.setObjectName(u"scrollAreaWidgetContents_2")
-        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 840, 727))
+        self.scrollAreaWidgetContents_2.setGeometry(QRect(0, 0, 776, 727))
         self.verticalLayout_159 = QVBoxLayout(self.scrollAreaWidgetContents_2)
         self.verticalLayout_159.setObjectName(u"verticalLayout_159")
         self.settings_stackedWidget = QStackedWidget(self.scrollAreaWidgetContents_2)
@@ -5175,7 +5868,7 @@ class Ui_MainWindow(object):
         self.about_icon.setDefault(False)
         self.stacked_menu_pages.setCurrentIndex(1)
         self.ticker_label_title_analysis.setDefault(False)
-        self.stock_analysis_stackedWidget.setCurrentIndex(0)
+        self.stock_analysis_stackedWidget.setCurrentIndex(1)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
         self.learning_pages_stackedWidget.setCurrentIndex(0)
@@ -5245,33 +5938,66 @@ class Ui_MainWindow(object):
         self.label_7.setText("")
         self.label_4.setText("")
         self.label.setText(QCoreApplication.translate("MainWindow", u"NEWS", None))
-        self.stock_news_title.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_6.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_6.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_6.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_5.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_5.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_5.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_10.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_10.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_10.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_11.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_11.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_11.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_12.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_12.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_12.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_7.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_7.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_7.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_8.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_8.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_8.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_9.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_9.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_9.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_12.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_51.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_51.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_13.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_81.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_16.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_52.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_52.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_63.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_82.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_64.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_53.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_53.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_65.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_83.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_66.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_54.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_54.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_67.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_84.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_68.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_55.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_55.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_69.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_85.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_70.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_56.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_56.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_71.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_86.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_72.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_57.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_57.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_73.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_87.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_74.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_58.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_58.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_75.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_88.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_76.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_59.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_59.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_77.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_89.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_78.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_60.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_60.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_79.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_90.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_80.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_61.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_61.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_91.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_92.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_93.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_62.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_62.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_94.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_95.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.crypto_price_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.crypto_currency_price_label.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.extra_info_about_crypto.setText(QCoreApplication.translate("MainWindow", u"_", None))
@@ -5286,33 +6012,66 @@ class Ui_MainWindow(object):
         self.five_year_button_2.setText(QCoreApplication.translate("MainWindow", u"5 year", None))
         self.max_button_2.setText(QCoreApplication.translate("MainWindow", u"max", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"NEWS", None))
-        self.stock_news_title_2.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_2.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_2.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_13.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_13.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_13.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_14.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_14.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_14.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_15.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_15.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_15.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_16.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_16.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_16.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_17.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_17.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_17.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_18.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_18.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_18.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_19.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_19.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_19.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_title_20.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_text_20.setText(QCoreApplication.translate("MainWindow", u"_", None))
-        self.stock_news_media_20.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_51.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_69.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_69.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_52.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_108.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_53.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_70.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_70.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_109.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_110.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_111.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_71.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_71.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_112.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_113.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_48.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_66.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_66.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_49.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_102.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_50.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_67.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_67.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_103.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_104.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_105.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_68.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_68.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_106.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_107.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_60.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_72.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_72.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_61.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_114.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_62.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_73.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_73.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_115.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_116.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_117.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_74.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_74.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_118.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_119.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_45.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_63.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_63.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_46.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_96.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_47.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_64.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_64.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_97.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_98.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_99.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_text_65.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.stock_news_media_65.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_100.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_101.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.learn_start_page_title_label.setText(QCoreApplication.translate("MainWindow", u"LEARN", None))
         self.what_do_you_wish_to_learn_label.setText(QCoreApplication.translate("MainWindow", u"What do you wish to learn?", None))
         self.stocks_button_learn.setText(QCoreApplication.translate("MainWindow", u"Stocks", None))
