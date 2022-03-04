@@ -1,0 +1,19 @@
+A way to categorize stocks is by the size of the company, as shown in its market capitalization.
+
+There are large-cap, mid-cap, and small-cap stocks. Shares in very small companies are sometimes called “microcap” stocks.
+
+The very lowest priced stocks are known as “penny stocks.” These companies may have little or no earnings. Penny stocks do not pay dividends and are highly speculative.
+
+Market cap—or market capitalization—refers to the total value of all a company's shares of stock. 
+It is calculated by multiplying the price of a stock by its total number of outstanding shares. For example, a company with 200 million shares selling at $50 a share would have a market cap of $10 billion.
+This value allows investors to understand the relative size of one company versus another.
+
+Market cap measures what a company is worth on the open market, as well as the market's perception of its future prospects, because it reflects what investors are willing to pay for its stock.
+
+Below are the descriptions for 3 market cap sizes:
+
+	- Large-cap companies are typically firms with a market value of $10 billion or more. Large-cap firms often have a reputation for producing quality goods and services, a history of consistent dividend payments, and steady growth. They are often dominant players within established industries, and their brand names may be familiar to a national consumer audience.
+
+	- Mid-cap companies are typically businesses with a market value between $2 billion and $10 billion. Typically, these are established companies in industries experiencing or expected to experience rapid growth. These medium-sized companies may be in the process of increasing market share and improving overall competitiveness. This stage of growth is likely to determine whether a company eventually lives up to its full potential. Mid-cap stocks generally fall between large caps and small caps on the risk/return spectrum. Mid-caps may offer more growth potential than large caps, and possibly less risk than small caps.
+
+	- Small-cap companies are typically those with a market value of $300 million to $2 billion. Generally, these are young companies that serve niche markets or emerging industries. Small caps are considered the most aggressive and risky of the 3 categories. The relatively limited resources of small companies can potentially make them more susceptible to a business or economic downturn. They may also be vulnerable to the intense competition and uncertainties characteristic of untried, burgeoning markets. On the other hand, small-cap stocks may offer significant growth potential to long-term investors who can tolerate volatile stock price swings in the short term.

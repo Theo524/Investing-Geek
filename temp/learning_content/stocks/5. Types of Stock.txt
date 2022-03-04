@@ -1,0 +1,12 @@
+There are two main kinds of stocks, common stock and preferred stock.
+Common stock entitles owners to vote at shareholder meetings and receive dividends. 
+They represent the majority of stock held by the public.
+
+Owners of common stock have voting rights and the right to dividend payouts, but there is one major drawback: If a company is forced to liquidate or go bankrupt, common shareholders are last in line when it comes to payouts.
+
+Preferred shareholders and bondholders must be paid out in full before common shareholders can begin receiving payments.
+Preferred stockholders usually don’t have voting rights but they receive dividend payments before common stockholders do, and have priority over common stockholders if the company goes bankrupt and its assets are liquidated.
+Preferred stockholders have fewer rights than common stockholders, except when it comes to dividends.
+Companies that issue preferred stocks usually pay consistent dividends, and preferred stockholders have priority on dividends over common stockholders.  
+
+Investors buy preferred stock for its current income from dividends, so look for companies that make big profits to use preferred stock to return some of those profits via dividends.
