@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1056</width>
-    <height>847</height>
+    <height>810</height>
    </rect>
   </property>
   <property name="font">
@@ -680,7 +680,7 @@ QPushButton::pressed {
              <number>0</number>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="home_page">
              <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -706,7 +706,7 @@ QPushButton::pressed {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>860</width>
+                   <width>700</width>
                    <height>1410</height>
                   </rect>
                  </property>
@@ -789,7 +789,7 @@ QPushButton::pressed {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>0</y>
+                   <y>-203</y>
                    <width>860</width>
                    <height>2444</height>
                   </rect>
@@ -1151,7 +1151,7 @@ QPushButton::pressed {
                         </size>
                        </property>
                        <property name="currentIndex">
-                        <number>1</number>
+                        <number>0</number>
                        </property>
                        <widget class="QWidget" name="stock_analysis_stock_page">
                         <layout class="QVBoxLayout" name="verticalLayout_36">
@@ -1910,7 +1910,7 @@ QPushButton::pressed{
                                       <rect>
                                        <x>0</x>
                                        <y>0</y>
-                                       <width>228</width>
+                                       <width>227</width>
                                        <height>175</height>
                                       </rect>
                                      </property>
@@ -2047,7 +2047,7 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
                                       <rect>
                                        <x>0</x>
                                        <y>0</y>
-                                       <width>227</width>
+                                       <width>228</width>
                                        <height>175</height>
                                       </rect>
                                      </property>
@@ -5834,7 +5834,7 @@ font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
                  </font>
                 </property>
                 <property name="currentIndex">
-                 <number>0</number>
+                 <number>1</number>
                 </property>
                 <widget class="QWidget" name="learn_start_page">
                  <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -5982,6 +5982,9 @@ QPushButton::pressed{
                            </item>
                            <item>
                             <widget class="QPushButton" name="forex_button_learn">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
                              <property name="minimumSize">
                               <size>
                                <width>100</width>
@@ -5995,13 +5998,13 @@ QPushButton::pressed{
                               </size>
                              </property>
                              <property name="cursor">
-                              <cursorShape>PointingHandCursor</cursorShape>
+                              <cursorShape>ForbiddenCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true"/>
                              </property>
                              <property name="text">
-                              <string>Forex</string>
+                              <string>Cryptocurrency</string>
                              </property>
                              <property name="flat">
                               <bool>false</bool>
@@ -6010,6 +6013,9 @@ QPushButton::pressed{
                            </item>
                            <item>
                             <widget class="QPushButton" name="crypto_button_learn">
+                             <property name="enabled">
+                              <bool>false</bool>
+                             </property>
                              <property name="minimumSize">
                               <size>
                                <width>100</width>
@@ -6023,13 +6029,13 @@ QPushButton::pressed{
                               </size>
                              </property>
                              <property name="cursor">
-                              <cursorShape>PointingHandCursor</cursorShape>
+                              <cursorShape>ForbiddenCursor</cursorShape>
                              </property>
                              <property name="styleSheet">
                               <string notr="true"/>
                              </property>
                              <property name="text">
-                              <string>Cryptocurrency</string>
+                              <string>Charts</string>
                              </property>
                              <property name="flat">
                               <bool>false</bool>
@@ -6064,9 +6070,9 @@ QPushButton::pressed{
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>0</y>
-                       <width>788</width>
-                       <height>3805</height>
+                       <y>-4528</y>
+                       <width>842</width>
+                       <height>5205</height>
                       </rect>
                      </property>
                      <layout class="QVBoxLayout" name="verticalLayout_19">
@@ -6090,6 +6096,9 @@ QPushButton::pressed{
                         <layout class="QVBoxLayout" name="verticalLayout_51">
                          <property name="spacing">
                           <number>17</number>
+                         </property>
+                         <property name="bottomMargin">
+                          <number>9</number>
                          </property>
                          <item>
                           <widget class="QFrame" name="frame_74">
@@ -6278,6 +6287,36 @@ QLabel{
                                  </property>
                                 </widget>
                                </item>
+                               <item>
+                                <widget class="QPushButton" name="pushButton_2">
+                                 <property name="text">
+                                  <string>7. IPO</string>
+                                 </property>
+                                 <property name="flat">
+                                  <bool>true</bool>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QPushButton" name="pushButton_3">
+                                 <property name="text">
+                                  <string>8. How are stocks bought</string>
+                                 </property>
+                                 <property name="flat">
+                                  <bool>true</bool>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QPushButton" name="pushButton_4">
+                                 <property name="text">
+                                  <string>Glossary</string>
+                                 </property>
+                                 <property name="flat">
+                                  <bool>true</bool>
+                                 </property>
+                                </widget>
+                               </item>
                               </layout>
                              </widget>
                             </item>
@@ -6357,7 +6396,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   <string notr="true">font: 75 18pt;</string>
                                  </property>
                                  <property name="text">
-                                  <string>1. What is a stock</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6385,7 +6424,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   <bool>true</bool>
                                  </property>
                                  <property name="plainText">
-                                  <string>A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation (e.g. Apple, Netflix, Amazon).\n\nThis entitles the owner of the stock to a proportion of the corporation's assets and profits equal to how much stock they own.\n\nUnits of stock are called &quot;shares.&quot;\n\n\nStocks are bought and sold predominantly on stock exchanges, though there can be private sales as well, and are the foundation of many individual investors' portfolios.\n\nThese transactions have to conform to government regulations which are meant to protect investors from fraudulent practices.\n\n\nWhen you own stock in a company, you are called a shareholder because you share in the company's profits.\n\nPublic companies sell their stock through a stock market exchange, like the Nasdaq or the New York Stock Exchange.\n\nInvestors can then buy and sell these shares among themselves through stockbrokers.\n\nThe stock exchanges track the supply and demand of each company's stock, which directly affects the stock's price.\n\n\nStock prices fluctuate throughout the day, but investors who own stock hope that over time, the stock will increase in value.\n\nHowever, not every company or stock does so, companies can lose value or go out of business completely.\n\nWhen that happens, stock investors may lose all or part of their investment.\n\nThat's why it's important for investors to spread their money around, buying stock in many different companies rather than focusing on just one.\n\nThis is also called a portfolio.\n</string>
+                                  <string>_</string>
                                  </property>
                                  <property name="overwriteMode">
                                   <bool>false</bool>
@@ -6434,7 +6473,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   <string notr="true">font: 75 18pt;</string>
                                  </property>
                                  <property name="text">
-                                  <string>2. Understanding stocks</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6447,7 +6486,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   </size>
                                  </property>
                                  <property name="plainText">
-                                  <string>Corporations issue (sell) stock to raise funds to operate their businesses.\n\nThe holder of stock (a shareholder) has now bought a piece of the corporation and, depending on the type of shares held, may have a claim to a part of its assets and earnings.\n\nIn other words, a shareholder is now an owner of the issuing company.\n\nOwnership is determined by the number of shares a person owns relative to the number of outstanding shares. For example, if a company has 1,000 shares of stock outstanding and one person owns 100 shares, that person would own and have claim to 10% of the company's assets and earnings.\n\nStock holders do not own corporations; they own shares issued by corporations. But corporations are a special type of organization because the law treats them as legal persons. \n\nIn other words, corporations file taxes, can borrow, can own property, can be sued, etc.\n\nThe idea that a corporation is a “person” means that the corporation owns its own assets. A corporate office full of chairs and tables belongs to the corporation, and not to the shareholders.</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6481,7 +6520,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   <string notr="true">font: 75 18pt;</string>
                                  </property>
                                  <property name="text">
-                                  <string>3. Why do people buy stocks</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6494,7 +6533,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   </size>
                                  </property>
                                  <property name="plainText">
-                                  <string>The primary reason that people buy shares of companies is to make money. The idea is to buy low and sell high. \nFor instance, if you buy 100 shares of Company B stock valued at $25 each, you will have made an initial investment totaling $2,500. Say the value of the share increases to 50$. Your profit will be of $2,500. \nHowever there is more to why people buy stocks, here are some other reasons:\n\n\n - Investing in stocks is an excellent way to grow wealth. For long-term investors, stocks are a good investment even during periods of market volatility\n\n \n - You can get rich with stocks, you just need to take the risk. You can grow wealth by putting your money into the stock market over a long timeframe.\n\n\n - It Doesn't Cost Much to Get Started\n\n\n - Protect. Taxes and inflation can impact your wealth.\n\n\n - Stocks Are Designed To Go Up In Price, the larger indexes including the Dow Jones and the S&amp;P 500 are updated periodically. Companies that are not performing are pulled out of the indexes and are replaced by companies that are being traded more frequently—among other factors. This ensures that the major indexes are always populated by companies that are earning money, and being traded frequently.\n\n\n - You Don't Have to Be a Genius. While an experienced investor may be able to grow their money faster than you—that doesn't mean you can't buy stocks! And you don't need to be a Chartered Financial Analyst, portfolio manager or the next Warren Buffett to invest in stocks. Also, buying stocks and making money with them is clearly much easier than building a successful business from scratch! To invest in a company's stock you must read their annual report (which you can easily find online), set some money aside and understand basic math.\n\n\n - Another reason why people buy stocks is to support a company they like.\nIt is funny to think of investing for sentimental reasons, but if you’re the type of person who likes a product or a company and you wish to help ensure that it stays successful within the market, then this reason for stock investment describes you. Some people also want the power to help in making company decisions and this will happen when you become a shareholder. Shareholders can attend meetings that help the company they invest in make decisions that affect its income.</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6516,7 +6555,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   <string notr="true">font: 75 18pt;</string>
                                  </property>
                                  <property name="text">
-                                  <string>4. Why do Companies issue stocks</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6529,7 +6568,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   </size>
                                  </property>
                                  <property name="plainText">
-                                  <string>Corporations issue stock to raise money for growth and expansion. To raise money, corporations will issue stock by selling off a percentage of profits in a company.\nThere are many reasons that a company would issue stock to raise money. Some of the common reasons include:\n\n\n - The development of new products\n \n - To purchase equipment\n \n - To buy new buildings\n \n - To increase inventory\n \n - To expand and grow staff\n \n - To reduce debt\n \n - To prepare for a merger or acquisition\n \n - To improve the value of a company\n \n - To provide for greater flexibility</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6551,7 +6590,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   <string notr="true">font: 75 18pt;</string>
                                  </property>
                                  <property name="text">
-                                  <string>5. Types of Stock</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6564,7 +6603,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   </size>
                                  </property>
                                  <property name="plainText">
-                                  <string>There are two main kinds of stocks, common stock and preferred stock.\n\nCommon stock entitles owners to vote at shareholder meetings and receive dividends. They represent the majority of stock held by the public.\nOwners of common stock have voting rights and the right to dividend payouts, but there is one major drawback: If a company is forced to liquidate or go bankrupt, common shareholders are last in line when it comes to payouts.\nPreferred shareholders and bondholders must be paid out in full before common shareholders can begin receiving payments.\n\nPreferred stockholders usually don’t have voting rights but they receive dividend payments before common stockholders do, and have priority over common stockholders if the company goes bankrupt and its assets are liquidated. Preferred stockholders have fewer rights than common stockholders, except when it comes to dividends.\nCompanies that issue preferred stocks usually pay consistent dividends, and preferred stockholders have priority on dividends over common stockholders.  Investors buy preferred stock for its current income from dividends, so look for companies that make big profits to use preferred stock to return some of those profits via dividends.</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6595,7 +6634,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   <string notr="true">font: 75 18pt;</string>
                                  </property>
                                  <property name="text">
-                                  <string>6. Market capitalization</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
@@ -6608,11 +6647,2477 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                   </size>
                                  </property>
                                  <property name="plainText">
-                                  <string>A way to categorize stocks is by the size of the company, as shown in its market capitalization. \nThere are large-cap, mid-cap, and small-cap stocks. Shares in very small companies are sometimes called “microcap” stocks.\nThe very lowest priced stocks are known as “penny stocks.” These companies may have little or no earnings. Penny stocks do not pay dividends and are highly speculative.\n\nMarket cap—or market capitalization—refers to the total value of all a company's shares of stock.\nIt is calculated by multiplying the price of a stock by its total number of outstanding shares. For example, a company with 200 million shares selling at $50 a share would have a market cap of $10 billion.\n\nThis value allows investors to understand the relative size of one company versus another. \nMarket cap measures what a company is worth on the open market, as well as the market's perception of its future prospects, because it reflects what investors are willing to pay for its stock.\nBelow are the descriptions for 3 market cap sizes:\n\n - Large-cap companies are typically firms with a market value of $10 billion or more. Large-cap firms often have a reputation for producing quality goods and services, a history of consistent dividend payments, and steady growth. They are often dominant players within established industries, and their brand names may be familiar to a national consumer audience.\n\n - Mid-cap companies are typically businesses with a market value between $2 billion and $10 billion. Typically, these are established companies in industries experiencing or expected to experience rapid growth. These medium-sized companies may be in the process of increasing market share and improving overall competitiveness. This stage of growth is likely to determine whether a company eventually lives up to its full potential. Mid-cap stocks generally fall between large caps and small caps on the risk/return spectrum. Mid-caps may offer more growth potential than large caps, and possibly less risk than small caps.\n\n - Small-cap companies are typically those with a market value of $300 million to $2 billion. Generally, these are young companies that serve niche markets or emerging industries. Small caps are considered the most aggressive and risky of the 3 categories. The relatively limited resources of small companies can potentially make them more susceptible to a business or economic downturn. They may also be vulnerable to the intense competition and uncertainties characteristic of untried, burgeoning markets. On the other hand, small-cap stocks may offer significant growth potential to long-term investors who can tolerate volatile stock price swings in the short term.</string>
+                                  <string>_</string>
                                  </property>
                                 </widget>
                                </item>
                               </layout>
+                             </widget>
+                            </item>
+                            <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                             <widget class="QFrame" name="IPO">
+                              <property name="frameShape">
+                               <enum>QFrame::StyledPanel</enum>
+                              </property>
+                              <property name="frameShadow">
+                               <enum>QFrame::Raised</enum>
+                              </property>
+                              <layout class="QVBoxLayout" name="verticalLayout_112">
+                               <item>
+                                <widget class="QLabel" name="label_54">
+                                 <property name="text">
+                                  <string>_</string>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QPlainTextEdit" name="plainTextEdit_7">
+                                 <property name="minimumSize">
+                                  <size>
+                                   <width>500</width>
+                                   <height>0</height>
+                                  </size>
+                                 </property>
+                                 <property name="plainText">
+                                  <string>_</string>
+                                 </property>
+                                </widget>
+                               </item>
+                              </layout>
+                             </widget>
+                            </item>
+                            <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+                             <widget class="QFrame" name="How_to_buy_stocks">
+                              <property name="frameShape">
+                               <enum>QFrame::StyledPanel</enum>
+                              </property>
+                              <property name="frameShadow">
+                               <enum>QFrame::Raised</enum>
+                              </property>
+                              <layout class="QVBoxLayout" name="verticalLayout_113">
+                               <item>
+                                <widget class="QLabel" name="label_55">
+                                 <property name="text">
+                                  <string>_</string>
+                                 </property>
+                                </widget>
+                               </item>
+                               <item>
+                                <widget class="QPlainTextEdit" name="plainTextEdit_8">
+                                 <property name="minimumSize">
+                                  <size>
+                                   <width>500</width>
+                                   <height>0</height>
+                                  </size>
+                                 </property>
+                                 <property name="plainText">
+                                  <string>_</string>
+                                 </property>
+                                </widget>
+                               </item>
+                              </layout>
+                             </widget>
+                            </item>
+                           </layout>
+                          </widget>
+                         </item>
+                         <item alignment="Qt::AlignHCenter">
+                          <widget class="QFrame" name="glossary_and_sources">
+                           <property name="frameShape">
+                            <enum>QFrame::NoFrame</enum>
+                           </property>
+                           <property name="frameShadow">
+                            <enum>QFrame::Raised</enum>
+                           </property>
+                           <layout class="QVBoxLayout" name="verticalLayout_179">
+                            <property name="spacing">
+                             <number>19</number>
+                            </property>
+                            <property name="leftMargin">
+                             <number>0</number>
+                            </property>
+                            <property name="topMargin">
+                             <number>50</number>
+                            </property>
+                            <property name="rightMargin">
+                             <number>0</number>
+                            </property>
+                            <item alignment="Qt::AlignHCenter">
+                             <widget class="QLabel" name="label_56">
+                              <property name="styleSheet">
+                               <string notr="true">font: 22pt &quot;MS Shell Dlg 2&quot;;</string>
+                              </property>
+                              <property name="text">
+                               <string>GLOSSARY</string>
+                              </property>
+                             </widget>
+                            </item>
+                            <item>
+                             <widget class="QStackedWidget" name="stock_glossary_stackeWidget">
+                              <property name="minimumSize">
+                               <size>
+                                <width>100</width>
+                                <height>25</height>
+                               </size>
+                              </property>
+                              <property name="styleSheet">
+                               <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+                              </property>
+                              <property name="currentIndex">
+                               <number>0</number>
+                              </property>
+                              <widget class="QWidget" name="stock_glossary_p1">
+                               <layout class="QVBoxLayout" name="verticalLayout_115">
+                                <item>
+                                 <widget class="QFrame" name="grid_8">
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>900</width>
+                                    <height>16777215</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                                  </property>
+                                  <property name="frameShape">
+                                   <enum>QFrame::NoFrame</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_200">
+                                   <property name="spacing">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="leftMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="topMargin">
+                                    <number>9</number>
+                                   </property>
+                                   <property name="rightMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="bottomMargin">
+                                    <number>9</number>
+                                   </property>
+                                   <item alignment="Qt::AlignRight">
+                                    <widget class="QLabel" name="label_57">
+                                     <property name="text">
+                                      <string>Page 1/4</string>
+                                     </property>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_54">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_44">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_184">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_226">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_185">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_186">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_185">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_227">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_187">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_188">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_186">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_228">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_189">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_190">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_187">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_229">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_191">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_192">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_55">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_45">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <property name="topMargin">
+                                       <number>9</number>
+                                      </property>
+                                      <property name="rightMargin">
+                                       <number>9</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_188">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_230">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_193">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_194">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_189">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_255">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_195">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_196">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_190">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_256">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_197">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_198">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_191">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_257">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_199">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_200">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QFrame" name="frame_35">
+                                  <property name="frameShape">
+                                   <enum>QFrame::StyledPanel</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_116">
+                                   <item>
+                                    <widget class="QFrame" name="frame_43">
+                                     <property name="styleSheet">
+                                      <string notr="true">QPushButton{
+border:none;
+border-radius:2px;
+color:rgb(255, 255, 255);
+	background-color: rgb(76, 110, 158);
+}
+
+QPushButton::hover{
+	background-color: rgb(80, 119, 167);
+}
+QPushButton::pressed{
+	background-color: rgb(47, 71, 99);
+	border:2px solid rgb(32, 36, 48);
+}</string>
+                                     </property>
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_32">
+                                      <item alignment="Qt::AlignLeft">
+                                       <widget class="QPushButton" name="sgp1p">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Previous</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                      <item alignment="Qt::AlignRight">
+                                       <widget class="QPushButton" name="sgp1n">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Next</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                              <widget class="QWidget" name="stock_glossary_p2">
+                               <layout class="QVBoxLayout" name="verticalLayout_177">
+                                <item>
+                                 <widget class="QFrame" name="grid_6">
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>900</width>
+                                    <height>16777215</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                                  </property>
+                                  <property name="frameShape">
+                                   <enum>QFrame::NoFrame</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_182">
+                                   <property name="spacing">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="leftMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="rightMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <item alignment="Qt::AlignRight">
+                                    <widget class="QLabel" name="label_58">
+                                     <property name="text">
+                                      <string>Page 2/4</string>
+                                     </property>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_50">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_40">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_168">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_218">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_153">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_154">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_169">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_219">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_155">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_156">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_171">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_221">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_159">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_160">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_170">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_220">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_157">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_158">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_51">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_41">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_172">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_222">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_161">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_162">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_173">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_223">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_163">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_164">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_174">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_224">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_165">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_166">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_175">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_225">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_167">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_168">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QFrame" name="frame_36">
+                                  <property name="frameShape">
+                                   <enum>QFrame::StyledPanel</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_117">
+                                   <item>
+                                    <widget class="QFrame" name="frame_44">
+                                     <property name="styleSheet">
+                                      <string notr="true">QPushButton{
+border:none;
+border-radius:2px;
+color:rgb(255, 255, 255);
+	background-color: rgb(76, 110, 158);
+}
+
+QPushButton::hover{
+	background-color: rgb(80, 119, 167);
+}
+QPushButton::pressed{
+	background-color: rgb(47, 71, 99);
+	border:2px solid rgb(32, 36, 48);
+}</string>
+                                     </property>
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_33">
+                                      <item alignment="Qt::AlignLeft">
+                                       <widget class="QPushButton" name="sgp2p">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Previous</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                      <item alignment="Qt::AlignRight">
+                                       <widget class="QPushButton" name="sgp2n">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Next</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                              <widget class="QWidget" name="stock_glossary_p3">
+                               <layout class="QVBoxLayout" name="verticalLayout_114">
+                                <item>
+                                 <widget class="QFrame" name="grid_7">
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>900</width>
+                                    <height>16777215</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                                  </property>
+                                  <property name="frameShape">
+                                   <enum>QFrame::NoFrame</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_201">
+                                   <property name="spacing">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="leftMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="rightMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <item alignment="Qt::AlignRight">
+                                    <widget class="QLabel" name="label_59">
+                                     <property name="text">
+                                      <string>Page 3/4</string>
+                                     </property>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_52">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_42">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_176">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_258">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_169">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_170">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_177">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_259">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_171">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_172">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_178">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_260">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_173">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_174">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_179">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_261">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_175">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_176">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_53">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_43">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_180">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_262">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_177">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_178">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_181">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_263">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_179">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_180">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_182">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_264">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_181">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_182">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_183">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_265">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_183">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_184">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QFrame" name="frame_40">
+                                  <property name="frameShape">
+                                   <enum>QFrame::StyledPanel</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_178">
+                                   <item>
+                                    <widget class="QFrame" name="frame_45">
+                                     <property name="styleSheet">
+                                      <string notr="true">QPushButton{
+border:none;
+border-radius:2px;
+color:rgb(255, 255, 255);
+	background-color: rgb(76, 110, 158);
+}
+
+QPushButton::hover{
+	background-color: rgb(80, 119, 167);
+}
+QPushButton::pressed{
+	background-color: rgb(47, 71, 99);
+	border:2px solid rgb(32, 36, 48);
+}</string>
+                                     </property>
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_34">
+                                      <item alignment="Qt::AlignLeft">
+                                       <widget class="QPushButton" name="sgp3p">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Previous</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                      <item alignment="Qt::AlignRight">
+                                       <widget class="QPushButton" name="sgp3n">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Next</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
+                              <widget class="QWidget" name="stock_glossary_p4">
+                               <layout class="QVBoxLayout" name="verticalLayout_181">
+                                <item>
+                                 <widget class="QFrame" name="grid_9">
+                                  <property name="maximumSize">
+                                   <size>
+                                    <width>900</width>
+                                    <height>16777215</height>
+                                   </size>
+                                  </property>
+                                  <property name="styleSheet">
+                                   <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+                                  </property>
+                                  <property name="frameShape">
+                                   <enum>QFrame::NoFrame</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_183">
+                                   <property name="spacing">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="leftMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <property name="rightMargin">
+                                    <number>0</number>
+                                   </property>
+                                   <item alignment="Qt::AlignRight">
+                                    <widget class="QLabel" name="label_120">
+                                     <property name="text">
+                                      <string>Page 4/4</string>
+                                     </property>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_56">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_46">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_192">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_266">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_201">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_202">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_193">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_267">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_203">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_204">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_194">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_268">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_205">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_206">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_195">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_269">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_207">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_208">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                   <item>
+                                    <widget class="QFrame" name="frame_57">
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_47">
+                                      <property name="spacing">
+                                       <number>19</number>
+                                      </property>
+                                      <item>
+                                       <widget class="QFrame" name="frame_196">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_270">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_209">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_210">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_197">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_271">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_211">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_212">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_198">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_272">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_213">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_214">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                      <item>
+                                       <widget class="QFrame" name="frame_199">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>215</height>
+                                         </size>
+                                        </property>
+                                        <property name="maximumSize">
+                                         <size>
+                                          <width>175</width>
+                                          <height>16777215</height>
+                                         </size>
+                                        </property>
+                                        <property name="styleSheet">
+                                         <string notr="true">QFrame{
+border-radius:24px;
+}
+</string>
+                                        </property>
+                                        <property name="frameShape">
+                                         <enum>QFrame::StyledPanel</enum>
+                                        </property>
+                                        <property name="frameShadow">
+                                         <enum>QFrame::Raised</enum>
+                                        </property>
+                                        <layout class="QVBoxLayout" name="verticalLayout_273">
+                                         <property name="spacing">
+                                          <number>18</number>
+                                         </property>
+                                         <item>
+                                          <widget class="QLabel" name="label_215">
+                                           <property name="maximumSize">
+                                            <size>
+                                             <width>16777215</width>
+                                             <height>20</height>
+                                            </size>
+                                           </property>
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                         <item alignment="Qt::AlignTop">
+                                          <widget class="QLabel" name="label_216">
+                                           <property name="text">
+                                            <string>_</string>
+                                           </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
+                                          </widget>
+                                         </item>
+                                        </layout>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                                <item>
+                                 <widget class="QFrame" name="frame_42">
+                                  <property name="frameShape">
+                                   <enum>QFrame::StyledPanel</enum>
+                                  </property>
+                                  <property name="frameShadow">
+                                   <enum>QFrame::Raised</enum>
+                                  </property>
+                                  <layout class="QVBoxLayout" name="verticalLayout_180">
+                                   <item>
+                                    <widget class="QFrame" name="frame_46">
+                                     <property name="styleSheet">
+                                      <string notr="true">QPushButton{
+border:none;
+border-radius:2px;
+color:rgb(255, 255, 255);
+	background-color: rgb(76, 110, 158);
+}
+
+QPushButton::hover{
+	background-color: rgb(80, 119, 167);
+}
+QPushButton::pressed{
+	background-color: rgb(47, 71, 99);
+	border:2px solid rgb(32, 36, 48);
+}</string>
+                                     </property>
+                                     <property name="frameShape">
+                                      <enum>QFrame::StyledPanel</enum>
+                                     </property>
+                                     <property name="frameShadow">
+                                      <enum>QFrame::Raised</enum>
+                                     </property>
+                                     <layout class="QHBoxLayout" name="horizontalLayout_35">
+                                      <item alignment="Qt::AlignLeft">
+                                       <widget class="QPushButton" name="sgp4p">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Previous</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                      <item alignment="Qt::AlignRight">
+                                       <widget class="QPushButton" name="sgp4n">
+                                        <property name="minimumSize">
+                                         <size>
+                                          <width>100</width>
+                                          <height>25</height>
+                                         </size>
+                                        </property>
+                                        <property name="text">
+                                         <string>Next</string>
+                                        </property>
+                                       </widget>
+                                      </item>
+                                     </layout>
+                                    </widget>
+                                   </item>
+                                  </layout>
+                                 </widget>
+                                </item>
+                               </layout>
+                              </widget>
                              </widget>
                             </item>
                            </layout>
@@ -10257,6 +12762,18 @@ border-radius:10px;</string>
               <pointsize>12</pointsize>
              </font>
             </property>
+            <property name="cursor">
+             <cursorShape>ForbiddenCursor</cursorShape>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton::hover{
+	background-color: rgb(46, 53, 71);
+}
+QPushButton::pressed{
+	background-color: rgb(67, 77, 103);
+	border:2px solid rgb(32, 36, 48);
+}</string>
+            </property>
             <property name="text">
              <string/>
             </property>
@@ -10269,6 +12786,9 @@ border-radius:10px;</string>
               <width>32</width>
               <height>32</height>
              </size>
+            </property>
+            <property name="checkable">
+             <bool>false</bool>
             </property>
             <property name="flat">
              <bool>true</bool>
