@@ -13,12 +13,12 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 
 import app_icons
-# Main app frontend
+# App frontend
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1056, 847)
+        MainWindow.resize(1056, 810)
         font = QFont()
         font.setFamily(u"Modern")
         font.setPointSize(11)
@@ -363,7 +363,7 @@ class Ui_MainWindow(object):
         self.home_page_scrollArea.setWidgetResizable(True)
         self.home_page_frame = QWidget()
         self.home_page_frame.setObjectName(u"home_page_frame")
-        self.home_page_frame.setGeometry(QRect(0, 0, 860, 1410))
+        self.home_page_frame.setGeometry(QRect(0, 0, 700, 1410))
         self.verticalLayout_6 = QVBoxLayout(self.home_page_frame)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.home_header = QFrame(self.home_page_frame)
@@ -417,7 +417,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2444))
+        self.stock_analysis_frame.setGeometry(QRect(0, -203, 860, 2444))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.analysis_header = QFrame(self.stock_analysis_frame)
@@ -1053,7 +1053,7 @@ class Ui_MainWindow(object):
         self.scrollArea_3.setWidgetResizable(True)
         self.scrollAreaWidgetContents_3 = QWidget()
         self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 228, 175))
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 227, 175))
         self.verticalLayout_60 = QVBoxLayout(self.scrollAreaWidgetContents_3)
         self.verticalLayout_60.setObjectName(u"verticalLayout_60")
         self.stock_news_text_51 = QLabel(self.scrollAreaWidgetContents_3)
@@ -1132,7 +1132,7 @@ class Ui_MainWindow(object):
         self.scrollArea_4.setWidgetResizable(True)
         self.scrollAreaWidgetContents_4 = QWidget()
         self.scrollAreaWidgetContents_4.setObjectName(u"scrollAreaWidgetContents_4")
-        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 227, 175))
+        self.scrollAreaWidgetContents_4.setGeometry(QRect(0, 0, 228, 175))
         self.verticalLayout_64 = QVBoxLayout(self.scrollAreaWidgetContents_4)
         self.verticalLayout_64.setObjectName(u"verticalLayout_64")
         self.stock_news_text_52 = QLabel(self.scrollAreaWidgetContents_4)
@@ -3392,9 +3392,10 @@ class Ui_MainWindow(object):
 
         self.forex_button_learn = QPushButton(self.learn_start_page_options_frame)
         self.forex_button_learn.setObjectName(u"forex_button_learn")
+        self.forex_button_learn.setEnabled(False)
         self.forex_button_learn.setMinimumSize(QSize(100, 40))
         self.forex_button_learn.setMaximumSize(QSize(500, 40))
-        self.forex_button_learn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.forex_button_learn.setCursor(QCursor(Qt.ForbiddenCursor))
         self.forex_button_learn.setStyleSheet(u"")
         self.forex_button_learn.setFlat(False)
 
@@ -3402,9 +3403,10 @@ class Ui_MainWindow(object):
 
         self.crypto_button_learn = QPushButton(self.learn_start_page_options_frame)
         self.crypto_button_learn.setObjectName(u"crypto_button_learn")
+        self.crypto_button_learn.setEnabled(False)
         self.crypto_button_learn.setMinimumSize(QSize(100, 40))
         self.crypto_button_learn.setMaximumSize(QSize(500, 40))
-        self.crypto_button_learn.setCursor(QCursor(Qt.PointingHandCursor))
+        self.crypto_button_learn.setCursor(QCursor(Qt.ForbiddenCursor))
         self.crypto_button_learn.setStyleSheet(u"")
         self.crypto_button_learn.setFlat(False)
 
@@ -3431,7 +3433,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 3805))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, -4531, 842, 5208))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -3443,6 +3445,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_51 = QVBoxLayout(self.stock_tutorial_all)
         self.verticalLayout_51.setSpacing(17)
         self.verticalLayout_51.setObjectName(u"verticalLayout_51")
+        self.verticalLayout_51.setContentsMargins(-1, -1, -1, 9)
         self.frame_74 = QFrame(self.stock_tutorial_all)
         self.frame_74.setObjectName(u"frame_74")
         self.frame_74.setFrameShape(QFrame.StyledPanel)
@@ -3558,6 +3561,24 @@ class Ui_MainWindow(object):
         self.pushButton_8.setFlat(True)
 
         self.verticalLayout_149.addWidget(self.pushButton_8)
+
+        self.pushButton_2 = QPushButton(self.frame_78)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_2)
+
+        self.pushButton_3 = QPushButton(self.frame_78)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_3)
+
+        self.pushButton_4 = QPushButton(self.frame_78)
+        self.pushButton_4.setObjectName(u"pushButton_4")
+        self.pushButton_4.setFlat(True)
+
+        self.verticalLayout_149.addWidget(self.pushButton_4)
 
 
         self.verticalLayout_50.addWidget(self.frame_78, 0, Qt.AlignLeft)
@@ -3735,8 +3756,1313 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_48.addWidget(self.market_capitalization, 0, Qt.AlignHCenter|Qt.AlignVCenter)
 
+        self.IPO = QFrame(self.stocks_tutorial_main_body)
+        self.IPO.setObjectName(u"IPO")
+        self.IPO.setFrameShape(QFrame.StyledPanel)
+        self.IPO.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_112 = QVBoxLayout(self.IPO)
+        self.verticalLayout_112.setObjectName(u"verticalLayout_112")
+        self.label_54 = QLabel(self.IPO)
+        self.label_54.setObjectName(u"label_54")
+
+        self.verticalLayout_112.addWidget(self.label_54)
+
+        self.plainTextEdit_7 = QPlainTextEdit(self.IPO)
+        self.plainTextEdit_7.setObjectName(u"plainTextEdit_7")
+        self.plainTextEdit_7.setMinimumSize(QSize(500, 0))
+
+        self.verticalLayout_112.addWidget(self.plainTextEdit_7)
+
+
+        self.verticalLayout_48.addWidget(self.IPO, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
+        self.How_to_buy_stocks = QFrame(self.stocks_tutorial_main_body)
+        self.How_to_buy_stocks.setObjectName(u"How_to_buy_stocks")
+        self.How_to_buy_stocks.setFrameShape(QFrame.StyledPanel)
+        self.How_to_buy_stocks.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_113 = QVBoxLayout(self.How_to_buy_stocks)
+        self.verticalLayout_113.setObjectName(u"verticalLayout_113")
+        self.label_55 = QLabel(self.How_to_buy_stocks)
+        self.label_55.setObjectName(u"label_55")
+
+        self.verticalLayout_113.addWidget(self.label_55)
+
+        self.plainTextEdit_8 = QPlainTextEdit(self.How_to_buy_stocks)
+        self.plainTextEdit_8.setObjectName(u"plainTextEdit_8")
+        self.plainTextEdit_8.setMinimumSize(QSize(500, 0))
+
+        self.verticalLayout_113.addWidget(self.plainTextEdit_8)
+
+
+        self.verticalLayout_48.addWidget(self.How_to_buy_stocks, 0, Qt.AlignHCenter|Qt.AlignVCenter)
+
 
         self.verticalLayout_51.addWidget(self.stocks_tutorial_main_body, 0, Qt.AlignHCenter)
+
+        self.glossary_and_sources = QFrame(self.stock_tutorial_all)
+        self.glossary_and_sources.setObjectName(u"glossary_and_sources")
+        self.glossary_and_sources.setFrameShape(QFrame.NoFrame)
+        self.glossary_and_sources.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_179 = QVBoxLayout(self.glossary_and_sources)
+        self.verticalLayout_179.setSpacing(19)
+        self.verticalLayout_179.setObjectName(u"verticalLayout_179")
+        self.verticalLayout_179.setContentsMargins(0, 50, 0, -1)
+        self.label_56 = QLabel(self.glossary_and_sources)
+        self.label_56.setObjectName(u"label_56")
+        self.label_56.setStyleSheet(u"font: 22pt \"MS Shell Dlg 2\";")
+
+        self.verticalLayout_179.addWidget(self.label_56, 0, Qt.AlignHCenter)
+
+        self.stock_glossary_stackeWidget = QStackedWidget(self.glossary_and_sources)
+        self.stock_glossary_stackeWidget.setObjectName(u"stock_glossary_stackeWidget")
+        self.stock_glossary_stackeWidget.setMinimumSize(QSize(100, 25))
+        self.stock_glossary_stackeWidget.setStyleSheet(u"font: 75 12pt \"MS Shell Dlg 2\";")
+        self.stock_glossary_p1 = QWidget()
+        self.stock_glossary_p1.setObjectName(u"stock_glossary_p1")
+        self.verticalLayout_115 = QVBoxLayout(self.stock_glossary_p1)
+        self.verticalLayout_115.setObjectName(u"verticalLayout_115")
+        self.grid_8 = QFrame(self.stock_glossary_p1)
+        self.grid_8.setObjectName(u"grid_8")
+        self.grid_8.setMaximumSize(QSize(900, 16777215))
+        self.grid_8.setFrameShape(QFrame.NoFrame)
+        self.grid_8.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_200 = QVBoxLayout(self.grid_8)
+        self.verticalLayout_200.setSpacing(0)
+        self.verticalLayout_200.setObjectName(u"verticalLayout_200")
+        self.verticalLayout_200.setContentsMargins(0, 9, 0, 9)
+        self.label_57 = QLabel(self.grid_8)
+        self.label_57.setObjectName(u"label_57")
+
+        self.verticalLayout_200.addWidget(self.label_57, 0, Qt.AlignRight)
+
+        self.frame_54 = QFrame(self.grid_8)
+        self.frame_54.setObjectName(u"frame_54")
+        self.frame_54.setFrameShape(QFrame.StyledPanel)
+        self.frame_54.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_44 = QHBoxLayout(self.frame_54)
+        self.horizontalLayout_44.setSpacing(19)
+        self.horizontalLayout_44.setObjectName(u"horizontalLayout_44")
+        self.frame_184 = QFrame(self.frame_54)
+        self.frame_184.setObjectName(u"frame_184")
+        self.frame_184.setMinimumSize(QSize(175, 215))
+        self.frame_184.setMaximumSize(QSize(175, 16777215))
+        self.frame_184.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_184.setFrameShape(QFrame.StyledPanel)
+        self.frame_184.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_226 = QVBoxLayout(self.frame_184)
+        self.verticalLayout_226.setSpacing(18)
+        self.verticalLayout_226.setObjectName(u"verticalLayout_226")
+        self.label_185 = QLabel(self.frame_184)
+        self.label_185.setObjectName(u"label_185")
+        self.label_185.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_226.addWidget(self.label_185)
+
+        self.label_186 = QLabel(self.frame_184)
+        self.label_186.setObjectName(u"label_186")
+        self.label_186.setWordWrap(True)
+
+        self.verticalLayout_226.addWidget(self.label_186, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_44.addWidget(self.frame_184)
+
+        self.frame_185 = QFrame(self.frame_54)
+        self.frame_185.setObjectName(u"frame_185")
+        self.frame_185.setMinimumSize(QSize(175, 215))
+        self.frame_185.setMaximumSize(QSize(175, 16777215))
+        self.frame_185.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_185.setFrameShape(QFrame.StyledPanel)
+        self.frame_185.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_227 = QVBoxLayout(self.frame_185)
+        self.verticalLayout_227.setSpacing(18)
+        self.verticalLayout_227.setObjectName(u"verticalLayout_227")
+        self.label_187 = QLabel(self.frame_185)
+        self.label_187.setObjectName(u"label_187")
+        self.label_187.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_227.addWidget(self.label_187)
+
+        self.label_188 = QLabel(self.frame_185)
+        self.label_188.setObjectName(u"label_188")
+        self.label_188.setWordWrap(True)
+
+        self.verticalLayout_227.addWidget(self.label_188, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_44.addWidget(self.frame_185)
+
+        self.frame_186 = QFrame(self.frame_54)
+        self.frame_186.setObjectName(u"frame_186")
+        self.frame_186.setMinimumSize(QSize(175, 215))
+        self.frame_186.setMaximumSize(QSize(175, 16777215))
+        self.frame_186.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_186.setFrameShape(QFrame.StyledPanel)
+        self.frame_186.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_228 = QVBoxLayout(self.frame_186)
+        self.verticalLayout_228.setSpacing(18)
+        self.verticalLayout_228.setObjectName(u"verticalLayout_228")
+        self.label_189 = QLabel(self.frame_186)
+        self.label_189.setObjectName(u"label_189")
+        self.label_189.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_228.addWidget(self.label_189)
+
+        self.label_190 = QLabel(self.frame_186)
+        self.label_190.setObjectName(u"label_190")
+        self.label_190.setWordWrap(True)
+
+        self.verticalLayout_228.addWidget(self.label_190, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_44.addWidget(self.frame_186)
+
+        self.frame_187 = QFrame(self.frame_54)
+        self.frame_187.setObjectName(u"frame_187")
+        self.frame_187.setMinimumSize(QSize(175, 215))
+        self.frame_187.setMaximumSize(QSize(175, 16777215))
+        self.frame_187.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_187.setFrameShape(QFrame.StyledPanel)
+        self.frame_187.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_229 = QVBoxLayout(self.frame_187)
+        self.verticalLayout_229.setSpacing(18)
+        self.verticalLayout_229.setObjectName(u"verticalLayout_229")
+        self.label_191 = QLabel(self.frame_187)
+        self.label_191.setObjectName(u"label_191")
+        self.label_191.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_229.addWidget(self.label_191)
+
+        self.label_192 = QLabel(self.frame_187)
+        self.label_192.setObjectName(u"label_192")
+        self.label_192.setWordWrap(True)
+
+        self.verticalLayout_229.addWidget(self.label_192, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_44.addWidget(self.frame_187)
+
+
+        self.verticalLayout_200.addWidget(self.frame_54)
+
+        self.frame_55 = QFrame(self.grid_8)
+        self.frame_55.setObjectName(u"frame_55")
+        self.frame_55.setFrameShape(QFrame.StyledPanel)
+        self.frame_55.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_45 = QHBoxLayout(self.frame_55)
+        self.horizontalLayout_45.setSpacing(19)
+        self.horizontalLayout_45.setObjectName(u"horizontalLayout_45")
+        self.horizontalLayout_45.setContentsMargins(-1, 9, 9, -1)
+        self.frame_188 = QFrame(self.frame_55)
+        self.frame_188.setObjectName(u"frame_188")
+        self.frame_188.setMinimumSize(QSize(175, 215))
+        self.frame_188.setMaximumSize(QSize(175, 16777215))
+        self.frame_188.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_188.setFrameShape(QFrame.StyledPanel)
+        self.frame_188.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_230 = QVBoxLayout(self.frame_188)
+        self.verticalLayout_230.setSpacing(18)
+        self.verticalLayout_230.setObjectName(u"verticalLayout_230")
+        self.label_193 = QLabel(self.frame_188)
+        self.label_193.setObjectName(u"label_193")
+        self.label_193.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_230.addWidget(self.label_193)
+
+        self.label_194 = QLabel(self.frame_188)
+        self.label_194.setObjectName(u"label_194")
+        self.label_194.setWordWrap(True)
+
+        self.verticalLayout_230.addWidget(self.label_194, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_45.addWidget(self.frame_188)
+
+        self.frame_189 = QFrame(self.frame_55)
+        self.frame_189.setObjectName(u"frame_189")
+        self.frame_189.setMinimumSize(QSize(175, 215))
+        self.frame_189.setMaximumSize(QSize(175, 16777215))
+        self.frame_189.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_189.setFrameShape(QFrame.StyledPanel)
+        self.frame_189.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_255 = QVBoxLayout(self.frame_189)
+        self.verticalLayout_255.setSpacing(18)
+        self.verticalLayout_255.setObjectName(u"verticalLayout_255")
+        self.label_195 = QLabel(self.frame_189)
+        self.label_195.setObjectName(u"label_195")
+        self.label_195.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_255.addWidget(self.label_195)
+
+        self.label_196 = QLabel(self.frame_189)
+        self.label_196.setObjectName(u"label_196")
+        self.label_196.setWordWrap(True)
+
+        self.verticalLayout_255.addWidget(self.label_196, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_45.addWidget(self.frame_189)
+
+        self.frame_190 = QFrame(self.frame_55)
+        self.frame_190.setObjectName(u"frame_190")
+        self.frame_190.setMinimumSize(QSize(175, 215))
+        self.frame_190.setMaximumSize(QSize(175, 16777215))
+        self.frame_190.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_190.setFrameShape(QFrame.StyledPanel)
+        self.frame_190.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_256 = QVBoxLayout(self.frame_190)
+        self.verticalLayout_256.setSpacing(18)
+        self.verticalLayout_256.setObjectName(u"verticalLayout_256")
+        self.label_197 = QLabel(self.frame_190)
+        self.label_197.setObjectName(u"label_197")
+        self.label_197.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_256.addWidget(self.label_197)
+
+        self.label_198 = QLabel(self.frame_190)
+        self.label_198.setObjectName(u"label_198")
+        self.label_198.setWordWrap(True)
+
+        self.verticalLayout_256.addWidget(self.label_198, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_45.addWidget(self.frame_190)
+
+        self.frame_191 = QFrame(self.frame_55)
+        self.frame_191.setObjectName(u"frame_191")
+        self.frame_191.setMinimumSize(QSize(175, 215))
+        self.frame_191.setMaximumSize(QSize(175, 16777215))
+        self.frame_191.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_191.setFrameShape(QFrame.StyledPanel)
+        self.frame_191.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_257 = QVBoxLayout(self.frame_191)
+        self.verticalLayout_257.setSpacing(18)
+        self.verticalLayout_257.setObjectName(u"verticalLayout_257")
+        self.label_199 = QLabel(self.frame_191)
+        self.label_199.setObjectName(u"label_199")
+        self.label_199.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_257.addWidget(self.label_199)
+
+        self.label_200 = QLabel(self.frame_191)
+        self.label_200.setObjectName(u"label_200")
+        self.label_200.setWordWrap(True)
+
+        self.verticalLayout_257.addWidget(self.label_200, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_45.addWidget(self.frame_191)
+
+
+        self.verticalLayout_200.addWidget(self.frame_55)
+
+
+        self.verticalLayout_115.addWidget(self.grid_8)
+
+        self.frame_35 = QFrame(self.stock_glossary_p1)
+        self.frame_35.setObjectName(u"frame_35")
+        self.frame_35.setFrameShape(QFrame.StyledPanel)
+        self.frame_35.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_116 = QVBoxLayout(self.frame_35)
+        self.verticalLayout_116.setObjectName(u"verticalLayout_116")
+        self.frame_43 = QFrame(self.frame_35)
+        self.frame_43.setObjectName(u"frame_43")
+        self.frame_43.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:2px;\n"
+"color:rgb(255, 255, 255);\n"
+"	background-color: rgb(76, 110, 158);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
+"}")
+        self.frame_43.setFrameShape(QFrame.StyledPanel)
+        self.frame_43.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_32 = QHBoxLayout(self.frame_43)
+        self.horizontalLayout_32.setObjectName(u"horizontalLayout_32")
+        self.sgp1p = QPushButton(self.frame_43)
+        self.sgp1p.setObjectName(u"sgp1p")
+        self.sgp1p.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_32.addWidget(self.sgp1p, 0, Qt.AlignLeft)
+
+        self.sgp1n = QPushButton(self.frame_43)
+        self.sgp1n.setObjectName(u"sgp1n")
+        self.sgp1n.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_32.addWidget(self.sgp1n, 0, Qt.AlignRight)
+
+
+        self.verticalLayout_116.addWidget(self.frame_43)
+
+
+        self.verticalLayout_115.addWidget(self.frame_35)
+
+        self.stock_glossary_stackeWidget.addWidget(self.stock_glossary_p1)
+        self.stock_glossary_p2 = QWidget()
+        self.stock_glossary_p2.setObjectName(u"stock_glossary_p2")
+        self.verticalLayout_177 = QVBoxLayout(self.stock_glossary_p2)
+        self.verticalLayout_177.setObjectName(u"verticalLayout_177")
+        self.grid_6 = QFrame(self.stock_glossary_p2)
+        self.grid_6.setObjectName(u"grid_6")
+        self.grid_6.setMaximumSize(QSize(900, 16777215))
+        self.grid_6.setFrameShape(QFrame.NoFrame)
+        self.grid_6.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_182 = QVBoxLayout(self.grid_6)
+        self.verticalLayout_182.setSpacing(0)
+        self.verticalLayout_182.setObjectName(u"verticalLayout_182")
+        self.verticalLayout_182.setContentsMargins(0, -1, 0, -1)
+        self.label_58 = QLabel(self.grid_6)
+        self.label_58.setObjectName(u"label_58")
+
+        self.verticalLayout_182.addWidget(self.label_58, 0, Qt.AlignRight)
+
+        self.frame_50 = QFrame(self.grid_6)
+        self.frame_50.setObjectName(u"frame_50")
+        self.frame_50.setFrameShape(QFrame.StyledPanel)
+        self.frame_50.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_40 = QHBoxLayout(self.frame_50)
+        self.horizontalLayout_40.setSpacing(19)
+        self.horizontalLayout_40.setObjectName(u"horizontalLayout_40")
+        self.frame_168 = QFrame(self.frame_50)
+        self.frame_168.setObjectName(u"frame_168")
+        self.frame_168.setMinimumSize(QSize(175, 215))
+        self.frame_168.setMaximumSize(QSize(175, 16777215))
+        self.frame_168.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_168.setFrameShape(QFrame.StyledPanel)
+        self.frame_168.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_218 = QVBoxLayout(self.frame_168)
+        self.verticalLayout_218.setSpacing(18)
+        self.verticalLayout_218.setObjectName(u"verticalLayout_218")
+        self.label_153 = QLabel(self.frame_168)
+        self.label_153.setObjectName(u"label_153")
+        self.label_153.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_218.addWidget(self.label_153)
+
+        self.label_154 = QLabel(self.frame_168)
+        self.label_154.setObjectName(u"label_154")
+        self.label_154.setWordWrap(True)
+
+        self.verticalLayout_218.addWidget(self.label_154, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_40.addWidget(self.frame_168)
+
+        self.frame_169 = QFrame(self.frame_50)
+        self.frame_169.setObjectName(u"frame_169")
+        self.frame_169.setMinimumSize(QSize(175, 215))
+        self.frame_169.setMaximumSize(QSize(175, 16777215))
+        self.frame_169.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_169.setFrameShape(QFrame.StyledPanel)
+        self.frame_169.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_219 = QVBoxLayout(self.frame_169)
+        self.verticalLayout_219.setSpacing(18)
+        self.verticalLayout_219.setObjectName(u"verticalLayout_219")
+        self.label_155 = QLabel(self.frame_169)
+        self.label_155.setObjectName(u"label_155")
+        self.label_155.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_219.addWidget(self.label_155)
+
+        self.label_156 = QLabel(self.frame_169)
+        self.label_156.setObjectName(u"label_156")
+        self.label_156.setWordWrap(True)
+
+        self.verticalLayout_219.addWidget(self.label_156, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_40.addWidget(self.frame_169)
+
+        self.frame_171 = QFrame(self.frame_50)
+        self.frame_171.setObjectName(u"frame_171")
+        self.frame_171.setMinimumSize(QSize(175, 215))
+        self.frame_171.setMaximumSize(QSize(175, 16777215))
+        self.frame_171.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_171.setFrameShape(QFrame.StyledPanel)
+        self.frame_171.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_221 = QVBoxLayout(self.frame_171)
+        self.verticalLayout_221.setSpacing(18)
+        self.verticalLayout_221.setObjectName(u"verticalLayout_221")
+        self.label_159 = QLabel(self.frame_171)
+        self.label_159.setObjectName(u"label_159")
+        self.label_159.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_221.addWidget(self.label_159)
+
+        self.label_160 = QLabel(self.frame_171)
+        self.label_160.setObjectName(u"label_160")
+        self.label_160.setWordWrap(True)
+
+        self.verticalLayout_221.addWidget(self.label_160, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_40.addWidget(self.frame_171)
+
+        self.frame_170 = QFrame(self.frame_50)
+        self.frame_170.setObjectName(u"frame_170")
+        self.frame_170.setMinimumSize(QSize(175, 215))
+        self.frame_170.setMaximumSize(QSize(175, 16777215))
+        self.frame_170.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_170.setFrameShape(QFrame.StyledPanel)
+        self.frame_170.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_220 = QVBoxLayout(self.frame_170)
+        self.verticalLayout_220.setSpacing(18)
+        self.verticalLayout_220.setObjectName(u"verticalLayout_220")
+        self.label_157 = QLabel(self.frame_170)
+        self.label_157.setObjectName(u"label_157")
+        self.label_157.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_220.addWidget(self.label_157)
+
+        self.label_158 = QLabel(self.frame_170)
+        self.label_158.setObjectName(u"label_158")
+        self.label_158.setWordWrap(True)
+
+        self.verticalLayout_220.addWidget(self.label_158, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_40.addWidget(self.frame_170)
+
+
+        self.verticalLayout_182.addWidget(self.frame_50)
+
+        self.frame_51 = QFrame(self.grid_6)
+        self.frame_51.setObjectName(u"frame_51")
+        self.frame_51.setFrameShape(QFrame.StyledPanel)
+        self.frame_51.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_41 = QHBoxLayout(self.frame_51)
+        self.horizontalLayout_41.setSpacing(19)
+        self.horizontalLayout_41.setObjectName(u"horizontalLayout_41")
+        self.frame_172 = QFrame(self.frame_51)
+        self.frame_172.setObjectName(u"frame_172")
+        self.frame_172.setMinimumSize(QSize(175, 215))
+        self.frame_172.setMaximumSize(QSize(175, 16777215))
+        self.frame_172.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_172.setFrameShape(QFrame.StyledPanel)
+        self.frame_172.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_222 = QVBoxLayout(self.frame_172)
+        self.verticalLayout_222.setSpacing(18)
+        self.verticalLayout_222.setObjectName(u"verticalLayout_222")
+        self.label_161 = QLabel(self.frame_172)
+        self.label_161.setObjectName(u"label_161")
+        self.label_161.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_222.addWidget(self.label_161)
+
+        self.label_162 = QLabel(self.frame_172)
+        self.label_162.setObjectName(u"label_162")
+        self.label_162.setWordWrap(True)
+
+        self.verticalLayout_222.addWidget(self.label_162, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_41.addWidget(self.frame_172)
+
+        self.frame_173 = QFrame(self.frame_51)
+        self.frame_173.setObjectName(u"frame_173")
+        self.frame_173.setMinimumSize(QSize(175, 215))
+        self.frame_173.setMaximumSize(QSize(175, 16777215))
+        self.frame_173.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_173.setFrameShape(QFrame.StyledPanel)
+        self.frame_173.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_223 = QVBoxLayout(self.frame_173)
+        self.verticalLayout_223.setSpacing(18)
+        self.verticalLayout_223.setObjectName(u"verticalLayout_223")
+        self.label_163 = QLabel(self.frame_173)
+        self.label_163.setObjectName(u"label_163")
+        self.label_163.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_223.addWidget(self.label_163)
+
+        self.label_164 = QLabel(self.frame_173)
+        self.label_164.setObjectName(u"label_164")
+        self.label_164.setWordWrap(True)
+
+        self.verticalLayout_223.addWidget(self.label_164, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_41.addWidget(self.frame_173)
+
+        self.frame_174 = QFrame(self.frame_51)
+        self.frame_174.setObjectName(u"frame_174")
+        self.frame_174.setMinimumSize(QSize(175, 215))
+        self.frame_174.setMaximumSize(QSize(175, 16777215))
+        self.frame_174.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_174.setFrameShape(QFrame.StyledPanel)
+        self.frame_174.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_224 = QVBoxLayout(self.frame_174)
+        self.verticalLayout_224.setSpacing(18)
+        self.verticalLayout_224.setObjectName(u"verticalLayout_224")
+        self.label_165 = QLabel(self.frame_174)
+        self.label_165.setObjectName(u"label_165")
+        self.label_165.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_224.addWidget(self.label_165)
+
+        self.label_166 = QLabel(self.frame_174)
+        self.label_166.setObjectName(u"label_166")
+        self.label_166.setWordWrap(True)
+
+        self.verticalLayout_224.addWidget(self.label_166, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_41.addWidget(self.frame_174)
+
+        self.frame_175 = QFrame(self.frame_51)
+        self.frame_175.setObjectName(u"frame_175")
+        self.frame_175.setMinimumSize(QSize(175, 215))
+        self.frame_175.setMaximumSize(QSize(175, 16777215))
+        self.frame_175.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_175.setFrameShape(QFrame.StyledPanel)
+        self.frame_175.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_225 = QVBoxLayout(self.frame_175)
+        self.verticalLayout_225.setSpacing(18)
+        self.verticalLayout_225.setObjectName(u"verticalLayout_225")
+        self.label_167 = QLabel(self.frame_175)
+        self.label_167.setObjectName(u"label_167")
+        self.label_167.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_225.addWidget(self.label_167)
+
+        self.label_168 = QLabel(self.frame_175)
+        self.label_168.setObjectName(u"label_168")
+        self.label_168.setWordWrap(True)
+
+        self.verticalLayout_225.addWidget(self.label_168, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_41.addWidget(self.frame_175)
+
+
+        self.verticalLayout_182.addWidget(self.frame_51)
+
+
+        self.verticalLayout_177.addWidget(self.grid_6)
+
+        self.frame_36 = QFrame(self.stock_glossary_p2)
+        self.frame_36.setObjectName(u"frame_36")
+        self.frame_36.setFrameShape(QFrame.StyledPanel)
+        self.frame_36.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_117 = QVBoxLayout(self.frame_36)
+        self.verticalLayout_117.setObjectName(u"verticalLayout_117")
+        self.frame_44 = QFrame(self.frame_36)
+        self.frame_44.setObjectName(u"frame_44")
+        self.frame_44.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:2px;\n"
+"color:rgb(255, 255, 255);\n"
+"	background-color: rgb(76, 110, 158);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
+"}")
+        self.frame_44.setFrameShape(QFrame.StyledPanel)
+        self.frame_44.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_33 = QHBoxLayout(self.frame_44)
+        self.horizontalLayout_33.setObjectName(u"horizontalLayout_33")
+        self.sgp2p = QPushButton(self.frame_44)
+        self.sgp2p.setObjectName(u"sgp2p")
+        self.sgp2p.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_33.addWidget(self.sgp2p, 0, Qt.AlignLeft)
+
+        self.sgp2n = QPushButton(self.frame_44)
+        self.sgp2n.setObjectName(u"sgp2n")
+        self.sgp2n.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_33.addWidget(self.sgp2n, 0, Qt.AlignRight)
+
+
+        self.verticalLayout_117.addWidget(self.frame_44)
+
+
+        self.verticalLayout_177.addWidget(self.frame_36)
+
+        self.stock_glossary_stackeWidget.addWidget(self.stock_glossary_p2)
+        self.stock_glossary_p3 = QWidget()
+        self.stock_glossary_p3.setObjectName(u"stock_glossary_p3")
+        self.verticalLayout_114 = QVBoxLayout(self.stock_glossary_p3)
+        self.verticalLayout_114.setObjectName(u"verticalLayout_114")
+        self.grid_7 = QFrame(self.stock_glossary_p3)
+        self.grid_7.setObjectName(u"grid_7")
+        self.grid_7.setMaximumSize(QSize(900, 16777215))
+        self.grid_7.setFrameShape(QFrame.NoFrame)
+        self.grid_7.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_201 = QVBoxLayout(self.grid_7)
+        self.verticalLayout_201.setSpacing(0)
+        self.verticalLayout_201.setObjectName(u"verticalLayout_201")
+        self.verticalLayout_201.setContentsMargins(0, -1, 0, -1)
+        self.label_59 = QLabel(self.grid_7)
+        self.label_59.setObjectName(u"label_59")
+
+        self.verticalLayout_201.addWidget(self.label_59, 0, Qt.AlignRight)
+
+        self.frame_52 = QFrame(self.grid_7)
+        self.frame_52.setObjectName(u"frame_52")
+        self.frame_52.setFrameShape(QFrame.StyledPanel)
+        self.frame_52.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_42 = QHBoxLayout(self.frame_52)
+        self.horizontalLayout_42.setSpacing(19)
+        self.horizontalLayout_42.setObjectName(u"horizontalLayout_42")
+        self.frame_176 = QFrame(self.frame_52)
+        self.frame_176.setObjectName(u"frame_176")
+        self.frame_176.setMinimumSize(QSize(175, 215))
+        self.frame_176.setMaximumSize(QSize(175, 16777215))
+        self.frame_176.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_176.setFrameShape(QFrame.StyledPanel)
+        self.frame_176.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_258 = QVBoxLayout(self.frame_176)
+        self.verticalLayout_258.setSpacing(18)
+        self.verticalLayout_258.setObjectName(u"verticalLayout_258")
+        self.label_169 = QLabel(self.frame_176)
+        self.label_169.setObjectName(u"label_169")
+        self.label_169.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_258.addWidget(self.label_169)
+
+        self.label_170 = QLabel(self.frame_176)
+        self.label_170.setObjectName(u"label_170")
+        self.label_170.setWordWrap(True)
+
+        self.verticalLayout_258.addWidget(self.label_170, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_42.addWidget(self.frame_176)
+
+        self.frame_177 = QFrame(self.frame_52)
+        self.frame_177.setObjectName(u"frame_177")
+        self.frame_177.setMinimumSize(QSize(175, 215))
+        self.frame_177.setMaximumSize(QSize(175, 16777215))
+        self.frame_177.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_177.setFrameShape(QFrame.StyledPanel)
+        self.frame_177.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_259 = QVBoxLayout(self.frame_177)
+        self.verticalLayout_259.setSpacing(18)
+        self.verticalLayout_259.setObjectName(u"verticalLayout_259")
+        self.label_171 = QLabel(self.frame_177)
+        self.label_171.setObjectName(u"label_171")
+        self.label_171.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_259.addWidget(self.label_171)
+
+        self.label_172 = QLabel(self.frame_177)
+        self.label_172.setObjectName(u"label_172")
+        self.label_172.setWordWrap(True)
+
+        self.verticalLayout_259.addWidget(self.label_172, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_42.addWidget(self.frame_177)
+
+        self.frame_178 = QFrame(self.frame_52)
+        self.frame_178.setObjectName(u"frame_178")
+        self.frame_178.setMinimumSize(QSize(175, 215))
+        self.frame_178.setMaximumSize(QSize(175, 16777215))
+        self.frame_178.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_178.setFrameShape(QFrame.StyledPanel)
+        self.frame_178.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_260 = QVBoxLayout(self.frame_178)
+        self.verticalLayout_260.setSpacing(18)
+        self.verticalLayout_260.setObjectName(u"verticalLayout_260")
+        self.label_173 = QLabel(self.frame_178)
+        self.label_173.setObjectName(u"label_173")
+        self.label_173.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_260.addWidget(self.label_173)
+
+        self.label_174 = QLabel(self.frame_178)
+        self.label_174.setObjectName(u"label_174")
+        self.label_174.setWordWrap(True)
+
+        self.verticalLayout_260.addWidget(self.label_174, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_42.addWidget(self.frame_178)
+
+        self.frame_179 = QFrame(self.frame_52)
+        self.frame_179.setObjectName(u"frame_179")
+        self.frame_179.setMinimumSize(QSize(175, 215))
+        self.frame_179.setMaximumSize(QSize(175, 16777215))
+        self.frame_179.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_179.setFrameShape(QFrame.StyledPanel)
+        self.frame_179.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_261 = QVBoxLayout(self.frame_179)
+        self.verticalLayout_261.setSpacing(18)
+        self.verticalLayout_261.setObjectName(u"verticalLayout_261")
+        self.label_175 = QLabel(self.frame_179)
+        self.label_175.setObjectName(u"label_175")
+        self.label_175.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_261.addWidget(self.label_175)
+
+        self.label_176 = QLabel(self.frame_179)
+        self.label_176.setObjectName(u"label_176")
+        self.label_176.setWordWrap(True)
+
+        self.verticalLayout_261.addWidget(self.label_176, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_42.addWidget(self.frame_179)
+
+
+        self.verticalLayout_201.addWidget(self.frame_52)
+
+        self.frame_53 = QFrame(self.grid_7)
+        self.frame_53.setObjectName(u"frame_53")
+        self.frame_53.setFrameShape(QFrame.StyledPanel)
+        self.frame_53.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_43 = QHBoxLayout(self.frame_53)
+        self.horizontalLayout_43.setSpacing(19)
+        self.horizontalLayout_43.setObjectName(u"horizontalLayout_43")
+        self.frame_180 = QFrame(self.frame_53)
+        self.frame_180.setObjectName(u"frame_180")
+        self.frame_180.setMinimumSize(QSize(175, 215))
+        self.frame_180.setMaximumSize(QSize(175, 16777215))
+        self.frame_180.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_180.setFrameShape(QFrame.StyledPanel)
+        self.frame_180.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_262 = QVBoxLayout(self.frame_180)
+        self.verticalLayout_262.setSpacing(18)
+        self.verticalLayout_262.setObjectName(u"verticalLayout_262")
+        self.label_177 = QLabel(self.frame_180)
+        self.label_177.setObjectName(u"label_177")
+        self.label_177.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_262.addWidget(self.label_177)
+
+        self.label_178 = QLabel(self.frame_180)
+        self.label_178.setObjectName(u"label_178")
+        self.label_178.setWordWrap(True)
+
+        self.verticalLayout_262.addWidget(self.label_178, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_43.addWidget(self.frame_180)
+
+        self.frame_181 = QFrame(self.frame_53)
+        self.frame_181.setObjectName(u"frame_181")
+        self.frame_181.setMinimumSize(QSize(175, 215))
+        self.frame_181.setMaximumSize(QSize(175, 16777215))
+        self.frame_181.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_181.setFrameShape(QFrame.StyledPanel)
+        self.frame_181.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_263 = QVBoxLayout(self.frame_181)
+        self.verticalLayout_263.setSpacing(18)
+        self.verticalLayout_263.setObjectName(u"verticalLayout_263")
+        self.label_179 = QLabel(self.frame_181)
+        self.label_179.setObjectName(u"label_179")
+        self.label_179.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_263.addWidget(self.label_179)
+
+        self.label_180 = QLabel(self.frame_181)
+        self.label_180.setObjectName(u"label_180")
+        self.label_180.setWordWrap(True)
+
+        self.verticalLayout_263.addWidget(self.label_180, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_43.addWidget(self.frame_181)
+
+        self.frame_182 = QFrame(self.frame_53)
+        self.frame_182.setObjectName(u"frame_182")
+        self.frame_182.setMinimumSize(QSize(175, 215))
+        self.frame_182.setMaximumSize(QSize(175, 16777215))
+        self.frame_182.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_182.setFrameShape(QFrame.StyledPanel)
+        self.frame_182.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_264 = QVBoxLayout(self.frame_182)
+        self.verticalLayout_264.setSpacing(18)
+        self.verticalLayout_264.setObjectName(u"verticalLayout_264")
+        self.label_181 = QLabel(self.frame_182)
+        self.label_181.setObjectName(u"label_181")
+        self.label_181.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_264.addWidget(self.label_181)
+
+        self.label_182 = QLabel(self.frame_182)
+        self.label_182.setObjectName(u"label_182")
+        self.label_182.setWordWrap(True)
+
+        self.verticalLayout_264.addWidget(self.label_182, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_43.addWidget(self.frame_182)
+
+        self.frame_183 = QFrame(self.frame_53)
+        self.frame_183.setObjectName(u"frame_183")
+        self.frame_183.setMinimumSize(QSize(175, 215))
+        self.frame_183.setMaximumSize(QSize(175, 16777215))
+        self.frame_183.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_183.setFrameShape(QFrame.StyledPanel)
+        self.frame_183.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_265 = QVBoxLayout(self.frame_183)
+        self.verticalLayout_265.setSpacing(18)
+        self.verticalLayout_265.setObjectName(u"verticalLayout_265")
+        self.label_183 = QLabel(self.frame_183)
+        self.label_183.setObjectName(u"label_183")
+        self.label_183.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_265.addWidget(self.label_183)
+
+        self.label_184 = QLabel(self.frame_183)
+        self.label_184.setObjectName(u"label_184")
+        self.label_184.setWordWrap(True)
+
+        self.verticalLayout_265.addWidget(self.label_184, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_43.addWidget(self.frame_183)
+
+
+        self.verticalLayout_201.addWidget(self.frame_53)
+
+
+        self.verticalLayout_114.addWidget(self.grid_7)
+
+        self.frame_40 = QFrame(self.stock_glossary_p3)
+        self.frame_40.setObjectName(u"frame_40")
+        self.frame_40.setFrameShape(QFrame.StyledPanel)
+        self.frame_40.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_178 = QVBoxLayout(self.frame_40)
+        self.verticalLayout_178.setObjectName(u"verticalLayout_178")
+        self.frame_45 = QFrame(self.frame_40)
+        self.frame_45.setObjectName(u"frame_45")
+        self.frame_45.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:2px;\n"
+"color:rgb(255, 255, 255);\n"
+"	background-color: rgb(76, 110, 158);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
+"}")
+        self.frame_45.setFrameShape(QFrame.StyledPanel)
+        self.frame_45.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_34 = QHBoxLayout(self.frame_45)
+        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
+        self.sgp3p = QPushButton(self.frame_45)
+        self.sgp3p.setObjectName(u"sgp3p")
+        self.sgp3p.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_34.addWidget(self.sgp3p, 0, Qt.AlignLeft)
+
+        self.sgp3n = QPushButton(self.frame_45)
+        self.sgp3n.setObjectName(u"sgp3n")
+        self.sgp3n.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_34.addWidget(self.sgp3n, 0, Qt.AlignRight)
+
+
+        self.verticalLayout_178.addWidget(self.frame_45)
+
+
+        self.verticalLayout_114.addWidget(self.frame_40)
+
+        self.stock_glossary_stackeWidget.addWidget(self.stock_glossary_p3)
+        self.stock_glossary_p4 = QWidget()
+        self.stock_glossary_p4.setObjectName(u"stock_glossary_p4")
+        self.verticalLayout_181 = QVBoxLayout(self.stock_glossary_p4)
+        self.verticalLayout_181.setObjectName(u"verticalLayout_181")
+        self.grid_9 = QFrame(self.stock_glossary_p4)
+        self.grid_9.setObjectName(u"grid_9")
+        self.grid_9.setMaximumSize(QSize(900, 16777215))
+        self.grid_9.setFrameShape(QFrame.NoFrame)
+        self.grid_9.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_183 = QVBoxLayout(self.grid_9)
+        self.verticalLayout_183.setSpacing(0)
+        self.verticalLayout_183.setObjectName(u"verticalLayout_183")
+        self.verticalLayout_183.setContentsMargins(0, -1, 0, -1)
+        self.label_120 = QLabel(self.grid_9)
+        self.label_120.setObjectName(u"label_120")
+
+        self.verticalLayout_183.addWidget(self.label_120, 0, Qt.AlignRight)
+
+        self.frame_56 = QFrame(self.grid_9)
+        self.frame_56.setObjectName(u"frame_56")
+        self.frame_56.setFrameShape(QFrame.StyledPanel)
+        self.frame_56.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_46 = QHBoxLayout(self.frame_56)
+        self.horizontalLayout_46.setSpacing(19)
+        self.horizontalLayout_46.setObjectName(u"horizontalLayout_46")
+        self.frame_192 = QFrame(self.frame_56)
+        self.frame_192.setObjectName(u"frame_192")
+        self.frame_192.setMinimumSize(QSize(175, 215))
+        self.frame_192.setMaximumSize(QSize(175, 16777215))
+        self.frame_192.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_192.setFrameShape(QFrame.StyledPanel)
+        self.frame_192.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_266 = QVBoxLayout(self.frame_192)
+        self.verticalLayout_266.setSpacing(18)
+        self.verticalLayout_266.setObjectName(u"verticalLayout_266")
+        self.label_201 = QLabel(self.frame_192)
+        self.label_201.setObjectName(u"label_201")
+        self.label_201.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_266.addWidget(self.label_201)
+
+        self.label_202 = QLabel(self.frame_192)
+        self.label_202.setObjectName(u"label_202")
+        self.label_202.setWordWrap(True)
+
+        self.verticalLayout_266.addWidget(self.label_202, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_46.addWidget(self.frame_192)
+
+        self.frame_193 = QFrame(self.frame_56)
+        self.frame_193.setObjectName(u"frame_193")
+        self.frame_193.setMinimumSize(QSize(175, 215))
+        self.frame_193.setMaximumSize(QSize(175, 16777215))
+        self.frame_193.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_193.setFrameShape(QFrame.StyledPanel)
+        self.frame_193.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_267 = QVBoxLayout(self.frame_193)
+        self.verticalLayout_267.setSpacing(18)
+        self.verticalLayout_267.setObjectName(u"verticalLayout_267")
+        self.label_203 = QLabel(self.frame_193)
+        self.label_203.setObjectName(u"label_203")
+        self.label_203.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_267.addWidget(self.label_203)
+
+        self.label_204 = QLabel(self.frame_193)
+        self.label_204.setObjectName(u"label_204")
+        self.label_204.setWordWrap(True)
+
+        self.verticalLayout_267.addWidget(self.label_204, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_46.addWidget(self.frame_193)
+
+        self.frame_194 = QFrame(self.frame_56)
+        self.frame_194.setObjectName(u"frame_194")
+        self.frame_194.setMinimumSize(QSize(175, 215))
+        self.frame_194.setMaximumSize(QSize(175, 16777215))
+        self.frame_194.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_194.setFrameShape(QFrame.StyledPanel)
+        self.frame_194.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_268 = QVBoxLayout(self.frame_194)
+        self.verticalLayout_268.setSpacing(18)
+        self.verticalLayout_268.setObjectName(u"verticalLayout_268")
+        self.label_205 = QLabel(self.frame_194)
+        self.label_205.setObjectName(u"label_205")
+        self.label_205.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_268.addWidget(self.label_205)
+
+        self.label_206 = QLabel(self.frame_194)
+        self.label_206.setObjectName(u"label_206")
+        self.label_206.setWordWrap(True)
+
+        self.verticalLayout_268.addWidget(self.label_206, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_46.addWidget(self.frame_194)
+
+        self.frame_195 = QFrame(self.frame_56)
+        self.frame_195.setObjectName(u"frame_195")
+        self.frame_195.setMinimumSize(QSize(175, 215))
+        self.frame_195.setMaximumSize(QSize(175, 16777215))
+        self.frame_195.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_195.setFrameShape(QFrame.StyledPanel)
+        self.frame_195.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_269 = QVBoxLayout(self.frame_195)
+        self.verticalLayout_269.setSpacing(18)
+        self.verticalLayout_269.setObjectName(u"verticalLayout_269")
+        self.label_207 = QLabel(self.frame_195)
+        self.label_207.setObjectName(u"label_207")
+        self.label_207.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_269.addWidget(self.label_207)
+
+        self.label_208 = QLabel(self.frame_195)
+        self.label_208.setObjectName(u"label_208")
+        self.label_208.setWordWrap(True)
+
+        self.verticalLayout_269.addWidget(self.label_208, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_46.addWidget(self.frame_195)
+
+
+        self.verticalLayout_183.addWidget(self.frame_56)
+
+        self.frame_57 = QFrame(self.grid_9)
+        self.frame_57.setObjectName(u"frame_57")
+        self.frame_57.setFrameShape(QFrame.StyledPanel)
+        self.frame_57.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_47 = QHBoxLayout(self.frame_57)
+        self.horizontalLayout_47.setSpacing(19)
+        self.horizontalLayout_47.setObjectName(u"horizontalLayout_47")
+        self.frame_196 = QFrame(self.frame_57)
+        self.frame_196.setObjectName(u"frame_196")
+        self.frame_196.setMinimumSize(QSize(175, 215))
+        self.frame_196.setMaximumSize(QSize(175, 16777215))
+        self.frame_196.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_196.setFrameShape(QFrame.StyledPanel)
+        self.frame_196.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_270 = QVBoxLayout(self.frame_196)
+        self.verticalLayout_270.setSpacing(18)
+        self.verticalLayout_270.setObjectName(u"verticalLayout_270")
+        self.label_209 = QLabel(self.frame_196)
+        self.label_209.setObjectName(u"label_209")
+        self.label_209.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_270.addWidget(self.label_209)
+
+        self.label_210 = QLabel(self.frame_196)
+        self.label_210.setObjectName(u"label_210")
+        self.label_210.setWordWrap(True)
+
+        self.verticalLayout_270.addWidget(self.label_210, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_47.addWidget(self.frame_196)
+
+        self.frame_197 = QFrame(self.frame_57)
+        self.frame_197.setObjectName(u"frame_197")
+        self.frame_197.setMinimumSize(QSize(175, 215))
+        self.frame_197.setMaximumSize(QSize(175, 16777215))
+        self.frame_197.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_197.setFrameShape(QFrame.StyledPanel)
+        self.frame_197.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_271 = QVBoxLayout(self.frame_197)
+        self.verticalLayout_271.setSpacing(18)
+        self.verticalLayout_271.setObjectName(u"verticalLayout_271")
+        self.label_211 = QLabel(self.frame_197)
+        self.label_211.setObjectName(u"label_211")
+        self.label_211.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_271.addWidget(self.label_211)
+
+        self.label_212 = QLabel(self.frame_197)
+        self.label_212.setObjectName(u"label_212")
+        self.label_212.setWordWrap(True)
+
+        self.verticalLayout_271.addWidget(self.label_212, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_47.addWidget(self.frame_197)
+
+        self.frame_198 = QFrame(self.frame_57)
+        self.frame_198.setObjectName(u"frame_198")
+        self.frame_198.setMinimumSize(QSize(175, 215))
+        self.frame_198.setMaximumSize(QSize(175, 16777215))
+        self.frame_198.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_198.setFrameShape(QFrame.StyledPanel)
+        self.frame_198.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_272 = QVBoxLayout(self.frame_198)
+        self.verticalLayout_272.setSpacing(18)
+        self.verticalLayout_272.setObjectName(u"verticalLayout_272")
+        self.label_213 = QLabel(self.frame_198)
+        self.label_213.setObjectName(u"label_213")
+        self.label_213.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_272.addWidget(self.label_213)
+
+        self.label_214 = QLabel(self.frame_198)
+        self.label_214.setObjectName(u"label_214")
+        self.label_214.setWordWrap(True)
+
+        self.verticalLayout_272.addWidget(self.label_214, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_47.addWidget(self.frame_198)
+
+        self.frame_199 = QFrame(self.frame_57)
+        self.frame_199.setObjectName(u"frame_199")
+        self.frame_199.setMinimumSize(QSize(175, 215))
+        self.frame_199.setMaximumSize(QSize(175, 16777215))
+        self.frame_199.setStyleSheet(u"QFrame{\n"
+"border-radius:24px;\n"
+"}\n"
+"")
+        self.frame_199.setFrameShape(QFrame.StyledPanel)
+        self.frame_199.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_273 = QVBoxLayout(self.frame_199)
+        self.verticalLayout_273.setSpacing(18)
+        self.verticalLayout_273.setObjectName(u"verticalLayout_273")
+        self.label_215 = QLabel(self.frame_199)
+        self.label_215.setObjectName(u"label_215")
+        self.label_215.setMaximumSize(QSize(16777215, 20))
+
+        self.verticalLayout_273.addWidget(self.label_215)
+
+        self.label_216 = QLabel(self.frame_199)
+        self.label_216.setObjectName(u"label_216")
+        self.label_216.setWordWrap(True)
+
+        self.verticalLayout_273.addWidget(self.label_216, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_47.addWidget(self.frame_199)
+
+
+        self.verticalLayout_183.addWidget(self.frame_57)
+
+
+        self.verticalLayout_181.addWidget(self.grid_9)
+
+        self.frame_42 = QFrame(self.stock_glossary_p4)
+        self.frame_42.setObjectName(u"frame_42")
+        self.frame_42.setFrameShape(QFrame.StyledPanel)
+        self.frame_42.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_180 = QVBoxLayout(self.frame_42)
+        self.verticalLayout_180.setObjectName(u"verticalLayout_180")
+        self.frame_46 = QFrame(self.frame_42)
+        self.frame_46.setObjectName(u"frame_46")
+        self.frame_46.setStyleSheet(u"QPushButton{\n"
+"border:none;\n"
+"border-radius:2px;\n"
+"color:rgb(255, 255, 255);\n"
+"	background-color: rgb(76, 110, 158);\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"	background-color: rgb(80, 119, 167);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(47, 71, 99);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
+"}")
+        self.frame_46.setFrameShape(QFrame.StyledPanel)
+        self.frame_46.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_35 = QHBoxLayout(self.frame_46)
+        self.horizontalLayout_35.setObjectName(u"horizontalLayout_35")
+        self.sgp4p = QPushButton(self.frame_46)
+        self.sgp4p.setObjectName(u"sgp4p")
+        self.sgp4p.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_35.addWidget(self.sgp4p, 0, Qt.AlignLeft)
+
+        self.sgp4n = QPushButton(self.frame_46)
+        self.sgp4n.setObjectName(u"sgp4n")
+        self.sgp4n.setMinimumSize(QSize(100, 25))
+
+        self.horizontalLayout_35.addWidget(self.sgp4n, 0, Qt.AlignRight)
+
+
+        self.verticalLayout_180.addWidget(self.frame_46)
+
+
+        self.verticalLayout_181.addWidget(self.frame_42)
+
+        self.stock_glossary_stackeWidget.addWidget(self.stock_glossary_p4)
+
+        self.verticalLayout_179.addWidget(self.stock_glossary_stackeWidget)
+
+
+        self.verticalLayout_51.addWidget(self.glossary_and_sources, 0, Qt.AlignHCenter)
 
 
         self.verticalLayout_19.addWidget(self.stock_tutorial_all)
@@ -5838,10 +7164,19 @@ class Ui_MainWindow(object):
         self.help_button = QPushButton(self.footer_right_frame)
         self.help_button.setObjectName(u"help_button")
         self.help_button.setFont(font14)
+        self.help_button.setCursor(QCursor(Qt.ForbiddenCursor))
+        self.help_button.setStyleSheet(u"QPushButton::hover{\n"
+"	background-color: rgb(46, 53, 71);\n"
+"}\n"
+"QPushButton::pressed{\n"
+"	background-color: rgb(67, 77, 103);\n"
+"	border:2px solid rgb(32, 36, 48);\n"
+"}")
         icon16 = QIcon()
         icon16.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.help_button.setIcon(icon16)
         self.help_button.setIconSize(QSize(32, 32))
+        self.help_button.setCheckable(False)
         self.help_button.setFlat(True)
 
         self.horizontalLayout_6.addWidget(self.help_button, 0, Qt.AlignRight)
@@ -5866,12 +7201,13 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.about_icon.setDefault(False)
-        self.stacked_menu_pages.setCurrentIndex(1)
+        self.stacked_menu_pages.setCurrentIndex(2)
         self.ticker_label_title_analysis.setDefault(False)
-        self.stock_analysis_stackedWidget.setCurrentIndex(1)
+        self.stock_analysis_stackedWidget.setCurrentIndex(0)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
-        self.learning_pages_stackedWidget.setCurrentIndex(0)
+        self.learning_pages_stackedWidget.setCurrentIndex(1)
+        self.stock_glossary_stackeWidget.setCurrentIndex(0)
         self.simulator_stacked_widget.setCurrentIndex(0)
         self.pushButton_5.setDefault(False)
         self.tabWidget.setCurrentIndex(0)
@@ -6075,8 +7411,8 @@ class Ui_MainWindow(object):
         self.learn_start_page_title_label.setText(QCoreApplication.translate("MainWindow", u"LEARN", None))
         self.what_do_you_wish_to_learn_label.setText(QCoreApplication.translate("MainWindow", u"What do you wish to learn?", None))
         self.stocks_button_learn.setText(QCoreApplication.translate("MainWindow", u"Stocks", None))
-        self.forex_button_learn.setText(QCoreApplication.translate("MainWindow", u"Forex", None))
-        self.crypto_button_learn.setText(QCoreApplication.translate("MainWindow", u"Cryptocurrency", None))
+        self.forex_button_learn.setText(QCoreApplication.translate("MainWindow", u"Cryptocurrency", None))
+        self.crypto_button_learn.setText(QCoreApplication.translate("MainWindow", u"Charts", None))
         self.learn_return_to_homepage_button.setText("")
         self.label_22.setText(QCoreApplication.translate("MainWindow", u"STOCKS", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"Table of contents", None))
@@ -6086,26 +7422,103 @@ class Ui_MainWindow(object):
         self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"4. Why do companies issue stocks", None))
         self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"5. Types of stock", None))
         self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"6. Stock market capitalization", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"1. What is a stock", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"7. IPO", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"8. How are stocks bought", None))
+        self.pushButton_4.setText(QCoreApplication.translate("MainWindow", u"Glossary", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"_", None))
         self.plainTextEdit.setDocumentTitle("")
-        self.plainTextEdit.setPlainText(QCoreApplication.translate("MainWindow", u"A stock (also known as equity) is a security that represents the ownership of a fraction of a corporation (e.g. Apple, Netflix, Amazon).\\n\\nThis entitles the owner of the stock to a proportion of the corporation's assets and profits equal to how much stock they own.\\n\\nUnits of stock are called \"shares.\"\\n\\n\\nStocks are bought and sold predominantly on stock exchanges, though there can be private sales as well, and are the foundation of many individual investors' portfolios.\\n\\nThese transactions have to conform to government regulations which are meant to protect investors from fraudulent practices.\\n\\n\\nWhen you own stock in a company, you are called a shareholder because you share in the company's profits.\\n\\nPublic companies sell their stock through a stock market exchange, like the Nasdaq or the New York Stock Exchange.\\n\\nInvestors can then buy and sell these shares among themselves through stockbrokers.\\n\\nThe stock exchanges track the supply and demand of each company's stock, which"
-                        " directly affects the stock's price.\\n\\n\\nStock prices fluctuate throughout the day, but investors who own stock hope that over time, the stock will increase in value.\\n\\nHowever, not every company or stock does so, companies can lose value or go out of business completely.\\n\\nWhen that happens, stock investors may lose all or part of their investment.\\n\\nThat's why it's important for investors to spread their money around, buying stock in many different companies rather than focusing on just one.\\n\\nThis is also called a portfolio.\\n", None))
-        self.label_6.setText(QCoreApplication.translate("MainWindow", u"2. Understanding stocks", None))
-        self.plainTextEdit_2.setPlainText(QCoreApplication.translate("MainWindow", u"Corporations issue (sell) stock to raise funds to operate their businesses.\\n\\nThe holder of stock (a shareholder) has now bought a piece of the corporation and, depending on the type of shares held, may have a claim to a part of its assets and earnings.\\n\\nIn other words, a shareholder is now an owner of the issuing company.\\n\\nOwnership is determined by the number of shares a person owns relative to the number of outstanding shares. For example, if a company has 1,000 shares of stock outstanding and one person owns 100 shares, that person would own and have claim to 10% of the company's assets and earnings.\\n\\nStock holders do not own corporations; they own shares issued by corporations. But corporations are a special type of organization because the law treats them as legal persons. \\n\\nIn other words, corporations file taxes, can borrow, can own property, can be sued, etc.\\n\\nThe idea that a corporation is a \u201cperson\u201d means that the corporation owns its own assets. A corporate office f"
-                        "ull of chairs and tables belongs to the corporation, and not to the shareholders.", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"3. Why do people buy stocks", None))
-        self.plainTextEdit_3.setPlainText(QCoreApplication.translate("MainWindow", u"The primary reason that people buy shares of companies is to make money. The idea is to buy low and sell high. \\nFor instance, if you buy 100 shares of Company B stock valued at $25 each, you will have made an initial investment totaling $2,500. Say the value of the share increases to 50$. Your profit will be of $2,500. \\nHowever there is more to why people buy stocks, here are some other reasons:\\n\\n\\n - Investing in stocks is an excellent way to grow wealth. For long-term investors, stocks are a good investment even during periods of market volatility\\n\\n \\n - You can get rich with stocks, you just need to take the risk. You can grow wealth by putting your money into the stock market over a long timeframe.\\n\\n\\n - It Doesn't Cost Much to Get Started\\n\\n\\n - Protect. Taxes and inflation can impact your wealth.\\n\\n\\n - Stocks Are Designed To Go Up In Price, the larger indexes including the Dow Jones and the S&P 500 are updated periodically. Companies that are not performing are pulled out of t"
-                        "he indexes and are replaced by companies that are being traded more frequently\u2014among other factors. This ensures that the major indexes are always populated by companies that are earning money, and being traded frequently.\\n\\n\\n - You Don't Have to Be a Genius. While an experienced investor may be able to grow their money faster than you\u2014that doesn't mean you can't buy stocks! And you don't need to be a Chartered Financial Analyst, portfolio manager or the next Warren Buffett to invest in stocks. Also, buying stocks and making money with them is clearly much easier than building a successful business from scratch! To invest in a company's stock you must read their annual report (which you can easily find online), set some money aside and understand basic math.\\n\\n\\n - Another reason why people buy stocks is to support a company they like.\\nIt is funny to think of investing for sentimental reasons, but if you\u2019re the type of person who likes a product or a company and you wish to help ensur"
-                        "e that it stays successful within the market, then this reason for stock investment describes you. Some people also want the power to help in making company decisions and this will happen when you become a shareholder. Shareholders can attend meetings that help the company they invest in make decisions that affect its income.", None))
-        self.label_14.setText(QCoreApplication.translate("MainWindow", u"4. Why do Companies issue stocks", None))
-        self.plainTextEdit_4.setPlainText(QCoreApplication.translate("MainWindow", u"Corporations issue stock to raise money for growth and expansion. To raise money, corporations will issue stock by selling off a percentage of profits in a company.\\nThere are many reasons that a company would issue stock to raise money. Some of the common reasons include:\\n\\n\\n - The development of new products\\n \\n - To purchase equipment\\n \\n - To buy new buildings\\n \\n - To increase inventory\\n \\n - To expand and grow staff\\n \\n - To reduce debt\\n \\n - To prepare for a merger or acquisition\\n \\n - To improve the value of a company\\n \\n - To provide for greater flexibility", None))
-        self.label_9.setText(QCoreApplication.translate("MainWindow", u"5. Types of Stock", None))
-        self.plainTextEdit_5.setPlainText(QCoreApplication.translate("MainWindow", u"There are two main kinds of stocks, common stock and preferred stock.\\n\\nCommon stock entitles owners to vote at shareholder meetings and receive dividends. They represent the majority of stock held by the public.\\nOwners of common stock have voting rights and the right to dividend payouts, but there is one major drawback: If a company is forced to liquidate or go bankrupt, common shareholders are last in line when it comes to payouts.\\nPreferred shareholders and bondholders must be paid out in full before common shareholders can begin receiving payments.\\n\\nPreferred stockholders usually don\u2019t have voting rights but they receive dividend payments before common stockholders do, and have priority over common stockholders if the company goes bankrupt and its assets are liquidated. Preferred stockholders have fewer rights than common stockholders, except when it comes to dividends.\\nCompanies that issue preferred stocks usually pay consistent dividends, and preferred stockholders have priority on divi"
-                        "dends over common stockholders.  Investors buy preferred stock for its current income from dividends, so look for companies that make big profits to use preferred stock to return some of those profits via dividends.", None))
-        self.label_15.setText(QCoreApplication.translate("MainWindow", u"6. Market capitalization", None))
-        self.plainTextEdit_6.setPlainText(QCoreApplication.translate("MainWindow", u"A way to categorize stocks is by the size of the company, as shown in its market capitalization. \\nThere are large-cap, mid-cap, and small-cap stocks. Shares in very small companies are sometimes called \u201cmicrocap\u201d stocks.\\nThe very lowest priced stocks are known as \u201cpenny stocks.\u201d These companies may have little or no earnings. Penny stocks do not pay dividends and are highly speculative.\\n\\nMarket cap\u2014or market capitalization\u2014refers to the total value of all a company's shares of stock.\\nIt is calculated by multiplying the price of a stock by its total number of outstanding shares. For example, a company with 200 million shares selling at $50 a share would have a market cap of $10 billion.\\n\\nThis value allows investors to understand the relative size of one company versus another. \\nMarket cap measures what a company is worth on the open market, as well as the market's perception of its future prospects, because it reflects what investors are willing to pay for its stock"
-                        ".\\nBelow are the descriptions for 3 market cap sizes:\\n\\n - Large-cap companies are typically firms with a market value of $10 billion or more. Large-cap firms often have a reputation for producing quality goods and services, a history of consistent dividend payments, and steady growth. They are often dominant players within established industries, and their brand names may be familiar to a national consumer audience.\\n\\n - Mid-cap companies are typically businesses with a market value between $2 billion and $10 billion. Typically, these are established companies in industries experiencing or expected to experience rapid growth. These medium-sized companies may be in the process of increasing market share and improving overall competitiveness. This stage of growth is likely to determine whether a company eventually lives up to its full potential. Mid-cap stocks generally fall between large caps and small caps on the risk/return spectrum. Mid-caps may offer more growth potential than large caps, and possib"
-                        "ly less risk than small caps.\\n\\n - Small-cap companies are typically those with a market value of $300 million to $2 billion. Generally, these are young companies that serve niche markets or emerging industries. Small caps are considered the most aggressive and risky of the 3 categories. The relatively limited resources of small companies can potentially make them more susceptible to a business or economic downturn. They may also be vulnerable to the intense competition and uncertainties characteristic of untried, burgeoning markets. On the other hand, small-cap stocks may offer significant growth potential to long-term investors who can tolerate volatile stock price swings in the short term.", None))
+        self.plainTextEdit.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.plainTextEdit_2.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.plainTextEdit_3.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_14.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.plainTextEdit_4.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.plainTextEdit_5.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_15.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.plainTextEdit_6.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_54.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.plainTextEdit_7.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_55.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.plainTextEdit_8.setPlainText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_56.setText(QCoreApplication.translate("MainWindow", u"GLOSSARY", None))
+        self.label_57.setText(QCoreApplication.translate("MainWindow", u"Page 1/4", None))
+        self.label_185.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_186.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_187.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_188.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_189.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_190.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_191.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_192.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_193.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_194.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_195.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_196.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_197.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_198.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_199.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_200.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.sgp1p.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
+        self.sgp1n.setText(QCoreApplication.translate("MainWindow", u"Next", None))
+        self.label_58.setText(QCoreApplication.translate("MainWindow", u"Page 2/4", None))
+        self.label_153.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_154.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_155.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_156.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_159.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_160.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_157.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_158.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_161.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_162.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_163.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_164.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_165.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_166.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_167.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_168.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.sgp2p.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
+        self.sgp2n.setText(QCoreApplication.translate("MainWindow", u"Next", None))
+        self.label_59.setText(QCoreApplication.translate("MainWindow", u"Page 3/4", None))
+        self.label_169.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_170.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_171.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_172.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_173.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_174.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_175.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_176.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_177.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_178.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_179.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_180.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_181.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_182.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_183.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_184.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.sgp3p.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
+        self.sgp3n.setText(QCoreApplication.translate("MainWindow", u"Next", None))
+        self.label_120.setText(QCoreApplication.translate("MainWindow", u"Page 4/4", None))
+        self.label_201.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_202.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_203.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_204.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_205.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_206.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_207.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_208.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_209.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_210.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_211.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_212.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_213.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_214.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_215.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.label_216.setText(QCoreApplication.translate("MainWindow", u"_", None))
+        self.sgp4p.setText(QCoreApplication.translate("MainWindow", u"Previous", None))
+        self.sgp4n.setText(QCoreApplication.translate("MainWindow", u"Next", None))
         self.crypto_learning_content_header.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">CRYPTOCURRENCY</span></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:16pt; text-decoration: underline; color:#ffffff;\">Table of contents</span></p><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">1. What is cryptocurrency?</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">2. Blockchain technology</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">3. Cryptocurrency mining</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">4. Initial coin offering</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">5. Finding a broker</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">6. Chosing the right cryptocurrency</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">7. What affects the price of cryptocu"
                         "rrency</span></p><p align=\"center\"><span style=\" font-size:11pt; color:#ffffff;\">8. Cryptocurrency terminology</span></p></body></html>", None))
         self.forex_learning_content.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; color:#ffffff;\">FOREX (FOREIGN EXCHANGE)</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:14pt; color:#ffffff;\">TABLE OF CONTENTS</span></p><p align=\"center\"><span style=\" color:#ffffff;\"><br/></span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">1. What is Forex trading?</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">2. History of the Forex market</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">3. Major currencies</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">4. Basic Forex terminology</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">5. Where trading happens</span></p><p align=\"center\"><span style=\" font-size:12pt; color:#ffffff;\">6. How to connect to the market</span></p></body></html>", None))
