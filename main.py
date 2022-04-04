@@ -10,6 +10,7 @@ import yfinance as yf
 from GoogleNews import GoogleNews
 from newspaper import Config
 import pandas as pd
+import random
 import json
 import requests
 import pyqtgraph
@@ -97,6 +98,7 @@ class MainWindow(QMainWindow):
         # set starting pages
         self.set_starting_widgets()
         self.set_starting_settings()
+        self.set_learning_content()
 
     def resizeEvent(self, event):
         QMainWindow.resizeEvent(self, event)
@@ -265,6 +267,107 @@ class MainWindow(QMainWindow):
 
             # informative feedback
             self.display_feedback(msg_type='information', message='Settings successfully applied', title='Success!')
+
+    def set_learning_content(self):
+        self.stock_learning_content()
+        self.stock_glossary()
+
+    def stock_learning_content(self):
+        data = {}
+        directory = os.getcwd() + '\\temp\\learning_content\\stocks'
+
+        for filename in os.scandir(directory):
+            if filename.is_file():
+                with open(str(filename.path), 'r', encoding='utf-8') as f:
+                    # filename without '.txt'
+                    title = str(filename.path.split('\\')[-1].split('.txt')[0])
+                    nums = [str(i) for i in range(0, 9)]
+                    # ensure it is a title and text
+                    if title[0] in nums:
+                        pass
+                    else:
+                        continue
+
+                    # create dictionary with title and text
+                    data[title] = f.read()
+
+        i = 0
+        layout = self.ui.verticalLayout_48
+        for key, val in data.items():
+            # title
+            layout.itemAt(i).widget().layout().itemAt(0).widget().setText(key)
+            # text
+            layout.itemAt(i).widget().layout().itemAt(1).widget().setPlainText(val)
+
+            i += 1
+
+    def stock_glossary(self):
+        data = {}
+        with open(os.getcwd() + '\\temp\\learning_content\\stocks\\Glossary.txt', 'r', encoding='utf-8') as f:
+            # filename without '.txt'
+            file = f.readlines()
+            temp = []
+            for line in file:
+                if line == '\n':
+                    glossary_text = ''.join(temp)
+                    title = glossary_text.split('-')[0]
+                    text = glossary_text.split('-')[1]
+                    data[title] = text
+                    temp = []
+                    continue
+
+                temp.append(line)
+
+        data = list(data.items())
+
+        # do not change order
+        layouts = (self.ui.horizontalLayout_44, self.ui.horizontalLayout_45, self.ui.horizontalLayout_40,
+                   self.ui.horizontalLayout_41, self.ui.horizontalLayout_42, self.ui.horizontalLayout_43,
+                   self.ui.horizontalLayout_46, self.ui.horizontalLayout_47)
+
+        # set text and also random colors
+        i = 0
+        # font (for title)
+        font = QFont('MS Shell Dlg 2', int(14))
+
+        self.ui.settings_fontComboBox.setFont(font)
+        for layout in layouts:
+            # first box (title/text)
+            layout.itemAt(0).widget().layout().itemAt(0).widget().setText(data[i][0])  # title
+            layout.itemAt(0).widget().layout().itemAt(0).widget().setFont(font)
+            layout.itemAt(0).widget().layout().itemAt(1).widget().setText(data[i][1])  # text
+            layout.itemAt(0).widget().setStyleSheet(f"""
+border-radius:24px;
+background-color: rgb(102, 115, 153);
+""")
+
+            # second
+            layout.itemAt(1).widget().layout().itemAt(0).widget().setText(data[i+1][0])  # title
+            layout.itemAt(1).widget().layout().itemAt(0).widget().setFont(font)
+            layout.itemAt(1).widget().layout().itemAt(1).widget().setText(data[i+1][1])  # text
+            layout.itemAt(1).widget().setStyleSheet(f"""
+border-radius:24px;
+background-color: rgb(102, 115, 153);
+""")
+
+            # third
+            layout.itemAt(2).widget().layout().itemAt(0).widget().setText(data[i+2][0])  # title
+            layout.itemAt(2).widget().layout().itemAt(0).widget().setFont(font)
+            layout.itemAt(2).widget().layout().itemAt(1).widget().setText(data[i+2][1])  # text
+            layout.itemAt(2).widget().setStyleSheet(f"""
+border-radius:24px;
+background-color: rgb(102, 115, 153);
+""")
+
+            # fourth
+            layout.itemAt(3).widget().layout().itemAt(0).widget().setText(data[i+3][0])  # title
+            layout.itemAt(3).widget().layout().itemAt(0).widget().setFont(font)
+            layout.itemAt(3).widget().layout().itemAt(1).widget().setText(data[i+3][1])  # font
+            layout.itemAt(3).widget().setStyleSheet(f"""
+border-radius:24px;
+background-color: rgb(102, 115, 153);
+""")
+            i += 4
 
     def set_starting_settings(self):
         """Read config file and use the values there to set how the application will look like
@@ -454,6 +557,25 @@ class MainWindow(QMainWindow):
         # return to the previous page buttons
         self.ui.learn_return_to_homepage_button.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page))
+        # stock glossary buttons
+        # sgp1n means stock glossary page 1 next
+        self.ui.sgp1n.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p2))
+        self.ui.sgp2n.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p3))
+        self.ui.sgp3n.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p4))
+        self.ui.sgp4n.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p1))
+        # sgp1p means stock glossary page 1 previous
+        self.ui.sgp1p.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p4))
+        self.ui.sgp2p.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p1))
+        self.ui.sgp3p.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p2))
+        self.ui.sgp4p.clicked.connect(
+            lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p3))
 
         # SIMULATOR PAGE #
         # simulator page starting page
@@ -500,6 +622,12 @@ class MainWindow(QMainWindow):
             lambda: self.ui.settings_stackedWidget.setCurrentWidget(self.ui.settings_main))
         # applying settings button clicked
         self.ui.settings_apply_settings.clicked.connect(self.apply_settings)
+
+        # about page disabled (temporal)
+        self.ui.about_icon.setEnabled(False)
+
+        # help button disabled (temporal)
+        self.ui.help_button.setEnabled(False)
 
     def ticker_search_load(self):
         """Write the search information to files
@@ -1376,7 +1504,20 @@ class MainWindow(QMainWindow):
         # technically speaking this isn't a logout
         # because all it does is change to the frame to the login page
         # but still does the job
-        self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
+
+        # Confirm user wants to leave
+        msg = QMessageBox()
+        msg.setIcon(QMessageBox.Information)
+        msg.setText("Are you sure you want to logout")
+        msg.setWindowTitle("Logout")
+        msg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        return_val = msg.exec_()
+
+        if return_val == QMessageBox.Yes:
+            self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_start_page)
+
+        else:
+            pass
 
     def preview_order(self):
         """Preview order"""
@@ -1772,7 +1913,7 @@ class StockGame:
             json.dump(file_data, file, indent=4)
 
     def create_user(self, name):
-        """Create new user"""
+        """Creates new user in json file"""
 
         # if the user exists, exit function
         if self.user_exists(name):
@@ -1800,7 +1941,7 @@ class StockGame:
             json.dump(file_data, file, indent=4)
 
     def delete_user(self, name):
-        """Delete user from json file"""
+        """Deletes user from json file"""
 
         # if the user does not exist, exit function
         if not self.user_exists(name):
@@ -1829,7 +1970,7 @@ class StockGame:
         self.reset_id_numbers()
 
     def load_user(self, name):
-        """Load user from json file to game"""
+        """Load user from json file to game object"""
 
         # if user does not exist, exit function
         if not self.user_exists(name):
@@ -1857,7 +1998,7 @@ class StockGame:
 
         # user financial data
         cash = self.current_user["data"]["cash"]
-        account_value = self.current_user["data"]["account_value"]
+        # account_value = self.current_user["data"]["account_value"]
 
         # yfinance stock object
         ticker_obj = yf.Ticker(ticker).info
@@ -2225,7 +2366,12 @@ class LoadTickerData(QObject):
         # requesting data from site
         req = requests.get(url=url, headers={'user-agent': header}, timeout=None).text
         html = BeautifulSoup(req, features="lxml")
-        news_table = html.find(id='algocore').find_all('div', class_='news-card newsitem cardcommon b_cards2')
+        try:
+            news_table = html.find(class_='algocore').find_all('div', class_='news-card newsitem cardcommon b_cards2')
+
+        except AttributeError:
+            self.error_message.emit('Something went wrong')
+            self.thread_done(False)
 
         # dict
         news = []
