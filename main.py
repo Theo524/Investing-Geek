@@ -85,7 +85,7 @@ class MainWindow(QMainWindow):
         self.error_msg = None
 
         # search page buttons
-        self.stock_analysis_buttons = {'1d': self.ui.one_day_button, '1w': self.ui.one_week_button,
+        self.stock_analysis_buttons = {'1d': self.ui.one_day_button, '1w': self.ui.one_week_button ,
                                        '1m': self.ui.one_month_button, '1y': self.ui.one_year_button,
                                        '5y': self.ui.five_year_button, 'max': self.ui.max_button}
         self.stock_analysis_crypto_buttons = {'1d': self.ui.one_day_button_2, '1w': self.ui.one_week_button_2,
@@ -96,9 +96,9 @@ class MainWindow(QMainWindow):
         self.stock_game = StockGame()
 
         # set starting pages
-        self.set_starting_widgets()
-        self.set_starting_settings()
-        self.set_learning_content()
+        self.set_starting_widgets()  # widgets
+        self.set_starting_settings()  # saved settings in config file
+        self.set_learning_content()  # learning section text
 
     def resizeEvent(self, event):
         QMainWindow.resizeEvent(self, event)
@@ -269,10 +269,12 @@ class MainWindow(QMainWindow):
             self.display_feedback(msg_type='information', message='Settings successfully applied', title='Success!')
 
     def set_learning_content(self):
+        # stock
         self.stock_learning_content()
         self.stock_glossary()
 
     def stock_learning_content(self):
+        """Set stock learning text"""
         data = {}
         directory = os.getcwd() + '\\temp\\learning_content\\stocks'
 
@@ -308,11 +310,11 @@ class MainWindow(QMainWindow):
             file = f.readlines()
             temp = []
             for line in file:
-                if line == '\n':
-                    glossary_text = ''.join(temp)
-                    title = glossary_text.split('-')[0]
-                    text = glossary_text.split('-')[1]
-                    data[title] = text
+                if line == '\n':  # a new line character indicates a new paragraph
+                    title = temp[0].strip()
+                    text = temp[1:]
+                    glossary_text = ''.join(text)
+                    data[title] = glossary_text
                     temp = []
                     continue
 
@@ -358,16 +360,7 @@ background-color: rgb(102, 115, 153);
 border-radius:24px;
 background-color: rgb(102, 115, 153);
 """)
-
-            # fourth
-            layout.itemAt(3).widget().layout().itemAt(0).widget().setText(data[i+3][0])  # title
-            layout.itemAt(3).widget().layout().itemAt(0).widget().setFont(font)
-            layout.itemAt(3).widget().layout().itemAt(1).widget().setText(data[i+3][1])  # font
-            layout.itemAt(3).widget().setStyleSheet(f"""
-border-radius:24px;
-background-color: rgb(102, 115, 153);
-""")
-            i += 4
+            i += 3
 
     def set_starting_settings(self):
         """Read config file and use the values there to set how the application will look like
@@ -558,7 +551,7 @@ background-color: rgb(102, 115, 153);
         self.ui.learn_return_to_homepage_button.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page))
         # stock glossary buttons
-        # sgp1n means stock glossary page 1 next
+        # sgp1n means 'stock glossary page 1 next'
         self.ui.sgp1n.clicked.connect(
             lambda: self.ui.stock_glossary_stackeWidget.setCurrentWidget(self.ui.stock_glossary_p2))
         self.ui.sgp2n.clicked.connect(
@@ -1342,14 +1335,14 @@ background-color: rgb(102, 115, 153);
             self.stock_game.create_user(new_user)
 
             # display feedback
-            self.display_feedback(msg_type='information', msg='User successfully created.', title='Success')
+            self.display_feedback(msg_type='information', message='User successfully created.', title='Success')
 
             # return to login
             self.ui.simulator_stacked_widget.setCurrentWidget(self.ui.simulator_login_page)
 
         else:
             # if user exists don't create
-            self.display_feedback(msg_type='critical', msg='User already exists. Enter another name', title='Error')
+            self.display_feedback(msg_type='critical', message='User already exists. Enter another name', title='Error')
 
     def add_user_data_to_simulator_tabs(self, user_data):
         """Fill in user tables in simulator
@@ -1376,20 +1369,19 @@ background-color: rgb(102, 115, 153);
         }
 
         """
-
         # account data
         name = user_data['data']['user_name']
         number_of_stocks = len(user_data['data']['portfolio'])
-        account_value = user_data['data']['account_value']
+        account_value = self.stock_game.get_account_value()
         cash = user_data['data']['cash']
 
         # set account data into user profile labels (Portfolio tab)
         self.ui.stock_simulator_username_label.setText(str(name))
-        self.ui.stock_simulator_account_value_label.setText(str(account_value))
-        self.ui.stock_simulator_cash_amount_label.setText(str(cash))
+        self.ui.stock_simulator_account_value_label.setText(f'${str(account_value)}')
+        self.ui.stock_simulator_cash_amount_label.setText(f'${str(cash)}')
         self.ui.stock_simulator_gainloss_label.setText(str(0))
 
-        # More user data(account tab)
+        # user data(account tab)
         self.ui.stock_simulator_username_label_2.setText(str(name))
         portfolio_length = len(self.stock_game.get_portfolio())
         self.ui.stock_simulator_stocks_owned_label.setText(str(portfolio_length))
@@ -1601,6 +1593,7 @@ background-color: rgb(102, 115, 153);
         """
 
         QApplication.setOverrideCursor(Qt.WaitCursor)
+        print(transaction_type)
 
         if transaction_type == 'buy':
             # buy stock for user
@@ -1618,8 +1611,8 @@ background-color: rgb(102, 115, 153);
 
         # feedback and return to previous page
         self.display_feedback(msg_type='information', title='Success',
-                              msg='Stock successfully sold' if transaction_type == 'sell' else \
-                                  'Stock successfully bought')
+                              message='Stock successfully sold' if transaction_type == 'sell' else
+                              'Stock successfully bought')
 
         # return to previous page
         self.ui.stock_sim_trade_stackedWidget.setCurrentWidget(self.ui.stock_simulator_trade_page_tab)
@@ -1895,7 +1888,7 @@ class StockGame:
 
     @staticmethod
     def reset_id_numbers():
-        """Reset id numbers in json file"""
+        """Reset id numbers in json file for after it gets updated"""
 
         # Writing to trading.json
         with open("trading.json", "r+") as file:
@@ -2039,6 +2032,14 @@ class StockGame:
                         cash_left = val["data"]["cash"] - total_cost_of_buy
                         val["data"]["cash"] = cash_left
 
+                        # account value(all stocks added together)
+                        account_value = 0
+                        for stock in val['data']['portfolio']:
+                            for value in stock.values():
+                                account_value += value['total_value']  # iterate through th value of all the stocks
+                        val['data']['account_value'] = account_value
+
+
                         print("---------RECEIPT----------")
                         print(f"Stock: {ticker_name}")
                         print(f"Quantity: {quantity}")
@@ -2065,6 +2066,7 @@ class StockGame:
 
                 # find user
                 for val in file_data['users']:
+                    # user
                     if val["data"]["user_name"] == self.current_user["data"]["user_name"]:
                         # replace user quantity for the stock with new quantity
                         val["data"]["portfolio"][index][ticker_name]["quantity"] = \
@@ -2078,10 +2080,20 @@ class StockGame:
                         cash_left = val["data"]["cash"] - total_cost_of_buy
                         val["data"]["cash"] = cash_left
 
+                        # account value(all stocks added together)
+                        account_value = 0
+                        for stock in val['data']['portfolio']:
+                            for value in stock.values():
+                                account_value += value['total_value']  # iterate through th value of all the stocks
+                        val['data']['account_value'] = account_value
+
+
                 file.seek(0)
 
                 # move to json file
                 json.dump(file_data, file, indent=4)
+
+        # also set the account value for the user (value off all the stock added together)
 
         # after each purchase the current user data must also be updated
         self.load_user(self.name)
@@ -2145,7 +2157,6 @@ class StockGame:
 
                                 # profit
                                 val['data']['cash'] = cash + total_cost_of_sell
-                                print('HI')
 
                                 if new_quantity <= 0:
                                     # delete the stock if the value is all lost
@@ -2163,6 +2174,13 @@ class StockGame:
 
                                     # assign this version to a new variable
                                     deleted_stock_file = file_data
+
+                        # account value(all stocks added together)
+                        account_value = 0
+                        for stock in val['data']['portfolio']:
+                            for value in stock.values():
+                                account_value += value['total_value']  # iterate through th value of all the stocks
+                        val['data']['account_value'] = account_value
 
             # rewrite data to new file
             with open('trading.json', 'w') as file:
@@ -2229,6 +2247,17 @@ class StockGame:
 
         return self.current_user['data']['portfolio']
 
+    def get_account_value(self):
+        """Get account value"""
+
+        # account value(all stocks added together)
+        account_value = 0
+        for stock in self.current_user['data']['portfolio']:
+            for value in stock.values():
+                account_value += value['total_value']  # iterate through th value of all the stocks
+
+        return account_value
+
     @staticmethod
     def file_exists():
         """Ensure trading.json exists"""
@@ -2238,7 +2267,7 @@ class StockGame:
                 pass
 
         except FileNotFoundError:
-            # file doesn't exist
+            # file doesn't exist so create new one
             with open("trading.json", "w") as jsonFile:
                 json_obj = {"users": []}
                 json.dump(json_obj, jsonFile, indent=4)
@@ -2387,7 +2416,8 @@ class LoadTickerData(QObject):
                 source = row['data-author']
                 title = row['data-title']
                 description = row.find(class_='snippet').text
-                time_taken = row.find_all('span')[2]['aria-label']
+                time_taken = row.find_all('span')[2].text + ' ago'
+                #print(row.find_all('span')[2])
                 link = row.find(href=True)['href']
 
                 # save data
