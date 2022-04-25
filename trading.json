@@ -1,3 +1,54 @@
 {
-    "users": []
+    "users": [
+        {
+            "user_id": 1,
+            "data": {
+                "user_name": "marc",
+                "account_value": 0,
+                "cash": 88741.84,
+                "portfolio": [
+                    {
+                        "AMZN": {
+                            "initial_purchase_price": 2814.54,
+                            "quantity": 4,
+                            "total_value": 11193.2
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "user_id": 2,
+            "data": {
+                "user_name": "Marco",
+                "account_value": 0,
+                "cash": 100000,
+                "portfolio": []
+            }
+        },
+        {
+            "user_id": 3,
+            "data": {
+                "user_name": "ivan",
+                "account_value": 81735.86200000001,
+                "cash": 85121.58,
+                "portfolio": [
+                    {
+                        "EBAY": {
+                            "initial_purchase_price": 53.15,
+                            "quantity": 15,
+                            "total_value": 796.65
+                        }
+                    },
+                    {
+                        "AMZN": {
+                            "initial_purchase_price": 2855.86,
+                            "quantity": 5,
+                            "total_value": 14305.027
+                        }
+                    }
+                ]
+            }
+        }
+    ]
 }

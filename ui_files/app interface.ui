@@ -21,6 +21,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="toolTipDuration">
+   <number>-1</number>
+  </property>
   <property name="styleSheet">
    <string notr="true">#centralwidget{
 background-color: rgb(28, 32, 43);
@@ -680,7 +683,7 @@ QPushButton::pressed {
              <number>0</number>
             </property>
             <property name="currentIndex">
-             <number>2</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="home_page">
              <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -706,7 +709,7 @@ QPushButton::pressed {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>700</width>
+                   <width>860</width>
                    <height>1410</height>
                   </rect>
                  </property>
@@ -789,7 +792,7 @@ QPushButton::pressed {
                  <property name="geometry">
                   <rect>
                    <x>0</x>
-                   <y>-203</y>
+                   <y>0</y>
                    <width>860</width>
                    <height>2444</height>
                   </rect>
@@ -6070,7 +6073,7 @@ QPushButton::pressed{
                      <property name="geometry">
                       <rect>
                        <x>0</x>
-                       <y>-4528</y>
+                       <y>0</y>
                        <width>842</width>
                        <height>5205</height>
                       </rect>
@@ -6824,7 +6827,7 @@ font: 12pt &quot;MS Shell Dlg 2&quot;;
                                        <widget class="QFrame" name="frame_184">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -6861,6 +6864,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -6880,7 +6886,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_185">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -6917,6 +6923,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -6936,7 +6945,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_186">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -6973,66 +6982,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_190">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_187">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_229">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_191">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_192">
+                                          <widget class="QLabel" name="label_190">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -7069,7 +7025,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_188">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7106,6 +7062,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -7125,7 +7084,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_189">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7162,6 +7121,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -7181,7 +7143,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_190">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7218,66 +7180,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_198">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_191">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_257">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_199">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_200">
+                                          <widget class="QLabel" name="label_198">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -7337,6 +7246,9 @@ QPushButton::pressed{
                                           <height>25</height>
                                          </size>
                                         </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
+                                        </property>
                                         <property name="text">
                                          <string>Previous</string>
                                         </property>
@@ -7349,6 +7261,9 @@ QPushButton::pressed{
                                           <width>100</width>
                                           <height>25</height>
                                          </size>
+                                        </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
                                         </property>
                                         <property name="text">
                                          <string>Next</string>
@@ -7415,7 +7330,7 @@ QPushButton::pressed{
                                        <widget class="QFrame" name="frame_168">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7452,6 +7367,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -7471,7 +7389,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_169">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7508,6 +7426,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -7527,7 +7448,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_171">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7564,66 +7485,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_160">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_170">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_220">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_157">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_158">
+                                          <widget class="QLabel" name="label_160">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -7654,7 +7522,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_172">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7691,6 +7559,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -7710,7 +7581,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_173">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7747,6 +7618,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -7766,7 +7640,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_174">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -7803,66 +7677,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_166">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_175">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_225">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_167">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_168">
+                                          <widget class="QLabel" name="label_166">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -7922,6 +7743,9 @@ QPushButton::pressed{
                                           <height>25</height>
                                          </size>
                                         </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
+                                        </property>
                                         <property name="text">
                                          <string>Previous</string>
                                         </property>
@@ -7934,6 +7758,9 @@ QPushButton::pressed{
                                           <width>100</width>
                                           <height>25</height>
                                          </size>
+                                        </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
                                         </property>
                                         <property name="text">
                                          <string>Next</string>
@@ -8000,7 +7827,7 @@ QPushButton::pressed{
                                        <widget class="QFrame" name="frame_176">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8037,6 +7864,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8056,7 +7886,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_177">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8093,6 +7923,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8112,7 +7945,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_178">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8149,66 +7982,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_174">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_179">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_261">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_175">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_176">
+                                          <widget class="QLabel" name="label_174">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -8239,7 +8019,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_180">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8276,6 +8056,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8295,7 +8078,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_181">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8332,6 +8115,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8351,7 +8137,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_182">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8388,66 +8174,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_182">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_183">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_265">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_183">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_184">
+                                          <widget class="QLabel" name="label_182">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -8507,6 +8240,9 @@ QPushButton::pressed{
                                           <height>25</height>
                                          </size>
                                         </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
+                                        </property>
                                         <property name="text">
                                          <string>Previous</string>
                                         </property>
@@ -8519,6 +8255,9 @@ QPushButton::pressed{
                                           <width>100</width>
                                           <height>25</height>
                                          </size>
+                                        </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
                                         </property>
                                         <property name="text">
                                          <string>Next</string>
@@ -8585,7 +8324,7 @@ QPushButton::pressed{
                                        <widget class="QFrame" name="frame_192">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8622,6 +8361,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8641,7 +8383,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_193">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8678,6 +8420,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8697,7 +8442,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_194">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8734,66 +8479,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_206">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_195">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_269">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_207">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_208">
+                                          <widget class="QLabel" name="label_206">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -8824,7 +8516,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_196">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8861,6 +8553,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8880,7 +8575,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_197">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8917,6 +8612,9 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
+                                           <property name="wordWrap">
+                                            <bool>true</bool>
+                                           </property>
                                           </widget>
                                          </item>
                                          <item alignment="Qt::AlignTop">
@@ -8936,7 +8634,7 @@ border-radius:24px;
                                        <widget class="QFrame" name="frame_198">
                                         <property name="minimumSize">
                                          <size>
-                                          <width>175</width>
+                                          <width>250</width>
                                           <height>215</height>
                                          </size>
                                         </property>
@@ -8973,66 +8671,13 @@ border-radius:24px;
                                            <property name="text">
                                             <string>_</string>
                                            </property>
-                                          </widget>
-                                         </item>
-                                         <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_214">
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
                                            <property name="wordWrap">
                                             <bool>true</bool>
                                            </property>
                                           </widget>
                                          </item>
-                                        </layout>
-                                       </widget>
-                                      </item>
-                                      <item>
-                                       <widget class="QFrame" name="frame_199">
-                                        <property name="minimumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>215</height>
-                                         </size>
-                                        </property>
-                                        <property name="maximumSize">
-                                         <size>
-                                          <width>175</width>
-                                          <height>16777215</height>
-                                         </size>
-                                        </property>
-                                        <property name="styleSheet">
-                                         <string notr="true">QFrame{
-border-radius:24px;
-}
-</string>
-                                        </property>
-                                        <property name="frameShape">
-                                         <enum>QFrame::StyledPanel</enum>
-                                        </property>
-                                        <property name="frameShadow">
-                                         <enum>QFrame::Raised</enum>
-                                        </property>
-                                        <layout class="QVBoxLayout" name="verticalLayout_273">
-                                         <property name="spacing">
-                                          <number>18</number>
-                                         </property>
-                                         <item>
-                                          <widget class="QLabel" name="label_215">
-                                           <property name="maximumSize">
-                                            <size>
-                                             <width>16777215</width>
-                                             <height>20</height>
-                                            </size>
-                                           </property>
-                                           <property name="text">
-                                            <string>_</string>
-                                           </property>
-                                          </widget>
-                                         </item>
                                          <item alignment="Qt::AlignTop">
-                                          <widget class="QLabel" name="label_216">
+                                          <widget class="QLabel" name="label_214">
                                            <property name="text">
                                             <string>_</string>
                                            </property>
@@ -9092,6 +8737,9 @@ QPushButton::pressed{
                                           <height>25</height>
                                          </size>
                                         </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
+                                        </property>
                                         <property name="text">
                                          <string>Previous</string>
                                         </property>
@@ -9104,6 +8752,9 @@ QPushButton::pressed{
                                           <width>100</width>
                                           <height>25</height>
                                          </size>
+                                        </property>
+                                        <property name="cursor">
+                                         <cursorShape>PointingHandCursor</cursorShape>
                                         </property>
                                         <property name="text">
                                          <string>Next</string>
@@ -9866,8 +9517,8 @@ QPushButton::pressed{
                       <rect>
                        <x>0</x>
                        <y>0</y>
-                       <width>830</width>
-                       <height>639</height>
+                       <width>859</width>
+                       <height>677</height>
                       </rect>
                      </property>
                      <property name="styleSheet">
@@ -10001,30 +9652,11 @@ background-color: rgb(42, 44, 50);
                                  <rect>
                                   <x>0</x>
                                   <y>0</y>
-                                  <width>285</width>
-                                  <height>515</height>
+                                  <width>797</width>
+                                  <height>530</height>
                                  </rect>
                                 </property>
                                 <layout class="QVBoxLayout" name="verticalLayout_121">
-                                 <item>
-                                  <widget class="QFrame" name="frame_9">
-                                   <property name="frameShape">
-                                    <enum>QFrame::StyledPanel</enum>
-                                   </property>
-                                   <property name="frameShadow">
-                                    <enum>QFrame::Raised</enum>
-                                   </property>
-                                   <layout class="QVBoxLayout" name="verticalLayout_156">
-                                    <item>
-                                     <widget class="QLabel" name="label_18">
-                                      <property name="text">
-                                       <string/>
-                                      </property>
-                                     </widget>
-                                    </item>
-                                   </layout>
-                                  </widget>
-                                 </item>
                                  <item>
                                   <widget class="QFrame" name="frame">
                                    <property name="styleSheet">
@@ -10038,6 +9670,9 @@ background-color: rgb(42, 44, 50);
                                    </property>
                                    <layout class="QHBoxLayout" name="horizontalLayout_26">
                                     <property name="topMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="bottomMargin">
                                      <number>0</number>
                                     </property>
                                     <item>
@@ -10481,6 +10116,83 @@ font:14pt &quot;MS Shell Dlg 2&quot;;
                                         </widget>
                                        </item>
                                       </layout>
+                                     </widget>
+                                    </item>
+                                   </layout>
+                                  </widget>
+                                 </item>
+                                 <item>
+                                  <widget class="QFrame" name="frame_9">
+                                   <property name="frameShape">
+                                    <enum>QFrame::StyledPanel</enum>
+                                   </property>
+                                   <property name="frameShadow">
+                                    <enum>QFrame::Raised</enum>
+                                   </property>
+                                   <layout class="QVBoxLayout" name="verticalLayout_156">
+                                    <property name="spacing">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="leftMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="topMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="rightMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <property name="bottomMargin">
+                                     <number>0</number>
+                                    </property>
+                                    <item alignment="Qt::AlignLeft">
+                                     <widget class="QPushButton" name="stock_simulator_refresh_btn">
+                                      <property name="minimumSize">
+                                       <size>
+                                        <width>60</width>
+                                        <height>40</height>
+                                       </size>
+                                      </property>
+                                      <property name="cursor">
+                                       <cursorShape>PointingHandCursor</cursorShape>
+                                      </property>
+                                      <property name="toolTip">
+                                       <string>Refresh</string>
+                                      </property>
+                                      <property name="toolTipDuration">
+                                       <number>-1</number>
+                                      </property>
+                                      <property name="styleSheet">
+                                       <string notr="true">#stock_simulator_refresh_btn{
+border:none;
+border-radius:10px;
+color:rgb(255, 255, 255);
+font:14pt &quot;MS Shell Dlg 2&quot;;
+}
+#stock_simulator_refresh_btn::hover{
+	background-color: rgb(59, 62, 70);
+}
+#stock_simulator_refresh_btn::pressed{
+	border:2px solid rgb(42, 44, 50);
+	background-color: rgb(70, 73, 83);
+}</string>
+                                      </property>
+                                      <property name="text">
+                                       <string/>
+                                      </property>
+                                      <property name="icon">
+                                       <iconset resource="../icons.qrc">
+                                        <normaloff>:/icons/icons/refresh-cw.svg</normaloff>:/icons/icons/refresh-cw.svg</iconset>
+                                      </property>
+                                      <property name="iconSize">
+                                       <size>
+                                        <width>32</width>
+                                        <height>32</height>
+                                       </size>
+                                      </property>
+                                      <property name="flat">
+                                       <bool>true</bool>
+                                      </property>
                                      </widget>
                                     </item>
                                    </layout>
@@ -11577,7 +11289,7 @@ background-color: rgb(203, 0, 0);
                      <rect>
                       <x>0</x>
                       <y>0</y>
-                      <width>776</width>
+                      <width>840</width>
                       <height>727</height>
                      </rect>
                     </property>
