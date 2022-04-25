@@ -1,0 +1,137 @@
+BUY
+Taking a position by buying shares in a company
+
+SELL
+Selling shares you own, usually done when an oportunity to take profitss is seen e.g. stock rising in price
+
+BID
+A trader offers to buy shares. Usually at a certain price.
+
+ASK
+A trader offers their shares at a certain price.
+
+SPREAD
+Related to the bid and ask. 
+It is the highest price someone is willing to bid and the lowest someone is willing to sell shares.
+
+BULL MARKET
+When the stock prices keep rising, assimilating the movement a bull does.
+
+BEAR MARKET
+Opposite of bull market. Stock prices falling. 
+Many or lokking to sell or less willing to buy stocks, causing the price to drop. 
+
+LIMIT ORDER
+A type of stock market order that provides instruction to only execute at a certain price.
+For example, a trader could place a limit buy order to purchase 100 shares of a stock at $10.20.
+The broker will attempt to buy 100 shares at a price of $10.20 or less.
+
+MARKET ORDER
+This stock market order provides instruction to buy or sell as quickly as possible, at whatever price is currently available.
+
+DAY ORDER
+With this market order, if it isn’t filled during the day, it’s automatically canceled at the market close.
+
+VOLATILITY
+The statistical measure of how much a stock moves up or down.
+Stocks that move up and down wildly are known as volatile stocks.
+
+LIQUIDITY
+The measure of how easy it is to buy and sell a stock.
+If a lot of buyers and sellers are actively trading stock, you’ll generally find it easier to enter and exit a position.
+The stock is more liquid.
+
+TRADING VOLUME
+The number of shares being traded at any time.
+More trading volume means more liquidity, and traders can more easily enter and exit positions.
+
+GOING LONG
+When going long, you purchase stock shares hoping to profit from an increase in the stock price.
+
+GOING SHORT
+When a trader tries to profit from a stock’s dropping price.
+Short sellers borrow shares from a broker, sell them, and hope the stock price declines. 
+Then they buy the shares back and return them to the broker.
+
+MARKET CAPITALIZATION
+Market capitalization is the total value of all a company’s shares.
+
+OUTSTANDING SHARES
+This is the total number of a company’s shares.
+
+IPO
+IPO stands for initial public offering.
+It’s when a company goes through the process of selling shares on the stock market for the first time.
+
+SECONDARY OFFERING
+A company may raise money by offering shares, even after the company’s shares are traded on a stock exchange. 
+This is called a secondary offering.
+
+BLUE-CHIP STOCKS
+These are large, stable, well-known companies. A good example is Amazon(AMZN).
+
+FOREX
+Forex is short for foreign exchange. 
+The term refers to the global trading of currencies in a way similar to the way stocks are traded.
+
+HEDGE FUNDS
+A hedge fund is a type of investment fund that often uses non-standard investment and trading techniques.
+
+MUTUAL FUNDS
+A mutual fund is a type of investment in which your money is pooled together with that of other shareholders. 
+This gives you the benefit of owning shares in a collection of investments you may not have been able to afford as an individual.
+
+INDEX FUNDS
+An index fund is designed to match and mimic the performance of a financial market index
+Similar to mutual funds, an index fund allows you to invest in a pool of money to purchase assets in the stock market
+Index funds match the risks and returns of the stock market, which can be beneficial for long-term investments
+For example the S&P 500 is a stock market index tracking the performance of 500 large companies listed on stock exchanges in the United States.
+It is one of the most commonly followed equity indices.
+
+ETFs
+Short for exchange-traded fund. ETFs are similar to mutual funds — they’re pools of capital used for investment purposes.
+But instead of wiring your money into the fund, you can purchase shares of the ETF on a stock exchange.
+
+ADR
+ADRs allow traders to buy and sell overseas stocks on U.S. stock exchanges.
+
+BETA
+A measure of a stock’s performance compared to the broader market. Beta can help traders assess the risk of holding a stock.
+
+STOCKBROKER
+An agent that allows traders to buy and sell stocks.
+
+DAY TRADING
+The practice of entering and exiting stock trades within a single day.
+For example, if you purchase a stock in the morning and sell it in the afternoon, you’ve day traded.
+
+DIVIDENDS
+This is when a company pays a portion of its earnings to its shareholders. 
+Long-term investors and retirees generally focus on dividends.
+
+STOCK EXCHANGE
+A stock exchange is an entity where stocks are bought and sold. 
+The most well-known stock exchanges are the New York Stock Exchange (NYSE) and the Nasdaq.
+
+MARGIN
+Margin is when traders borrow money to trade shares. 
+With margin, you can make money and lose money faster.
+
+MOVING AVERAGE
+A common technical indicator traders use on stock charts to see a stock’s price trend.
+The moving average is an average of the stock price over a certain period.
+For example, the 20-day moving average is calculated by taking the price of the stock on each of the prior 20 days, then finding the average 
+
+PRICE QUOTE
+A price quote is a stock’s price at a certain point in time.
+Traders will often want up-to-date price quotes to better analyze stocks and find decent trading set-ups.
+
+SECTORS
+The stock market is made up of shares of companies in different industries and niches. These are called sectors.
+
+STOCK SYMBOL
+A unique collection of letters and/or numbers that represent a stock. 
+Amazon, for example, trades on the Nasdaq under the symbol AMZN.
+
+DIVIDEND YIELD
+This refers to the size of a company’s dividend compared with the price of its stock.
