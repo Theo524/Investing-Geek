@@ -7,10 +7,6 @@ import datetime
 import time
 import requests.exceptions
 import yfinance as yf
-from GoogleNews import GoogleNews
-from newspaper import Config
-import pandas as pd
-import random
 import json
 import requests
 import pyqtgraph
@@ -18,9 +14,7 @@ from configparser import ConfigParser
 from bs4 import BeautifulSoup
 
 from PyQt5 import QtCore, QtGui
-from frontend import *
-from PyQt5 import *
-from PyQt5.QtGui import QPainter
+from resources.frontend import *
 from PyQt5.QtWidgets import QMessageBox
 from PyQt5.QtCore import pyqtSlot, pyqtSignal
 
@@ -167,7 +161,7 @@ class MainWindow(QMainWindow):
 
         # config file where these settings will be written to
         config = ConfigParser()
-        file = 'config.ini'
+        file = 'resources/config.ini'
         config.read(file)
         settings = config["settings"]
 
@@ -262,7 +256,7 @@ class MainWindow(QMainWindow):
 
             # changes have been applied to ui, apply them now to config.ini
             # Write changes back to file
-            with open('config.ini', 'w') as configfile:
+            with open('resources/config.ini', 'w') as configfile:
                 config.write(configfile)
 
             # informative feedback
@@ -368,7 +362,7 @@ background-color: rgb(102, 115, 153);
 
         # config file
         config = ConfigParser()
-        file = 'config.ini'
+        file = 'resources/config.ini'
         config.read(file)
         settings = config["settings"]
 
@@ -534,8 +528,8 @@ background-color: rgb(102, 115, 153);
             lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.trade))
         self.ui.settings_icon.clicked.connect(
             lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.settings))
-        self.ui.about_icon.clicked.connect(
-            lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
+        #self.ui.about_icon.clicked.connect(
+            #lambda: self.ui.stacked_menu_pages.setCurrentWidget(self.ui.about))
 
         # LEARNING PAGE #
         # set learning page starting page
@@ -543,10 +537,13 @@ background-color: rgb(102, 115, 153);
         # set learning page buttons and the guide they lead to
         self.ui.stocks_button_learn.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.stocks_page))
-        self.ui.crypto_button_learn.clicked.connect(
-            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.cryptocurrency_page))
-        self.ui.forex_button_learn.clicked.connect(
-            lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.forex_page))
+        #self.ui.crypto_button_learn.clicked.connect(
+            #lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.cryptocurrency_page))
+        #self.ui.forex_button_learn.clicked.connect(
+            #lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.forex_page))
+        # temporarily disable learning content except stocks
+        self.ui.crypto_button_learn.clicked.connect(self.coming_soon)
+        self.ui.forex_button_learn.clicked.connect(self.coming_soon)
         # return to the previous page buttons
         self.ui.learn_return_to_homepage_button.clicked.connect(
             lambda: self.ui.learning_pages_stackedWidget.setCurrentWidget(self.ui.learn_start_page))
@@ -617,10 +614,10 @@ background-color: rgb(102, 115, 153);
         self.ui.settings_apply_settings.clicked.connect(self.apply_settings)
 
         # about page disabled (temporal)
-        self.ui.about_icon.setEnabled(False)
+        self.ui.about_icon.clicked.connect(self.coming_soon)
 
         # help button disabled (temporal)
-        self.ui.help_button.setEnabled(False)
+        self.ui.help_button.clicked.connect(self.coming_soon)
 
     def ticker_search_load(self):
         """Write the search information to files
@@ -886,8 +883,37 @@ background-color: rgb(102, 115, 153);
 
         # closed market won't display data
         if self.ticker_type == 'stock' and market_state['state'] == 'Closed':
-            # restore cursor
-            QApplication.restoreOverrideCursor()
+
+            # header
+            stock_info = market_state['stock_info']
+
+            # day information for stock
+            name = self.ticker_obj['longName']
+            price = self.ticker_obj['currentPrice']
+            prev_close = self.ticker_obj['previousClose']
+            change_amount = price - prev_close
+            change_percentage = change_amount / prev_close * 100
+            symbol = '▲' if change_amount > 0 else '▼'
+            # set color
+            if symbol == '▲':
+                self.ui.stock_change_frame.setStyleSheet("""QLabel{
+            color:rgb(0, 255, 0);
+            }""")
+            else:
+                self.ui.stock_change_frame.setStyleSheet("""QLabel{
+            color:rgb(255, 0, 0);
+            }""")
+
+            # set heaedr labels
+            self.ui.ticker_label_title_analysis.setText(name)
+            self.ui.stock_analysis_stock_info_content.setText(stock_info)
+            self.ui.price_traded_label.setText(str(price))
+            self.ui.change_direction_label.setText(symbol)
+            self.ui.change_amount_label.setText(str(round(change_amount, 2)))
+            self.ui.change_percentage.setText(f'({str(round(change_percentage, 2))})%')
+
+            # connect command to title for extra info (stock name)
+            self.ui.ticker_label_title_analysis.clicked.connect(lambda: self.show_ticker_extraInfoWindow('stock'))
 
             # feedback
             txt = 'Market is closed right now. You can search cryptocurrencies.'
@@ -896,6 +922,9 @@ background-color: rgb(102, 115, 153);
 
             # enable button
             self.ui.search_button.setEnabled(True)
+
+            # restore cursor
+            QApplication.restoreOverrideCursor()
 
         # not a valid ticker(equity, crypto)
         if not self.ticker_type:
@@ -913,7 +942,7 @@ background-color: rgb(102, 115, 153);
         self.ui.search_button.setEnabled(True)
 
     def check_market_state(self):
-        """Check market is open
+        """Check stock market is open
 
         :returns: Dictionary with data regarding market info
         :rtype: dict
@@ -1798,6 +1827,10 @@ background-color: rgb(102, 115, 153);
         else:
             return str(final_str)
 
+    def coming_soon(self):
+        self.display_feedback(title='Not available', msg_type='information',
+                              message='This feature is not yet available. It will be coming soon')
+
 
 class TickerInfo(QMainWindow):
     def __init__(self, ticker, ticker_type):
@@ -1819,8 +1852,10 @@ class TickerInfo(QMainWindow):
             # buttons
             self.ui.stats_btn.clicked.connect(
                 lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.stock_statistics_page))
-            self.ui.profile_btn.clicked.connect(
-                lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.stock_profile_page))
+            #self.ui.profile_btn.clicked.connect(
+            #lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.stock_profile_page))
+
+            self.ui.profile_btn.clicked.connect(self.coming_soon)
 
             summary = ticker_obj.info['longBusinessSummary']
             summary = re.sub("(.{64})", "\\1\n", summary, 0, re.DOTALL)
@@ -1855,6 +1890,49 @@ class TickerInfo(QMainWindow):
 
         # show window
         self.show()
+
+    @staticmethod
+    def display_feedback(**kwargs):
+        """To help with alert messages"""
+
+        # params
+        try:
+            msg_type = kwargs['msg_type']
+            message = kwargs['message']
+            title = kwargs['title']
+        except KeyError:
+            msg_type = 'information'
+            message = 'Something happened'
+            title = 'Feedback'
+
+        # obj
+        msg_obj = QMessageBox()
+
+        # messages
+        if msg_type.lower() == 'error':
+            msg_obj.setWindowTitle("Error")
+            msg_obj.setIcon(QMessageBox.Critical)
+
+        if msg_type.lower() == 'information':
+            msg_obj.setWindowTitle("Information")
+            msg_obj.setIcon(QMessageBox.Information)
+
+        if msg_type.lower() == 'warning':
+            msg_obj.setWindowTitle("Warning")
+            msg_obj.setIcon(QMessageBox.Warning)
+
+        if msg_type.lower() == 'critical':
+            msg_obj.setWindowTitle("Critical")
+            msg_obj.setIcon(QMessageBox.Critical)
+
+        # execute
+        msg_obj.setText(message)
+        msg_obj.setWindowTitle(title)
+        msg_obj.exec_()
+
+    def coming_soon(self):
+        self.display_feedback(title='Not available', msg_type='information',
+                              message='This feature is not yet available. It will be coming soon')
 
 
 class StockGame:
@@ -1891,7 +1969,7 @@ class StockGame:
         """Reset id numbers in json file for after it gets updated"""
 
         # Writing to trading.json
-        with open("trading.json", "r+") as file:
+        with open("resources/trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
             # reset user_ids
@@ -1913,7 +1991,7 @@ class StockGame:
             return
 
         # Writing to trading.json
-        with open("trading.json", "r+") as file:
+        with open("resources/trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
 
@@ -1941,7 +2019,7 @@ class StockGame:
             return
 
         # Writing to trading.json
-        with open("trading.json", "r+") as file:
+        with open("resources/trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
 
@@ -1956,7 +2034,7 @@ class StockGame:
             new_data = {"users": [data for data in file_data['users'] if data['user_id'] != user_id]}
 
         # move new_data to new json file
-        with open("trading.json", "w") as file:
+        with open("resources/trading.json", "w") as file:
             json.dump(new_data, file, indent=4)
 
         # reset/match ids
@@ -1970,7 +2048,7 @@ class StockGame:
             return
 
         # open json
-        with open("trading.json", 'r+') as file:
+        with open("resources/trading.json", 'r+') as file:
             file_data = json.load(file)
 
             # Loop trough all the users
@@ -2017,7 +2095,7 @@ class StockGame:
             holding = {ticker_name: {"initial_purchase_price": price, "quantity": quantity, "total_value": total_value}}
 
             # open json
-            with open("trading.json", "r+") as file:
+            with open("resources/trading.json", "r+") as file:
                 # load file
                 file_data = json.load(file)
 
@@ -2060,7 +2138,7 @@ class StockGame:
         if exists:
 
             # open json
-            with open("trading.json", "r+") as file:
+            with open("resources/trading.json", "r+") as file:
                 # load file
                 file_data = json.load(file)
 
@@ -2130,7 +2208,7 @@ class StockGame:
 
         if exists:
             # open json
-            with open("trading.json", "r+") as file:
+            with open("resources/trading.json", "r+") as file:
                 # load file
                 file_data = json.load(file)
 
@@ -2183,7 +2261,7 @@ class StockGame:
                         val['data']['account_value'] = account_value
 
             # rewrite data to new file
-            with open('trading.json', 'w') as file:
+            with open('resources/trading.json', 'w') as file:
                 if delete_stock:
                     json.dump(deleted_stock_file, file, indent=4)
 
@@ -2201,7 +2279,7 @@ class StockGame:
         """Confirm if a user exists in the json"""
 
         # Writing to trading.json
-        with open("trading.json", "r+") as file:
+        with open("resources/trading.json", "r+") as file:
             # load file
             file_data = json.load(file)
 
@@ -2263,12 +2341,12 @@ class StockGame:
         """Ensure trading.json exists"""
 
         try:
-            with open("trading.json", "r") as f:
+            with open("resources/trading.json", "r") as f:
                 pass
 
         except FileNotFoundError:
             # file doesn't exist so create new one
-            with open("trading.json", "w") as jsonFile:
+            with open("resources/trading.json", "w") as jsonFile:
                 json_obj = {"users": []}
                 json.dump(json_obj, jsonFile, indent=4)
 

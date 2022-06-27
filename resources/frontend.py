@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(1056, 810)
+        MainWindow.resize(1056, 764)
         font = QFont()
         font.setFamily(u"Modern")
         font.setPointSize(11)
@@ -321,7 +321,7 @@ class Ui_MainWindow(object):
 
         self.about_icon = QPushButton(self.menu_frame)
         self.about_icon.setObjectName(u"about_icon")
-        self.about_icon.setCursor(QCursor(Qt.ForbiddenCursor))
+        self.about_icon.setCursor(QCursor(Qt.PointingHandCursor))
         icon9 = QIcon()
         icon9.addFile(u":/icons/icons/bell.svg", QSize(), QIcon.Normal, QIcon.Off)
         self.about_icon.setIcon(icon9)
@@ -418,7 +418,7 @@ class Ui_MainWindow(object):
         self.stock_analysis_scrollArea.setWidgetResizable(True)
         self.stock_analysis_frame = QWidget()
         self.stock_analysis_frame.setObjectName(u"stock_analysis_frame")
-        self.stock_analysis_frame.setGeometry(QRect(0, 0, 860, 2444))
+        self.stock_analysis_frame.setGeometry(QRect(0, -1795, 875, 2444))
         self.verticalLayout_10 = QVBoxLayout(self.stock_analysis_frame)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
         self.analysis_header = QFrame(self.stock_analysis_frame)
@@ -3393,21 +3393,22 @@ class Ui_MainWindow(object):
 
         self.forex_button_learn = QPushButton(self.learn_start_page_options_frame)
         self.forex_button_learn.setObjectName(u"forex_button_learn")
-        self.forex_button_learn.setEnabled(False)
+        self.forex_button_learn.setEnabled(True)
         self.forex_button_learn.setMinimumSize(QSize(100, 40))
         self.forex_button_learn.setMaximumSize(QSize(500, 40))
-        self.forex_button_learn.setCursor(QCursor(Qt.ForbiddenCursor))
+        self.forex_button_learn.setCursor(QCursor(Qt.PointingHandCursor))
         self.forex_button_learn.setStyleSheet(u"")
+        self.forex_button_learn.setCheckable(False)
         self.forex_button_learn.setFlat(False)
 
         self.horizontalLayout_15.addWidget(self.forex_button_learn)
 
         self.crypto_button_learn = QPushButton(self.learn_start_page_options_frame)
         self.crypto_button_learn.setObjectName(u"crypto_button_learn")
-        self.crypto_button_learn.setEnabled(False)
+        self.crypto_button_learn.setEnabled(True)
         self.crypto_button_learn.setMinimumSize(QSize(100, 40))
         self.crypto_button_learn.setMaximumSize(QSize(500, 40))
-        self.crypto_button_learn.setCursor(QCursor(Qt.ForbiddenCursor))
+        self.crypto_button_learn.setCursor(QCursor(Qt.PointingHandCursor))
         self.crypto_button_learn.setStyleSheet(u"")
         self.crypto_button_learn.setFlat(False)
 
@@ -3434,7 +3435,7 @@ class Ui_MainWindow(object):
         self.stocks_page_scrollArea.setWidgetResizable(True)
         self.stocks_page_scrollAreaWidget_frame = QWidget()
         self.stocks_page_scrollAreaWidget_frame.setObjectName(u"stocks_page_scrollAreaWidget_frame")
-        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 842, 5205))
+        self.stocks_page_scrollAreaWidget_frame.setGeometry(QRect(0, 0, 788, 5205))
         self.verticalLayout_19 = QVBoxLayout(self.stocks_page_scrollAreaWidget_frame)
         self.verticalLayout_19.setObjectName(u"verticalLayout_19")
         self.stock_tutorial_all = QFrame(self.stocks_page_scrollAreaWidget_frame)
@@ -5319,7 +5320,7 @@ class Ui_MainWindow(object):
         self.stock_simulator_scrollArea.setWidgetResizable(True)
         self.stock_simulator_scroll_area_frame = QWidget()
         self.stock_simulator_scroll_area_frame.setObjectName(u"stock_simulator_scroll_area_frame")
-        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 859, 677))
+        self.stock_simulator_scroll_area_frame.setGeometry(QRect(0, 0, 830, 639))
         self.stock_simulator_scroll_area_frame.setStyleSheet(u"color: rgb(255, 255, 255);")
         self.verticalLayout_28 = QVBoxLayout(self.stock_simulator_scroll_area_frame)
         self.verticalLayout_28.setObjectName(u"verticalLayout_28")
@@ -5378,7 +5379,7 @@ class Ui_MainWindow(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 797, 530))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 285, 509))
         self.verticalLayout_121 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_121.setObjectName(u"verticalLayout_121")
         self.frame = QFrame(self.scrollAreaWidgetContents)
@@ -6890,6 +6891,8 @@ class Ui_MainWindow(object):
 
         self.right_frame = QFrame(self.main_body_frame)
         self.right_frame.setObjectName(u"right_frame")
+        self.right_frame.setMinimumSize(QSize(106, 0))
+        self.right_frame.setMaximumSize(QSize(16777215, 16777215))
         self.right_frame.setStyleSheet(u"background-color: rgb(54, 79, 113);")
         self.right_frame.setFrameShape(QFrame.StyledPanel)
         self.right_frame.setFrameShadow(QFrame.Raised)
@@ -6907,11 +6910,11 @@ class Ui_MainWindow(object):
         self.verticalLayout_4 = QVBoxLayout(self.about_extra_content)
         self.verticalLayout_4.setSpacing(0)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.verticalLayout_4.setContentsMargins(5, 10, 0, 0)
+        self.verticalLayout_4.setContentsMargins(5, 10, 0, 42)
         self.about_title = QLabel(self.about_extra_content)
         self.about_title.setObjectName(u"about_title")
         font11 = QFont()
-        font11.setPointSize(25)
+        font11.setPointSize(16)
         font11.setBold(True)
         font11.setItalic(False)
         font11.setUnderline(True)
@@ -6922,37 +6925,28 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_4.addWidget(self.about_title)
 
-        self.about_extra_content_frame = QFrame(self.about_extra_content)
-        self.about_extra_content_frame.setObjectName(u"about_extra_content_frame")
-        self.about_extra_content_frame.setFrameShape(QFrame.StyledPanel)
-        self.about_extra_content_frame.setFrameShadow(QFrame.Raised)
-        self.horizontalLayout_9 = QHBoxLayout(self.about_extra_content_frame)
+        self.frame_37 = QFrame(self.about_extra_content)
+        self.frame_37.setObjectName(u"frame_37")
+        self.frame_37.setFrameShape(QFrame.StyledPanel)
+        self.frame_37.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_9 = QHBoxLayout(self.frame_37)
         self.horizontalLayout_9.setObjectName(u"horizontalLayout_9")
-        self.github_symbol = QLabel(self.about_extra_content_frame)
-        self.github_symbol.setObjectName(u"github_symbol")
-        font12 = QFont()
-        font12.setPointSize(13)
-        self.github_symbol.setFont(font12)
-        self.github_symbol.setPixmap(QPixmap(u":/icons/icons/github.svg"))
+        self.label_18 = QLabel(self.frame_37)
+        self.label_18.setObjectName(u"label_18")
+        self.label_18.setPixmap(QPixmap(u":/icons/icons/github.svg"))
 
-        self.horizontalLayout_9.addWidget(self.github_symbol)
+        self.horizontalLayout_9.addWidget(self.label_18)
 
-        self.github_link = QLabel(self.about_extra_content_frame)
-        self.github_link.setObjectName(u"github_link")
-        font13 = QFont()
-        font13.setPointSize(16)
-        self.github_link.setFont(font13)
-        self.github_link.setCursor(QCursor(Qt.PointingHandCursor))
-        self.github_link.setOpenExternalLinks(True)
-        self.github_link.setTextInteractionFlags(Qt.LinksAccessibleByMouse)
+        self.label_122 = QLabel(self.frame_37)
+        self.label_122.setObjectName(u"label_122")
 
-        self.horizontalLayout_9.addWidget(self.github_link)
+        self.horizontalLayout_9.addWidget(self.label_122)
 
 
-        self.verticalLayout_4.addWidget(self.about_extra_content_frame, 0, Qt.AlignLeft|Qt.AlignTop)
+        self.verticalLayout_4.addWidget(self.frame_37)
 
 
-        self.verticalLayout_3.addWidget(self.about_extra_content, 0, Qt.AlignLeft|Qt.AlignTop)
+        self.verticalLayout_3.addWidget(self.about_extra_content, 0, Qt.AlignLeft|Qt.AlignBottom)
 
 
         self.horizontalLayout_7.addWidget(self.right_frame)
@@ -6962,8 +6956,13 @@ class Ui_MainWindow(object):
 
         self.footer_frame = QFrame(self.centralwidget)
         self.footer_frame.setObjectName(u"footer_frame")
+        self.footer_frame.setMinimumSize(QSize(0, 0))
         self.footer_frame.setStyleSheet(u"background-color: rgb(28, 32, 43);\n"
-"border-radius:10px;")
+"border-bottom-radius:10px;\n"
+"border-bottom-left-radius: 10px;\n"
+"border-bottom-right-radius: 10px;\n"
+"border-top-left-radius: 0px;\n"
+"border-top-right-radius: 0px;")
         self.footer_frame.setFrameShape(QFrame.NoFrame)
         self.footer_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_4 = QHBoxLayout(self.footer_frame)
@@ -6979,9 +6978,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setContentsMargins(20, 0, 0, 0)
         self.developed_by_theo_brown = QLabel(self.footer_left_frame)
         self.developed_by_theo_brown.setObjectName(u"developed_by_theo_brown")
-        font14 = QFont()
-        font14.setPointSize(12)
-        self.developed_by_theo_brown.setFont(font14)
+        font12 = QFont()
+        font12.setPointSize(12)
+        self.developed_by_theo_brown.setFont(font12)
         self.developed_by_theo_brown.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
         self.horizontalLayout_5.addWidget(self.developed_by_theo_brown)
@@ -6991,6 +6990,7 @@ class Ui_MainWindow(object):
 
         self.footer_right_frame = QFrame(self.footer_frame)
         self.footer_right_frame.setObjectName(u"footer_right_frame")
+        self.footer_right_frame.setMinimumSize(QSize(0, 0))
         self.footer_right_frame.setFrameShape(QFrame.StyledPanel)
         self.footer_right_frame.setFrameShadow(QFrame.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.footer_right_frame)
@@ -6999,14 +6999,22 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.setContentsMargins(0, 0, 0, 0)
         self.help_button = QPushButton(self.footer_right_frame)
         self.help_button.setObjectName(u"help_button")
-        self.help_button.setFont(font14)
-        self.help_button.setCursor(QCursor(Qt.ForbiddenCursor))
+        self.help_button.setFont(font12)
+        self.help_button.setCursor(QCursor(Qt.PointingHandCursor))
         self.help_button.setStyleSheet(u"QPushButton::hover{\n"
 "	background-color: rgb(46, 53, 71);\n"
+"	border-bottom-left-radius: 10px;\n"
+"	border-bottom-right-radius: 10px;\n"
+"	border-top-left-radius: 10px;\n"
+"	border-top-right-radius: 10px;\n"
 "}\n"
 "QPushButton::pressed{\n"
 "	background-color: rgb(67, 77, 103);\n"
-"	border:2px solid rgb(32, 36, 48);\n"
+"	#border:2px solid rgb(32, 36, 48);\n"
+"	border-bottom-left-radius: 10px;\n"
+"	border-bottom-right-radius: 10px;\n"
+"	border-top-left-radius: 10px;\n"
+"	border-top-right-radius: 10px;\n"
 "}")
         icon17 = QIcon()
         icon17.addFile(u":/icons/icons/help-circle.svg", QSize(), QIcon.Normal, QIcon.Off)
@@ -7037,12 +7045,12 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.about_icon.setDefault(False)
-        self.stacked_menu_pages.setCurrentIndex(3)
+        self.stacked_menu_pages.setCurrentIndex(1)
         self.ticker_label_title_analysis.setDefault(False)
         self.stock_analysis_stackedWidget.setCurrentIndex(0)
         self.stacked_charts.setCurrentIndex(0)
         self.stacked_charts_2.setCurrentIndex(0)
-        self.learning_pages_stackedWidget.setCurrentIndex(1)
+        self.learning_pages_stackedWidget.setCurrentIndex(0)
         self.stock_glossary_stackeWidget.setCurrentIndex(0)
         self.simulator_stacked_widget.setCurrentIndex(0)
         self.pushButton_5.setDefault(False)
@@ -7466,8 +7474,12 @@ class Ui_MainWindow(object):
         self.settings_original_file_edit.setPlainText("")
         self.setting_users_file_location.setText(QCoreApplication.translate("MainWindow", u"File Location: _", None))
         self.about_title.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">About</span></p></body></html>", None))
-        self.github_symbol.setText("")
-        self.github_link.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><a href=\"https://github.com/Theo524/\"><span style=\" text-decoration: underline; color:#ffffff;\">Github</span></a></p></body></html>", None))
+        self.label_18.setText("")
+        self.label_122.setText(QCoreApplication.translate("MainWindow", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><a href=\"https://github.com/Theo524\"><span style=\" font-size:12pt; color:#ffffff;\">Github</span></a></p></body></html>", None))
         self.developed_by_theo_brown.setText(QCoreApplication.translate("MainWindow", u"<html><head/><body><p><span style=\" color:#ffffff;\">Developed by Theo Brown</span></p></body></html>", None))
         self.help_button.setText("")
     # retranslateUi
