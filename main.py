@@ -11,6 +11,8 @@ import json
 import requests
 import pyqtgraph
 from configparser import ConfigParser
+
+from PyQt5.uic.properties import QtWidgets
 from bs4 import BeautifulSoup
 
 from PyQt5 import QtCore, QtGui
@@ -56,7 +58,7 @@ class MainWindow(QMainWindow):
             grip.resize(self.gripSize, self.gripSize)
             self.grips.append(grip)
         # center window
-        self.center()
+        #self.center()
         # shadow
         self.shadow = QGraphicsDropShadowEffect(self)
         self.shadow.setBlurRadius(50)
@@ -106,15 +108,6 @@ class MainWindow(QMainWindow):
         # bottom left
         self.grips[3].move(0, rect.bottom() - self.gripSize)
 
-    def center(self):
-        self.setGeometry(
-            QtWidgets.QStyle.alignedRect(
-                QtCore.Qt.LeftToRight,
-                QtCore.Qt.AlignCenter,
-                self.size(),
-                QtGui.QGuiApplication.primaryScreen().availableGeometry(),
-            ),
-        )
 
     def mousePressEvent(self, event):
         self.oldPos = event.globalPos()
@@ -133,7 +126,7 @@ class MainWindow(QMainWindow):
         if self.isMaximized():
             # Maximized, show maximized window icon
             self.showNormal()
-            self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\maximize.svg'))
+            self.ui.restore_window_button.setIcon(QtGui.QIcon(resource_path(f'resources\icons\maximize.svg')))
 
             # show border radius
             self.ui.header_frame.setStyleSheet(u"background-color: rgb(54, 79, 113);\n"
@@ -142,7 +135,7 @@ class MainWindow(QMainWindow):
         else:
             # Minimized, show minimized window icon
             self.showMaximized()
-            self.ui.restore_window_button.setIcon(QtGui.QIcon(f'{os.getcwd()}\icons\minimize.svg'))
+            self.ui.restore_window_button.setIcon(QtGui.QIcon(resource_path(f'resources\icons\minimize.svg')))
 
             # hide border radius
             self.ui.header_frame.setStyleSheet(u"background-color: rgb(54, 79, 113);\n"
@@ -161,7 +154,7 @@ class MainWindow(QMainWindow):
 
         # config file where these settings will be written to
         config = ConfigParser()
-        file = 'resources/config.ini'
+        file = resource_path('resources/config.ini')
         config.read(file)
         settings = config["settings"]
 
@@ -256,7 +249,7 @@ class MainWindow(QMainWindow):
 
             # changes have been applied to ui, apply them now to config.ini
             # Write changes back to file
-            with open('resources/config.ini', 'w') as configfile:
+            with open(resource_path('resources/config.ini'), 'w') as configfile:
                 config.write(configfile)
 
             # informative feedback
@@ -270,9 +263,8 @@ class MainWindow(QMainWindow):
     def stock_learning_content(self):
         """Set stock learning text"""
         data = {}
-        directory = os.getcwd() + '\\temp\\learning_content\\stocks'
 
-        for filename in os.scandir(directory):
+        for filename in os.scandir(resource_path('temp/learning_content/stocks')):
             if filename.is_file():
                 with open(str(filename.path), 'r', encoding='utf-8') as f:
                     # filename without '.txt'
@@ -299,7 +291,7 @@ class MainWindow(QMainWindow):
 
     def stock_glossary(self):
         data = {}
-        with open(os.getcwd() + '\\temp\\learning_content\\stocks\\Glossary.txt', 'r', encoding='utf-8') as f:
+        with open(resource_path('temp/learning_content/stocks/Glossary.txt'), 'r', encoding='utf-8') as f:
             # filename without '.txt'
             file = f.readlines()
             temp = []
@@ -362,7 +354,7 @@ background-color: rgb(102, 115, 153);
 
         # config file
         config = ConfigParser()
-        file = 'resources/config.ini'
+        file = resource_path('resources/config.ini')
         config.read(file)
         settings = config["settings"]
 
@@ -626,7 +618,7 @@ background-color: rgb(102, 115, 153);
         """
 
         # path for the search files
-        path = os.getcwd() + '\\temp\\search'
+        path = resource_path('temp/search')
 
         # ticker
         ticker = self.ui.search_entry.text()
@@ -646,7 +638,7 @@ background-color: rgb(102, 115, 153);
         }
 
         # writing json
-        with open(os.getcwd() + '\\temp\\Ticker.json', "w") as outfile:
+        with open(resource_path('temp/Ticker.json'), "w") as outfile:
             json.dump(dictionary, outfile)
 
     def ticker_search_thread(self):
@@ -746,7 +738,7 @@ background-color: rgb(102, 115, 153);
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
         # get loaded data
-        with open(os.getcwd() + '\\temp\\search\\TickerData.json', 'r') as f:
+        with open(resource_path('temp/search/TickerData.json'), 'r') as f:
             data = json.load(f)
 
         # file contents
@@ -1234,7 +1226,7 @@ background-color: rgb(102, 115, 153);
         linkTemplate = '<p><a href={0}>{1}</p>'
 
         # loaded from a different thread
-        with open(os.getcwd() + '\\temp\\search\\TickerNews.json', 'r') as f:
+        with open(resource_path('temp/search/TickerNews.json'), 'r') as f:
             data = json.load(f)
 
         # file contents
@@ -1668,8 +1660,8 @@ background-color: rgb(102, 115, 153);
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
         # files
-        file = os.getcwd() + '\\trading.json'
-        file_location_str = f'File Location: {file}'
+        file = 'trading.json'
+        file_location_str = f'File name: {file}'
 
         with open(file) as f:
             # for original file display
@@ -1969,7 +1961,7 @@ class StockGame:
         """Reset id numbers in json file for after it gets updated"""
 
         # Writing to trading.json
-        with open("resources/trading.json", "r+") as file:
+        with open(resource_path("resources/trading.json"), "r+") as file:
             # load file
             file_data = json.load(file)
             # reset user_ids
@@ -1991,7 +1983,7 @@ class StockGame:
             return
 
         # Writing to trading.json
-        with open("resources/trading.json", "r+") as file:
+        with open(resource_path("resources/trading.json"), "r+") as file:
             # load file
             file_data = json.load(file)
 
@@ -2019,7 +2011,7 @@ class StockGame:
             return
 
         # Writing to trading.json
-        with open("resources/trading.json", "r+") as file:
+        with open(resource_path("resources/trading.json"), "r+") as file:
             # load file
             file_data = json.load(file)
 
@@ -2034,7 +2026,7 @@ class StockGame:
             new_data = {"users": [data for data in file_data['users'] if data['user_id'] != user_id]}
 
         # move new_data to new json file
-        with open("resources/trading.json", "w") as file:
+        with open(resource_path("resources/trading.json"), "w") as file:
             json.dump(new_data, file, indent=4)
 
         # reset/match ids
@@ -2048,7 +2040,7 @@ class StockGame:
             return
 
         # open json
-        with open("resources/trading.json", 'r+') as file:
+        with open(resource_path("resources/trading.json"), 'r+') as file:
             file_data = json.load(file)
 
             # Loop trough all the users
@@ -2095,7 +2087,7 @@ class StockGame:
             holding = {ticker_name: {"initial_purchase_price": price, "quantity": quantity, "total_value": total_value}}
 
             # open json
-            with open("resources/trading.json", "r+") as file:
+            with open(resource_path("resources/trading.json"), "r+") as file:
                 # load file
                 file_data = json.load(file)
 
@@ -2138,7 +2130,7 @@ class StockGame:
         if exists:
 
             # open json
-            with open("resources/trading.json", "r+") as file:
+            with open(resource_path("resources/trading.json"), "r+") as file:
                 # load file
                 file_data = json.load(file)
 
@@ -2208,7 +2200,7 @@ class StockGame:
 
         if exists:
             # open json
-            with open("resources/trading.json", "r+") as file:
+            with open(resource_path("resources/trading.json"), "r+") as file:
                 # load file
                 file_data = json.load(file)
 
@@ -2261,7 +2253,7 @@ class StockGame:
                         val['data']['account_value'] = account_value
 
             # rewrite data to new file
-            with open('resources/trading.json', 'w') as file:
+            with open(resource_path('resources/trading.json'), 'w') as file:
                 if delete_stock:
                     json.dump(deleted_stock_file, file, indent=4)
 
@@ -2279,7 +2271,7 @@ class StockGame:
         """Confirm if a user exists in the json"""
 
         # Writing to trading.json
-        with open("resources/trading.json", "r+") as file:
+        with open(resource_path("resources/trading.json"), "r+") as file:
             # load file
             file_data = json.load(file)
 
@@ -2341,12 +2333,12 @@ class StockGame:
         """Ensure trading.json exists"""
 
         try:
-            with open("resources/trading.json", "r") as f:
+            with open(resource_path("resources/trading.json"), "r") as f:
                 pass
 
         except FileNotFoundError:
             # file doesn't exist so create new one
-            with open("resources/trading.json", "w") as jsonFile:
+            with open(resource_path("resources/trading.json"), "w") as jsonFile:
                 json_obj = {"users": []}
                 json.dump(json_obj, jsonFile, indent=4)
 
@@ -2372,14 +2364,14 @@ class LoadTickerData(QObject):
         self.increase_progress_bar(5, 'slow')
 
         # get ticker data
-        with open(os.getcwd() + '\\temp\\Ticker.json', 'r') as f:
+        with open(resource_path('temp/Ticker.json'), 'r') as f:
             data = json.load(f)
 
         ticker_name = data['ticker']
         show_news = data['news']
         path = data['path']
 
-        if path == os.getcwd() + '\\temp\\search':
+        if path == resource_path('temp/search'):
             # to handle messages and progress bar
             self.search_page = True
         else:
@@ -2508,7 +2500,7 @@ class LoadTickerData(QObject):
         # write data to file
         json_data = json.dumps(news, indent=4)
         # Writing to data to sample.json
-        with open("temp/search/TickerNews.json", "w") as outfile:
+        with open(resource_path("temp/search/TickerNews.json"), "w") as outfile:
             outfile.write(json_data)
 
         self.thread_done(True)
@@ -2539,9 +2531,33 @@ class LoadTickerData(QObject):
         if not data_was_loaded:
             self.thread_is_done.emit(False)
 
+# icon by maxim basinski
+
+
+def intro_splash():
+    """Close startup splash"""
+    try:
+        import pyi_splash
+        pyi_splash.close()
+    except:
+        return
+
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    base_path = getattr(sys, '_MEIPASS', os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_path, relative_path)
 
 if __name__ == '__main__':
+    # splash
+    intro_splash()
+
+    # app
     app = QApplication(sys.argv)
+
+    # Open the icon and set the Window/taskbar icon.
+    app.setWindowIcon(QIcon(resource_path('resources/img/app_icon_png.png')))
+
+    # app
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
