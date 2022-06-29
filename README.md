@@ -19,4 +19,4 @@ You can download this via Github releases by clicking [here](https://github.com/
 ![](https://github.com/Theo524/Investing-Geek/blob/main/temp/img/Home.png)
 
 #### Note:
-The main reason I mae this was to unerstand how PYQT5 works, so there might be a few inaccuracies
+The main reason I made this was to unerstand how PYQT5 works, so there might be a few inaccuracies
